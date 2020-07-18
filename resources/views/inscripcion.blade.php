@@ -164,7 +164,7 @@ a {
                 <P>*Documentos para enviar electrónicamente</P>
                 <P>*Documentos para entrega física</P>
 
-
+                <p><h1>Hola vato!!</h1></p>
 
 <p>Si cuentas con todos los documentos requeridos para enviar electronicamente, de clic en continuar</p>
 
