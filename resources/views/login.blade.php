@@ -2,21 +2,32 @@
 @section('title','Bienvenidos Plataforma CACI')
 @section('mycontent')
 
-<link href="{{ asset('css/style.css') }}" rel="stylesheet"> 
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
- <form style="width:85%;" class="modal-content animate" action="action_page.php" method="post">
-    <div class="imgcontainer">
-       <img src="{{asset('img/logo CACI.png')}}"  alt="Logo_CDMX" style="width:70%;">
-    </div>
-    <div class="container">
-      <label for="uname"><b>Nombre de usuario</b></label>
-       <input type="text" placeholder="Nombre de usuario" name="uname" required>
-       <br><br>
-       <label for="psw"><b>Contraseña:</b></label>
-       <input type="password" placeholder="Contraseña" name="psw" required>
-        <br><br>
-      <button type="submit">Entrar</button>
+@if($errors->any())
+<div class="alert alert-danger alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+  <div class="alert-text">
+    @foreach ($errors->all() as $error)
+    <span>{{$error}}</span>
+    @endforeach
+  </div>
+</div>
+@endif
+<form style="width:90%;" class="modal-content animate" action="{{route('login_post')}}" method="POST" autocomplete="off">
+  @csrf
+  <div class="imgcontainer">
+    <img src="{{asset('img/logo CACI.png')}}" alt="Logo_CDMX" style="width:70%;">
+  </div>
+  <div class="container">
+    <label for="usuario"><b>Nombre de usuario</b></label>
+    <input type="text" placeholder="Nombre de usuario" name="usuario" required>
+    <br><br>
+    <label for="password"><b>Contraseña:</b></label>
+    <input type="password" placeholder="Contraseña" name="password" required>
+    <br><br>
+    <button type="submit">Entrar</button>
     <!-- <span class="psw">¿Aún no tienes cuenta? <a style="color: #00b140;" href="regístro">Regístro</a></span> -->
-    </div>
-  </form>
+  </div>
+</form>
 @endsection

@@ -19,8 +19,8 @@ class CreateUsuarioTable extends Migration
             $table->string('email',80)->unique();
             $table->string('password',100);
             $table->string('nombre',50);
-            /* $table->unsignedInteger('rol_id');
-            $table->foreign('rol_id','fk_usuariorol_rol')->references('id')->on('rol')->onDelete('restrict')->onUpdate('restrict'); */
+            $table->unsignedInteger('rol_id');
+            $table->foreign('rol_id')->references('id')->on('rol')->onDelete('restrict')->onUpdate('restrict'); 
             $table->timestamps();
         });
     }
