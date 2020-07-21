@@ -126,6 +126,12 @@ tr:nth-child(even) {
                     <p>Tel. 56572689</p>
 
 
+
+
+
+
+
+
                       </div>
                     </div>
 
@@ -162,7 +168,7 @@ tr:nth-child(even) {
                       <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
 					     <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;">Centro de Atencion y Cuidado Infantil</h2>
-					     <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;">Bertha Von Glümer Leyva</h2>
+					     <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;">Carmen Serdan</h2>
 							<br>
 							<br><br>
                       </div>

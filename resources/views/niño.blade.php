@@ -161,8 +161,8 @@ a {
 
                 <h5>NOTA IMPORTANTE:</h5>
 
-                <P>Documentos para enviar electrónicamente</P>
-                <P>Documentos para entrega física</P>
+                <P>*Documentos para enviar electrónicamente</P>
+                <P>*Documentos para entrega física</P>
 
        
 
@@ -184,14 +184,25 @@ a {
   <br><br>
   <!-- One "tab" for each step in the form: -->
   
-  <div class="tab">
-
-
-  <h4>Datos del trabajador</h4>
-  <h2>RFC</h2>
+  <div class="tab"> 
+  <h4>Datos del Menor</h4>
+  <h3>Inscripción</h3> 
+  <p><input placeholder="Nombre(s) del menor" oninput="this.className = ''" name="nombre" ></p>
+  <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellido_paterno"></p>
+  <p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellido_materno"></p>
+  <p><input placeholder="CURP" oninput="this.className = ''" name="curp"></p>
   <p><input placeholder="RFC" oninput="this.className = ''" name="rfc"></p>
+  </div>
+  <div class="tab">
+    <br>
+  <label for="birthday">Fecha de Nacimiento del menor:</label>
+  <input type="date" id="birthday" name="birthday">
+  <p><input placeholder="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''" name="Edad"></p>
+  </div>
 
-  <h3>Nombre del Padre/Madre o Tutor:</h3>
+  <div class="tab">
+  <h4>Datos del trabajador</h4>
+  <h3>Niño:</h3>
   <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre" ></p>
   <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellidos_paterno"></p>
   <p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellidos_materno"></p>
@@ -202,100 +213,6 @@ a {
   <p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="n_plaza"></p>
   <p><input placeholder="Nivel salarial" oninput="this.className = ''" name="n_plaza"></p>
   <p><input placeholder="Sección sindical" oninput="this.className = ''" name="n_plaza"></p>
-
-
-
-
-
-
-  <!--<h4>Datos del Menor</h4>
-  <h3>Inscripción</h3> 
-  <p><input placeholder="Nombre(s) del menor" oninput="this.className = ''" name="nombre" ></p>
-  <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellido_paterno"></p>
-  <p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellido_materno"></p>
-  <p><input placeholder="CURP" oninput="this.className = ''" name="curp"></p>
-  <p><input placeholder="RFC" oninput="this.className = ''" name="rfc"></p>
-
-    <h4 style="color: #00b140;">Acta de nacimiento </h4>
-    <input type="file" id="myFile" name="filename">
-    <h4 style="color: #00b140;">Biometria Hematica</h4>
-    <input type="file" id="myFile" name="filename">
-    <h4 style="color: #00b140;">Cartilla de vacunacion al corriente (original y copia)</h4>
-    <input type="file" id="myFile" name="filename">
-    <h4 style="color: #00b140;">Certificado de nacimiento</h4>
-    <input type="file" id="myFile" name="filename">
-    <br>-->
-  </div>
-  <div class="tab">
-    <br>
-  <label for="birthday">Fecha de Nacimiento del menor:</label>
-  <input type="date" id="birthday" name="birthday">
-  <p><input placeholder="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''" name="Edad"></p>
-  </div>
-
-
-
-  <div class="tab">
- <!-- <h4>Datos del trabajador</h4>
-  <h3>Nombre del Padre/Madre o Tutor:</h3>
-  <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre" ></p>
-  <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellidos_paterno"></p>
-  <p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellidos_materno"></p>
-  <p><input placeholder="Domicilio" oninput="this.className = ''" name="domicilio"></p>
-  <p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tp_nomina"></p>
-  <p><input placeholder="Número de empleado" oninput="this.className = ''" name="n_empleado"></p>
-  <p><input placeholder="Número de plaza" oninput="this.className = ''" name="n_plaza"></p>
-  <p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="n_plaza"></p>
-  <p><input placeholder="Nivel salarial" oninput="this.className = ''" name="n_plaza"></p>
-  <p><input placeholder="Sección sindical" oninput="this.className = ''" name="n_plaza"></p>-->
-
-
- <h4>Datos del Menor</h4>
-  <h3>Inscripción</h3> 
-  <p><input placeholder="Nombre(s) del menor" oninput="this.className = ''" name="nombre" ></p>
-  <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellido_paterno"></p>
-  <p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellido_materno"></p>
-  <p><input placeholder="CURP" oninput="this.className = ''" name="curp"></p>
-
-
-
-    <label for="cars">Directorio de los CACI SAF:</label>
-  <select name="cars" id="cars">
-    <option value="volvo">Luz Maria Gomez Pezuela</option>
-    <option value="saab">Mtra Eva Moreno Sanchez</option>
-    <option value="opel">Bertha Von Glumer Leyva</option>
-    <option value="audi">Garolina Agazzi</option>
-      <option value="audi">Carmen Serdan</option>
-  </select>
- 
-
-  
-    <h4 style="color: #00b140;">Acta de nacimiento </h4>
-    <input type="file" id="myFile" name="filename">
-    <h4 style="color: #00b140;">Solicitud de ingreso perfectamente llenada y firmada.</h4>
-    <input type="file" id="myFile" name="filename">
-    <h4 style="color: #00b140;">Cartilla de vacunacion al corriente (original y copia)</h4>
-    <input type="file" id="myFile" name="filename">
-    <h4 style="color: #00b140;">Certificado de nacimiento</h4>
-    <input type="file" id="myFile" name="filename">
-
-
-
-    <h4 style="color: #00b140;">Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o         Documento que contengan datos de nacimiento del(a) menor tales como peso, talla, APGAR, etc. </h4>
-    <input type="file" id="myFile" name="filename">
-    <h4 style="color: #00b140;">Último recibo de pago impreso del(a) trabajador (a)</h4>
-    <input type="file" id="myFile" name="filename">
-    <h4 style="color: #00b140;">En caso que la o el menor tenga alguna discapacidad o enfermedad crónica, presentar copias de los documentos médicos del tratamiento y/o seguimiento para proporcionarle la atención adecuada.</h4>
-    <input type="file" id="myFile" name="filename">
-    <h4 style="color: #00b140;">En caso de que el trabajador(a) sea el tutor del menor, deberá presentar el documento legal que dictamine la patria potestad o guarda y custodia del mismo.</h4>
-    <input type="file" id="myFile" name="filename">
-
-
-    <h4 style="color: #00b140;">Carta compromiso.</h4>
-    <input type="file" id="myFile" name="filename">
-    <h4 style="color: #00b140;">Copia del último recibo de pago de la persona trabajadora o usuaria.</h4>
-    <input type="file" id="myFile" name="filename">
-
 
   <label for="appt"> <p>Horario laboral</p></label>
   <input type="time" id="appt" name="appt">
@@ -321,12 +238,10 @@ a {
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
-  
+    <span class="step"></span>
   </div>
 </form>
 </body>
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
@@ -339,25 +254,14 @@ function showTab(n) {
   //... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
-
   } else {
     document.getElementById("prevBtn").style.display = "inline";
-     swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success");
   }
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").innerHTML = "Enviar";
- swal("Bienvenidos", "Tutor son responsable de dichos datos establecidos", "success");
-
   } else {
     document.getElementById("nextBtn").innerHTML = "Continuar";
-
   }
-
-
-
-
-
-
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)
 }
@@ -375,8 +279,6 @@ function nextPrev(n) {
   if (currentTab >= x.length) {
     // ... the form gets submitted:
     document.getElementById("regForm").submit();
-
-        swal("Exito", "Tus datos han sido enviados con exito", "success");
     return false;
   }
   // Otherwise, display the correct tab:
@@ -430,24 +332,6 @@ $(document).ready(function() {
 
 });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @endsection

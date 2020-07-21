@@ -2,7 +2,7 @@
 @section('title','Bienvenidos Plataforma CACI')
 @section('mycontent')
 
-
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/4.0.6/sweetalert2.min.css'>
 
 <style>
 
@@ -63,7 +63,7 @@ tr:nth-child(even) {
         <div class="col-lg-12" style="margin-top: 3%;">
                 <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
                       <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" >Nuestros centros</h2>
-                      <div  class style="background-color: #f5f5ef;" ="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
+                      <div  class style="background-color: #f5f5ef;" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet">
                         	<font  color="#FFFFFF">
                                <p style="text-align: justify; background-color: #999999;"></p>
@@ -92,6 +92,7 @@ tr:nth-child(even) {
 										<p>Col.Doctores C.P. 07620</p>
 										<p>Del. Cuauhtemoc</p>
 										<p>Tel: 55 5578 7676</p>
+
                     	<font>
                       <p style="text-align: center;">	<b style="color:#00b401;">CACI</b></p>
                     	</font>
@@ -103,6 +104,38 @@ tr:nth-child(even) {
                     <p>Delegracion Cuauhtemoc</p>
                     <p>Tel. 55 5592 7098, 5566 1929</p>
 
+
+
+                      <font>
+                      <p style="text-align: center;"> <b style="color:#00b401;">CACI</b></p>
+                      </font>
+                    <a style="color: #00b140;" href="centros3">
+                    <h4>Carolina Agazzi</h4>
+                    </a>
+                    <p>Oriente 42 N°. 360 entre Lorenzo Boturini y Avenida  del Taller  </p>
+                    <p>Col. 24 de Abril C.P. 15980</p>
+                    <p>Delegracion Venustiano Carranza</p>
+                    <p>Tel. 55 5592 7098, 5566 1929</p>
+
+
+
+                      <font>
+                      <p style="text-align: center;"> <b style="color:#00b401;">CACI</b></p>
+                      </font>
+                    <a style="color: #00b140;" href="centros4" >
+                    <h4>Carmen Serdan</h4>
+                    </a>
+                    <p>Plaza Benito Juarez N° 10 </p>
+                    <p>Col. Ramos Miloan C.P. 08000</p>
+                    <p>Delegracion Iztacalco</p>
+                    <p>Tel. 56572689</p>
+
+
+
+
+
+
+
                       </div>
                     </div>
 
@@ -112,7 +145,7 @@ tr:nth-child(even) {
                       <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-                        <a href="http://procesos.finanzas.cdmx.gob.mx/sistema_mapas/mapas.html" target="_blank">
+                        <a href="ubuicacion" target="_blank">
                         <img src="{{asset('img/ubicacion.png')}}" alt="Imagenes" style="width:100%;"></a>
                        </div>
                       </div>
@@ -165,6 +198,10 @@ tr:nth-child(even) {
                     </div>
                 </div>
             </div>
+
+
+
+
 
 @endsection
 

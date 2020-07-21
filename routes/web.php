@@ -40,6 +40,18 @@ Route::get('/centros2', function () {
     return view('centros2');
 });
 
+Route::get('/centros3', function () {
+    return view('centros3');
+});
+
+Route::get('/centros4', function () {
+    return view('centros4');
+});
+
+
+
+
+
 Route::get('/requisitos', function () {
     return view('requisitos');
 });
@@ -86,6 +98,21 @@ Route::get('/titular', function () {
 Route::get('/registo_aqui', function () {
     return view('registo_aqui');
 });
+
+
+
+
+Route::get('/niño', function () {
+    return view('niño');
+});
+
+
+Route::get('/ubuicacion', function () {
+    return view('ubuicacion');
+});
+
+
+
 
 
 

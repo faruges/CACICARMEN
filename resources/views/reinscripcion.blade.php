@@ -160,8 +160,8 @@ a {
 
                 <h5>NOTA IMPORTANTE:</h5>
 
-                <P>*Documentos para enviar electrónicamente</P>
-                <P>*Documentos para entrega física</P>
+                <P>Documentos para enviar electrónicamente</P>
+                <P>Documentos para entrega física</P>
 
 
 
@@ -180,6 +180,38 @@ a {
 <form id="regForm" action="action_page.php">
 <h1>Centros de Atención, Cuidado Infantil de la Secretaría de Administración y Finanzas del Gobierno de la Ciudad de México </h1>
   <br><br>
+
+
+
+
+  <div class="tab">
+  <h4>Datos del trabajador</h4>
+  <h2>RFC</h2>
+
+    <p><input placeholder="RFC" oninput="this.className = ''" name="rfc"></p>
+  <h3>Nombre del Padre/Madre o Tutor:</h3>
+  <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre" ></p>
+  <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellidos_paterno"></p>
+  <p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellidos_materno"></p>
+  <p><input placeholder="Domicilio" oninput="this.className = ''" name="domicilio"></p>
+  <p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tp_nomina"></p>
+  <p><input placeholder="Número de empleado" oninput="this.className = ''" name="n_empleado"></p>
+  <p><input placeholder="Número de plaza" oninput="this.className = ''" name="n_plaza"></p>
+  <p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="n_plaza"></p>
+  <p><input placeholder="Nivel salarial" oninput="this.className = ''" name="n_plaza"></p>
+  <p><input placeholder="Sección sindical" oninput="this.className = ''" name="n_plaza"></p>
+  <label for="appt"> <p>Horario laboral</p></label>
+  <input type="time" id="appt" name="appt">
+  <input type="time" id="appt" name="appt">
+ <h1>Datos de contacto:</h1>
+
+    <p><input placeholder="E-mail" oninput="this.className = ''" name="email"></p>
+    <p><input placeholder="Teléfono o celular" oninput="this.className = ''" name="telefono"></p>
+  <p><input placeholder="Teléfono 2" oninput="this.className = ''" name="telefono_2"></p>
+  <br><br>
+  </div>
+
+
   
   <div class="tab">	
 	<h4>Datos del Menor</h4>
@@ -192,25 +224,52 @@ a {
   <label for="birthday">Fecha de Nacimiento del menor:</label>
   <input type="date" id="birthday" name="birthday">
   <p><input placeholder="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''" name="Edad"></p>
-
 	<p><input placeholder="CURP" oninput="this.className = ''" name="curp"></p>
+  
+
+   <label for="cars">Directorio de los CACI SAF:</label>
+  <select name="cars" id="cars">
+    <option value="Luz Maria Gomez Pezuela">Luz Maria Gomez Pezuela</option>
+    <option value="Mtra Eva Moreno Sanchez">Mtra Eva Moreno Sanchez</option>
+    <option value="Bertha Von Glumer Leyva">Bertha Von Glumer Leyva</option>
+    <option value="Garolina Agazzi">Garolina Agazzi</option>
+      <option value="Carmen S">Carmen S</option>
+  </select>
+    <br>
+
+
+
 
 
     <h4 style="color: #00b140;">Acta de nacimiento </h4>
     <input type="file" id="myFile" name="filename">
-
-    <h4 style="color: #00b140;">Biometria Hematica</h4>
+    <h4 style="color: #00b140;">Solicitud de ingreso perfectamente llenada y firmada.</h4>
     <input type="file" id="myFile" name="filename">
-
     <h4 style="color: #00b140;">Cartilla de vacunacion al corriente (original y copia)</h4>
     <input type="file" id="myFile" name="filename">
-
-
     <h4 style="color: #00b140;">Certificado de nacimiento</h4>
     <input type="file" id="myFile" name="filename">
+
+
+
+    <h4 style="color: #00b140;">Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o         Documento que contengan datos de nacimiento del(a) menor tales como peso, talla, APGAR, etc. </h4>
+    <input type="file" id="myFile" name="filename">
+    <h4 style="color: #00b140;">Último recibo de pago impreso del(a) trabajador (a)</h4>
+    <input type="file" id="myFile" name="filename">
+    <h4 style="color: #00b140;">En caso que la o el menor tenga alguna discapacidad o enfermedad crónica, presentar copias de los documentos médicos del tratamiento y/o seguimiento para proporcionarle la atención adecuada.</h4>
+    <input type="file" id="myFile" name="filename">
+    <h4 style="color: #00b140;">En caso de que el trabajador(a) sea el tutor del menor, deberá presentar el documento legal que dictamine la patria potestad o guarda y custodia del mismo.</h4>
+    <input type="file" id="myFile" name="filename">
+
+
+    <h4 style="color: #00b140;">Carta compromiso.</h4>
+    <input type="file" id="myFile" name="filename">
+    <h4 style="color: #00b140;">Copia del último recibo de pago de la persona trabajadora o usuaria.</h4>
+    <input type="file" id="myFile" name="filename">
+
     <BR>
   </div>
-
+<!--
   <div class="tab">
 	<h4>Datos del trabajador</h4>
 	<h3>Nombre del Padre/Madre o Tutor:</h3>
@@ -233,22 +292,35 @@ a {
     <p><input placeholder="Teléfono o celular" oninput="this.className = ''" name="telefono"></p>
 	<p><input placeholder="Teléfono 2" oninput="this.className = ''" name="telefono_2"></p>
   <br><br>
-  </div>
+  </div>-->
+
   <div style="overflow:auto;">
     <div style="float:right;">
+
+   
       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Regresar</button>
-      <button type="button" id="nextBtn"    onclick="nextPrev(1)">Continuar</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Continuar</button>
+
     </div>
   </div>
+
+
   <!-- Circles which indicates the steps of the form: -->
   <div style="text-align:center;margin-top:40px;">
     <span class="step"></span>
     <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
+
   </div>
 </form>
+
+
 </body>
+
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
 
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
@@ -261,17 +333,32 @@ function showTab(n) {
   //... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
+      
   } else {
     document.getElementById("prevBtn").style.display = "inline";
+      
   }
   if (n == (x.length - 1)) {
+
+
     document.getElementById("nextBtn").innerHTML = "Enviar";
-  } else {
+   swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success");
+
+  } 
+  else {
     document.getElementById("nextBtn").innerHTML = "Continuar";
+  
+
+
   }
+
+
+
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)
 }
+
+
 
 function nextPrev(n) {
   // This function will figure out which tab to display
@@ -286,7 +373,11 @@ function nextPrev(n) {
   if (currentTab >= x.length) {
     // ... the form gets submitted:
     document.getElementById("regForm").submit();
+
+      swal("Exito", "Tus datos han sido enviados con exito", "success");
+
     return false;
+
   }
   // Otherwise, display the correct tab:
   showTab(currentTab);
@@ -310,6 +401,7 @@ function validateForm() {
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
+   
   }
   return valid; // return the valid status
 }
@@ -341,6 +433,16 @@ $(document).ready(function() {
 
 });
 </script>
+
+
+
+
+
+
+
+
+
+
 
 
 
