@@ -5,253 +5,271 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
 <style>
+  #regForm {
+    background-color: #f5f5f0;
+    margin: 100px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 40px;
+    width: 70%;
+    min-width: 300px;
+  }
 
-#regForm {
-  background-color: #f5f5f0;
-  margin: 100px auto;
-   font-family: Arial, Helvetica, sans-serif;
-  padding: 40px;
-  width: 70%;
-  min-width: 300px;
-}
+  h1 {
+    text-align: center;
+  }
 
-h1 {
-  text-align: center;  
-}
+  input {
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #00b140;
+  }
 
-input {
-  padding: 10px;
-  width: 100%;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid #00b140;
-}
+  input.invalid {
+    background-color: #ffdddd;
+  }
 
-input.invalid {
-  background-color: #ffdddd;
-}
+  .tab {
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: #000000;
 
-.tab {
-  display: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
-  color: #000000;
+  }
 
-}
+  button {
+    background-color: #00b140;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+  }
 
-button {
-  background-color: #00b140;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  cursor: pointer;
-}
+  button:hover {
+    opacity: 0.8;
+  }
 
-button:hover {
-  opacity: 0.8;
-}
+  #prevBtn {
+    background-color: #bbbbbb;
+  }
 
-#prevBtn {
-  background-color: #bbbbbb;
-}
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
 
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;  
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
-}
+  .step.active {
+    opacity: 1;
+  }
 
-.step.active {
-  opacity: 1;
-}
-
-.step.finish {
-  background-color: #00b140;
-}
+  .step.finish {
+    background-color: #00b140;
+  }
 </style>
 <style>
+  a {
+    text-decoration: none;
+  }
 
-a {
-  text-decoration: none;
-}
+  .alert {
+    background: #eee;
+    padding: 40px;
+    position: relative;
+    font-weight: 600;
+  }
 
-.alert {
-  background: #eee;
-  padding: 40px;  
-  position: relative;
-  font-weight: 600;
-}
+  .close_btn {
+    color: #000;
+    padding: 15px 0px 5px 10px;
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
 
-.close_btn {
-  color: #000;
-  padding: 15px 0px 5px 10px;
-  display: block;
-  position: absolute;
-  top: 40px;
-  right: 40px;  
-}
-
-.content {
-  padding: 40px;
-}
+  .content {
+    padding: 40px;
+  }
 </style>
 
 <div class="alert">
- <h1 style="color: #00b140; text-align: center;" class="modal-title">Proceso de Inscripción</h1>
-    <a href="#" class="close_btn"><i class="fa fa-2x fa-times"></i></a>
-     <div class="modal-content">
-        <div class="modal-body">
-        <h3 style="color: #000000; text-align: center;">Para pode iniciar el proceso de inscripción debes cumplir con los siguientes requisitos:</h3><br>
+  <h1 style="color: #00b140; text-align: center;" class="modal-title">Proceso de Inscripción</h1>
+  <a href="#" class="close_btn"><i class="fa fa-2x fa-times"></i></a>
+  <div class="modal-content">
+    <div class="modal-body">
+      <h3 style="color: #000000; text-align: center;">Para pode iniciar el proceso de inscripción debes cumplir con los
+        siguientes requisitos:</h3><br>
 
-                <p>*Madres, padres o quien ejerza la patria potestad, o guarda y custodia del menor, que sean trabajadoras (es) del Gobierno de la Ciudad de México basificadas (os) y sindicalizadas (os) que coticen al SUTGCDMX.</p>
+      <p>*Madres, padres o quien ejerza la patria potestad, o guarda y custodia del menor, que sean trabajadoras (es)
+        del Gobierno de la Ciudad de México basificadas (os) y sindicalizadas (os) que coticen al SUTGCDMX.</p>
 
-                <P>*Así mismo, el personal de estructura, nomina 8, base sin digito sindical, del ámbito Central de los Órganos político Administrativos del Gobierno de la Ciudad de México podrán gozar de los beneficios que ofrecen los CACI-SAF, Lo anterior, considerando solo hasta un 30% de su capacidad instalada, como se establece en los "Lineamientos Generales para la Operación de los Centros de Atención y Cuidado Infantil de la Secretaria de Administración y Finanzas del Gobierno de la Cuidad de México y sus 16 Alcaldías.</P>
+      <P>*Así mismo, el personal de estructura, nomina 8, base sin digito sindical, del ámbito Central de los Órganos
+        político Administrativos del Gobierno de la Ciudad de México podrán gozar de los beneficios que ofrecen los
+        CACI-SAF, Lo anterior, considerando solo hasta un 30% de su capacidad instalada, como se establece en los
+        "Lineamientos Generales para la Operación de los Centros de Atención y Cuidado Infantil de la Secretaria de
+        Administración y Finanzas del Gobierno de la Cuidad de México y sus 16 Alcaldías.</P>
 
-                <h4>Contar con los siguientes documentos digitalizados:</h4>
+      <h4>Contar con los siguientes documentos digitalizados:</h4>
 
-                <p>-Solicitud de ingreso perfectamente llenada y firmada.</p> 
-                <p>-Acta de nacimiento del (a) menor (original y copia ambos lados).</p>
+      <p>-Solicitud de ingreso perfectamente llenada y firmada.</p>
+      <p>-Acta de nacimiento del (a) menor (original y copia ambos lados).</p>
 
-                <p>En caso de que el ingreso sea para nivel preescolar el acta de nacimiento original permanecerá en el Centro hasta el egreso de la o el menor.</p>
+      <p>En caso de que el ingreso sea para nivel preescolar el acta de nacimiento original permanecerá en el Centro
+        hasta el egreso de la o el menor.</p>
 
-				<p>Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o Documento que contengan datos de nacimiento del (a) menor tales como peso, talla, APGAR, etc.</p>
+      <p>Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o Documento que
+        contengan datos de nacimiento del (a) menor tales como peso, talla, APGAR, etc.</p>
 
-                <p>Cartilla de vacunación al corriente (original y copia).</p>
+      <p>Cartilla de vacunación al corriente (original y copia).</p>
 
-                <p>Copia fotostática de la Clave Única de Registro de Población, CURP del (la) menor</p>
+      <p>Copia fotostática de la Clave Única de Registro de Población, CURP del (la) menor</p>
 
-                <p>Constancia de labores actualizada, (con una antigüedad no mayor de 30 días al momento del trámite) expedida por Recursos Humanos de la Unidad Administrativa en la que labora la persona tutora indicando Dependencia, Oficina de adscripción a la que pertenece, horario, días laborales, fecha de ingreso y periodos vacacionales, sellada y firmada.
-                </p>
+      <p>Constancia de labores actualizada, (con una antigüedad no mayor de 30 días al momento del trámite) expedida por
+        Recursos Humanos de la Unidad Administrativa en la que labora la persona tutora indicando Dependencia, Oficina
+        de adscripción a la que pertenece, horario, días laborales, fecha de ingreso y periodos vacacionales, sellada y
+        firmada.
+      </p>
 
-                <p>Ultimo recibo de pago impreso del (a) trabajador (a)*</p>
-
-
-                <p>Análisis clínicos completos.</p>
-
-                <p>-Biometría Hemática</p>
-                <p>-Exudado Faríngeo</p>
-                <p>-General de Orina</p>
-                <p>-Coproparasitoscópico en serie de tres</p>
-
-                <p>Seis fotografías tamaño infantil del (a) menor (recientes y de la misma toma).</p>
-
-			     <p>Cuatro fotografías tamaño infantil del (a) trabajador (a) solicitante del servicio (recientes y de la misma toma).</p>
-
+      <p>Ultimo recibo de pago impreso del (a) trabajador (a)*</p>
 
 
-			     <p>Cuatro fotografías tamaño infantil de las dos personas autorizadas (mayores de 18 años) por el (a) solicitante del servicio para recoger al (a) menor.</p>
+      <p>Análisis clínicos completos.</p>
 
+      <p>-Biometría Hemática</p>
+      <p>-Exudado Faríngeo</p>
+      <p>-General de Orina</p>
+      <p>-Coproparasitoscópico en serie de tres</p>
 
+      <p>Seis fotografías tamaño infantil del (a) menor (recientes y de la misma toma).</p>
 
-                <p>Las fotografías deberán de ser recientes y de la misma toma.</p>
-
-                <p>En caso que las o el menor tenga alguna discapacidad o enfermedad crónica, presentar copias de los documentos médicos del tratamiento y/o seguimiento para proporcionarle la atención adecuada. </p>
-                
-                <p>CHECK SOLAMENTE Y EN LA VISITA FISITA LLEVAR DOCUMENTAL Y EL ADMINISTRATIVO LLENARA LA INFORMACIÓN</p>
-
-                <p>En caso de que el trabajador (a) sea el tutor del menor, deberá presentar el documento legal que dictamine la patria potestad o guarda y custodia del mismo.</p>
-
-                <h5>NOTA IMPORTANTE:</h5>
-
-                <P>*Documentos para enviar electrónicamente</P>
-                <P>*Documentos para entrega física</P>
+      <p>Cuatro fotografías tamaño infantil del (a) trabajador (a) solicitante del servicio (recientes y de la misma
+        toma).</p>
 
 
 
-<p>Si cuentas con todos los documentos requeridos para enviar electronicamente, de clic en continuar</p>
+      <p>Cuatro fotografías tamaño infantil de las dos personas autorizadas (mayores de 18 años) por el (a) solicitante
+        del servicio para recoger al (a) menor.</p>
 
 
-        </div>
-        <div style="background-color: #00b140;" class="modal-footer">
-         
-        </div>
-      </div>
-</div> 
+
+      <p>Las fotografías deberán de ser recientes y de la misma toma.</p>
+
+      <p>En caso que las o el menor tenga alguna discapacidad o enfermedad crónica, presentar copias de los documentos
+        médicos del tratamiento y/o seguimiento para proporcionarle la atención adecuada. </p>
+
+      <p>CHECK SOLAMENTE Y EN LA VISITA FISITA LLEVAR DOCUMENTAL Y EL ADMINISTRATIVO LLENARA LA INFORMACIÓN</p>
+
+      <p>En caso de que el trabajador (a) sea el tutor del menor, deberá presentar el documento legal que dictamine la
+        patria potestad o guarda y custodia del mismo.</p>
+
+      <h5>NOTA IMPORTANTE:</h5>
+
+      <P>*Documentos para enviar electrónicamente</P>
+      <P>*Documentos para entrega física</P>
+
+
+
+      <p>Si cuentas con todos los documentos requeridos para enviar electronicamente, de clic en continuar</p>
+
+
+    </div>
+    <div style="background-color: #00b140;" class="modal-footer">
+
+    </div>
+  </div>
+</div>
 
 <body>
 
-<form id="regForm" action="action_page.php">
-<h1>Centros de Atención, Cuidado Infantil de la Secretaría de Administración y Finanzas del Gobierno de la Ciudad de México </h1>
-  <br><br>
-  
-  <div class="tab">	
-	<h4>Datos del Menor</h4>
-	<h3>Reinscripción</h3> 
-   <p><input placeholder="Matricula" oninput="this.className = ''" name="matricula" ></p>
-    <p><input placeholder="Nombre(s) del menor" oninput="this.className = ''" name="nombre" ></p>
-    <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellido_paterno"></p>
-	<p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellido_materno"></p>
+  <form id="regForm" action="{{route('guardar_reinscripcion')}}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <h1>Centros de Atención, Cuidado Infantil de la Secretaría de Administración y Finanzas del Gobierno de la Ciudad de
+      México </h1>
+    <br><br>
 
-  <label for="birthday">Fecha de Nacimiento del menor:</label>
-  <input type="date" id="birthday" name="birthday">
-  <p><input placeholder="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''" name="Edad"></p>
+    <div class="tab">
+      <h4>Datos del Menor</h4>
+      <h3>Reinscripción</h3>
+      <p><input placeholder="Matricula" oninput="this.className = ''" name="matricula"></p>
+      <p><input placeholder="Nombre(s) del menor" oninput="this.className = ''" name="nombre_menor"></p>
+      <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="ap_paterno"></p>
+      <p><input placeholder="Apellido materno" oninput="this.className = ''" name="ap_materno"></p>
 
-	<p><input placeholder="CURP" oninput="this.className = ''" name="curp"></p>
+      <label for="birthday">Fecha de Nacimiento del menor:</label>
+      <input type="date" id="birthday" name="fecha_nacimiento">
+      <p><input placeholder="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''"
+          name="edad_menor_ingreso"></p>
 
-
-    <h4 style="color: #00b140;">Acta de nacimiento </h4>
-    <input type="file" id="myFile" name="filename">
-
-    <h4 style="color: #00b140;">Biometria Hematica</h4>
-    <input type="file" id="myFile" name="filename">
-
-    <h4 style="color: #00b140;">Cartilla de vacunacion al corriente (original y copia)</h4>
-    <input type="file" id="myFile" name="filename">
+      <p><input placeholder="CURP" oninput="this.className = ''" name="curp"></p>
 
 
-    <h4 style="color: #00b140;">Certificado de nacimiento</h4>
-    <input type="file" id="myFile" name="filename">
-    <BR>
-  </div>
+      <h4 style="color: #00b140;">Acta de nacimiento </h4>
+      <input type="file" id="myFile" name="filename_act">
 
-  <div class="tab">
-	<h4>Datos del trabajador</h4>
-	<h3>Nombre del Padre/Madre o Tutor:</h3>
-  <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre" ></p>
-  <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellidos_paterno"></p>
-	<p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellidos_materno"></p>
-  <p><input placeholder="Domicilio" oninput="this.className = ''" name="domicilio"></p>
-	<p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tp_nomina"></p>
-	<p><input placeholder="Número de empleado" oninput="this.className = ''" name="n_empleado"></p>
-	<p><input placeholder="Número de plaza" oninput="this.className = ''" name="n_plaza"></p>
-	<p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="n_plaza"></p>
-	<p><input placeholder="Nivel salarial" oninput="this.className = ''" name="n_plaza"></p>
-	<p><input placeholder="Sección sindical" oninput="this.className = ''" name="n_plaza"></p>
-	<label for="appt"> <p>Horario laboral</p></label>
-  <input type="time" id="appt" name="appt">
-  <input type="time" id="appt" name="appt">
- <h1>Datos de contacto:</h1>
+      <h4 style="color: #00b140;">Biometria Hematica</h4>
+      <input type="file" id="myFile" name="filename_bio">
 
-    <p><input placeholder="E-mail" oninput="this.className = ''" name="email"></p>
-    <p><input placeholder="Teléfono o celular" oninput="this.className = ''" name="telefono"></p>
-	<p><input placeholder="Teléfono 2" oninput="this.className = ''" name="telefono_2"></p>
-  <br><br>
-  </div>
-  <div style="overflow:auto;">
-    <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Regresar</button>
-      <button type="button" id="nextBtn"    onclick="nextPrev(1)">Continuar</button>
+      <h4 style="color: #00b140;">Cartilla de vacunacion al corriente (original y copia)</h4>
+      <input type="file" id="myFile" name="filename_vacu">
+
+
+      <h4 style="color: #00b140;">Certificado de nacimiento</h4>
+      <input type="file" id="myFile" name="filename_cert">
+      <BR>
     </div>
-  </div>
-  <!-- Circles which indicates the steps of the form: -->
-  <div style="text-align:center;margin-top:40px;">
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-  </div>
-</form>
+
+    <div class="tab">
+      <h4>Datos del trabajador</h4>
+      <h3>Nombre del Padre/Madre o Tutor:</h3>
+      <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor"></p>
+      <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="ap_paterno_t"></p>
+      <p><input placeholder="Apellido materno" oninput="this.className = ''" name="ap_materno_t"></p>
+      <p><input placeholder="Domicilio" oninput="this.className = ''" name="domicilio"></p>
+      <p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina"></p>
+      <p><input placeholder="Número de empleado" oninput="this.className = ''" name="num_empleado"></p>
+      <p><input placeholder="Número de plaza" oninput="this.className = ''" name="num_plaza"></p>
+      <p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia"></p>
+      <p><input placeholder="Nivel salarial" oninput="this.className = ''" name="nivel_salarial"></p>
+      <p><input placeholder="Sección sindical" oninput="this.className = ''" name="seccion_sindical"></p>
+      <label for="appt">
+        <p>Horario laboral</p>
+      </label>
+      <input type="time" id="appt" name="horario_laboral_ent">
+      <input type="time" id="appt" name="horario_laboral_sal">
+      <h1>Datos de contacto:</h1>
+
+      <p><input placeholder="E-mail" oninput="this.className = ''" name="email"></p>
+      <p><input placeholder="Teléfono o celular" oninput="this.className = ''" name="telefono_uno"></p>
+      <p><input placeholder="Teléfono 2" oninput="this.className = ''" name="telefono_dos"></p>
+      <br><br>
+    </div>
+    <div style="overflow:auto;">
+      <div style="float:right;">
+        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Regresar</button>
+        <button type="button" id="nextBtn" onclick="nextPrev(1)">Continuar</button>
+      </div>
+    </div>
+    <!-- Circles which indicates the steps of the form: -->
+    <div style="text-align:center;margin-top:40px;">
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+    </div>
+  </form>
 </body>
 
 <script>
-var currentTab = 0; // Current tab is set to be the first tab (0)
+  var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
 function showTab(n) {
@@ -329,7 +347,7 @@ function fixStepIndicator(n) {
 
 
 <script>
-$(document).ready(function() {
+  $(document).ready(function() {
 
   if ($(window).width() > 786) {
     $('.alert').hide().delay(750).slideDown(400);
@@ -345,10 +363,3 @@ $(document).ready(function() {
 
 
 @endsection
-
-
-
-
-
-
- 

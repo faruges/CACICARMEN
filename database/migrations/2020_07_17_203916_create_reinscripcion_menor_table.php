@@ -32,7 +32,8 @@ class CreateReinscripcionMenorTable extends Migration
             $table->string('clave_dependencia',50);
             $table->string('nivel_salarial',50);
             $table->string('seccion_sindical',50);
-            $table->string('horario_laboral',50);
+            $table->string('horario_laboral_ent',50);
+            $table->string('horario_laboral_sal',50);
             $table->string('email',100)->unique();
             $table->string('telefono_uno',15);
             $table->string('telefono_dos',15);

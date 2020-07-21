@@ -85,6 +85,10 @@ Route::get('/registo_aqui', function () {
     return view('registo_aqui');
 });
 
+Route::get('/doc', function () {
+    return view('doc_prueba');
+});
+
 Route::get('seguridad/login','Seguridad\LoginController@index')->name('login');
 Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_post');
 Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout');
@@ -96,5 +100,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth',
 });
 
 Route::post('guardar_inscripcion', 'InscripcionController@guardar')->name('guardar_inscripcion');
+Route::post('guardar_reinscripcion', 'ReinscripcionController@guardar')->name('guardar_reinscripcion');
 
 
