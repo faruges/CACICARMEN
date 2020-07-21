@@ -98,7 +98,8 @@
                         <th>Clave Dependencia</th>
                         <th>Nivel Salarial</th>
                         <th>Seccion Sindical</th>
-                        <th>Horario Laboral</th>
+                        <th>Horario Laboral Ent</th>
+                        <th>Horario Laboral Sal</th>
                         <th>Email</th>
                         <th>Telefono Uno</th>
                         <th>Telefono Dos</th>
@@ -120,13 +121,14 @@
                         <td>{{$reinscripcion->clave_dependencia}}</td>
                         <td>{{$reinscripcion->nivel_salarial}}</td>
                         <td>{{$reinscripcion->seccion_sindical}}</td>
-                        <td>{{$reinscripcion->horario_laboral}}</td>
+                        <td>{{$reinscripcion->horario_laboral_ent}}</td>
+                        <td>{{$reinscripcion->horario_laboral_sal}}</td>
                         <td>{{$reinscripcion->email}}</td>
                         <td>{{$reinscripcion->telefono_uno}}</td>
                         <td>{{$reinscripcion->telefono_dos}}</td>
                         <td class="actions">
                             <span class="float-right">
-                                <input type="checkbox" name="correo" value="envio_correo"><label for="correo"> Seleccionar</label>
+                                <a class="btn btn-sm btn-outline-primary" href="{{route('lista_documentos',$reinscripcion->id)}}" title="Ver lista de documentos"><i class="fa fa-eye"></i></a>
                             </span>
                         </td>
                     </tr>

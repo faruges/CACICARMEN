@@ -96,6 +96,8 @@ Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout'
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth','superadmin']], function () {
     Route::get('', 'AdminController@index');
     //Route::get('', 'ListaCaciController@index');
+    Route::get('/lista_documentos/{id}', 'DocumentosController@show')->name('lista_documentos');
+    Route::get('/detalles_documento/{id}', 'DocumentosController@details')->name('detalles_documento');
     Route::get('/lista_menores/{id_caci}', 'ListaMenoresController@menoresByCaci')->name('lista_menores');
 });
 
