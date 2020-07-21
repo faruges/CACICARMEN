@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\ListaCaci;
+use App\Model\Reinscripcion;
 
 class AdminController extends Controller
 {
@@ -16,7 +17,8 @@ class AdminController extends Controller
     public function index()
     {
         $lista_caci = ListaCaci::orderBy('id')->get();
-        return view('admin.lista_caci', compact('lista_caci'));
+        $lista_reinscripciones = Reinscripcion::orderBy('id')->get();
+        return view('admin.lista_caci', compact('lista_caci','lista_reinscripciones'));
     }
     
 }
