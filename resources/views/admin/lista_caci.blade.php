@@ -24,120 +24,12 @@
 
 
 <div class="container">
-    <div class="card mt50">
-        <div class="card-header">
-            <div class="float-right"><a href="http://localhost/CACICARMEN/public/seguridad/logout"><h3>Cerrar Sesi&oacute;n</h3></a></div>
-            <h1>Lista Inscripci&oacute;n</h1>
-        </div>
-        <div class="card-body">
-            <table class="table table-striped table-responsive-md">
-                <thead>
-                    <tr>
-                        <th>Nombre Menor</th>
-                        <th>Fecha de Nacimiento</th>
-                        <th>Edad al Ingreso</th>
-                        <th>Tutor</th>
-                        <th>Domicilio</th>
-                        <th>Tipo nomina</th>
-                        <th>N. empleado</th>
-                        <th>N. Plaza</th>
-                        <th>Clave Dependencia</th>
-                        <th>Nivel Salarial</th>
-                        <th>Seccion Sindical</th>
-                        <th>Horario Laboral</th>
-                        <th>Email</th>
-                        <th>Telefono Uno</th>
-                        <th>Telefono Dos</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($lista_caci as $caci)
-                    <tr>
-                        <td>{{$caci->nombre_menor}} {{$caci->ap_paterno}} {{$caci->ap_materno}}</td>
-                        <td>{{$caci->fecha_nacimiento}}</td>
-                        <td>{{$caci->edad_menor_ingreso}}</td>
-                        <td>{{$caci->nombre_tutor}} {{$caci->ap_paterno_t}} {{$caci->ap_materno_t}}</td>
-                        <td>{{$caci->domicilio}}</td>
-                        <td>{{$caci->tipo_nomina}}</td>
-                        <td>{{$caci->num_empleado}}</td>
-                        <td>{{$caci->num_plaza}}</td>
-                        <td>{{$caci->clave_dependencia}}</td>
-                        <td>{{$caci->nivel_salarial}}</td>
-                        <td>{{$caci->seccion_sindical}}</td>
-                        <td>{{$caci->horario_laboral}}</td>
-                        <td>{{$caci->email}}</td>
-                        <td>{{$caci->telefono_uno}}</td>
-                        <td>{{$caci->telefono_dos}}</td>
-                        <td class="actions">
-                            <span class="float-right">
-                                <input type="checkbox" name="correo" value="envio_correo"><label for="correo"> Seleccionar</label>
-                            </span>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-        <div class="card-header">
-            <h1>Lista Reinscripci&oacute;n</h1>
-        </div>
-        <div class="card-body">
-            <table class="table table-striped table-responsive-md">
-                <thead>
-                    <tr>
-                        <th>Matricula</th>
-                        <th>Nombre Menor</th>
-                        <th>Fecha de Nacimiento</th>
-                        <th>Edad al Ingreso</th>
-                        <th>Tutor</th>
-                        <th>Domicilio</th>
-                        <th>Tipo nomina</th>
-                        <th>N. empleado</th>
-                        <th>N. Plaza</th>
-                        <th>Clave Dependencia</th>
-                        <th>Nivel Salarial</th>
-                        <th>Seccion Sindical</th>
-                        <th>Horario Laboral Ent</th>
-                        <th>Horario Laboral Sal</th>
-                        <th>Email</th>
-                        <th>Telefono Uno</th>
-                        <th>Telefono Dos</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($lista_reinscripciones as $reinscripcion)
-                    <tr>
-                        <td>{{$reinscripcion->matricula}}</td>
-                        <td>{{$reinscripcion->nombre_menor}} {{$reinscripcion->ap_paterno}} {{$reinscripcion->ap_materno}}</td>
-                        <td>{{$reinscripcion->fecha_nacimiento}}</td>
-                        <td>{{$reinscripcion->edad_menor_ingreso}}</td>
-                        <td>{{$reinscripcion->nombre_tutor}} {{$reinscripcion->ap_paterno_t}} {{$reinscripcion->ap_materno_t}}</td>
-                        <td>{{$reinscripcion->domicilio}}</td>
-                        <td>{{$reinscripcion->tipo_nomina}}</td>
-                        <td>{{$reinscripcion->num_empleado}}</td>
-                        <td>{{$reinscripcion->num_plaza}}</td>
-                        <td>{{$reinscripcion->clave_dependencia}}</td>
-                        <td>{{$reinscripcion->nivel_salarial}}</td>
-                        <td>{{$reinscripcion->seccion_sindical}}</td>
-                        <td>{{$reinscripcion->horario_laboral_ent}}</td>
-                        <td>{{$reinscripcion->horario_laboral_sal}}</td>
-                        <td>{{$reinscripcion->email}}</td>
-                        <td>{{$reinscripcion->telefono_uno}}</td>
-                        <td>{{$reinscripcion->telefono_dos}}</td>
-                        <td class="actions">
-                            <span class="float-right">
-                                <a class="btn btn-sm btn-outline-primary" href="{{route('lista_documentos',$reinscripcion->id)}}" title="Ver lista de documentos"><i class="fa fa-eye"></i></a>
-                            </span>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+    <div class="card-body" style="margin-bottom: 22%">
+        <a class="float-right" style="font-size: 50px;" href="{{route('lista_reinscripcion')}}">Ver Lista Reinscripci&oacute;n</a>
+        <a style="font-size: 50px;" href="{{route('lista_inscripcion')}}">Ver Lista Inscripci&oacute;n</a>
     </div>
 </div>
+
 
 <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('vendor/animsition/js/animsition.min.js') }}"></script>

@@ -38,16 +38,35 @@ class ReinscripcionController extends Controller
      */
     public function guardar(Request $request)
     {
+        /* dd($request)->all(); */
         Reinscripcion::create($request->all());
         //obtiene id de reinscripcion
         $id_reins = Reinscripcion::select('id')->orderByDesc('id')->get()->first();
         $id=$id_reins->id;
-        $fileAct = $request->file('filename_act');
-        $fileBio = $request->file('filename_bio');
-        $fileVacu = $request->file('filename_vacu');
-        $fileCert = $request->file('filename_cert');
+        $filename_act = $request->file('filename_act');
+        $filename_sol = $request->file('filename_sol');
+        $filename_vacu = $request->file('filename_vacu');
+        $filename_nac = $request->file('filename_nac');
+        $filename_vacu_2 = $request->file('filename_vacu_2');
+        $filename_cert = $request->file('filename_cert');
+        $filename_rec = $request->file('filename_rec');
+        $filename_disc = $request->file('filename_disc');
+        $filename_trab = $request->file('filename_trab');
+        $filename_com = $request->file('filename_com');
+        $filename_recp = $request->file('filename_recp');
         
-        $arrayFiles = array($fileAct, $fileBio, $fileVacu, $fileCert);
+        $arrayFiles = array(
+        $filename_act
+        ,$filename_sol
+        ,$filename_vacu
+        ,$filename_nac
+        ,$filename_vacu_2
+        ,$filename_cert
+        ,$filename_rec
+        ,$filename_disc
+        ,$filename_trab
+        ,$filename_com
+        ,$filename_recp);
         if (Reinscripcion::setDoc($arrayFiles, $id)) {
             return redirect('reinscripcion')->with('mensaje', "Menú creado con exito");
         }

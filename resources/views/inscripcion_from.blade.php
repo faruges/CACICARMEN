@@ -191,6 +191,11 @@
       <p>Si cuentas con todos los documentos requeridos para enviar electronicamente, de clic en continuar</p>
 
     </div>
+
+
+
+
+    
     <div style="background-color: #00b140;" class="modal-footer">
 
 
@@ -518,6 +523,7 @@ function fixStepIndicator(n) {
 
 });
 </script>
+
 
 
 

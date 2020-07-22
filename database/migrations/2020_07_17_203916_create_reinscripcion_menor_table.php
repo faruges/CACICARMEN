@@ -15,13 +15,7 @@ class CreateReinscripcionMenorTable extends Migration
     {
         Schema::create('reinscripcion_menor', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('matricula',100);
-            $table->string('nombre_menor',100);
-            $table->string('ap_paterno',50);
-            $table->string('ap_materno',50);
-            $table->string('curp',20);
-            $table->date('fecha_nacimiento');
-            $table->string('edad_menor_ingreso',10);
+            $table->string('rfc',20);
             $table->string('nombre_tutor',100);
             $table->string('ap_paterno_t',50);
             $table->string('ap_materno_t',50);
@@ -37,6 +31,15 @@ class CreateReinscripcionMenorTable extends Migration
             $table->string('email',100)->unique();
             $table->string('telefono_uno',15);
             $table->string('telefono_dos',15);
+            $table->string('matricula',100);
+            $table->string('nombre_menor',100);
+            $table->string('ap_paterno',50);
+            $table->string('ap_materno',50);
+            $table->date('fecha_nacimiento');
+            $table->string('edad_menor_ingreso',10);
+            $table->string('curp',20);
+            $table->string('caci',60);
+            $table->string('curp_caci',20);
             $table->timestamps();
         });
     }

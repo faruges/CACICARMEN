@@ -17,12 +17,12 @@ class DatabaseSeeder extends Seeder
             'usuario'
         ]); */
         // $this->call(UserSeeder::class);
-        $this->call(TablaRolSeeder::class);
         $this->call(UsuarioAdministradorSeeder::class);
+        $this->call(TablaRolSeeder::class);
         
     }
 
-    protected function truncateTablas(array $tablas)
+    /* protected function truncateTablas(array $tablas)
     {
         //deshabilita las llaves foraneas
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
@@ -30,5 +30,5 @@ class DatabaseSeeder extends Seeder
             DB::table($tabla)->truncate();
         }
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
-    }
+    } */
 }

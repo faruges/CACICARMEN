@@ -16,9 +16,18 @@ class AdminController extends Controller
      */
     public function index()
     {
+        return view('admin.lista_caci');
+    }
+
+    public function showListInscri()
+    {
         $lista_caci = ListaCaci::orderBy('id')->get();
+        return view('admin.lista_inscripcion', compact('lista_caci'));
+    }
+    public function showListReinscri()
+    {
         $lista_reinscripciones = Reinscripcion::orderBy('id')->get();
-        return view('admin.lista_caci', compact('lista_caci','lista_reinscripciones'));
+        return view('admin.lista_reinscripcion', compact('lista_reinscripciones'));
     }
     
 }
