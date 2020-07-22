@@ -194,13 +194,13 @@
   <h1>Centros de Atención, Cuidado Infantil de la Secretaría de Administración y Finanzas del Gobierno de la Ciudad de
     México </h1>
   <br><br>
-
   <div class="tab">
     <form id="regForm" action="{{route('guardar_reinscripcion')}}" method="POST" enctype="multipart/form-data">
       @csrf
+      <a id="enlace_ws" href="{{route('webservice')}}"></a>
       <h4>Datos del trabajador</h4>
       <h2>RFC</h2>
-      <p><input placeholder="RFC" oninput="this.className = ''" name="rfc"></p>
+      <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="rfc"></p>
       <h3>Nombre del Padre/Madre o Tutor:</h3>
       <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor"></p>
       <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="ap_paterno_t"></p>
@@ -454,6 +454,14 @@ function fixStepIndicator(n) {
 
 });
 </script>
+
+{{--  <script>
+  $(document).ready(function() {
+    $( "#rfc" ).on('change',function() {
+      $("#enlace_ws").get(0).click();
+    });
+  });
+</script>  --}}
 
 
 

@@ -12,9 +12,9 @@ class Usuario extends Authenticatable
     protected $remember_token = false;
     public $timestamps = false;
     protected $fillable = [
-        'usuario', 'email', 'password', 'nombre',
+        'usuario', 'email', 'password', 'nombre','permiso'
     ];
-    protected $guarded = ['id', 'rol_id'];
+    protected $guarded = ['id', 'rol_id','caci_id'];
 
     public function setSession($admin_rol)
     {

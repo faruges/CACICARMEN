@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateListaCaciTable extends Migration
+class CreateCaciTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateListaCaciTable extends Migration
      */
     public function up()
     {
-        Schema::create('lista_caci', function (Blueprint $table) {
+        Schema::create('caci', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('nombre',100);
-            $table->string('domicilio',150);
-            $table->string('telefono',50);
-            $table->boolean('activo');
+            $table->string('caci',100);
+            $table->string('curp_caci',150)->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateListaCaciTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lista_caci');
+        Schema::dropIfExists('caci');
     }
 }

@@ -15,22 +15,6 @@ class CreateReinscripcionMenorTable extends Migration
     {
         Schema::create('reinscripcion_menor', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('rfc',20);
-            $table->string('nombre_tutor',100);
-            $table->string('ap_paterno_t',50);
-            $table->string('ap_materno_t',50);
-            $table->string('domicilio',150);
-            $table->string('tipo_nomina',30);
-            $table->string('num_empleado',50);
-            $table->string('num_plaza',50);
-            $table->string('clave_dependencia',50);
-            $table->string('nivel_salarial',50);
-            $table->string('seccion_sindical',50);
-            $table->string('horario_laboral_ent',50);
-            $table->string('horario_laboral_sal',50);
-            $table->string('email',100)->unique();
-            $table->string('telefono_uno',15);
-            $table->string('telefono_dos',15);
             $table->string('matricula',100);
             $table->string('nombre_menor',100);
             $table->string('ap_paterno',50);
@@ -38,8 +22,8 @@ class CreateReinscripcionMenorTable extends Migration
             $table->date('fecha_nacimiento');
             $table->string('edad_menor_ingreso',10);
             $table->string('curp',20);
-            $table->string('caci',60);
-            $table->string('curp_caci',20);
+            $table->unsignedInteger('reinscripcion_tutor_id');
+            $table->foreign('reinscripcion_tutor_id')->references('id')->on('reinscripcion_tutor')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();
         });
     }

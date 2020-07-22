@@ -21,20 +21,8 @@ class CreateInscripcionMenorTable extends Migration
             $table->string('curp',20);
             $table->date('fecha_nacimiento');
             $table->string('edad_menor_ingreso',10);
-            $table->string('nombre_tutor',100);
-            $table->string('ap_paterno_t',50);
-            $table->string('ap_materno_t',50);
-            $table->string('domicilio',150);
-            $table->string('tipo_nomina',30);
-            $table->string('num_empleado',50);
-            $table->string('num_plaza',50);
-            $table->string('clave_dependencia',50);
-            $table->string('nivel_salarial',50);
-            $table->string('seccion_sindical',50);
-            $table->string('horario_laboral',50);
-            $table->string('email',100)->unique();
-            $table->string('telefono_uno',15);
-            $table->string('telefono_dos',15);
+            $table->unsignedInteger('inscripcion_tutor_id');
+            $table->foreign('inscripcion_tutor_id')->references('id')->on('inscripcion_tutor')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();
         });
     }

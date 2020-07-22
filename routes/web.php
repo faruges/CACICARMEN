@@ -129,7 +129,10 @@ Route::get('/ubuicacion', function () {
     return view('ubuicacion');
 });
 
+//Pruebas webservice
 
+Route::get('/webservice','WebService@getwebservice')->name('webservice');
+Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_post');
 
 
 
