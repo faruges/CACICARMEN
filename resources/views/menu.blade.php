@@ -73,7 +73,7 @@ div.c {
   <a href="centros"> Centros </a>
   <!--<a href="requisitos"> Requisitos </a>-->
   <!-- <a href="civil_proteccion"> Proteccion Civil </a> -->
-  <a href="inscripcion"> Inscripción </a>
+  <a href="inscripcion_from"> Inscripción </a>
   <a href="reinscripcion"> Reinscripción </a>
   <a href="tramites"> Trámites </a>
   <a style="margin-right:  -800px;" href="login"> Iniciar sesión</a>   

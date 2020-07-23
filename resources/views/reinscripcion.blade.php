@@ -101,84 +101,49 @@
   }
 </style>
 
+
 <div class="alert">
-  <h1 style="color: #00b140; text-align: center;" class="modal-title">Proceso de Inscripción</h1>
+  <h1 style="color: #00b140; text-align: center;" class="modal-title">Proceso de Reinscripcion</h1>
   <a href="#" class="close_btn"><i class="fa fa-2x fa-times"></i></a>
   <div class="modal-content">
     <div class="modal-body">
-      <h3 style="color: #000000; text-align: center;">Para pode iniciar el proceso de inscripción debes cumplir con los
-        siguientes requisitos:</h3><br>
+      
 
-      <p>*Madres, padres o quien ejerza la patria potestad, o guarda y custodia del menor, que sean trabajadoras (es)
-        del Gobierno de la Ciudad de México basificadas (os) y sindicalizadas (os) que coticen al SUTGCDMX.</p>
+     
 
-      <P>*Así mismo, el personal de estructura, nomina 8, base sin digito sindical, del ámbito Central de los Órganos
-        político Administrativos del Gobierno de la Ciudad de México podrán gozar de los beneficios que ofrecen los
-        CACI-SAF, Lo anterior, considerando solo hasta un 30% de su capacidad instalada, como se establece en los
-        "Lineamientos Generales para la Operación de los Centros de Atención y Cuidado Infantil de la Secretaria de
-        Administración y Finanzas del Gobierno de la Cuidad de México y sus 16 Alcaldías.</P>
-
-      <h4>Contar con los siguientes documentos digitalizados:</h4>
-
-      <p>-Solicitud de ingreso perfectamente llenada y firmada.</p>
-      <p>-Acta de nacimiento del (a) menor (original y copia ambos lados).</p>
-
-      <p>En caso de que el ingreso sea para nivel preescolar el acta de nacimiento original permanecerá en el Centro
-        hasta el egreso de la o el menor.</p>
-
-      <p>Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o Documento que
-        contengan datos de nacimiento del (a) menor tales como peso, talla, APGAR, etc.</p>
-
-      <p>Cartilla de vacunación al corriente (original y copia).</p>
-
-      <p>Copia fotostática de la Clave Única de Registro de Población, CURP del (la) menor</p>
-
-      <p>Constancia de labores actualizada, (con una antigüedad no mayor de 30 días al momento del trámite) expedida por
-        Recursos Humanos de la Unidad Administrativa en la que labora la persona tutora indicando Dependencia, Oficina
-        de adscripción a la que pertenece, horario, días laborales, fecha de ingreso y periodos vacacionales, sellada y
-        firmada.
-      </p>
-
-      <p>Ultimo recibo de pago impreso del (a) trabajador (a)*</p>
-
-
-      <p>Análisis clínicos completos.</p>
-
-      <p>-Biometría Hemática</p>
-      <p>-Exudado Faríngeo</p>
-      <p>-General de Orina</p>
-      <p>-Coproparasitoscópico en serie de tres</p>
-
-      <p>Seis fotografías tamaño infantil del (a) menor (recientes y de la misma toma).</p>
-
-      <p>Cuatro fotografías tamaño infantil del (a) trabajador (a) solicitante del servicio (recientes y de la misma
-        toma).</p>
+      <h3>Requisitos  para realizar trámite de reinscripción en los Centros de Atención y Cuidado Infantil, CACI-SAF.</h3>
 
 
 
-      <p>Cuatro fotografías tamaño infantil de las dos personas autorizadas (mayores de 18 años) por el (a) solicitante
-        del servicio para recoger al (a) menor.</p>
+       <p> Solicitud de inscripción – reinscripción. *</p>
 
+      <h4> Acta de nacimiento de la niña o niño en original y copia, en el caso de que la reinscripción sea para preescolar 1º, los documentos  permanecerán en el CACI-SAF hasta su egreso. +</h4>
 
+      <p> Copia de la cartilla de vacunación .*</p>
+      <p> Constancia de labores. +</p>
+      <p> Copia del último recibo de pago de la persona trabajadora o usuaria. *</p>
+      <p> Análisis clínicos completos. +</p>
 
-      <p>Las fotografías deberán de ser recientes y de la misma toma.</p>
+      <p>- Biometría Hemática</p>
+      <p>- Exudado Faríngeo</p>
+      <p>- General de Orina</p>
+      <p>- Coproparasitoscópico en serie de tres</p>
 
-      <p>En caso que las o el menor tenga alguna discapacidad o enfermedad crónica, presentar copias de los documentos
-        médicos del tratamiento y/o seguimiento para proporcionarle la atención adecuada. </p>
+      <p> Seis fotografías tamaño infantil de la niña o niño. +</p>
 
-      <p>CHECK SOLAMENTE Y EN LA VISITA FISITA LLEVAR DOCUMENTAL Y EL ADMINISTRATIVO LLENARA LA INFORMACIÓN</p>
+      <p> Cuatro fotografías tamaño infantil de la persona trabajadora o usuaria del servicio. +</p>
 
-      <p>En caso de que el trabajador (a) sea el tutor del menor, deberá presentar el documento legal que dictamine la
-        patria potestad o guarda y custodia del mismo.</p>
+      <p> Cuatro fotografías de cada una de las personas autorizadas. +</p>
 
-      <h5>NOTA IMPORTANTE:</h5>
+      <p> Carta compromiso. *</p>
+ 
+      <p> Tarjeta de identificación de la niña o niño. */+</p>
 
-      <P>*Documentos para enviar electrónicamente</P>
-      <P>*Documentos para entrega física</P>
+      <p>  Gafete de la niña o niño. +</p>
+      <p>  Credencial. +</p> 
 
-
-
-      <p>Si cuentas con todos los documentos requeridos para enviar electronicamente, de clic en continuar</p>
+      <P>Documentos  para enviar electrónicamente *</P>
+      <P>Documentos para entrega física +</P>
 
 
     </div>
@@ -252,9 +217,6 @@
     </select>
     <br>
 
-
-
-
     <p><input placeholder="CURP" oninput="this.className = ''" name="curp_caci"></p>
 
     <h4 style="color: #00b140;">Acta de nacimiento </h4>
@@ -288,7 +250,7 @@
     <h4 style="color: #00b140;">Copia del último recibo de pago de la persona trabajadora o usuaria.</h4>
     <input type="file" id="myFile" name="filename_recp">
 
-    <BR>
+    <br>
   </div>
   {{--  <!--
   <div class="tab">

@@ -51,7 +51,77 @@ tr:nth-child(even) {
     transition: all 0.5s linear;
 }
 
+
+
+
+
+
+.accordions {
+    font-family: arial;
+    width: 50%;
+    margin: 60px auto;
+}
+
+.accordion-item {
+    background-color: #C2C2C2;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.accordion-item .accordion-title {
+    cursor: pointer;
+    padding: 20px;
+    transition: all 0.4s;
+    border-radius: 5px 5px 0 0;
+}
+
+.accordion-item .accordion-title.active-title {
+    background-color: #C2C2C2;
+    color: #FFF;
+}
+
+.accordion-item .accordion-title h2 {
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion-item .accordion-title i.fa-chevron-down {
+    transform: rotate(0);
+    transition: 0.4s;
+}
+
+.accordion-item .accordion-title i.fa-chevron-down.chevron-top {
+    transform: rotate(-180deg);
+}
+
+.accordion-item .accordion-content {
+    display: none;
+    line-height: 1.7;
+    padding: 20px;
+
+    border-radius: 0 0 5px 5px;
+}
+
+.accordion-item .accordion-content.active {
+    display: block;
+}
+
+.accordion-item .accordion-content p {
+    margin: 0;
+}
+
+
+
+
+
+
 </style>
+
+
+
 
   <div class="container">
   <div class="item active">
@@ -63,11 +133,89 @@ tr:nth-child(even) {
         <div class="col-lg-12" style="margin-top: 3%;">
                 <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
                       <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" >Nuestros centros</h2>
+
+
+
+
+
+<div class="accordions">
+  <div class="accordion-item">
+    <div class="accordion-title" data-tab="item1">
+      <h2 style="text-align: center;">Luz Maria Gomez Pezuela</h2>
+    </div>
+    <div class="accordion-content" id="item1">
+      <p>Dr. Claudio Bernard y </p>
+                    <p>Dr. Lucio No.123 (planta baja)</p>
+                    <p>Luz Maria Gomez Pezuela</p>
+                    <p>Col.Doctores C.P. 07620</p>
+                    <p>Del. Cuauhtemoc</p>
+                    <p>Tel: 55 5588 3320, 55 5134 2550</p>
+                   
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title" data-tab="item2">
+      <h2 style="text-align: center;">Mtra. Eva Moreno Sanchez</h2>
+    </div>
+    <div class="accordion-content" id="item2">
+        <p>Nº. 54 casi esquina Dr. Andrade</p>
+                    <p>Col.Doctores C.P. 07620</p>
+                    <p>Del. Cuauhtemoc</p>
+                    <p>Tel: 55 5578 7676</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title" data-tab="item3">
+      <h2 style="text-align: center;">Bertha Von Glümer Leyva</h2>
+    </div>
+    <div class="accordion-content" id="item3">
+         <p>Juesus Garcia Nº. 63 </p>
+                    <p>Col. Guerrero C.P. 06300</p>
+                    <p>Delegracion Cuauhtemoc</p>
+                    <p>Tel. 55 5592 7098, 5566 1929</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title" data-tab="item4">
+      <h2 style="text-align: center;">Carolina Agazzi</h2>
+    </div>
+    <div class="accordion-content" id="item4">
+            <p>Oriente 42 N°. 360 entre Lorenzo Boturini y Avenida  del Taller  </p>
+                    <p>Col. 24 de Abril C.P. 15980</p>
+                    <p>Delegracion Venustiano Carranza</p>
+                    <p>Tel. 55 5592 7098, 5566 1929</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-title" data-tab="item5">
+      <h2 style="text-align: center;">Carmen Serdan</h2>
+    </div>
+    <div class="accordion-content" id="item5">
+   <p>Plaza Benito Juarez N° 10 </p>
+                    <p>Col. Ramos Miloan C.P. 08000</p>
+                    <p>Delegracion Iztacalco</p>
+                    <p>Tel. 56572689</p>
+
+    </div>
+  </div>
+</div>
+
+
                       <div  class style="background-color: #f5f5ef;" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet">
+
+
+
                         	<font  color="#FFFFFF">
                                <p style="text-align: justify; background-color: #999999;"></p>
 									</font>
+
+<!--
+
 									<font color="#00b140">
                   <p style="text-align: center;">	<b>CACI</b></p>
 									</font>
@@ -82,6 +230,7 @@ tr:nth-child(even) {
 										<p>Tel: 55 5588 3320, 55 5134 2550</p>
 										<p>Luz Maria Gomez Pezuela</p>
 										<br>
+
 							<font  color="#00b140">
 						    <p style="text-align: center;">	<b>CACI</b></p>
 							</font>
@@ -133,8 +282,7 @@ tr:nth-child(even) {
 
 
 
-
-
+-->
 
                       </div>
                     </div>
@@ -198,6 +346,37 @@ tr:nth-child(even) {
                     </div>
                 </div>
             </div>
+
+
+
+
+<script>
+  
+$(document).ready(function(){
+    $(".accordion-title").click(function(e){
+        var accordionitem = $(this).attr("data-tab");
+        $("#"+accordionitem).slideToggle().parent().siblings().find(".accordion-content").slideUp();
+
+        $(this).toggleClass("active-title");
+        $("#"+accordionitem).parent().siblings().find(".accordion-title").removeClass("active-title");
+
+        $("i.fa-chevron-down",this).toggleClass("chevron-top");
+        $("#"+accordionitem).parent().siblings().find(".accordion-title i.fa-chevron-down").removeClass("chevron-top");
+    });
+    
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
 
 
 

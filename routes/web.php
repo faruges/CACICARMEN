@@ -68,6 +68,14 @@ Route::get('/login', function () {
     return view('login');
 });
 
+
+
+
+Route::get('/inscripcion_from', function () {
+    return view('inscripcion_from');
+});
+
+
 Route::get('/inscripcion', function () {
     return view('inscripcion');
 });
