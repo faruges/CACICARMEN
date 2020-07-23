@@ -80,10 +80,13 @@ Route::get('/inscripcion', function () {
     return view('inscripcion');
 });
 
+Route::get('/reinscripcion','ReinscripcionController@index')->name('reinscripcion');
+Route::post('guardar_reinscripcion', 'ReinscripcionController@getwebservice')->name('guardar_reinscripcion');
+Route::post('guardar_reinscripcion_bd', 'ReinscripcionController@guardar')->name('guardar_reinscripcion_bd');
 
-Route::get('/reinscripcion', function () {
+/* Route::get('/reinscripcion', function () {
     return view('reinscripcion');
-});
+}); */
 
 
 Route::get('/tramiles_CACI', function () {
@@ -124,9 +127,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth',
 });
 
 Route::post('guardar_inscripcion', 'InscripcionController@guardar')->name('guardar_inscripcion');
-Route::post('guardar_reinscripcion', 'ReinscripcionController@guardar')->name('guardar_reinscripcion');
-
-
 
 Route::get('/niño', function () {
     return view('niño');
@@ -140,7 +140,7 @@ Route::get('/ubuicacion', function () {
 //Pruebas webservice
 
 Route::get('/webservice','WebService@getwebservice')->name('webservice');
-Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_post');
+//Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_post');
 
 
 

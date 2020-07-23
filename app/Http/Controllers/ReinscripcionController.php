@@ -16,8 +16,7 @@ class ReinscripcionController extends Controller
      */
     public function index()
     {
-        /* $file=Documentos::all();
-        return view() */
+        return view('reinscripcion_validar_rfc');
     }
 
     /**
@@ -28,6 +27,57 @@ class ReinscripcionController extends Controller
     public function create()
     {
         //
+    }
+
+    public function getwebservice(Request $request)
+    {
+
+        /* dd($request)->all(); */
+        /* dd($request->RFC); */
+        $RFC = $request->RFC;
+        $tokenId = $request->tokenId;
+
+        $ch = curl_init();
+        curl_setopt_array($ch, array(
+            CURLOPT_URL => "10.1.181.9:9003/usuarios/loadUserCASI",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "{\n \"security\":\n {\n \"tokenId\":\"$tokenId\"\n },\n \"data\":\n {\n \"RFC\":\"$RFC\"\n }\n \n}",
+            CURLOPT_HTTPHEADER => array("Content-Type:application/json"),
+
+        ));
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        /* $array = json_decode($response, true); */
+        $array = json_decode($response, true);
+        /* echo $data["data"]["PUESTO"];  */
+        $data['user'] = $array['data'];
+        /* foreach ($data as $d => $value) {
+            /* echo '<pre>'; */
+         //   $algo = $value['Contratacion'];
+           // echo ($algo);
+            /* foreach ($value as $s) {
+                var_dump($s);
+            } */
+            /* echo '</pre>'; */
+        //} */
+        /* $data = []; */
+        /* $data = var_dump($array); */
+        /* echo var_dump($data);  */
+
+        /* $array = json_decode($response, true);
+    	$data = var_dump($array['data']); */
+        //$info = var_dump($data);
+        //echo $info->PUESTO;
+
+        return view('reinscripcion',compact('data'));
+        /* return view('reinscripcion'); */
     }
 
     /**
@@ -42,7 +92,7 @@ class ReinscripcionController extends Controller
         Reinscripcion::create($request->all());
         //obtiene id de reinscripcion
         $id_reins = Reinscripcion::select('id')->orderByDesc('id')->get()->first();
-        $id=$id_reins->id;
+        $id = $id_reins->id;
         $filename_act = $request->file('filename_act');
         $filename_sol = $request->file('filename_sol');
         $filename_vacu = $request->file('filename_vacu');
@@ -54,19 +104,10 @@ class ReinscripcionController extends Controller
         $filename_trab = $request->file('filename_trab');
         $filename_com = $request->file('filename_com');
         $filename_recp = $request->file('filename_recp');
-        
+
         $arrayFiles = array(
-        $filename_act
-        ,$filename_sol
-        ,$filename_vacu
-        ,$filename_nac
-        ,$filename_vacu_2
-        ,$filename_cert
-        ,$filename_rec
-        ,$filename_disc
-        ,$filename_trab
-        ,$filename_com
-        ,$filename_recp);
+            $filename_act, $filename_sol, $filename_vacu, $filename_nac, $filename_vacu_2, $filename_cert, $filename_rec, $filename_disc, $filename_trab, $filename_com, $filename_recp
+        );
         if (Reinscripcion::setDoc($arrayFiles, $id)) {
             return redirect('reinscripcion')->with('mensaje', "Menú creado con exito");
         }

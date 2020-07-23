@@ -160,31 +160,33 @@
     México </h1>
   <br><br>
   <div class="tab">
-    <form id="regForm" action="{{route('guardar_reinscripcion')}}" method="POST" enctype="multipart/form-data">
+    <form id="regForm" action="{{route('guardar_reinscripcion_bd')}}" method="POST" enctype="multipart/form-data">
       @csrf
-      <a id="enlace_ws" href="{{route('webservice')}}"></a>
-      <h4>Datos del trabajador</h4>
-      <h2>RFC</h2>
-      <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="rfc"></p>
-      <h3>Nombre del Padre/Madre o Tutor:</h3>
-      <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor"></p>
-      <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="ap_paterno_t"></p>
-      <p><input placeholder="Apellido materno" oninput="this.className = ''" name="ap_materno_t"></p>
-      <p><input placeholder="Domicilio" oninput="this.className = ''" name="domicilio"></p>
-      <p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina"></p>
-      <p><input placeholder="Número de empleado" oninput="this.className = ''" name="num_empleado"></p>
-      <p><input placeholder="Número de plaza" oninput="this.className = ''" name="num_plaza"></p>
-      <p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia"></p>
-      <p><input placeholder="Nivel salarial" oninput="this.className = ''" name="nivel_salarial"></p>
-      <p><input placeholder="Sección sindical" oninput="this.className = ''" name="seccion_sindical"></p>
-      <label for="appt">
-        <p>Horario laboral</p>
-      </label>
-      <input type="time" id="appt" name="horario_laboral_ent">
-      <input type="time" id="appt" name="horario_laboral_sal">
-      <h1>Datos de contacto:</h1>
+      @foreach ($data as $item=>$value)
+          
+          <h4>Datos del trabajador</h4>
+          <h2>RFC</h2>
+          <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="rfc"></p>
+          <h3>Nombre del Padre/Madre o Tutor:</h3>
+          <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor" value="{{$value['CH_nombres']}}"></p>
+          <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="ap_paterno_t" value="{{$value['CH_paterno']}}"></p>
+          <p><input placeholder="Apellido materno" oninput="this.className = ''" name="ap_materno_t" value="{{$value['CH_materno']}}"></p>
+          <p><input placeholder="Domicilio" oninput="this.className = ''" name="domicilio"></p>
+          <p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina" value="{{$value['TipoNomina']}}"></p>
+          <p><input placeholder="Número de empleado" oninput="this.className = ''" name="num_empleado" value="{{$value['NumEmpleado']}}"></p>
+          <p><input placeholder="Número de plaza" oninput="this.className = ''" name="num_plaza" value="{{$value['NUM_PLAZA']}}"></p>
+          <p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia" value="{{$value['Clave_Dependencia']}}"></p>
+          <p><input placeholder="Nivel salarial" oninput="this.className = ''" name="nivel_salarial" value="{{$value['NIVEL_SALARIAL']}}"></p>
+          <p><input placeholder="Sección sindical" oninput="this.className = ''" name="seccion_sindical" value="{{$value['SECCION_SINDICAL']}}"></p>
+          <label for="appt">
+            <p>Horario laboral</p>
+          </label>
+          <input type="time" id="appt" name="horario_laboral_ent">
+          <input type="time" id="appt" name="horario_laboral_sal">
+      
+          <h1>Datos de contacto:</h1>
 
-      <p><input placeholder="E-mail" oninput="this.className = ''" name="email"></p>
+      <p><input placeholder="E-mail" oninput="this.className = ''" name="email" value="{{$value['CH_mail']}}"></p>
       <p><input placeholder="Teléfono o celular" oninput="this.className = ''" name="telefono_uno"></p>
       <p><input placeholder="Teléfono 2" oninput="this.className = ''" name="telefono_dos"></p>
       <br><br>
@@ -249,7 +251,7 @@
     <input type="file" id="myFile" name="filename_com">
     <h4 style="color: #00b140;">Copia del último recibo de pago de la persona trabajadora o usuaria.</h4>
     <input type="file" id="myFile" name="filename_recp">
-
+    @endforeach
     <br>
   </div>
   {{--  <!--
