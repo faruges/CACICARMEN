@@ -165,8 +165,8 @@
       @foreach ($data as $item=>$value)
           
           <h4>Datos del trabajador</h4>
-          <h2>RFC</h2>
-          <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="rfc"></p>
+          {{--  <h2>RFC</h2>
+          <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="rfc"></p>  --}}
           <h3>Nombre del Padre/Madre o Tutor:</h3>
           <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor" value="{{$value['CH_nombres']}}"></p>
           <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="ap_paterno_t" value="{{$value['CH_paterno']}}"></p>

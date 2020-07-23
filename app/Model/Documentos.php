@@ -12,6 +12,7 @@ class Documentos extends Model
 
     protected $fillable = [
         'nombre',
+        'inscripcion_menor_id',
         'reinscripcion_menor_id',
         'created_at'        
     ];

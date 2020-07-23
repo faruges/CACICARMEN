@@ -71,14 +71,18 @@ Route::get('/login', function () {
 
 
 
-Route::get('/inscripcion_from', function () {
+/* Route::get('/inscripcion_from', function () {
     return view('inscripcion_from');
-});
+}); */
 
 
-Route::get('/inscripcion', function () {
+/* Route::get('/inscripcion', function () {
     return view('inscripcion');
-});
+}); */
+
+Route::get('/inscripcion_from','InscripcionController@index')->name('inscripcion_from');
+Route::post('guardar_inscripcion', 'InscripcionController@getwebservice')->name('guardar_inscripcion');
+Route::post('guardar_inscripcion_bd', 'InscripcionController@guardar')->name('guardar_inscripcion_bd');
 
 Route::get('/reinscripcion','ReinscripcionController@index')->name('reinscripcion');
 Route::post('guardar_reinscripcion', 'ReinscripcionController@getwebservice')->name('guardar_reinscripcion');
@@ -122,11 +126,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth',
     Route::get('/lista_reinscripcion','AdminController@showListReinscri')->name('lista_reinscripcion');
     //Route::get('', 'ListaCaciController@index');
     Route::get('/lista_documentos/{id}', 'DocumentosController@show')->name('lista_documentos');
+    Route::get('/lista_documentos_inscr/{id}', 'DocumentosController@show_inscr')->name('lista_documentos_inscr');
     Route::get('/detalles_documento/{id}', 'DocumentosController@details')->name('detalles_documento');
     Route::get('/lista_menores/{id_caci}', 'ListaMenoresController@menoresByCaci')->name('lista_menores');
 });
 
-Route::post('guardar_inscripcion', 'InscripcionController@guardar')->name('guardar_inscripcion');
+/* Route::post('guardar_inscripcion', 'InscripcionController@guardar')->name('guardar_inscripcion'); */
 
 Route::get('/niño', function () {
     return view('niño');

@@ -52,6 +52,13 @@ class DocumentosController extends Controller
 
     }
 
+    public function show_inscr($id)
+    {
+        $data=Documentos::where('inscripcion_menor_id',$id)->get();
+        return view('admin.lista_documentos_insc',compact('data','id'));
+
+    }
+
     public function details($id)
     {
         $data=Documentos::find($id);

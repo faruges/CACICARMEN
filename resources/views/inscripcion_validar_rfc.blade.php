@@ -103,7 +103,7 @@
 
 
 
-<form id="regForm" action="{{route('guardar_reinscripcion')}}" method="POST" enctype="multipart/form-data">
+<form id="regForm" action="{{route('guardar_inscripcion')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <h4>Datos del trabajador</h4>
     <h2>RFC</h2>

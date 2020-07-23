@@ -35,6 +35,7 @@
                 <thead>
                     <tr>
                         <th>Nombre Menor</th>
+                        <th>Curp</th>
                         <th>Fecha de Nacimiento</th>
                         <th>Edad al Ingreso</th>
                         <th>Tutor</th>
@@ -44,37 +45,43 @@
                         <th>N. Plaza</th>
                         <th>Clave Dependencia</th>
                         <th>Nivel Salarial</th>
-                        <th>Seccion Sindical</th>
-                        <th>Horario Laboral</th>
+                        <th>Seccion Sindical</th>                    
                         <th>Email</th>
                         <th>Telefono Uno</th>
                         <th>Telefono Dos</th>
+                        <th>Caci</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($lista_caci as $caci)
                     <tr>
-                        <td>{{$caci->nombre_menor}} {{$caci->ap_paterno}} {{$caci->ap_materno}}</td>
-                        <td>{{$caci->fecha_nacimiento}}</td>
-                        <td>{{$caci->edad_menor_ingreso}}</td>
-                        <td>{{$caci->nombre_tutor}} {{$caci->ap_paterno_t}} {{$caci->ap_materno_t}}</td>
-                        <td>{{$caci->domicilio}}</td>
-                        <td>{{$caci->tipo_nomina}}</td>
-                        <td>{{$caci->num_empleado}}</td>
-                        <td>{{$caci->num_plaza}}</td>
-                        <td>{{$caci->clave_dependencia}}</td>
-                        <td>{{$caci->nivel_salarial}}</td>
-                        <td>{{$caci->seccion_sindical}}</td>
-                        <td>{{$caci->horario_laboral}}</td>
-                        <td>{{$caci->email}}</td>
-                        <td>{{$caci->telefono_uno}}</td>
-                        <td>{{$caci->telefono_dos}}</td>
-                        <td class="actions">
+                        <td>{{$caci->nombre_menor}} {{$caci->apellido_paterno_1}} {{$caci->apellido_materno_1}}</td>
+                        <td>{{$caci->curp_num}}</td>
+                        <td>{{$caci->birthday}}</td>
+                        <td>{{$caci->Edad_menor}}</td>
+                        <td>{{$caci->nombre_tutor_madres}} {{$caci->apellido_paterno_tutor}} {{$caci->apellido_materno_tutor}}</td>
+                        <td>{{$caci->domicilio_delegracion}}</td>
+                        <td>{{$caci->tipo_nomina_1}}</td>
+                        <td>{{$caci->num_empleado_1}}</td>
+                        <td>{{$caci->num_plaza_1}}</td>
+                        <td>{{$caci->clave_dependencia_1}}</td>
+                        <td>{{$caci->nivel_salarial_1}}</td>
+                        <td>{{$caci->seccion_sindical_1}}</td>
+                        <td>{{$caci->email_correo}}</td>
+                        <td>{{$caci->telefono_celular}}</td>
+                        <td>{{$caci->telefono_3}}</td>
+                        <td>{{$caci->caci}}</td>
+                        <td>
                             <span class="float-right">
-                                <input type="checkbox" name="correo" value="envio_correo"><label for="correo">
-                                    Seleccionar</label>
+                                <a class="btn btn-sm btn-outline-primary"
+                                    href="{{route('lista_documentos_inscr',$caci->id)}}"
+                                    title="Ver lista de documentos"><i class="fa fa-eye"></i></a>
                             </span>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="correo" value="envio_correo"><label for="correo">
+                                Enviar Correo</label>
                         </td>
                     </tr>
                     @endforeach

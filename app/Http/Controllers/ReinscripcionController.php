@@ -32,8 +32,6 @@ class ReinscripcionController extends Controller
     public function getwebservice(Request $request)
     {
 
-        /* dd($request)->all(); */
-        /* dd($request->RFC); */
         $RFC = $request->RFC;
         $tokenId = $request->tokenId;
 
@@ -54,30 +52,10 @@ class ReinscripcionController extends Controller
         $response = curl_exec($ch);
         curl_close($ch);
 
-        /* $array = json_decode($response, true); */
         $array = json_decode($response, true);
-        /* echo $data["data"]["PUESTO"];  */
         $data['user'] = $array['data'];
-        /* foreach ($data as $d => $value) {
-            /* echo '<pre>'; */
-         //   $algo = $value['Contratacion'];
-           // echo ($algo);
-            /* foreach ($value as $s) {
-                var_dump($s);
-            } */
-            /* echo '</pre>'; */
-        //} */
-        /* $data = []; */
-        /* $data = var_dump($array); */
-        /* echo var_dump($data);  */
-
-        /* $array = json_decode($response, true);
-    	$data = var_dump($array['data']); */
-        //$info = var_dump($data);
-        //echo $info->PUESTO;
 
         return view('reinscripcion',compact('data'));
-        /* return view('reinscripcion'); */
     }
 
     /**

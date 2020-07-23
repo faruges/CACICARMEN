@@ -175,30 +175,32 @@ a {
 
 <body>
 
-<form id="regForm" action="action_page.php">
-
-  <!-- <img src="{{asset('img/Logo_CDMX.png')}}"  alt="Chicago" style="width:30%;">
-      <img src="{{asset('img/Logo_Dependencia_n.png')}}"  alt="Chicago" style="width:15%;"> -->
-  <h1>Centros de Atención y Cuidado Infantil de la Secretaría de Administración y Finanzas del Gobierno de la Ciudad de México </h1>
-  <br><br>
-  <!-- One "tab" for each step in the form: -->
   
-  <div class="tab"> 
+  <!-- <img src="{{asset('img/Logo_CDMX.png')}}"  alt="Chicago" style="width:30%;">
+    <img src="{{asset('img/Logo_Dependencia_n.png')}}"  alt="Chicago" style="width:15%;"> -->
+    <h1>Centros de Atención y Cuidado Infantil de la Secretaría de Administración y Finanzas del Gobierno de la Ciudad de México </h1>
+    <br><br>
+    <!-- One "tab" for each step in the form: -->
+    
+    <div class="tab"> 
 
+<form id="regForm" action="{{route('guardar_inscripcion_bd')}}" method="POST" enctype="multipart/form-data">
+        @csrf
  <h4>Datos del trabajador</h4>
-      <h2>RFC</h2>
-      <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="rfc_num"></p>
+ @foreach ($data as $item=>$value)
+      {{--  <h2>RFC</h2>
+      <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="rfc_num"></p>  --}}
       <h3>Nombre del Padre/Madre o Tutor:</h3>
-      <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor_madres"></p>
-      <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_tutor"></p>
-      <p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellido_materno_tutor"></p>
+      <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor_madres" value="{{$value['CH_nombres']}}"></p>
+      <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_tutor" value="{{$value['CH_paterno']}}"></p>
+      <p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellido_materno_tutor" value="{{$value['CH_materno']}}"></p>
       <p><input placeholder="Domicilio" oninput="this.className = ''" name="domicilio_delegracion"></p>
-      <p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina_1"></p>
-      <p><input placeholder="Número de empleado" oninput="this.className = ''" name="num_empleado_1"></p>
-      <p><input placeholder="Número de plaza" oninput="this.className = ''" name="num_plaza_1"></p>
-      <p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia_1"></p>
-      <p><input placeholder="Nivel salarial" oninput="this.className = ''" name="nivel_salarial_1"></p>
-      <p><input placeholder="Sección sindical" oninput="this.className = ''" name="seccion_sindical_1"></p>
+      <p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina_1" value="{{$value['TipoNomina']}}"></p>
+      <p><input placeholder="Número de empleado" oninput="this.className = ''" name="num_empleado_1" value="{{$value['NumEmpleado']}}"></p>
+      <p><input placeholder="Número de plaza" oninput="this.className = ''" name="num_plaza_1" value="{{$value['NUM_PLAZA']}}"></p>
+      <p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia_1" value="{{$value['Clave_Dependencia']}}"></p>
+      <p><input placeholder="Nivel salarial" oninput="this.className = ''" name="nivel_salarial_1" value="{{$value['NIVEL_SALARIAL']}}"></p>
+      <p><input placeholder="Sección sindical" oninput="this.className = ''" name="seccion_sindical_1" value="{{$value['SECCION_SINDICAL']}}"></p>
   </div>
 
   
@@ -222,40 +224,40 @@ a {
 
 
     <label for="cars">Directorio de los CACI SAF:</label>
-  <select name="cars" id="cars">
-    <option value="volvo">Luz Maria Gomez Pezuela</option>
-    <option value="saab">Mtra Eva Moreno Sanchez</option>
-    <option value="opel">Bertha Von Glumer Leyva</option>
-    <option value="audi">Garolina Agazzi</option>
-      <option value="audi">Carmen Serdan</option>
+  <select name="caci" id="cars">
+    <option value="Luz Maria Gomez Pezuela">Luz Maria Gomez Pezuela</option>
+    <option value="Mtra Eva Moreno Sanchez">Mtra Eva Moreno Sanchez</option>
+    <option value="Bertha Von Glumer Leyva">Bertha Von Glumer Leyva</option>
+    <option value="Garolina Agazzi">Garolina Agazzi</option>
+      <option value="Carmen S">Carmen Serdan</option>
   </select>
  
 
  
     <h4 style="color: #00b140;">Acta de nacimiento </h4>
-    <input type="file" id="myFile" name="filename">
+    <input type="file" id="myFile" name="filename_act">
     <h4 style="color: #00b140;">Solicitud de ingreso perfectamente llenada y firmada.</h4>
-    <input type="file" id="myFile" name="filename">
+    <input type="file" id="myFile" name="filename_sol">
     <h4 style="color: #00b140;">Cartilla de vacunacion al corriente (original y copia)</h4>
-    <input type="file" id="myFile" name="filename">
+    <input type="file" id="myFile" name="filename_vacu">
     <h4 style="color: #00b140;">Certificado de nacimiento</h4>
-    <input type="file" id="myFile" name="filename">
+    <input type="file" id="myFile" name="filename_nac">
 
 
 <h4 style="color: #00b140;">Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o Documento que contengan datos de nacimiento del(a) menor tales como peso, talla, APGAR, etc. </h4>
-    <input type="file" id="myFile" name="filename">
+    <input type="file" id="myFile" name="filename_cert">
     <h4 style="color: #00b140;">Último recibo de pago impreso del(a) trabajador (a)</h4>
-    <input type="file" id="myFile" name="filename">
+    <input type="file" id="myFile" name="filename_rec">
     <h4 style="color: #00b140;">En caso que la o el menor tenga alguna discapacidad o enfermedad crónica, presentar copias de los documentos médicos del tratamiento y/o seguimiento para proporcionarle la atención adecuada.</h4>
-    <input type="file" id="myFile" name="filename">
+    <input type="file" id="myFile" name="filename_disc">
     <h4 style="color: #00b140;">En caso de que el trabajador(a) sea el tutor del menor, deberá presentar el documento legal que dictamine la patria potestad o guarda y custodia del mismo.</h4>
-    <input type="file" id="myFile" name="filename">
+    <input type="file" id="myFile" name="filename_trab">
 
 
     <h4 style="color: #00b140;">Carta compromiso.</h4>
-    <input type="file" id="myFile" name="filename">
+    <input type="file" id="myFile" name="filename_com">
     <h4 style="color: #00b140;">Copia del último recibo de pago de la persona trabajadora o usuaria.</h4>
-    <input type="file" id="myFile" name="filename">
+    <input type="file" id="myFile" name="filename_recp">
 
   <br><br>
   </div>
@@ -266,10 +268,11 @@ a {
 
  <h1>Datos de contacto:</h1>
 
-  <p><input placeholder="E-mail" oninput="this.className = ''" name="email_correo"></p>
+  <p><input placeholder="E-mail" oninput="this.className = ''" name="email_correo" value="{{$value['CH_mail']}}"></p>
   <p><input placeholder="Teléfono o celular" oninput="this.className = ''" name="telefono_celular"></p>
   <p><input placeholder="Teléfono 2" oninput="this.className = ''" name="telefono_3"></p>
 
+  @endforeach
   <br><br>
   </div>
 
