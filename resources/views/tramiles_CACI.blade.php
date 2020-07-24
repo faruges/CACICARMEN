@@ -131,7 +131,7 @@ input {
 
  
   <div  id='user'>
-   <a style="color: #000000;" href="inscripcion">
+   <a style="color: #000000;" href="inscripcion_from">
   <h1 style="text-align: left;">Inscripción</h1>
 </a>
   <a style="color: #000000;" href="reinscripcion">

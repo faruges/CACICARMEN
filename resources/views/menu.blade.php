@@ -75,6 +75,13 @@ div.c {
   <!-- <a href="civil_proteccion"> Proteccion Civil </a> -->
   <a href="inscripcion_from"> Inscripción </a>
   <a href="reinscripcion"> Reinscripción </a>
+
+
+ 
+ <!--<<a href="informacion_destacada"> Infomación destacada </a> -->
+ <a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información destacada</a>
+  <!--<a href="aviso_privacidar">Avisos de Privacidar </a>-->
+
   <a href="tramites"> Trámites </a>
   <a style="margin-right:  -800px;" href="login"> Iniciar sesión</a>   
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>

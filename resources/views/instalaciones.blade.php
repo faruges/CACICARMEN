@@ -123,11 +123,11 @@ input {
 
 <div style="text-align: center;" class="container gallery-container">
   <img src="{{asset('img/AAA.jpg')}}" alt="Imagenes" style="width:30%;">
-  <h1 style="text-align: center;">Estanislao Ramirez Ruiz</h1>
+  <h1 style="text-align: center;">Estanislao Ramírez Ruiz</h1>
     <h1 style="text-align: center;">Jefe de Unidad</h1>
-      <h1 style="text-align: center;">Titular del Centro de Atencion y</h1>
+      <h1 style="text-align: center;">Titular del Centro de Atención y</h1>
     <h1 style="text-align: center;">Cuidado Infantil</h1>
-      <h1 style="text-align: center;">Carolina Agazzi</h1>
+      <h1 style="text-align: center;">Luz María Gómez Pezuela</h1>
 </div>
  <div style="text-align: right;">
     <a href="centros">
