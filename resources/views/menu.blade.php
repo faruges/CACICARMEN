@@ -79,7 +79,7 @@ div.c {
 
  
  <!--<<a href="informacion_destacada"> Infomación destacada </a> -->
- <a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información Destacada</a>
+ <a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información destacada</a>
   <!--<a href="aviso_privacidar">Avisos de Privacidar </a>-->
 
   <a href="tramites"> Trámites </a>

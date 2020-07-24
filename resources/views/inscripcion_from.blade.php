@@ -358,11 +358,16 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
 
 
-   swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success" , { buttons: ["Ver Aviso", true],  
+   swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success" ,
+    { buttons: ["Ver Aviso", true],  
 
-    
 
+ 
+ }).then(function() {
+    window.location = "{{asset('img/PDF/Aviso_Integral_CACI_SAF.pdf')}}";
+  
  });
+
    
   }
 
