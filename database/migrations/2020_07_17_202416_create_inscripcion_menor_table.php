@@ -15,14 +15,26 @@ class CreateInscripcionMenorTable extends Migration
     {
         Schema::create('inscripcion_menor', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('nombre_menor',100);
-            $table->string('ap_paterno',50);
-            $table->string('ap_materno',50);
-            $table->string('curp',20);
-            $table->date('fecha_nacimiento');
-            $table->string('edad_menor_ingreso',10);
-            $table->unsignedInteger('inscripcion_tutor_id');
-            $table->foreign('inscripcion_tutor_id')->references('id')->on('inscripcion_tutor')->onDelete('restrict')->onUpdate('restrict');
+            $table->string('nombre_tutor_madres',100);
+            $table->string('apellido_paterno_tutor',50);
+            $table->string('apellido_materno_tutor',50);
+            $table->string('domicilio_delegracion',150);
+            $table->string('tipo_nomina_1',30);
+            $table->string('num_empleado_1',50);
+            $table->string('num_plaza_1',50);
+            $table->string('clave_dependencia_1',50);
+            $table->string('nivel_salarial_1',50);
+            $table->string('seccion_sindical_1',50);
+            $table->date('birthday');
+            $table->string('Edad_menor',10);
+            $table->string('email_correo',100)->unique();
+            $table->string('telefono_celular',15);
+            $table->string('telefono_3',15);
+            $table->string('nombre_menor_1',100);
+            $table->string('apellido_paterno_1',50);
+            $table->string('apellido_materno_1',50);
+            $table->string('curp_num',20);
+            $table->string('caci',100);
             $table->timestamps();
         });
     }

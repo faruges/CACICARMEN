@@ -126,6 +126,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth',
     Route::get('/lista_reinscripcion','AdminController@showListReinscri')->name('lista_reinscripcion');
     //Route::get('', 'ListaCaciController@index');
     Route::get('/lista_documentos/{id}', 'DocumentosController@show')->name('lista_documentos');
+    Route::get('/email_info_recibida/{nombre_tutor}/{ap_paterno}/{email}', 'EmailController@sendEmailRecibi')->name('email_info_recibida');
+    Route::get('/email_lista_espera/{nombre_tutor}/{ap_paterno}/{email}', 'EmailController@sendEmailEspera')->name('email_lista_espera');
     Route::get('/lista_documentos_inscr/{id}', 'DocumentosController@show_inscr')->name('lista_documentos_inscr');
     Route::get('/detalles_documento/{id}', 'DocumentosController@details')->name('detalles_documento');
     Route::get('/lista_menores/{id_caci}', 'ListaMenoresController@menoresByCaci')->name('lista_menores');

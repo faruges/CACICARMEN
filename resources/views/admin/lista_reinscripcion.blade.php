@@ -83,13 +83,6 @@
                                     title="Ver lista de documentos"><i class="fa fa-eye"></i></a>
                             </span>
                         </td>
-                        <td>
-                            <input type="checkbox" name="correo" value="envio_correo"><label for="correo">
-                                Enviar Correo</label>
-                        </td>
-                        {{--  @if ()
-                            
-                        @endif  --}}
                     </tr>
                     @endforeach
                 </tbody>

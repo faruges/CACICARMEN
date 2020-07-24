@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Documentos;
+use App\Model\Inscripcion;
+use App\Model\Reinscripcion;
 
 class DocumentosController extends Controller
 {
@@ -48,14 +50,16 @@ class DocumentosController extends Controller
     public function show($id)
     {
         $data=Documentos::where('reinscripcion_menor_id',$id)->get();
-        return view('admin.lista_documentos',compact('data','id'));
+        $lista_reinscripcion=Reinscripcion::where('id',$id)->get();
+        return view('admin.lista_documentos',compact('data','id','lista_reinscripcion'));
 
     }
 
     public function show_inscr($id)
     {
         $data=Documentos::where('inscripcion_menor_id',$id)->get();
-        return view('admin.lista_documentos_insc',compact('data','id'));
+        $lista_inscripcion=Inscripcion::where('id',$id)->get();
+        return view('admin.lista_documentos_insc',compact('data','id','lista_inscripcion'));
 
     }
 
