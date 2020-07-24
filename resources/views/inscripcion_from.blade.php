@@ -74,8 +74,19 @@
   .step.finish {
     background-color: #00b140;
   }
-</style>
-<style>
+
+
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  line-height: 1.7em;
+}
 
 a {
   text-decoration: none;
@@ -101,77 +112,109 @@ a {
   padding: 40px;
 }
 
+  
 </style>
 
 
 
-
-
-
 <div class="alert">
-  <h1 style="color: #00b140; text-align: center;" class="modal-title"> Proceso de Inscripción</h1>
-  <a href="#" class="close_btn"><i class="fa fa-2x fa-times"></i></a>
+
+  <h1 style="color:  #054a41; text-align: center;" class="modal-title">Proceso de Inscripción</h1>
+
+   <a href="#" class="close_btn"><i class="fa fa-2x fa-times"></i></a>
   <div class="modal-content">
     <div class="modal-body">
-      <h3 style="color: #000000; text-align: center;">
-    Requisitos para realizar trámite de inscripción en los Centros de Atención y Cuidado Infantil de la Secretaría de Administración y Finanzas (CACI-SAF) del Gobierno de la Ciudad de México.</h3><br>
+
+
+ <div style="background-color: #054a41;" class="modal-body">
+      <h4 style="color: #FFF; text-align: left;">
+  * Madres, padres o quien ejerza la patria potestad y/o guarda y custodia del o la menor, que sean trabajadoras(es) del Gobierno de la Ciudad de México, con base, sindicalizadas(os) y que coticen al SUTGCDMX.</h4><br>
+
+   <h4 style="color: #FFF; text-align: left;">
+   * Personal de estructura, nómina 8, base sin dígito sindical y trabajadores del ámbito central y de las alcaldías del Gobierno de la Ciudad de México, podrán gozar de los benecios que ofrece el CACI-SAF, considerando sólo hasta un 30% de su capacidad instalada, como se establece en los Lineamientos Generales para la Operación de los Centros de Atención y Cuidado Infantil de la Secretaría de Finanzas de la Ciudad de México y de sus Alcadías.</h4><br>
+
+   <h4 style="color: #FFF; text-align: left;">
+    * El personal de estructura aportará una cuota quincenal de recuperación que será retenida vía nómina.</h4><br>
+
+</div>
+
+
+      <div class="col-lg-12" style="margin-top: 2%;">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2>
+               <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
+                   
+            </i>1. Llenar el formulario en el siguiente enlace:</li>
+           <br><br>
+            </i>2. Cargar la siguiente documentación en versión digital (PDF):</li>
+           
+    
+            <br>
+            <h5>a) Acta de nacimiento original por ambos lados, del o la menor.</h5>
+        
+            <h5>b) Certicado de nacimiento del o la menor.</h5>
+        
+            <h5>c) Cartilla de vacunación al corriente.</h5>
+  
+            <h5>d) Clave Única de Registro de Población, (CURP) del o la menor.</h5>
       
-      <p>•  Madres, padres o quien ejerza la patria potestad, o guarda y custodia del menor, que sean trabajadoras(es) del Gobierno de la Ciudad de México basificadas (os) y sindicalizadas (os) que coticen al SUTGCDMX </p>
+            <h5>e) Si el menor presenta algún tipo de discapacidad o
+enfermedad crónica, adjuntar documentación clínica y
+diagnóstico de la condición y del tratamiento que recibe.</h5>
+        
+            <h5>f) En caso de que el o la trabajador(a) sea la persona tutora,
+deberá adjuntar el documento legal que dictamine la
+patria potestad o guarda y custodia.</h5>
+          
+                </div>
 
 
 
+                   <div class="col-sm-6">
+                    <br>
+             
+                    <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
+                      <br>
+            
+              </i>3. Entregar en original la siguiente documentación:</li>
+  
+            <h5>a) Acta de nacimiento del o la menor.</h5>
+   
+            <h5>b) Cartilla de vacunación del o la menor.</h5>
+ 
+            <h5>c) Análisis clínicos indicados en la conrmación de
+inscripción.</h5>
+        
+            <h5>d) Documentación clínica y diagnóstico de la condición y
+del tratamiento que recibe, en caso de presentar algún
+tipo de discapacidad o enfermedad crónica.</h5>
+   
+            <h5>e) Documento legal que dictamine la patria potestad o
+guarda y custodia.</h5>
+            
+            <h5>f) Seis fotografías tamaño infantil recientes e iguales,
+del o la menor.</h5>
+            
+            <h5>g) Cuatro fotografías tamaño infantil,
+recientes e iguales del o la trabajador(a).</h5>
+          
+            <h5>h) Cuatro fotografías tamaño infantil, recientes e iguales,
+de dos personas mayores de edad autorizadas por el (la)
+solicitante del servicio para recoger a la o el menor.</h5>
+            
 
-      <P>•  Así mismo, el personal de estructura, nomina 8, base sin dígito sindical, del ámbito Central y de los Órganos Político Administrativos del Gobierno de la Ciudad de México podrán gozar de los beneficios que ofrecen los CACI-SAF. Lo anterior, considerando sólo hasta un 30% de su capacidad instalada, como se establece en los “LINEAMIENTOS GENERALES PARA LA OPERACACIÓN DE LOS CENTROS DE ATENCIÓN Y CUIDADO INFANTIL DE LA SECRETARÍA DE FINANZAS DEL GOBIERNO DE LA CIUDAD DE MÉXICO Y DE SUS 16 ALCALDÍAS”</P>
-      
-      <h4> Documentos que se solicitan para el trámite de ingreso </h4>
-
-      <p> Solicitud de ingreso perfectamente llenada y firmada. *</p>
-
-      <p> Acta de nacimiento del(a) menor (original y copia ambos lados). En caso de que el ingreso sea para nivel preescolar el acta de nacimiento original permanecerá en el Centro hasta el egreso de la o el menor.* /+</p>
-
-      <p> Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o Documento que contengan datos de nacimiento del(a) menor tales como peso, talla, APGAR, etc.*</p>
-
-
-      <p> Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o Documento que contengan datos de nacimiento del(a) menor tales como peso, talla, APGAR, etc.*</p>
-
-      <p> Cartilla de vacunación al corriente (original y copia).*</p>
-
-      <p> Copia fotostática de la Clave Única de Registro de Población, CURP del(la) menor *</p>
-
-      <p> Constancia de labores actualizada, (con una antigüedad no mayor de 30 días al momento del trámite) expedida por Recursos Humanos de la Unidad Administrativa en la que labora la persona tutora indicando Dependencia, Oficina de adscripción a la que pertenece, horario, días laborales, fecha de ingreso y períodos vacacionales, sellada y firmada.*/ +
-      </p>
-
-      <p> Último recibo de pago impreso del(a) trabajador (a)*</p>
-
-      <p> Seis fotografías tamaño infantil del(a) menor (recientes y de la misma toma).+</p>
-
-      <p> Cuatro fotografías tamaño infantil del(a) trabajador(a) solicitante del servicio (recientes y de la misma toma). +</p>
-
-      <p> Cuatro fotografías tamaño infantil de las dos personas autorizadas (mayores de 18 años) por el(a) solicitante del servicio para recoger al(a) menor . Las fotografías deberán de ser recientes y de la misma toma.+</p>
-
-      <p> En caso que la o el menor tenga alguna discapacidad o enfermedad crónica, presentar copias de los documentos médicos del tratamiento y/o seguimiento para proporcionarle la atención adecuada.*</p>
-
-      <p> En caso de que el trabajador(a) sea el tutor del menor, deberá presentar el documento legal que dictamine la patria potestad o guarda y custodia del mismo.*/ +</p>
-
-
-
-
-      <P>Documentos  para enviar electrónicamente *</P>
-      <P>Documentos para entrega física +</P>
-
-
-
-
+               </div>
+            </div>
+    </div>  
 
     </div>
-    <div style="background-color: #00b140;" class="modal-footer">
+    <div style="background-color: #fff;" class="modal-footer">
 
     </div>
   </div>
 </div>
-
-
-
 
 <body>
 
@@ -179,7 +222,6 @@ a {
   <!-- <img src="{{asset('img/Logo_CDMX.png')}}"  alt="Chicago" style="width:30%;">
     <img src="{{asset('img/Logo_Dependencia_n.png')}}"  alt="Chicago" style="width:15%;"> -->
     <h1>Centros de Atención y Cuidado Infantil de la Secretaría de Administración y Finanzas del Gobierno de la Ciudad de México </h1>
-    <br><br>
     <!-- One "tab" for each step in the form: -->
     
     <div class="tab"> 
@@ -295,15 +337,7 @@ a {
 </body>
 
 
-
-
-
-
-
-
-
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 
 
 <script>
@@ -318,11 +352,22 @@ function showTab(n) {
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
       
-  } else {
+  } 
+
+  else {
     document.getElementById("prevBtn").style.display = "inline";
-   swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success");
-      
+
+
+   swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success" , { buttons: ["Ver Aviso", true],  
+
+    
+
+ });
+   
   }
+
+
+
   if (n == (x.length - 1)) {
 
 

@@ -24,6 +24,37 @@ Route::get('inicio', function () {
 });
 
 
+
+Route::get('/Eva_Moreno', function () {
+    return view('Eva_Moreno');
+});
+
+
+Route::get('/Bertha_von', function () {
+    return view('Bertha_von');
+});
+
+Route::get('/Carolina_Agazzi', function () {
+    return view('Carolina_Agazzi');
+});
+
+
+Route::get('/Carmen_Serdan', function () {
+    return view('Carmen_Serdan');
+});
+
+
+Route::get('/informacion_destacada', function () {
+    return view('informacion_destacada');
+});
+
+
+
+
+
+
+
+
 Route::get('/nosotros', function () {
     return view('nosotros');
 });
@@ -32,23 +63,10 @@ Route::get('/centros', function () {
     return view('centros');
 });
 
-Route::get('/centros1', function () {
-    return view('centros1');
+
+Route::get('/inscripcion_from', function () {
+    return view('inscripcion_from');
 });
-
-Route::get('/centros2', function () {
-    return view('centros2');
-});
-
-Route::get('/centros3', function () {
-    return view('centros3');
-});
-
-Route::get('/centros4', function () {
-    return view('centros4');
-});
-
-
 
 
 
@@ -112,9 +130,28 @@ Route::get('/registo_aqui', function () {
     return view('registo_aqui');
 });
 
+
+
+Route::get('/aviso_privacidar', function () {
+    return view('aviso_privacidar');
+});
+
+
+
+
+
+
+
+
+
+
 Route::get('/doc', function () {
     return view('doc_prueba');
 });
+
+
+
+
 
 Route::get('seguridad/login','Seguridad\LoginController@index')->name('login');
 Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_post');

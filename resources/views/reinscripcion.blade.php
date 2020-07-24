@@ -102,52 +102,143 @@
 </style>
 
 
+
 <div class="alert">
-  <h1 style="color: #00b140; text-align: center;" class="modal-title">Proceso de Reinscripcion</h1>
-  <a href="#" class="close_btn"><i class="fa fa-2x fa-times"></i></a>
-  <div class="modal-content">
-    <div class="modal-body">
+
+
+         <h1 style="color:  #054a41; text-align: center;"  class="modal-title">Calendario de reinscripción</h1>
+
+
+   <a href="#" class="close_btn"><i class="fa fa-2x fa-times"></i></a>
+<div class="modal-content">
+  <div class="modal-body">
+
+ <div class="modal-body">
+
+  <div style="background-color: #054a41;" class="col-lg-12" >
+
+           <div class="row">
+
+        ¿
+
+         <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;"><br>
+       
+          
+              <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lunes</h4>
+                <h4 style="color: #FFF; text-align: center;" id="letra_banner">Martes</h4>
+                  <h4 style="color: #FFF; text-align: center;"  id="letra_banner">Miércoles</h4>
+                     <h4 style="color: #FFF; text-align: center;"  id="letra_banner">Jueves</h4>
+                    <h4 style="color: #FFF; text-align: center;"  id="letra_banner">Viernes</h4>
+                      <h4  style="color: #FFF; text-align: center;" id="letra_banner">Lunes</h4>
+                        <h4 style="color: #FFF; text-align: center;" align=" " id="letra_banner">Martes</h4>
+           
+         </div>
+
+
+           <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;"><br>
+       
+        
+              <h4 style="color: #FFF; text-align: center;" id="letra_banner">3/08/2020</h4>
+                <h4 style="color: #FFF; text-align: center;" id="letra_banner">4/08/2020</h4>
+                  <h4 style="color: #FFF; text-align: center;"  id="letra_banner">5/08/2020</h4>
+                    <h4 style="color: #FFF; text-align: center;"  id="letra_banner">6/08/2020</h4>
+                      <h4  style="color: #FFF; text-align: center;" id="letra_banner">7/08/2020</h4>
+                          <h4 style="color: #FFF; text-align: center;" id="letra_banner">10/08/2020</h4>
+                        <h4 style="color: #FFF; text-align: center;" align=" " id="letra_banner">11/08/2020</h4>
+         </div>
+
+
+
+           <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
+       
+      <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lactantes 1</h4>
+                <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lactantes 2</h4>
+                  <h4 style="color: #FFF; text-align: center;"  id="letra_banner">Lactantes 3</h4>
+                    <h4 style="color: #FFF; text-align: center;"  id="letra_banner">Maternal 1</h4>
+                      <h4  style="color: #FFF; text-align: center;" id="letra_banner">Maternal 2</h4>
+                          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Preescolar 1</h4>
+                        <h4 style="color: #FFF; text-align: center;" align=" " id="letra_banner">Preescolar 2</h4>
+           
+         </div>
+
+         
+
+           
+
+            </div>
+        </div>
+
+</div>
+
+
+      <div class="col-lg-12" style="margin-top: 2%;">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2>
+               <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
+                   
+            </i>1. Llenar el formulario en el siguiente enlace:</li>
+           <br><br>
+            </i>2. Cargar la siguiente documentación en versión digital (PDF):</li>
+           
+    
+            <br>
+            <h5>a) Acta de nacimiento original por ambos lados, del o la menor.</h5>
+        
+            <h5>b) Certicado de nacimiento del o la menor.</h5>
+        
+            <h5>c) Cartilla de vacunación al corriente.</h5>
+  
+            <h5>d) Clave Única de Registro de Población, (CURP) del o la menor.</h5>
       
+            <h5>e) Si el menor presenta algún tipo de discapacidad o
+enfermedad crónica, adjuntar documentación clínica y
+diagnóstico de la condición y del tratamiento que recibe.</h5>
+        
+            <h5>f) En caso de que el o la trabajador(a) sea la persona tutora,
+deberá adjuntar el documento legal que dictamine la patria
+potestad o guarda y custodia.</h5>
+          
+                </div>
 
-     
-
-      <h3>Requisitos  para realizar trámite de reinscripción en los Centros de Atención y Cuidado Infantil, CACI-SAF.</h3>
 
 
-
-       <p> Solicitud de inscripción – reinscripción. *</p>
-
-      <h4> Acta de nacimiento de la niña o niño en original y copia, en el caso de que la reinscripción sea para preescolar 1º, los documentos  permanecerán en el CACI-SAF hasta su egreso. +</h4>
-
-      <p> Copia de la cartilla de vacunación .*</p>
-      <p> Constancia de labores. +</p>
-      <p> Copia del último recibo de pago de la persona trabajadora o usuaria. *</p>
-      <p> Análisis clínicos completos. +</p>
-
-      <p>- Biometría Hemática</p>
-      <p>- Exudado Faríngeo</p>
-      <p>- General de Orina</p>
-      <p>- Coproparasitoscópico en serie de tres</p>
-
-      <p> Seis fotografías tamaño infantil de la niña o niño. +</p>
-
-      <p> Cuatro fotografías tamaño infantil de la persona trabajadora o usuaria del servicio. +</p>
-
-      <p> Cuatro fotografías de cada una de las personas autorizadas. +</p>
-
-      <p> Carta compromiso. *</p>
+                   <div class="col-sm-6">
+                    <br>
+             
+                    <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
+                      <br>
+            
+              </i>3. Entregar en original la siguiente documentación:</li>
+  
+            <h5>a) Acta de nacimiento del o la menor, excepto quienes
+ingresan a preescolar 2 y 3.</h5>
+   
+            <h5>b) Cartilla de vacunación del o la menor.</h5>
  
-      <p> Tarjeta de identificación de la niña o niño. */+</p>
+            <h5>c) Análisis clínicos. Debido a la contingencia sanitaria
+deberán entregarse durante los primeros tres meses,
+a partir del primer día de servicio.</h5>
+        
+            <h5>d) Seis fotografías tamaño infantil recientes e iguales,
+del o la menor.</h5>
+   
+            <h5>e) Cuatro fotografías tamaño infantil, recientes e iguales
+del o la trabajador(a).</h5>
+            
+            <h5>f) Cuatro fotografías tamaño infantil, recientes e iguales,
+de dos personas mayores de edad autorizadas por el (la)
+solicitante del servicio para recoger a la o el menor.</h5>
+            
+            
 
-      <p>  Gafete de la niña o niño. +</p>
-      <p>  Credencial. +</p> 
-
-      <P>Documentos  para enviar electrónicamente *</P>
-      <P>Documentos para entrega física +</P>
-
+               </div>
+            </div>
+    </div>  
 
     </div>
-    <div style="background-color: #00b140;" class="modal-footer">
+    <div style="background-color: #fff;" class="modal-footer">
 
     </div>
   </div>
@@ -158,7 +249,7 @@
 
   <h1>Centros de Atención, Cuidado Infantil de la Secretaría de Administración y Finanzas del Gobierno de la Ciudad de
     México </h1>
-  <br><br>
+
   <div class="tab">
     <form id="regForm" action="{{route('guardar_reinscripcion_bd')}}" method="POST" enctype="multipart/form-data">
       @csrf
@@ -327,7 +418,14 @@ function showTab(n) {
 
 
     document.getElementById("nextBtn").innerHTML = "Enviar";
-   swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success");
+
+
+   swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success" , { buttons: ["Ver Aviso", true],  
+
+    
+
+ });
+
 
   } 
   else {
