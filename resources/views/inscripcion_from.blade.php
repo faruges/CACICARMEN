@@ -337,7 +337,8 @@ solicitante del servicio para recoger a la o el menor.</h5>
 </body>
 
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 
 <script>
@@ -357,16 +358,31 @@ function showTab(n) {
   else {
     document.getElementById("prevBtn").style.display = "inline";
 
-
-   swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success" ,
-    { buttons: ["Ver Aviso", true],  
+			Swal.fire({
+					  title: 'Protección  de Datos Personales',
+					  text: "Descarga nuestro aviso de Privacidad",
+					  icon: 'Info',
+					  showCancelButton: true,
+					  width: 400,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#00b347',
+					  confirmButtonText: 'Consulta',
+					  cancelButtonText: 'Ok'
+					}).then((result) => {
+					  if (result.value) {
+						  window.location = "{{asset('img/PDF/Aviso_Integral_CACI_SAF.pdf')}}";
+						
+					  }
+})
+   //swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success" ,
+    //{ buttons: ["Ver Aviso", true],  
 
 
  
- }).then(function() {
-    window.location = "{{asset('img/PDF/Aviso_Integral_CACI_SAF.pdf')}}";
+ //}).then(function() {
+    //window.location = "{{asset('img/PDF/Aviso_Integral_CACI_SAF.pdf')}}";
   
- });
+ //});
 
    
   }
