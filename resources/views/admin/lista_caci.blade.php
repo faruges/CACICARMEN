@@ -1,6 +1,13 @@
-@extends('inicio')
+@extends('admin.admin_inicio')
 @section('title','Bienvenidos Plataforma CACI')
 @section('mycontent')
+<style>
+    .enlace-listas {
+        font-size: 30px;
+        margin-left: 10px;
+        text-align: center;
+    }
+</style>
 <br>
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -24,9 +31,19 @@
 
 
 <div class="container">
-    <div class="card-body" style="margin-bottom: 22%">
-        <a class="float-right" style="font-size: 50px;" href="{{route('lista_reinscripcion')}}">Ver Lista Reinscripci&oacute;n</a>
-        <a style="font-size: 50px;" href="{{route('lista_inscripcion')}}">Ver Lista Inscripci&oacute;n</a>
+    <div class="card mt50">
+        <div class="card-header">
+            <h1><i class="fa fa-building"></i> Lista de Menores</h1>
+        </div>
+        <div class="card-body" style="margin-bottom: 22%">
+            <div class="row">
+                <a class="enlace-listas" href="{{route('lista_inscripcion')}}"> Ver Lista Inscripci&oacute;n</a>
+            </div>
+            <div class="row">
+                <a class="enlace-listas" href="{{route('lista_reinscripcion')}}"> Ver Lista
+                    Reinscripci&oacute;n</a>
+            </div>
+        </div>
     </div>
 </div>
 

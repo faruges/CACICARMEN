@@ -16,12 +16,12 @@ class EmailController extends Controller
     {
         //
     }
-    public function sendEmailRecibi($nombre_tutor, $ap_paterno, $email)
+    public function sendEmailRecibi()
     {
-        /* dd("aqui ando"); */
+        /* dd($request)->all(); */
 
         try {
-            $response = ["nombre" => $nombre_tutor . '' . $ap_paterno, "email" => "$email"];
+            $response = ["nombre" => $nombre_tutor . ' ' . $ap_paterno, "email" => $email];
             Mail::send('testmail', $response, function ($msj) use ($response) {
                 #el objeto Asunto
                 $msj->subject('Notificacion CACI');
@@ -36,7 +36,23 @@ class EmailController extends Controller
         $data = ['name'=> $nombre_completo]; */
         //Mail::to('r.afinho17roma@gmail.com')->send(new CaciMail($data)); */
         //Mail::to("'$email'")->send(new CaciMail($data));
-        return redirect('admin');
+        return redirect('admin/lista_reinscripcion');
+    }
+    public function sendEmailRecibiInscrip()
+    {
+        try {
+            $response = ["nombre" => $nombre_tutor . ' ' . $ap_paterno, "email" => $email];
+            Mail::send('testmail', $response, function ($msj) use ($response) {
+                #el objeto Asunto
+                $msj->subject('Notificacion CACI');
+                #El objeto a quien se lo envias
+                $msj->to($response['email']);
+
+            });
+        } catch (\Throwable $th) {
+            /* dd($th); */
+        }
+        return redirect('admin/lista_inscripcion');
     }
     public function sendEmailEspera($nombre_tutor, $ap_paterno, $email)
     {

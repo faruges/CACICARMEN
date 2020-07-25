@@ -1,6 +1,14 @@
-@extends('inicio')
+@extends('admin.admin_inicio')
 @section('title','Bienvenidos Plataforma CACI')
 @section('mycontent')
+<style>
+    .margin-card{
+        margin-bottom: 10%;
+    }
+    .btn-regresar{
+        margin: 40px 20px 40px 0px;
+    }
+</style>
 <br>
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -23,15 +31,12 @@
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
 <div class="container">
-    <div class="card mt50">
+    <div class="card mt50 margin-card">
         <div class="card-header">
-            <div class="float-right"><a href="http://localhost/CACICARMEN/public/seguridad/logout">
-                    <h3>Cerrar Sesi&oacute;n</h3>
-                </a></div>
-            <h1>Lista Inscripci&oacute;n</h1>
+            <h1><i class="fa fa-book"></i> Inscripci&oacute;n</h1>
         </div>
         <div class="card-body" style="overflow: auto">
-            <table class="table table-striped table-responsive-md">
+            <table class="table table-striped table-responsive-lg">
                 <thead>
                     <tr>
                         <th>Nombre Menor</th>
@@ -74,7 +79,7 @@
                         <td>{{$caci->caci}}</td>
                         <td>
                             <span class="float-right">
-                                <a class="btn btn-sm btn-outline-primary"
+                                <a class="btn btn-md btn-outline-primary"
                                     href="{{route('lista_documentos_inscr',$caci->id)}}"
                                     title="Ver lista de documentos"><i class="fa fa-eye"></i></a>
                             </span>
@@ -84,6 +89,12 @@
                 </tbody>
             </table>
         </div>
+        {{--  <div>
+            <span class="float-right btn-regresar">
+                <a class="btn btn-lg btn-primary" href="{{url('/admin')}}"
+                    title="Regresar"><i class="fa fa-backward"></i> Regresar</a>
+            </span>
+        </div>  --}}
     </div>
 </div>
 
