@@ -1,5 +1,8 @@
 @extends('menu')
 @section('title','Bienvenidos Plataforma CACI')
+@section('scripts')
+  <script src="{{URL::asset('js/consulta_webservice.js')}}" type="text/javascript"> </script> 
+@endsection 
 @section('mycontent')
 
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -233,16 +236,16 @@ solicitante del servicio para recoger a la o el menor.</h5>
       {{--  <h2>RFC</h2>
       <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="rfc_num"></p>  --}}
       <h3>Nombre del Padre/Madre o Tutor:</h3>
-      <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor_madres" value="{{$value['CH_nombres']}}"></p>
-      <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_tutor" value="{{$value['CH_paterno']}}"></p>
-      <p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellido_materno_tutor" value="{{$value['CH_materno']}}"></p>
-      <p><input placeholder="Domicilio" oninput="this.className = ''" name="domicilio_delegracion"></p>
-      <p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina_1" value="{{$value['TipoNomina']}}"></p>
-      <p><input placeholder="Número de empleado" oninput="this.className = ''" name="num_empleado_1" value="{{$value['NumEmpleado']}}"></p>
-      <p><input placeholder="Número de plaza" oninput="this.className = ''" name="num_plaza_1" value="{{$value['NUM_PLAZA']}}"></p>
-      <p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia_1" value="{{$value['Clave_Dependencia']}}"></p>
-      <p><input placeholder="Nivel salarial" oninput="this.className = ''" name="nivel_salarial_1" value="{{$value['NIVEL_SALARIAL']}}"></p>
-      <p><input placeholder="Sección sindical" oninput="this.className = ''" name="seccion_sindical_1" value="{{$value['SECCION_SINDICAL']}}"></p>
+      <p><input type="text"   placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor_madres" value="{{$value['CH_nombres']}}"></p>
+      <p><input type="text" placeholder="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_tutor" value="{{$value['CH_paterno']}}"></p>
+      <p><input type="text" placeholder="Apellido materno" oninput="this.className = ''" name="apellido_materno_tutor" value="{{$value['CH_materno']}}"></p>
+      <p><input type="text" placeholder="Domicilio" oninput="this.className = ''" name="domicilio_delegracion"></p>
+      <p><input type="number" placeholder="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina_1" value="{{$value['TipoNomina']}}"></p>
+      <p><input type="number" placeholder="Número de empleado" oninput="this.className = ''" name="num_empleado_1" value="{{$value['NumEmpleado']}}"></p>
+      <p><input type="number" placeholder="Número de plaza" oninput="this.className = ''" name="num_plaza_1" value="{{$value['NUM_PLAZA']}}"></p>
+      <p><input type="number" placeholder="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia_1" value="{{$value['Clave_Dependencia']}}"></p>
+      <p><input type="number" placeholder="Nivel salarial" oninput="this.className = ''" name="nivel_salarial_1" value="{{$value['NIVEL_SALARIAL']}}"></p>
+      <p><input type="number" step="0.01" min="0" max="10" placeholder="Sección sindical" oninput="this.className = ''" name="seccion_sindical_1" value="{{$value['SECCION_SINDICAL']}}"></p>
   </div>
 
   
@@ -250,19 +253,24 @@ solicitante del servicio para recoger a la o el menor.</h5>
     <br>
   <label for="birthday">Fecha de Nacimiento del menor:</label>
   <input type="date" id="birthday" name="birthday">
-  <p><input placeholder="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''" name="Edad_menor"></p>
+  <p><input type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''" name="Edad_menor"></p>
   </div>
 
-
-
+  <div class="tab">
+    <br>
+    <label for="curp">CURP:</label>
+    <p><input id="curp" type="text" placeholder="CURP" oninput="this.className = ''" name="curp"></p>
+    <button id="valida_curp" type="button" onclick="validaCurp()" pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]">Validar CURP</button> 
+  </div>
 
 <div class="tab">
     <h4>Datos del Menor</h4>
     <h3>Inscripción</h3>
-    <p><input placeholder="Nombre(s) del menor" oninput="this.className = ''" name="nombre_menor_1"></p>
-    <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_1"></p>
-    <p><input placeholder="Apellido materno" oninput="this.className = ''" name="apellido_materno_1"></p>
-    <p><input placeholder="CURP" oninput="this.className = ''" name="curp_num"></p>
+    <p><input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor" oninput="this.className = ''" name="nombre_menor_1"></p>
+    <p><input type="text" id="apellido_paterno_1" placeholder="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_1"></p>
+    <p><input type="text" id="apellido_materno_1" placeholder="Apellido materno" oninput="this.className = ''" name="apellido_materno_1"></p>
+    <p><input type="text" id="curp_num" pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]" 
+      placeholder="CURP" oninput="this.className = ''" name="curp_num"></p>
 
 
     <label for="cars">Directorio de los CACI SAF:</label>

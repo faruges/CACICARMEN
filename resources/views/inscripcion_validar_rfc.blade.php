@@ -101,15 +101,12 @@
   }
 </style>
 
-
-
 <form id="regForm" action="{{route('guardar_inscripcion')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <h4>Datos del trabajador</h4>
     <h2>RFC</h2>
-    <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="RFC"></p>
-    <h2>Token</h2>
-    <p><input id="tokenId" placeholder="Token" oninput="this.className = ''" name="tokenId"></p>
+    <p><input type="text" id="rfc" placeholder="RFC" oninput="this.className = ''" name="RFC" pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$" required></p>
+    <p><input id="tokenId" placeholder="Token" oninput="this.className = ''" name="tokenId" value="SistemaDeRpueba4as4x4vdlsad" hidden></p>
     <button type="submit">Validar RFC</button>
 </form>    
 

@@ -16,7 +16,7 @@ class EmailController extends Controller
     {
         //
     }
-    public function sendEmailRecibi()
+    public function sendEmailRecibi($nombre_tutor,$ap_paterno,$email)
     {
         /* dd($request)->all(); */
 
@@ -38,7 +38,7 @@ class EmailController extends Controller
         //Mail::to("'$email'")->send(new CaciMail($data));
         return redirect('admin/lista_reinscripcion');
     }
-    public function sendEmailRecibiInscrip()
+    public function sendEmailRecibiInscrip($nombre_tutor,$ap_paterno,$email)
     {
         try {
             $response = ["nombre" => $nombre_tutor . ' ' . $ap_paterno, "email" => $email];

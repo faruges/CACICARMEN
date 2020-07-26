@@ -6,6 +6,8 @@
   <meta charset="utf-8">
 	
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +19,11 @@
 
   <link href="{{ asset('css/nav.css')}}" rel="stylesheet"/>
   <link href="{{ asset('css/footer.css')}}" rel="stylesheet"/>
+  <script type="text/javascript">
+    // var global URL
+    var url = '{!! URL::asset('') !!}';
+</script>
+  @yield('scripts')
   
 </head>
 <style>
