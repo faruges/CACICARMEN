@@ -64,39 +64,32 @@ tr:nth-child(even) {
 }
 
 .accordion-item {
-    background-color: #C2C2C2;
+    background-color: #fefefe;
     margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 9px;
 }
 
 .accordion-item .accordion-title {
     cursor: pointer;
-    padding: 20px;
+    padding: 10px;
     transition: all 0.4s;
     border-radius: 5px 5px 0 0;
 }
 
 .accordion-item .accordion-title.active-title {
-    background-color: #C2C2C2;
-    color: #FFF;
+    background-color: #f2f2f2;
+    color: #00b140;
 }
 
 .accordion-item .accordion-title h2 {
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-.accordion-item .accordion-title i.fa-chevron-down {
-    transform: rotate(0);
-    transition: 0.4s;
-}
 
-.accordion-item .accordion-title i.fa-chevron-down.chevron-top {
-    transform: rotate(-180deg);
-}
 
 .accordion-item .accordion-content {
     display: none;
@@ -109,13 +102,6 @@ tr:nth-child(even) {
 .accordion-item .accordion-content.active {
     display: block;
 }
-
-.accordion-item .accordion-content p {
-    margin: 0;
-}
-
-
-
 
 
 
@@ -131,16 +117,10 @@ tr:nth-child(even) {
 
 
 
-
-
-
-
-
-
 <div class="accordions">
   <div class="accordion-item">
     <div class="accordion-title" data-tab="item1">
-      
+       
       <h2 style="text-align: center;">Luz María Gómez Pezuela</h2>
   
     </div>
@@ -152,9 +132,16 @@ tr:nth-child(even) {
       <p>Tel: 55-88-33-20</p>  
       <p>Tel. 51-34-25-50</p>      
     </div>
-     <a style="color: #00b140;" href="centros">
-   <i style="text-align: right;" class="fa fa-sign-out"></i>
-</a>
+
+
+
+  <div style="background-color: #f2f2f2;" class="accordion-title">
+    <a style="text-align: right; color:#00b140;" href="centros">
+    <h2 class="fa fa-sign-out"> Ver información </h2></a>
+  </div>
+
+
+
   </div>
 
   <div class="accordion-item">
@@ -168,9 +155,15 @@ tr:nth-child(even) {
         <p>Tel: 55-78-76-76</p>
 
     </div>
-         <a style="color: #00b140;" href="Eva_Moreno">
-   <i style="text-align: right;" class="fa fa-sign-out"></i>
-</a>
+
+
+  <div style="background-color: #f2f2f2;" class="accordion-title">
+    <a style="text-align: right; color:#00b140;" href="Eva_Moreno">
+    <h2 class="fa fa-sign-out"> Ver información </h2></a>
+  </div>
+
+
+
   </div>
 
   <div class="accordion-item">
@@ -184,9 +177,16 @@ tr:nth-child(even) {
          <p>Tel. 55-92-70-98</p>
          <p>Tel. 55-66-19-29</p>
     </div>
-         <a style="color: #00b140;" href="Bertha_von">
-   <i style="text-align: right;" class="fa fa-sign-out"></i>
-</a>
+
+
+  <div style="background-color: #f2f2f2;" class="accordion-title">
+    <a style="text-align: right; color:#00b140;" href="Bertha_von">
+    <h2 class="fa fa-sign-out"> Ver información </h2></a>
+  </div>
+
+
+
+
   </div>
 
   <div class="accordion-item">
@@ -200,9 +200,14 @@ tr:nth-child(even) {
           <p>Tel. 57-64-40-36</p>
           <p>Tel. 55-52-03-63</p>
     </div>
-         <a style="color: #00b140;" href="Carolina_Agazzi">
-   <i style="text-align: right;" class="fa fa-sign-out"></i>
-</a>
+
+
+  <div style="background-color: #f2f2f2;" class="accordion-title">
+    <a style="text-align: right; color:#00b140;" href="Carolina_Agazzi">
+    <h2 class="fa fa-sign-out"> Ver información </h2></a>
+  </div>
+
+
   </div>
 
   <div class="accordion-item">
@@ -215,18 +220,17 @@ tr:nth-child(even) {
           <p>Del. Iztacalco</p>
           <p>Tel. 56-57-26-89</p>
     </div>
-         <a style="color: #00b140;" href="Carmen_Serdan">
-   <i style="text-align: right;" class="fa fa-sign-out"></i>
-</a>
+
+  <div style="background-color: #f2f2f2;" class="accordion-title">
+    <a style="text-align: right; color:#00b140;" href="Carmen_Serdan">
+    <h2 class="fa fa-sign-out"> Ver información </h2></a>
+  </div>
+
+ 
+
   </div>
 
 </div>
-
-
-
-
-
-
 
 
 

@@ -9,12 +9,6 @@
   <h2>Basic Modal Example</h2>
   <!-- Trigger the modal with a button -->
 
-
-
-
-
-
-
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     

@@ -128,7 +128,7 @@
                 <a class="lightbox" href="{{asset('img/22.png')}}">
                     <img src="{{asset('img/22.png')}}" alt="Park">
                 </a>
-   <h2>salón de juegos</h2>
+   <h2>Salón de juegos</h2>
       </div>
 
             </div>
@@ -142,7 +142,7 @@
                     <img src="{{asset('img/3.png')}}" alt="Tunnel">
                 </a>
 
-                 <h2>Feachada</h2>
+                 <h2>Fachada</h2>
       </div>
             </div>
             <div class="col-sm-10 col-md-6">

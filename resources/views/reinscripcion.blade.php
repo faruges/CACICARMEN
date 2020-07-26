@@ -19,15 +19,15 @@
   }
 
   input {
-    padding: 10px;
+    padding: 0px;
     width: 100%;
-    font-size: 20px;
+    font-size: 13px;
     font-family: Arial, Helvetica, sans-serif;
     border: 1px solid #00b140;
   }
 
   input.invalid {
-    background-color: #ffdddd;
+    background-color:#ffe6e6;
   }
 
   .tab {
@@ -50,6 +50,7 @@
 
   button:hover {
     opacity: 0.8;
+
   }
 
   #prevBtn {
@@ -74,301 +75,259 @@
   .step.finish {
     background-color: #00b140;
   }
-</style>
-<style>
-  a {
-    text-decoration: none;
-  }
 
-  .alert {
-    background: #eee;
-    padding: 40px;
-    position: relative;
-    font-weight: 600;
-  }
 
-  .close_btn {
-    color: #000;
-    padding: 15px 0px 5px 10px;
-    display: block;
-    position: absolute;
-    top: 40px;
-    right: 40px;
-  }
 
-  .content {
-    padding: 40px;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  line-height: 1.7em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.alert {
+  background: #eee;
+  padding: 40px;  
+  position: relative;
+  font-weight: 600;
+}
+
+.close_btn {
+  color: #000;
+  padding: 15px 0px 5px 10px;
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 40px;  
+}
+
+.content {
+  padding: 40px;
+}
+
+  
 </style>
 
 
 
 <div class="alert">
-
-
-         <h1 style="color:  #054a41; text-align: center;"  class="modal-title">Calendario de reinscripción</h1>
-
-
-   <a href="#" class="close_btn"><i class="fa fa-2x fa-times"></i></a>
+<h1 style="color:  #054a41; text-align: center;"  class="modal-title">Calendario de reinscripción</h1>
+<a href="#" class="close_btn"><i class="fa fa-2x fa-times"></i></a>
 <div class="modal-content">
   <div class="modal-body">
-
- <div class="modal-body">
-
-  <div style="background-color: #054a41;" class="col-lg-12" >
-
-           <div class="row">
-
-        ¿
-
-         <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;"><br>
-       
-          
-              <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lunes</h4>
-                <h4 style="color: #FFF; text-align: center;" id="letra_banner">Martes</h4>
-                  <h4 style="color: #FFF; text-align: center;"  id="letra_banner">Miércoles</h4>
-                     <h4 style="color: #FFF; text-align: center;"  id="letra_banner">Jueves</h4>
-                    <h4 style="color: #FFF; text-align: center;"  id="letra_banner">Viernes</h4>
-                      <h4  style="color: #FFF; text-align: center;" id="letra_banner">Lunes</h4>
-                        <h4 style="color: #FFF; text-align: center;" align=" " id="letra_banner">Martes</h4>
-           
-         </div>
-
-
-           <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;"><br>
-       
-        
-              <h4 style="color: #FFF; text-align: center;" id="letra_banner">3/08/2020</h4>
-                <h4 style="color: #FFF; text-align: center;" id="letra_banner">4/08/2020</h4>
-                  <h4 style="color: #FFF; text-align: center;"  id="letra_banner">5/08/2020</h4>
-                    <h4 style="color: #FFF; text-align: center;"  id="letra_banner">6/08/2020</h4>
-                      <h4  style="color: #FFF; text-align: center;" id="letra_banner">7/08/2020</h4>
-                          <h4 style="color: #FFF; text-align: center;" id="letra_banner">10/08/2020</h4>
-                        <h4 style="color: #FFF; text-align: center;" align=" " id="letra_banner">11/08/2020</h4>
-         </div>
-
-
-
-           <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
-       
-      <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lactantes 1</h4>
-                <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lactantes 2</h4>
-                  <h4 style="color: #FFF; text-align: center;"  id="letra_banner">Lactantes 3</h4>
-                    <h4 style="color: #FFF; text-align: center;"  id="letra_banner">Maternal 1</h4>
-                      <h4  style="color: #FFF; text-align: center;" id="letra_banner">Maternal 2</h4>
-                          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Preescolar 1</h4>
-                        <h4 style="color: #FFF; text-align: center;" align=" " id="letra_banner">Preescolar 2</h4>
-           
-         </div>
-
-         
-
-           
-
-            </div>
+   <div class="modal-body">
+    <div style="background-color: #054a41;" class="col-lg-12" >
+      <div class="row">
+        <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;"><br>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lunes</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Martes</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Miércoles</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Jueves</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Viernes</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lunes</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Martes</h4>
         </div>
 
+      <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;"><br>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">3/08/2020</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">4/08/2020</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">5/08/2020</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">6/08/2020</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">7/08/2020</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">10/08/2020</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">11/08/2020</h4>
+      </div>
+
+      <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;"><br>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lactantes 1</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lactantes 2</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lactantes 3</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Maternal 1</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Maternal 2</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Preescolar 1</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">Preescolar 2</h4>
+      </div>
+    </div>
+  </div>
 </div>
-
-
       <div class="col-lg-12" style="margin-top: 2%;">
-
             <div class="row">
                 <div class="col-sm-6">
-                    <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2>
-               <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
-                   
-            </i>1. Llenar el formulario en el siguiente enlace:</li>
-           <br><br>
-            </i>2. Cargar la siguiente documentación en versión digital (PDF):</li>
-           
-    
-            <br>
-            <h5>a) Acta de nacimiento original por ambos lados, del o la menor.</h5>
-        
-            <h5>b) Certicado de nacimiento del o la menor.</h5>
-        
-            <h5>c) Cartilla de vacunación al corriente.</h5>
-  
-            <h5>d) Clave Única de Registro de Población, (CURP) del o la menor.</h5>
-      
-            <h5>e) Si el menor presenta algún tipo de discapacidad o
-enfermedad crónica, adjuntar documentación clínica y
-diagnóstico de la condición y del tratamiento que recibe.</h5>
-        
-            <h5>f) En caso de que el o la trabajador(a) sea la persona tutora,
-deberá adjuntar el documento legal que dictamine la patria
-potestad o guarda y custodia.</h5>
-          
-                </div>
-
-
-
-                   <div class="col-sm-6">
-                    <br>
-             
-                    <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
-                      <br>
-            
-              </i>3. Entregar en original la siguiente documentación:</li>
-  
-            <h5>a) Acta de nacimiento del o la menor, excepto quienes
-ingresan a preescolar 2 y 3.</h5>
-   
-            <h5>b) Cartilla de vacunación del o la menor.</h5>
- 
-            <h5>c) Análisis clínicos. Debido a la contingencia sanitaria
-deberán entregarse durante los primeros tres meses,
-a partir del primer día de servicio.</h5>
-        
-            <h5>d) Seis fotografías tamaño infantil recientes e iguales,
-del o la menor.</h5>
-   
-            <h5>e) Cuatro fotografías tamaño infantil, recientes e iguales
-del o la trabajador(a).</h5>
-            
-            <h5>f) Cuatro fotografías tamaño infantil, recientes e iguales,
-de dos personas mayores de edad autorizadas por el (la)
-solicitante del servicio para recoger a la o el menor.</h5>
-            
-            
-
+                <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2>
+                <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
+                </i>1. Llenar el formulario en el siguiente enlace:</li><br><br>
+                </i>2. Cargar la siguiente documentación en versión digital (PDF):</li><br>
+                <h5>a) Acta de nacimiento original por ambos lados, del o la menor.</h5>
+                <h5>b) Certicado de nacimiento del o la menor.</h5>
+                <h5>c) Cartilla de vacunación al corriente.</h5>
+                <h5>d) Clave Única de Registro de Población, (CURP) del o la menor.</h5>
+                <h5>e) Si el menor presenta algún tipo de discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y del tratamiento que recibe.</h5>
+                <h5>f) En caso de que el o la trabajador(a) sea la persona tutora, deberá adjuntar el documento legal que dictamine la patria potestad o guarda y custodia.</h5>
+            </div>
+            <div class="col-sm-6"><br>
+                <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;"><br><br>
+                </i>3. Entregar en original la siguiente documentación:</li><br><br>
+                <h5>a) Acta de nacimiento del o la menor, excepto quienes ingresan a preescolar 2 y 3.</h5>
+                <h5>b) Cartilla de vacunación del o la menor.</h5>
+                <h5>c) Análisis clínicos. Debido a la contingencia sanitaria deberán entregarse durante los primeros tres meses, a partir del primer día de servicio.</h5>
+                <h5>d) Seis fotografías tamaño infantil recientes e iguales, del o la menor.</h5>
+                <h5>e) Cuatro fotografías tamaño infantil, recientes e iguales del o la trabajador(a).</h5>
+                <h5>f) Cuatro fotografías tamaño infantil, recientes e iguales, de dos personas mayores de edad autorizadas por el (la) solicitante del servicio para recoger a la o el menor.</h5>
                </div>
             </div>
-    </div>  
-
+        </div>  
     </div>
-    <div style="background-color: #fff;" class="modal-footer">
-
+    <div style="background-color: #FFF;" class="modal-footer">
     </div>
   </div>
 </div>
 
 <body>
-
-
-  <h1>Centros de Atención, Cuidado Infantil de la Secretaría de Administración y Finanzas del Gobierno de la Ciudad de
-    México </h1>
-
-  <div class="tab">
+ 
     <form id="regForm" action="{{route('guardar_reinscripcion_bd')}}" method="POST" enctype="multipart/form-data">
+
+       <h1 style="color: #054a41;">Centros de Atención y Cuidado Infantil</h1>
+         <div class="tab">
       @csrf
       @foreach ($data as $item=>$value)
-          
-          <h4>Datos del trabajador</h4>
+         
           {{--  <h2>RFC</h2>
           <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="rfc"></p>  --}}
-          <h3>Nombre del Padre/Madre o Tutor:</h3>
+         
+
+
+
+ <div class="col-lg-12">
+
+    <div class="row">
+      
+
+
+    <div class="col-sm-6">
+      <br><br>
+    <label style="color: #054a41;">Datos del trabajador</label>
+       <br><br>    <br>
+
+          <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
+   
           <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor" value="{{$value['CH_nombres']}}"></p>
           <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="ap_paterno_t" value="{{$value['CH_paterno']}}"></p>
           <p><input placeholder="Apellido materno" oninput="this.className = ''" name="ap_materno_t" value="{{$value['CH_materno']}}"></p>
-          <p><input placeholder="Domicilio" oninput="this.className = ''" name="domicilio"></p>
+          <p><input placeholder="Domicilio particular" oninput="this.className = ''" name="domicilio"></p>
           <p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina" value="{{$value['TipoNomina']}}"></p>
           <p><input placeholder="Número de empleado" oninput="this.className = ''" name="num_empleado" value="{{$value['NumEmpleado']}}"></p>
           <p><input placeholder="Número de plaza" oninput="this.className = ''" name="num_plaza" value="{{$value['NUM_PLAZA']}}"></p>
           <p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia" value="{{$value['Clave_Dependencia']}}"></p>
           <p><input placeholder="Nivel salarial" oninput="this.className = ''" name="nivel_salarial" value="{{$value['NIVEL_SALARIAL']}}"></p>
           <p><input placeholder="Sección sindical" oninput="this.className = ''" name="seccion_sindical" value="{{$value['SECCION_SINDICAL']}}"></p>
-          <label for="appt">
-            <p>Horario laboral</p>
-          </label>
+          
+
+
+    </div>
+
+
+
+    <div class="col-sm-6"><br>
+    <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;"><br>
+ <br><br><br>
+
+          <label for="appt"><p>Horario laboral</p></label>
           <input type="time" id="appt" name="horario_laboral_ent">
           <input type="time" id="appt" name="horario_laboral_sal">
-      
-          <h1>Datos de contacto:</h1>
+          <br><br>
+          <label for="appt"><p>Datos de contacto:</p></label>
+         
+          <p><input placeholder="E-mail" oninput="this.className = ''" name="email" value="{{$value['CH_mail']}}"></p>
+          <p><input placeholder="Teléfono o celular" oninput="this.className = ''" name="telefono_uno"></p>
+          <p><input placeholder="Teléfono 2" oninput="this.className = ''" name="telefono_dos"></p>
+          <br><br>
 
-      <p><input placeholder="E-mail" oninput="this.className = ''" name="email" value="{{$value['CH_mail']}}"></p>
-      <p><input placeholder="Teléfono o celular" oninput="this.className = ''" name="telefono_uno"></p>
-      <p><input placeholder="Teléfono 2" oninput="this.className = ''" name="telefono_dos"></p>
-      <br><br>
-  </div>
+    </div>
+</div>
+</div>
+<p style="color: #f5f5f0;">.</p>
+</div>
+
 
 
 
   <div class="tab">
-    <h4>Datos del Menor</h4>
-    <h3>Reinscripción</h3>
+     
+  
+ <div class="col-lg-12">
+        <div class="row">
+ 
+
+    <div class="col-sm-6">
+    <br><br>
+
+        <label style="color:#054a41;" >Datos del Menor</label>
+        <br><br>
+       
+    <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 5500;">
+      
+    <p><input placeholder="CURP" oninput="this.className = ''" name="curp_caci"></p>
     <p><input placeholder="Matricula" oninput="this.className = ''" name="matricula"></p>
     <p><input placeholder="Nombre(s) del menor" oninput="this.className = ''" name="nombre_menor"></p>
     <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="ap_paterno"></p>
     <p><input placeholder="Apellido materno" oninput="this.className = ''" name="ap_materno"></p>
-
     <label for="birthday">Fecha de Nacimiento del menor:</label>
     <input type="date" id="birthday" name="fecha_nacimiento">
-    <p><input placeholder="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''"
-        name="edad_menor_ingreso"></p>
-    <p><input placeholder="CURP" oninput="this.className = ''" name="curp"></p>
-
-
-    <label for="cars">Directorio de los CACI SAF:</label>
-    <select name="caci" id="cars">
-      <option value="Luz Maria Gomez Pezuela">Luz Maria Gomez Pezuela</option>
-      <option value="Mtra Eva Moreno Sanchez">Mtra Eva Moreno Sanchez</option>
-      <option value="Bertha Von Glumer Leyva">Bertha Von Glumer Leyva</option>
-      <option value="Garolina Agazzi">Garolina Agazzi</option>
-      <option value="Carmen S">Carmen S</option>
-    </select>
-    <br>
-
-    <p><input placeholder="CURP" oninput="this.className = ''" name="curp_caci"></p>
-
-    <h4 style="color: #00b140;">Acta de nacimiento </h4>
+    <p><input placeholder="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''"name="edad_menor_ingreso"></p>
+  <h4 for="cars">Directorio de los CACI SAF:</h4>
+  <select style="font-size: 15px;" name="caci" id="cars">
+    <option value="Luz Maria Gomez Pezuela">Luz María Gómez Pezuela</option>
+    <option value="Mtra Eva Moreno Sanchez">Mtra. Eva Moreno Sánchez</option>
+    <option value="Bertha Von Glumer Leyva">Bertha von Glumer Leyva</option>
+    <option value="Garolina Agazzi">Carolina Agazzi</option>
+    <option value="Carmen S">Carmen Serdán</option>
+  </select>
+    <br><br>
+    <h5 style="color: #00;">Acta de nacimiento.</h5>
     <input type="file" id="myFile" name="filename_act">
-    <h4 style="color: #00b140;">Solicitud de ingreso perfectamente llenada y firmada.</h4>
+    <h5 style="color: #000;">Solicitud de ingreso perfectamente llenada y firmada.</h5>
     <input type="file" id="myFile" name="filename_sol">
-    <h4 style="color: #00b140;">Cartilla de vacunacion al corriente (original y copia)</h4>
+    <h5 style="color: #000;">Cartilla de vacunacion al corriente (original y copia).</h5>
     <input type="file" id="myFile" name="filename_vacu">
-    <h4 style="color: #00b140;">Certificado de nacimiento</h4>
+    <h5 style="color: #000;">Certificado de nacimiento.</h5>
     <input type="file" id="myFile" name="filename_nac">
-
-    <h4 style="color: #00b140;">Cartilla de vacunacion al corriente (original y copia)</h4>
-    <input type="file" id="myFile" name="filename_vacu_2">
+    </div>
 
 
-    <h4 style="color: #00b140;">Copia fotostática del certificado de nacimiento o de la hoja de registro de recién
-      nacido, o Documento que contengan datos de nacimiento del(a) menor tales como peso, talla, APGAR, etc. </h4>
+
+    <div class="col-sm-6">
+    <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;"><br><br><br><br>
+
+    <h5 style="color: #000;">Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o Documento que contengan datos de nacimiento del(a) menor tales como peso, talla, APGAR, etc.</h5>
     <input type="file" id="myFile" name="filename_cert">
-    <h4 style="color: #00b140;">Último recibo de pago impreso del(a) trabajador (a)</h4>
+    <h5 style="color: #000;">Último recibo de pago impreso del(a) trabajador (a).</h5>
     <input type="file" id="myFile" name="filename_rec">
-    <h4 style="color: #00b140;">En caso que la o el menor tenga alguna discapacidad o enfermedad crónica, presentar
-      copias de los documentos médicos del tratamiento y/o seguimiento para proporcionarle la atención adecuada.</h4>
+    <h5 style="color: #000;">En caso que la o el menor tenga alguna discapacidad o enfermedad crónica, presentar copias de los documentos médicos del tratamiento y/o seguimiento para proporcionarle la atención adecuada.</h5>
     <input type="file" id="myFile" name="filename_disc">
-    <h4 style="color: #00b140;">En caso de que el trabajador(a) sea el tutor del menor, deberá presentar el documento
-      legal que dictamine la patria potestad o guarda y custodia del mismo.</h4>
+    <h5 style="color: #000;">En caso de que el trabajador(a) sea el tutor del menor, deberá presentar el documento
+      legal que dictamine la patria potestad o guarda y custodia del mismo.</h5>
     <input type="file" id="myFile" name="filename_trab">
-
-
-    <h4 style="color: #00b140;">Carta compromiso.</h4>
+    <h5 style="color: #000;">Carta compromiso.</h5>
     <input type="file" id="myFile" name="filename_com">
-    <h4 style="color: #00b140;">Copia del último recibo de pago de la persona trabajadora o usuaria.</h4>
+    <h5 style="color: #000;">Copia del último recibo de pago de la persona trabajadora o usuaria.</h5>
     <input type="file" id="myFile" name="filename_recp">
     @endforeach
-    <br>
-  </div>
-  {{--  <!--
-  <div class="tab">
-	<h4>Datos del trabajador</h4>
-	<h3>Nombre del Padre/Madre o Tutor:</h3>
-  <p><input placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''" name="nombre_tutor" ></p>
-  <p><input placeholder="Apellido paterno" oninput="this.className = ''" name="ap_paterno_t"></p>
-	<p><input placeholder="Apellido materno" oninput="this.className = ''" name="ap_materno_t"></p>
-  <p><input placeholder="Domicilio" oninput="this.className = ''" name="domicilio"></p>
-	<p><input placeholder="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina"></p>
-	<p><input placeholder="Número de empleado" oninput="this.className = ''" name="num_empleado"></p>
-	<p><input placeholder="Número de plaza" oninput="this.className = ''" name="num_plaza"></p>
-	<p><input placeholder="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia"></p>
-	<p><input placeholder="Nivel salarial" oninput="this.className = ''" name="nivel_salarial"></p>
-	<p><input placeholder="Sección sindical" oninput="this.className = ''" name="seccion_sindical"></p>
-	<label for="appt"> <p>Horario laboral</p></label>
-  <input type="time" id="appt" name="horario_laboral_ent">
-  <input type="time" id="appt" name="horario_laboral_sal">
- <h1>Datos de contacto:</h1>
+    
 
-    <p><input placeholder="E-mail" oninput="this.className = ''" name="email"></p>
-    <p><input placeholder="Teléfono o celular" oninput="this.className = ''" name="telefono_uno"></p>
-	<p><input placeholder="Teléfono 2" oninput="this.className = ''" name="telefono_dos"></p>
-  <br><br>
-  </div>-->  --}}
+
+    </div>
+
+    </div>
+ </div>
+    <p style="color: #f5f5f0;">.</p>
+  </div>
+
+
 
   <div style="overflow:auto;">
     <div style="float:right;">
@@ -394,9 +353,10 @@ solicitante del servicio para recoger a la o el menor.</h5>
 
 
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="sweetalert2.all.min.js"></script>
 
 <script>
   var currentTab = 0; // Current tab is set to be the first tab (0)
@@ -412,6 +372,18 @@ function showTab(n) {
       
   } else {
     document.getElementById("prevBtn").style.display = "inline";
+Swal.fire({
+  title: '<strong>Bienvenido</u></strong>',
+  icon: 'success',
+  html:
+    '<b>Estos datos son privados solo el padre o tutor son responsable de dichos datos establecidos.</b> ' +
+    '<a target="_blank" href="{{asset('img/PDF/Aviso_Integral_CACI_SAF.pdf')}}"><h3 style="color: #00b140;">Ver aviso</h3></a> ',
+  showCloseButton: true,
+//  showCancelButton: true,
+})
+
+
+
       
   }
   if (n == (x.length - 1)) {
@@ -420,11 +392,8 @@ function showTab(n) {
     document.getElementById("nextBtn").innerHTML = "Enviar";
 
 
-   swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success" , { buttons: ["Ver Aviso", true],  
-
-    
-
- });
+  // swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success" , { buttons: ["Ver Aviso", true],  
+ //});
 
 
   } 
@@ -457,7 +426,15 @@ function nextPrev(n) {
     // ... the form gets submitted:
     document.getElementById("regForm").submit();
 
-      swal("Exito", "Tus datos han sido enviados con exito", "success");
+      Swal.fire({
+  title: '<strong>Bienvenido</u></strong>',
+  icon: 'success',
+  html:
+    '<b>La información a sido registrada en el sistema.</b> ' +
+    '<a target="_blank" href="{{asset('img/PDF/Aviso_Integral_CACI_SAF.pdf')}}"><h3 style="color: #00b140;">Ver aviso</h3></a> ',
+  showCloseButton: true,
+//  showCancelButton: true,
+})
 
     return false;
 
@@ -524,17 +501,5 @@ function fixStepIndicator(n) {
     });
   });
 </script>  --}}
-
-
-
-
-
-
-
-
-
-
-
-
 
 @endsection

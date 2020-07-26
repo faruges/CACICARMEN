@@ -105,10 +105,12 @@
 
 <form id="regForm" action="{{route('guardar_reinscripcion')}}" method="POST" enctype="multipart/form-data">
     @csrf
-    <h4>Datos del trabajador</h4>
-    <h2>RFC</h2>
+
+     <label style="color:#054a41; font-size: 40px; text-align: center; " >Para iniciar el proceso, proporciona el siguiente dato.</label>
+  
+     <label style="color:#000; font-size: 25px; text-align: left; " >RFC</label>
     <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="RFC"></p>
-    <h2>Token</h2>
+    <label style="color:#000; font-size: 25px; text-align: left; " >Token</label>
     <p><input id="tokenId" placeholder="Token" oninput="this.className = ''" name="tokenId"></p>
     <button type="submit">Validar RFC</button>
 </form>    
