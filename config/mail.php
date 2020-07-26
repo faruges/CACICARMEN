@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', '10.1.195.85'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', 25),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,10 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'caciadministracion@finanzas.cdmx.gob.mx'),
+        'name' => env('MAIL_FROM_NAME', 'Secretaria de Finanzas de la Ciudad de México'),
+        /* 'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_FROM_NAME', 'Example'), */
     ],
 
     /*
@@ -71,7 +73,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +86,13 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('caciadministracion@finanzas.cdmx.gob.mx'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('Pr13G5d8'),
+
+    /* 'username' => env('MAIL_USERNAME'),
+
+    'password' => env('MAIL_PASSWORD'), */
 
     /*
     |--------------------------------------------------------------------------
