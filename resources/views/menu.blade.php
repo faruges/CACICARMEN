@@ -89,7 +89,7 @@ div.c {
  <a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información destacada</a>
   <!--<a href="aviso_privacidar">Avisos de Privacidar </a>-->
 
-  <a href="#"> Trámites </a>
+  <a href="tramiles_CACI"> Trámites </a>
   <a style="margin-right:  -800px;" href="login"> Iniciar sesión</a>   
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 
@@ -108,15 +108,17 @@ div.c {
           <div class="col-md-8 col-sm-6 col-xs-12">
 			  <div>
      			 <p>
-            <a style="color:#00b140;" href="http://caci.ochentayocho.net/" title="INICIO">INICIO</a>|
-     				|<a style="color:#00b140;" href="http://caci.ochentayocho.net/nosotros/" title="NOSOTROS">NOSOTROS</a>|
-     				|<a style="color:#00b140;" href="http://caci.ochentayocho.net/nuestros_caci/" title="NUESTROS CACI">NUESTROS CACI</a>|
-     				|<a style="color:#00b140;" href="http://caci.ochentayocho.net/requisitos/" title="REQUISITOS">REQUISITOS</a>|
-     				|<a style="color:#00b140;" href="http://caci.ochentayocho.net/tramites/" title="TRAMITES">TRAMITES</a>|
-     				|<a style="color:#00b140;" href="http://caci.ochentayocho.net/proteccion_civil/" title="PROTECCIÓN CIVIL">PROTECCIÓN</a>|
-            <a style="color:#00b140;" href="http://caci.ochentayocho.net/contactenos/" title="CONTACTENOS">CONTACTENOS</a>|
+            <a style="color:#00b140;" href="#" title="INICIO">INICIO</a>|
+     				<!-- |<a style="color:#00b140;" href="#" title="NOSOTROS">NOSOTROS</a>| -->
+     				|<a style="color:#00b140;" href="centros" title="CENTROS">CENTROS</a>|
+     				|<a style="color:#00b140;" href="inscripcion_from" title="INSCRIPCIÓN">INSCRIPCIÓN</a>|
+					|<a style="color:#00b140;" href="reinscripcion" title="REINSCRIPCIÓN">REINSCRIPCIÓN</a>|
+					|<a style="color:#00b140;" href="#" title="INFORMACIÓN DESTACADA">INFORMACIÓN DESTACADA</a>|
+     				|<a style="color:#00b140;" href="tramiles_CACI" title="TRAMITES">TRAMITES</a>|
+     				<!-- |<a style="color:#00b140;" href="#" title="PROTECCIÓN CIVIL">PROTECCIÓN</a>|
+					<a style="color:#00b140;" href="#" title="CONTACTENOS">CONTACTENOS</a>| -->
      			</p>
-            <p>©Copyright Plataforma CACI, Todos los derechos reservados 2020 Gobierno CDMX / Teléfonos 5555555555 / ext: 123 - Email: <a href="mailto:caci@finanzas.cdmx.gob.com">caci@finanzas.cdmx.gob.com</a></p>
+            <p>©Copyright Plataforma CACI, Todos los derechos reservados 2020 Gobierno CDMX / Teléfonos 5555555555 / ext: 123 - Email: <a href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a></p>
      		</div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12">
