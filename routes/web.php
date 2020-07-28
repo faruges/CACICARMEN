@@ -54,7 +54,7 @@ Route::get('/centros', function () {
     return view('centros');
 });
 
-Route::get('/inscripcion_from', function () {
+Route::get('/inscripcion_front', function () {
     return view('inscripcion_from');
 });
 
@@ -120,8 +120,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth',
     Route::get('/lista_inscripcion','AdminController@showListInscri')->name('lista_inscripcion');
     Route::get('/lista_reinscripcion','AdminController@showListReinscri')->name('lista_reinscripcion');
     Route::get('/lista_documentos/{id}', 'DocumentosController@show')->name('lista_documentos');
-    Route::get('/email_info_recibida/{nombre_tutor}/{ap_paterno}/{email}', 'EmailController@sendEmailRecibi')->name('email_info_recibida');
-    Route::get('/email_info_recibida_inscr/{nombre_tutor}/{ap_paterno}/{email}', 'EmailController@sendEmailRecibiInscrip')->name('email_info_recibida_inscr');
+    Route::post('/email_info_recibida', 'EmailController@sendEmailRecibi')->name('email_info_recibida');
+    Route::post('/email_info_recibida_reinscri', 'EmailController@sendEmailRecibiReinscri')->name('email_info_recibida_reinscri');
+    Route::post('/email_info_recibida_inscr', 'EmailController@sendEmailRecibiInscrip')->name('email_info_recibida_inscr');
     Route::get('/email_lista_espera/{nombre_tutor}/{ap_paterno}/{email}', 'EmailController@sendEmailEspera')->name('email_lista_espera');
     Route::get('/lista_documentos_inscr/{id}', 'DocumentosController@show_inscr')->name('lista_documentos_inscr');
     Route::get('/detalles_documento/{id}', 'DocumentosController@details')->name('detalles_documento');

@@ -101,7 +101,16 @@
   }
 </style>
 
-
+@if($errors->any())
+<div class="alert alert-danger alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+  <div class="alert-text">
+    @foreach ($errors->all() as $error)
+    <span>{{$error}}</span>
+    @endforeach
+  </div>
+</div>
+@endif
 
 <form id="regForm" action="{{route('guardar_reinscripcion')}}" method="POST" enctype="multipart/form-data">
     @csrf

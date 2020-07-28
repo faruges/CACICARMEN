@@ -1,12 +1,11 @@
 @extends('admin.admin_inicio')
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
-    <script src="{{URL::asset('js/send_email.js')}}" type="text/javascript"> </script> 
-@endsection 
+<script src="{{URL::asset('js/send_email.js')}}" type="text/javascript"> </script>
+@endsection
 @section('mycontent') <style>
-    
     .card {
-        margin: 0px 55px 50px 60px;
+        margin: 0px 20px 50px 30px;
     }
 
     .card-title {
@@ -16,17 +15,32 @@
 
     .sub-card-body {
         overflow: auto;
-        height: 400px;
+        height: 500px;
     }
-    h3{
+
+    h3 {
         text-align: center;
     }
+
     .font-label {
-        text-align: center;
+        text-align: right;
         font-style: normal;
-        font-size: 20px;
+        font-size: 15px;
+        margin-left: 5px;
     }
-    .btn-regresar{
+    .font-label-clave{
+        text-align: right;
+        font-style: normal;
+        font-size: 10px;
+        margin-left: 5px;
+    }
+
+    .row-margin {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .btn-regresar {
         margin: 0px 20px 40px 0px;
     }
 </style>
@@ -56,11 +70,17 @@
     <div class="card mt50">
         <div class="card-header">
             @foreach ($lista_reinscripcion as $reinsc)
+            <input id="nombre_tutor" value="{{$reinsc->nombre_tutor}}" hidden>
+            <input id="ape_paterno" value="{{$reinsc->ap_paterno_t}}" hidden>
+            <input id="email" value="{{$reinsc->email}}" hidden>
             <span class="float-right">
-                <a class="btn btn-lg btn-primary"
-                    href="{{route('email_info_recibida',[$reinsc->nombre_tutor,$reinsc->ap_paterno_t,$reinsc->email])}}"
-                    title="Notifica Información Recibida"><i class="fa fa-envelope"></i></a>
-                {{--  <button type="button" id="envia_email" name="envia_email" onclick="envia_email({{$reinsc->nombre_tutor}},'{{ csrf_token() }}')" class="button-blue">Enviar</button>  --}}
+
+                <button type="button" id="envia_email" title="Notifica Información Recibida"
+                    name="envia_email" onclick="envia_email_info_recib_inscr()" class="btn btn-lg btn-primary"><i
+                        class="fa fa-envelope"></i></button>
+                <button type="button" id="envia_email_dos" title="Notifica Información Recibida Reinscripción"
+                    name="envia_email_dos" onclick="envia_email()" class="btn btn-lg btn-info"><i
+                        class="fa fa-envelope"></i></button>
                 <a class="btn btn-lg btn-dark"
                     href="{{route('email_lista_espera',[$reinsc->nombre_tutor,$reinsc->ap_paterno_t,$reinsc->email])}}"
                     title="Notifica Lista en Espera"><i class="fa fa-envelope"></i></a>
@@ -76,51 +96,70 @@
                     </div>
                     <div class="card-body sub-card-body">
                         @foreach ($lista_reinscripcion as $reinsc)
-                        <h3>Caci SAF</h3>
-                        <label class="font-label">{{$reinsc->caci}}</label>
-                        <h3>Curp Caci</h3>
-                        <label class="font-label">{{$reinsc->curp_caci}}</label>
-                        <h3>Matricula</h3>
-                        <label class="font-label">{{$reinsc->matricula}}</label>
-                        <h3>Nombre Menor</h3>
-                        <label class="font-label">{{$reinsc->nombre_menor}} {{$reinsc->ap_paterno}}
-                            {{$reinsc->ap_materno}}</label>
-                        <h3>Fecha de Nacimiento</h3>
-                        <label class="font-label">{{$reinsc->fecha_nacimiento}}</label>
-                        <h3>Edad</h3>
-                        <label class="font-label">{{$reinsc->edad_menor_ingreso}}</label>
-                        <h3>Curp</h3>
-                        <label class="font-label">{{$reinsc->curp}}</label>
+                        <div class="row row-margin">
+                            <h3>Caci SAF: </h3>  <label class="font-label"> {{$reinsc->caci}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Matricula: </h3><label class="font-label"> {{$reinsc->matricula}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Nombre Menor: </h3><label class="font-label">{{$reinsc->nombre_menor}}
+                                {{$reinsc->ap_paterno}} {{$reinsc->ap_materno}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Fecha de Nacimiento: </h3><label
+                                class="font-label">{{$reinsc->fecha_nacimiento}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Edad: </h3><label class="font-label">{{$reinsc->edad_menor_ingreso}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Curp: </h3><label class="font-label">{{$reinsc->curp}}</label>
+                        </div>
 
-                        <h3>Nombre Tutor</h3>
-                        <label class="font-label">{{$reinsc->nombre_tutor}} {{$reinsc->ap_paterno_t}}
-                            {{$reinsc->ap_materno_t}}</label>
-                        <h3>Domicilio</h3>
-                        <label class="font-label">{{$reinsc->domicilio}}</label>
-                        <h3>Tipo Nomina</h3>
-                        <label class="font-label">{{$reinsc->tipo_nomina}}</label>
-                        <h3>Numero Empleado</h3>
-                        <label class="font-label">{{$reinsc->num_empleado}}</label>
-                        <h3>Numero Plaza</h3>
-                        <label class="font-label">{{$reinsc->num_plaza}}</label>
-                        <h3>Clave Dependencia</h3>
-                        <label class="font-label">{{$reinsc->clave_dependencia}}</label>
-                        <h3>Nivel Salarial</h3>
-                        <label class="font-label">{{$reinsc->nivel_salarial}}</label>
-                        <h3>Seccion Sindical</h3>
-                        <label class="font-label">{{$reinsc->seccion_sindical}}</label>
-                        <h3>Horario Laboral</h3>
-                        <label class="font-label">{{$reinsc->horario_laboral}}</label>
-                        <h3>Email</h3>
-                        <label class="font-label">{{$reinsc->email}}</label>
-                        <h3>Telefono Uno</h3>
-                        <label class="font-label">{{$reinsc->telefono_uno}}</label>
-                        <h3>Telefono Dos</h3>
-                        <label class="font-label">{{$reinsc->telefono_dos}}</label>
-                        <h3>Horario Laboral Entrada</h3>
-                        <label class="font-label">{{$reinsc->horario_laboral_ent}}</label>
-                        <h3>Horario Laboral Salida</h3>
-                        <label class="font-label">{{$reinsc->horario_laboral_sal}}</label>
+                        <div class="row row-margin">
+                            <h3>Nombre Tutor: </h3><label class="font-label">{{$reinsc->nombre_tutor}}
+                                {{$reinsc->ap_paterno_t}} {{$reinsc->ap_materno_t}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Domicilio: </h3><label class="font-label">{{$reinsc->domicilio}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Tipo Nomina: </h3><label class="font-label">{{$reinsc->tipo_nomina}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Numero Empleado: </h3><label class="font-label">{{$reinsc->num_empleado}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Numero Plaza: </h3><label class="font-label">{{$reinsc->num_plaza}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Clave Dependencia: </h3><label class="font-label">{{$reinsc->clave_dependencia}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Nivel Salarial: </h3><label class="font-label">{{$reinsc->nivel_salarial}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Seccion Sindical: </h3><label class="font-label">{{$reinsc->seccion_sindical}}</label>
+                        </div>
+
+                        <div class="row row-margin">
+                            <h3>Email: </h3><label class="font-label">{{$reinsc->email}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Telefono Uno: </h3><label class="font-label">{{$reinsc->telefono_uno}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Telefono Dos: </h3><label class="font-label">{{$reinsc->telefono_dos}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Horario Laboral Entrada: </h3><label
+                                class="font-label">{{$reinsc->horario_laboral_ent}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Horario Laboral Salida: </h3><label
+                                class="font-label">{{$reinsc->horario_laboral_sal}}</label>
+                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -160,8 +199,8 @@
         </div>
         <div>
             <span class="float-right btn-regresar">
-                <a class="btn btn-lg btn-primary" href="{{route('lista_reinscripcion')}}"
-                    title="Regresar"><i class="fa fa-backward"></i> Regresar</a>
+                <a class="btn btn-lg btn-primary" href="{{route('lista_reinscripcion')}}" title="Regresar"><i
+                        class="fa fa-backward"></i> Regresar</a>
             </span>
         </div>
     </div>

@@ -100,7 +100,16 @@
     padding: 40px;
   }
 </style>
-
+@if($errors->any())
+<div class="alert alert-danger alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+  <div class="alert-text">
+    @foreach ($errors->all() as $error)
+    <span>{{$error}}</span>
+    @endforeach
+  </div>
+</div>
+@endif
 <form id="regForm" action="{{route('guardar_inscripcion')}}" method="POST" enctype="multipart/form-data">
     @csrf
  <label style="color:#054a41; font-size: 40px; text-align: center; " >Para iniciar el proceso, proporciona el siguiente dato.</label>

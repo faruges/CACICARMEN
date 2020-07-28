@@ -1,9 +1,12 @@
 @extends('admin.admin_inicio')
 @section('title','Bienvenidos Plataforma CACI')
+@section('scripts')
+    <script src="{{URL::asset('js/send_email.js')}}" type="text/javascript"> </script> 
+@endsection
 @section('mycontent')
 <style>
     .card {
-        margin: 0px 55px 50px 60px;
+        margin: 0px 20px 50px 30px;
     }
 
     .card-title {
@@ -13,7 +16,7 @@
 
     .sub-card-body {
         overflow: auto;
-        height: 400px;
+        height: 500px;
     }
 
     h3 {
@@ -23,7 +26,12 @@
     .font-label {
         text-align: center;
         font-style: normal;
-        font-size: 20px;
+        font-size: 15px;
+        margin-left: 5px;
+    }
+    .row-margin {
+        margin: 10px;
+        padding: 10px;
     }
     .btn-regresar{
         margin: 0px 20px 40px 0px;
@@ -54,10 +62,12 @@
     <div class="card mt50">
         <div class="card-header">
             @foreach ($lista_inscripcion as $reinsc)
+            <input id="nombre_tutor" value="{{$reinsc->nombre_tutor_madres}}" hidden>
+            <input id="ape_paterno" value="{{$reinsc->apellido_paterno_tutor}}" hidden>
+            <input id="email" value="{{$reinsc->email_correo}}" hidden>
             <span class="float-right">
-                <a class="btn btn-lg btn-primary"
-                    href="{{route('email_info_recibida_inscr',[$reinsc->nombre_tutor_madres,$reinsc->apellido_paterno_tutor,$reinsc->email_correo])}}"
-                    title="Notifica Informacion Recibida"><i class="fa fa-envelope"></i></a>
+                <button type="button" id="envia_email" title="Notifica Información Recibida" name="envia_email" onclick="envia_email_recib_inscri()" 
+                        class="btn btn-lg btn-primary"><i class="fa fa-envelope"></i></button>
                 <a class="btn btn-lg btn-dark"
                     href="{{route('email_lista_espera',[$reinsc->nombre_tutor_madres,$reinsc->apellido_paterno_tutor,$reinsc->email_correo])}}"
                     title="Notifica Lista en Espera"><i class="fa fa-envelope"></i></a>
@@ -74,43 +84,25 @@
                     <div class="card-body sub-card-body">
                         @foreach ($lista_inscripcion as $reinsc)
 
-                        <h3>Caci SAF</h3>
-                        <label class="font-label">{{$reinsc->caci}}</label>
+                        <div class="row row-margin"><h3>Caci SAF:</h3><label class="font-label">{{$reinsc->caci}}</label></div>
 
-                        <h3>Nombre Menor</h3>
-                        <label class="font-label">{{$reinsc->nombre_menor_1}} {{$reinsc->apellido_paterno_1}}
-                            {{$reinsc->apellido_materno_1}}</label>
-                        <h3>Fecha de Nacimiento</h3>
-                        <label class="font-label">{{$reinsc->birthday}}</label>
-                        <h3>Edad</h3>
-                        <label class="font-label">{{$reinsc->Edad_menor}}</label>
-                        <h3>Curp</h3>
-                        <label class="font-label">{{$reinsc->curp_num}}</label>
+                        <div class="row row-margin"><h3>Nombre Menor:</h3><label class="font-label">{{$reinsc->nombre_menor_1}} {{$reinsc->apellido_paterno_1}} {{$reinsc->apellido_materno_1}}</label></div>
+                        <div class="row row-margin"><h3>Fecha de Nacimiento:</h3><label class="font-label">{{$reinsc->birthday}}</label></div>
+                        <div class="row row-margin"><h3>Edad:</h3><label class="font-label">{{$reinsc->Edad_menor}}</label></div>
+                        <div class="row row-margin"><h3>Curp:</h3><label class="font-label">{{$reinsc->curp_num}}</label></div>
 
-                        <h3>Nombre Tutor</h3>
-                        <label class="font-label">{{$reinsc->nombre_tutor_madres}}
-                            {{$reinsc->apellido_paterno_tutor}} {{$reinsc->apellido_materno_tutor}}</label>
-                        <h3>Domicilio</h3>
-                        <label class="font-label">{{$reinsc->domicilio_delegracion}}</label>
-                        <h3>Tipo Nomina</h3>
-                        <label class="font-label">{{$reinsc->tipo_nomina_1}}</label>
-                        <h3>Numero Empleado</h3>
-                        <label class="font-label">{{$reinsc->num_empleado_1}}</label>
-                        <h3>Numero Plaza</h3>
-                        <label class="font-label">{{$reinsc->num_plaza_1}}</label>
-                        <h3>Clave Dependencia</h3>
-                        <label class="font-label">{{$reinsc->clave_dependencia_1}}</label>
-                        <h3>Nivel Salarial</h3>
-                        <label class="font-label">{{$reinsc->nivel_salarial_1}}</label>
-                        <h3>Seccion Sindical</h3>
-                        <label class="font-label">{{$reinsc->seccion_sindical_1}}</label>
+                        <div class="row row-margin"><h3>Nombre Tutor:</h3><label class="font-label">{{$reinsc->nombre_tutor_madres}} {{$reinsc->apellido_paterno_tutor}} {{$reinsc->apellido_materno_tutor}}</label></div>
+                        <div class="row row-margin"><h3>Domicilio:</h3><label class="font-label">{{$reinsc->domicilio_delegracion}}</label></div>
+                        <div class="row row-margin"><h3>Tipo Nomina:</h3><label class="font-label">{{$reinsc->tipo_nomina_1}}</label></div>
+                        <div class="row row-margin"><h3>Numero Empleado:</h3><label class="font-label">{{$reinsc->num_empleado_1}}</label></div>
+                        <div class="row row-margin"><h3>Numero Plaza:</h3><label class="font-label">{{$reinsc->num_plaza_1}}</label></div>
+                        <div class="row row-margin"><h3>Clave Dependencia:</h3><label class="font-label">{{$reinsc->clave_dependencia_1}}</label></div>
+                        <div class="row row-margin"><h3>Nivel Salarial:</h3><label class="font-label">{{$reinsc->nivel_salarial_1}}</label></div>
+                        <div class="row row-margin"><h3>Seccion Sindical:</h3><label class="font-label">{{$reinsc->seccion_sindical_1}}</label></div>
 
-                        <h3>Email</h3>
-                        <label class="font-label">{{$reinsc->email_correo}}</label>
-                        <h3>Telefono Uno</h3>
-                        <label class="font-label">{{$reinsc->telefono_celular}}</label>
-                        <h3>Telefono Dos</h3>
-                        <label class="font-label">{{$reinsc->telefono_3}}</label>
+                        <div class="row row-margin"><h3>Email:</h3><label class="font-label">{{$reinsc->email_correo}}</label></div>
+                        <div class="row row-margin"><h3>Telefono Uno:</h3><label class="font-label">{{$reinsc->telefono_celular}}</label></div>
+                        <div class="row row-margin"><h3>Telefono Dos:</h3><label class="font-label">{{$reinsc->telefono_3}}</label></div>
                         @endforeach
                     </div>
                 </div>
