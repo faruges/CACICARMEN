@@ -21,7 +21,7 @@ class EmailController extends Controller
     {
         /* dd($request)->all(); */
         try {
-            $response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => 'r.afinho17roma@gmail.com'];
+            $response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => $request->email];
             Mail::send('testmail', $response, function ($msj) use ($response) {
                 #el objeto Asunto
                 $msj->subject('Notificacion CACI');
@@ -41,7 +41,7 @@ class EmailController extends Controller
     {
         /* dd($request)->all(); */
         try {
-            $response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => 'r.afinho17roma@gmail.com'];
+            $response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => $request->email];
             Mail::send('info_recibida_reinscripcion', $response, function ($msj) use ($response) {
                 #el objeto Asunto
                 $msj->subject('Notificacion CACI');
@@ -59,7 +59,7 @@ class EmailController extends Controller
     public function sendEmailRecibiInscrip(Request $request)
     {
         try {
-            $response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => 'r.afinho17roma@gmail.com'];
+            $response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => $request->email];
             Mail::send('testmail', $response, function ($msj) use ($response) {
                 #el objeto Asunto
                 $msj->subject('Notificacion CACI');

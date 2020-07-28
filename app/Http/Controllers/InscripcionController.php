@@ -156,7 +156,7 @@ class InscripcionController extends Controller
     private function sendEmail($nombre_tutor, $ap_paterno, $email)
     {
         try {
-            $response = ["nombre" => $nombre_tutor . ' ' . $ap_paterno, "email" => 'r.afinho17roma@gmail.com'];
+            $response = ["nombre" => $nombre_tutor . ' ' . $ap_paterno, "email" => $email];
             Mail::send('inscripcion_email', $response, function ($msj) use ($response) {
                 #el objeto Asunto
                 $msj->subject('Notificacion CACI');
