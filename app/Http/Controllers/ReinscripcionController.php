@@ -57,6 +57,12 @@ class ReinscripcionController extends Controller
             curl_close($ch);
 
             $array = json_decode($response, true);
+            $array = json_decode($response, true);
+            foreach ($array['data'] as $key => &$value) {
+                if ($value === "0" || is_null($value)) {
+                    $value = "Dato no encontrado";
+                }
+            }
             $data['user'] = $array['data'];
 
             return view('reinscripcion', compact('data'));
@@ -78,12 +84,12 @@ class ReinscripcionController extends Controller
             'ap_paterno_t' => 'required|string',
             'ap_materno_t' => 'required|string',
             'domicilio' => 'required|string',
-            'tipo_nomina' => 'required|numeric',
+            'tipo_nomina' => 'required|string',
             'num_empleado' => 'required|numeric',
             'num_plaza' => 'required|numeric',
             'clave_dependencia' => 'required|string',
             'nivel_salarial' => 'required|numeric',
-            'seccion_sindical' => 'required|numeric',
+            'seccion_sindical' => 'required|string',
 
             'matricula' => 'required|string',
             'nombre_menor' => 'required|string',
@@ -118,7 +124,7 @@ class ReinscripcionController extends Controller
             'domicilio.required' => 'Su domicilio es requerido',
             'domicilio.string' => 'Su domicilio debe ser un texto',
             'tipo_nomina.required' => 'Su tipo de nomina es requerido',
-            'tipo_nomina.numeric' => 'Su tipo de nomina debe ser un número',
+            'tipo_nomina.string' => 'Su tipo de nomina debe ser un texto',
             'num_empleado.required' => 'Su numero de empleado es requerido',
             'num_empleado.numeric' => 'Su numero de empleado debe ser un número',
             'num_plaza.required' => 'Su numero de plaza es requerido',
@@ -128,7 +134,7 @@ class ReinscripcionController extends Controller
             'nivel_salarial.required' => 'Su nivel salarial es requerido',
             'nivel_salarial.numeric' => 'Su nivel salarial debe ser un número',
             'seccion_sindical.required' => 'Su seccion sindical es requerido',
-            'seccion_sindical.numeric' => 'Su seccion sindical debe ser un número',
+            'seccion_sindical.string' => 'Su seccion sindical debe ser un texto',
             'matricula.required' => 'Su seccion sindical es requerido',
             'matricula.string' => 'Su seccion sindical debe ser un texto',
             'nombre_menor.required' => 'Su seccion sindical es requerido',
@@ -149,7 +155,7 @@ class ReinscripcionController extends Controller
             'telefono_uno.numeric' => 'Su celular debe ser un número',
             'telefono_dos.required' => 'Su telefono es requerido',
             'telefono_dos.numeric' => 'Su telefono debe ser un número',
-            
+
             'filename_act.mimes' => 'Tu archivo no es valido',
             'filename_sol.mimes' => 'Tu archivo no es valido',
             'filename_vacu.mimes' => 'Tu archivo no es valido',

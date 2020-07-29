@@ -16,11 +16,12 @@ function validaCurp() {
         url: url+'webservicerenapo',
         success: function(data) 
         { 
+            /* console.log(data); */
             $("#nombre_menor_1" ).val(data.user.nombre);
             $("#apellido_paterno_1" ).val(data.user.apellido1);
             $("#apellido_materno_1" ).val(data.user.apellido2);
+            $("#birthday" ).val(data.user.fechNac);
             $("#curp_num" ).val(curp);
-            /* console.log(data); */
             alert("El curp proporcionado fue consultado ante\nEl Registro Nacional de Población (RENAPO) correctamente");
             
         },

@@ -200,17 +200,17 @@ a , h1 {
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido paterno<input type="text"placeholder="Apellido paterno" title="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_tutor" value="{{$value['CH_paterno']}}"></p>
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido materno<input type="text"placeholder="Apellido materno" title="Apellido materno" oninput="this.className = ''" name="apellido_materno_tutor" value="{{$value['CH_materno']}}"></p>
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Domicilio particular<input type="text"placeholder="Domicilio particular" title="Domicilio particular" oninput="this.className = ''" name="domicilio_delegracion"></p>
-      <p style="font-size: 12px; font-family: Arial, Helvetica;">Tipo de nómina<input type="number"placeholder="Tipo de nómina" title="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina_1" value="{{$value['TipoNomina']}}"></p>
+      <p style="font-size: 12px; font-family: Arial, Helvetica;">Tipo de nómina<input  placeholder="Tipo de nómina" title="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina_1" value="{{$value['TipoNomina']}}"></p>
 
     </div>
     <div class="col-sm-6">
     <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
 
-      <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de empleado<input type="number"placeholder="Número de empleado" title="Número de empleado" oninput="this.className = ''" name="num_empleado_1" value="{{$value['NumEmpleado']}}"></p>
-      <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de plaza<input type="number"placeholder="Número de plaza" title="Número de plaza" oninput="this.className = ''" name="num_plaza_1" value="{{$value['NUM_PLAZA']}}"></p>
+      <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de empleado<input placeholder="Número de empleado" title="Número de empleado" oninput="this.className = ''" name="num_empleado_1" value="{{$value['NumEmpleado']}}"></p>
+      <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de plaza<input placeholder="Número de plaza" title="Número de plaza" oninput="this.className = ''" name="num_plaza_1" value="{{$value['NUM_PLAZA']}}"></p>
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Clave de la dependencia<input type="text"placeholder="Clave de la dependencia" title="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia_1" value="{{$value['Clave_Dependencia']}}"></p>
-      <p style="font-size: 12px; font-family: Arial, Helvetica;">Nivel salarial<input type="number"placeholder="Nivel salarial" title="Nivel salarial" oninput="this.className = ''" name="nivel_salarial_1" value="{{$value['NIVEL_SALARIAL']}}"></p>
-      <p style="font-size: 12px; font-family: Arial, Helvetica;">Sección sindical<input type="number"placeholder="Sección sindical" title="Sección sindical" oninput="this.className = ''" name="seccion_sindical_1" value="{{$value['SECCION_SINDICAL']}}"></p><br><br>
+      <p style="font-size: 12px; font-family: Arial, Helvetica;">Nivel salarial<input placeholder="Nivel salarial" title="Nivel salarial" oninput="this.className = ''" name="nivel_salarial_1" value="{{$value['NIVEL_SALARIAL']}}"></p>
+      <p style="font-size: 12px; font-family: Arial, Helvetica;">Sección sindical<input placeholder="Sección sindical" title="Sección sindical" oninput="this.className = ''" name="seccion_sindical_1" value="{{$value['SECCION_SINDICAL']}}"></p><br><br>
     </div>
 </div>
 </div>
@@ -241,7 +241,7 @@ a , h1 {
 
 
     <h5 for="birthday">Fecha de Nacimiento del menor:</h5>
-    <input type="date" id="birthday" name="birthday">
+    <input type="text" id="birthday" name="birthday">
     <p style="font-size: 12px; font-family: Arial, Helvetica;">Edad del menor al ingresar al plantel (Año o Meses)<input type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" title="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''" name="Edad_menor"></p>
 
   <h5 for="cars">Directorio de los CACI SAF:</h5>
@@ -290,8 +290,8 @@ a , h1 {
  <label style="color:#054a41; ">Datos de contacto</label>
  <br>
   <p style="font-size: 12px; font-family: Arial, Helvetica;">E-mail<input placeholder="E-mail"  title="E-mail"  oninput="this.className = ''" name="email_correo" value="{{$value['CH_mail']}}"></p>
-  <p style="font-size: 12px; font-family: Arial, Helvetica;">Teléfono<input placeholder="Teléfono"  title="Teléfono"  oninput="this.className = ''" name="telefono_celular"></p>
-  <p style="font-size: 12px; font-family: Arial, Helvetica;">Celular<input placeholder="Celular"  title="Celular"  oninput="this.className = ''" name="telefono_3"></p>
+  <p style="font-size: 12px; font-family: Arial, Helvetica;">Teléfono<input type="tel" placeholder="Teléfono"  title="Teléfono"  oninput="this.className = ''" name="telefono_celular" maxlength="10"></p>
+  <p style="font-size: 12px; font-family: Arial, Helvetica;">Celular<input type="tel" placeholder="Celular"  title="Celular"  oninput="this.className = ''" name="telefono_3" maxlength="10"></p>
 
   @endforeach
   <br><br>

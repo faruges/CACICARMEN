@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         /* $this->call(TablaCaciSeeder::class); */
         $this->call(TablaRolSeeder::class);
         $this->call(UsuarioAdministradorSeeder::class);
+        $this->call(TablaInscripcionSeeder::class);
+        $this->call(TablaReinscripcionSeeder::class);
         
     }
 

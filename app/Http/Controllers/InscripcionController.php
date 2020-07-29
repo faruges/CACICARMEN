@@ -54,6 +54,11 @@ class InscripcionController extends Controller
         curl_close($ch);
 
         $array = json_decode($response, true);
+        foreach ($array['data'] as $key => &$value) {
+			if ($value === "0" || is_null($value)) {
+				$value = "Dato no encontrado";
+			}
+		}
         $data['user'] = $array['data'];
 
         /* return response()->json($data); */
@@ -77,11 +82,11 @@ class InscripcionController extends Controller
             'apellido_paterno_tutor'=>'required|string',
             'apellido_materno_tutor'=>'required|string',
             'domicilio_delegracion'=>'required|string',
-            'tipo_nomina_1'=>'required|numeric',
+            'tipo_nomina_1'=>'required|string',
             'num_empleado_1'=>'required|numeric',
             'num_plaza_1'=>'required|numeric',
             'clave_dependencia_1'=>'required|string',
-            'nivel_salarial_1'=>'required|numeric',
+            'nivel_salarial_1'=>'required|string',
             'seccion_sindical_1'=>'required|numeric',
             'nombre_menor_1'=>'required|string',
             'apellido_paterno_1'=>'required|string',
@@ -113,7 +118,7 @@ class InscripcionController extends Controller
             'domicilio_delegracion.required' => 'Su domicilio es requerido',
             'domicilio_delegracion.string' => 'Su domicilio debe ser un texto',
             'tipo_nomina_1.required' => 'Su tipo de nomina es requerido',
-            'tipo_nomina_1.numeric' => 'Su tipo de nomina debe ser un número',
+            'tipo_nomina_1.string' => 'Su tipo de nomina debe ser un texto',
             'num_empleado_1.required' => 'Su numero de empleado es requerido',
             'num_empleado_1.numeric' => 'Su numero de empleado debe ser un número',
             'num_plaza_1.required' => 'Su numero de plaza es requerido',
@@ -123,7 +128,7 @@ class InscripcionController extends Controller
             'nivel_salarial_1.required' => 'Su nivel salarial es requerido',
             'nivel_salarial_1.numeric' => 'Su nivel salarial debe ser un número',
             'seccion_sindical_1.required' => 'Su seccion sindical es requerido',
-            'seccion_sindical_1.numeric' => 'Su seccion sindical debe ser un número',
+            'seccion_sindical_1.string' => 'Su seccion sindical debe ser un texto',
             'nombre_menor_1.required' => 'Su seccion sindical es requerido',
             'nombre_menor_1.string' => 'Su seccion sindical debe ser un texto',
             'apellido_paterno_1.required' => 'Su apellido paterno es requerido',

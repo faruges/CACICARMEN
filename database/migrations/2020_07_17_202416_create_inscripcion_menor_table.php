@@ -22,19 +22,19 @@ class CreateInscripcionMenorTable extends Migration
             $table->string('tipo_nomina_1',30);
             $table->string('num_empleado_1',50);
             $table->string('num_plaza_1',50);
-            $table->string('clave_dependencia_1',50);
+            $table->string('clave_dependencia_1',100);
             $table->string('nivel_salarial_1',50);
             $table->string('seccion_sindical_1',50);
             $table->date('birthday');
             $table->string('Edad_menor',10);
-            $table->string('email_correo',100)->unique();
+            $table->string('email_correo',100);
             $table->string('telefono_celular',15);
             $table->string('telefono_3',15);
             $table->string('nombre_menor_1',100);
             $table->string('apellido_paterno_1',50);
             $table->string('apellido_materno_1',50);
             $table->string('curp_num',20);
-            $table->string('caci',100);
+            $table->string('caci',150);
             $table->timestamps();
         });
     }
