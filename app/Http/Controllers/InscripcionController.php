@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Model\Inscripcion;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Mail;
+
+use Validator;
 
 class InscripcionController extends Controller
 {
@@ -71,28 +72,36 @@ class InscripcionController extends Controller
      */
     public function guardar(Request $request)
     {
-        /* $rules = [
-            'nombre_tutor_madres'=>'required'|'string'];
-        $messages = [
-                'nombre_tutor_madres.required' => 'Su nombre es requerido',
-                'nombre_tutor_madres.string' => 'Su nombre debe ser un texto']; */
-        /* $rules = [
-            'nombre_tutor_madres'=>'required'|'string',
-            'apellido_paterno_tutor'=>'required'|'string',
-            'apellido_materno_tutor'=>'required'|'string',
-            'domicilio_delegracion'=>'required'|'string',
-            'tipo_nomina_1'=>'required'|'numeric',
-            'num_empleado_1'=>'required'|'numeric',
-            'num_plaza_1'=>'required'|'numeric',
-            'clave_dependencia_1'=>'required'|'string',
-            'nivel_salarial_1'=>'required'|'numeric',
-            'seccion_sindical_1'=>'required'|'numeric',
-            'nombre_menor_1'=>'required'|'string',
-            'apellido_paterno_1'=>'required'|'string',
-            'apellido_materno_1'=>'required'|'string',
-            'birthday'=>'required'|'date',
-            'Edad_menor'=>'required'|'string',
-            'caci'=>'required'|'string'
+        $rules = [
+            'nombre_tutor_madres'=>'required|string',
+            'apellido_paterno_tutor'=>'required|string',
+            'apellido_materno_tutor'=>'required|string',
+            'domicilio_delegracion'=>'required|string',
+            'tipo_nomina_1'=>'required|numeric',
+            'num_empleado_1'=>'required|numeric',
+            'num_plaza_1'=>'required|numeric',
+            'clave_dependencia_1'=>'required|string',
+            'nivel_salarial_1'=>'required|numeric',
+            'seccion_sindical_1'=>'required|numeric',
+            'nombre_menor_1'=>'required|string',
+            'apellido_paterno_1'=>'required|string',
+            'apellido_materno_1'=>'required|string',
+            'birthday'=>'required|date',
+            'Edad_menor'=>'required|string',
+            'caci'=>'required|string',
+            'email_correo'=>'required|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i',
+            'telefono_celular'=>'required|numeric',
+            'telefono_3'=> 'required|numeric',
+            'filename_act'=> 'mimes:pdf,docx',
+            'filename_sol'=> 'mimes:pdf,docx',
+            'filename_vacu'=> 'mimes:pdf,docx',
+            'filename_nac'=> 'mimes:pdf,docx',
+            'filename_cert'=> 'mimes:pdf,docx',
+            'filename_rec'=> 'mimes:pdf,docx',
+            'filename_disc'=> 'mimes:pdf,docx',
+            'filename_trab'=> 'mimes:pdf,docx',
+            'filename_com'=> 'mimes:pdf,docx',
+            'filename_recp'=> 'mimes:pdf,docx'
         ];
         $messages = [
             'nombre_tutor_madres.required' => 'Su nombre es requerido',
@@ -103,53 +112,88 @@ class InscripcionController extends Controller
             'apellido_materno_tutor.string' => 'Su apellido materno debe ser un texto',
             'domicilio_delegracion.required' => 'Su domicilio es requerido',
             'domicilio_delegracion.string' => 'Su domicilio debe ser un texto',
+            'tipo_nomina_1.required' => 'Su tipo de nomina es requerido',
+            'tipo_nomina_1.numeric' => 'Su tipo de nomina debe ser un número',
+            'num_empleado_1.required' => 'Su numero de empleado es requerido',
+            'num_empleado_1.numeric' => 'Su numero de empleado debe ser un número',
+            'num_plaza_1.required' => 'Su numero de plaza es requerido',
+            'num_plaza_1.numeric' => 'Su numero de plaza debe ser un número',
             'clave_dependencia_1.required' => 'Su clave de dependencia es requerido',
-            'clave_dependencia_1.string' => 'Su clave de dependencia debe ser un trxto',
+            'clave_dependencia_1.string' => 'Su clave de dependencia debe ser un texto',
             'nivel_salarial_1.required' => 'Su nivel salarial es requerido',
-            'nivel_salarial_1.numeric' => 'Su nivel salarial debe ser un numero',
+            'nivel_salarial_1.numeric' => 'Su nivel salarial debe ser un número',
             'seccion_sindical_1.required' => 'Su seccion sindical es requerido',
-            'seccion_sindical_1.numeric' => 'Su seccion sindical debe ser un numero',
+            'seccion_sindical_1.numeric' => 'Su seccion sindical debe ser un número',
             'nombre_menor_1.required' => 'Su seccion sindical es requerido',
-            'nombre_menor_1.texto' => 'Su seccion sindical debe ser un texto',
+            'nombre_menor_1.string' => 'Su seccion sindical debe ser un texto',
             'apellido_paterno_1.required' => 'Su apellido paterno es requerido',
-            'apellido_paterno_1.texto' => 'Su apellido paterno debe ser un texto',
+            'apellido_paterno_1.string' => 'Su apellido paterno debe ser un texto',
             'apellido_materno_1.required' => 'Su apellido materno es requerido',
-            'apellido_materno_1.texto' => 'Su apellido materno debe ser un texto',
+            'apellido_materno_1.string' => 'Su apellido materno debe ser un texto',
             'birthday.required' => 'Su fecha de cumpleaños es requerido',
             'birthday.date' => 'Su fecha de cumpleaños debe ser una fecha',
             'Edad_menor.required' => 'Su edad es requerido',
             'Edad_menor.string' => 'Su edad debe ser texto',
             'caci.required' => 'Su caci es requerido',
             'caci.string' => 'Su caci debe ser string',
-        ]; */
-        /* $validator = Validator::make($request->all(),$rules,$messages);
+            'email.required' => 'Su email es requerido',
+            'email.regex' => 'Su email no tiene el formato correcto',
+            'telefono_celular.required' => 'Su celular es requerido',
+            'telefono_celular.numeric' => 'Su celular debe ser un número',
+            'telefono_celular.max' => 'Su celular debe contener 10 digitos',
+            'telefono_3.required' => 'Su telefono es requerido',
+            'telefono_3.numeric' => 'Su telefono debe ser un número',
+            'filename_act.mimes' => 'Tu archivo no es valido',
+            'filename_sol.mimes' => 'Tu archivo no es valido',
+            'filename_vacu.mimes' => 'Tu archivo no es valido',
+            'filename_nac.mimes' => 'Tu archivo no es valido',
+            'filename_cert.mimes' => 'Tu archivo no es valido',
+            'filename_rec.mimes' => 'Tu archivo no es valido',
+            'filename_disc.mimes' => 'Tu archivo no es valido',
+            'filename_trab.mimes' => 'Tu archivo no es valido',
+            'filename_com.mimes' => 'Tu archivo no es valido',
+            'filename_recp.mimes' => 'Tu archivo no es valido',
+        ];
+        $validator = Validator::make($request->all(),$rules,$messages);
         if($validator->fails()){
-            return back()->withErrors($validator)->with('message','Se ha producido un error.')->with('typelert','danger');
+            /* dd("entra aqui"); */
+            return redirect('inscripcion_from')->withErrors($validator)->with('message','Se ha producido un error.')->with('typelert','danger');
         }else{
-            return back()->with('message', "Se ha registrado con Exito");
-        } */
-        Inscripcion::create($request->all());
-        //obtiene id de reinscripcion
-        $id_reins = Inscripcion::select('id')->orderByDesc('id')->get()->first();
-        $id = $id_reins->id;
-        $filename_act = $request->file('filename_act');
-        $filename_sol = $request->file('filename_sol');
-        $filename_vacu = $request->file('filename_vacu');
-        $filename_nac = $request->file('filename_nac');
-        $filename_cert = $request->file('filename_cert');
-        $filename_rec = $request->file('filename_rec');
-        $filename_disc = $request->file('filename_disc');
-        $filename_trab = $request->file('filename_trab');
-        $filename_com = $request->file('filename_com');
-        $filename_recp = $request->file('filename_recp');
+            /* dd("entra aqui a lo chido"); */
+            /* $inscripcionObject = new InscripcionController; 
+            $inscripcionObject->procesaInscripcion($request); */
+            Inscripcion::create($request->all());
+            //obtiene id de reinscripcion
+            $id_reins = Inscripcion::select('id')->orderByDesc('id')->get()->first();
+            $id = $id_reins->id;
+            $filename_act = $request->file('filename_act');
+            $filename_sol = $request->file('filename_sol');
+            $filename_vacu = $request->file('filename_vacu');
+            $filename_nac = $request->file('filename_nac');
+            $filename_cert = $request->file('filename_cert');
+            $filename_rec = $request->file('filename_rec');
+            $filename_disc = $request->file('filename_disc');
+            $filename_trab = $request->file('filename_trab');
+            $filename_com = $request->file('filename_com');
+            $filename_recp = $request->file('filename_recp');
+    
+            $arrayFiles = array(
+                $filename_act, $filename_sol, $filename_vacu, $filename_nac, $filename_cert, $filename_rec, $filename_disc, $filename_trab, $filename_com, $filename_recp
+            );
+            if (Inscripcion::setDoc($arrayFiles, $id)) {
+                $inscripcion = new InscripcionController;
+                $inscripcion->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo);
+                return redirect('inscripcion_from')->with('mensaje', "Menú creado con exito");
+            }
+        }
+    }
 
-        $arrayFiles = array(
-            $filename_act, $filename_sol, $filename_vacu, $filename_nac, $filename_cert, $filename_rec, $filename_disc, $filename_trab, $filename_com, $filename_recp
-        );
-        if (Inscripcion::setDoc($arrayFiles, $id)) {
-            $inscripcion = new InscripcionController;
-            $inscripcion->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo);
-            return redirect('inscripcion_from')->with('mensaje', "Menú creado con exito");
+    private function procesaInscripcion($request){
+        if($request->tipo_nomina_1 === 0){
+            $request->tipo_nomina_1 = ' ';
+        }
+        if($request->seccion_sindical_1 === 0){
+            $request->seccion_sindical_1 = ' ';
         }
     }
 

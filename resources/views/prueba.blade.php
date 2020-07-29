@@ -5,12 +5,22 @@
 @endsection 
 @section('mycontent')
 <div class="tab">
+  @if($errors->any())
+  <div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+    <div class="alert-text">
+      @foreach ($errors->all() as $error)
+      <span>{{$error}}</span>
+      @endforeach
+    </div>
+  </div>
+  @endif
     <br>
     <form id="regForm" action="{{route('guardar_inscripcion_bd')}}" method="POST" enctype="multipart/form-data">
       @csrf
       <p><input id="nombre_tutor_madres" placeholder="Nombre del Padre/Madre o Tutor" oninput="this.className = ''"
         name="nombre_tutor_madres" ></p>
-{{--      <p><input id="apellido_paterno_tutor" placeholder="Apellido paterno" oninput="this.className = ''"
+    <p><input id="apellido_paterno_tutor" placeholder="Apellido paterno" oninput="this.className = ''"
         name="apellido_paterno_tutor" ></p>
     <p><input id="apellido_materno_tutor" placeholder="Apellido materno" oninput="this.className = ''"
         name="apellido_materno_tutor" ></p>
@@ -49,8 +59,11 @@
 
         <p><input  id="email_correo" oninput="this.className = ''" name="email_correo"></p>
       <p><input placeholder="Teléfono " oninput="this.className = ''" name="telefono_celular"></p>
-      <p><input placeholder="Celular" oninput="this.className = ''" name="telefono_3"></p>  --}}
+      <p><input placeholder="Celular" oninput="this.className = ''" name="telefono_3"></p>
 
+
+      <h5>Acta de nacimiento.</h5>
+      <input type="file"  name="filename_act">
 
     <button id="valida_curp" type="submit">Validar CURP</button> 
     </form>

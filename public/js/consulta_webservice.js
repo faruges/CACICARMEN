@@ -21,7 +21,7 @@ function validaCurp() {
             $("#apellido_materno_1" ).val(data.user.apellido2);
             $("#curp_num" ).val(curp);
             /* console.log(data); */
-            alert("Los Datos se Consultaron Correctamente");
+            alert("El curp proporcionado fue consultado ante\nEl Registro Nacional de Población (RENAPO) correctamente");
             
         },
         error: function(data_e)

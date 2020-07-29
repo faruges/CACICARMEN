@@ -158,6 +158,25 @@ a , h1 {
 </div>
 
 <body>
+  @if($errors->any())
+  <div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+    <div class="alert-text">
+      @foreach ($errors->all() as $error)
+      <span>{{$error}}</span>
+      @endforeach
+    </div>
+  </div>
+  @elseif (session('mensaje'))
+  <div class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h4><i class="icon fa fa-check"></i> Mensaje Sistema Biblioteca</h4>
+      <ul>
+          <li>{{session('mensaje')}}</li>
+      </ul>
+  </div>
+  @endif
+  
 <form id="regForm" action="{{route('guardar_inscripcion_bd')}}" method="POST" enctype="multipart/form-data">
 <h1 style="color: #054a41;">Centros de Atención y Cuidado Infantil</h1>
    <div class="tab">
