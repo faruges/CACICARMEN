@@ -27,6 +27,7 @@
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     border: 3px solid #00b140;
+    border-radius: 15px;
   }
 
   input.invalid {
