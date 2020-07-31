@@ -3,7 +3,8 @@
 @section('scripts')
 <script src="{{URL::asset('js/send_email.js')}}" type="text/javascript"> </script>
 @endsection
-@section('mycontent') <style>
+@section('mycontent') 
+<style>
     .card {
         margin: 0px 20px 50px 30px;
     }
@@ -179,7 +180,7 @@
                             <tbody>
                                 @foreach ($data as $doc)
                                 <tr>
-                                    <td "font-size: 20px;">{{$doc->nombre}}</td>
+                                    <td "font-size: 20px;">{{$doc->nombre_tramite}}</td>
                                     <td "font-size: 20px;">{{$doc->created_at}}</td>
                                     <td class="actions">
                                         <span class="float-right">

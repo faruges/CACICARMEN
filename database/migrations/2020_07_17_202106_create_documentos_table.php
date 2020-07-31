@@ -15,7 +15,8 @@ class CreateDocumentosTable extends Migration
     {
         Schema::create('documentos', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('nombre',100);
+            $table->string('nombre',150);
+            $table->string('nombre_tramite',150);
             $table->unsignedInteger('reinscripcion_menor_id')->nullable();
             $table->foreign('reinscripcion_menor_id')->references('id')->on('reinscripcion_menor')->onDelete('restrict')->onUpdate('restrict');
             $table->unsignedInteger('inscripcion_menor_id')->nullable();

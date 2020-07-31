@@ -25,7 +25,7 @@ class CreateInscripcionMenorTable extends Migration
             $table->string('clave_dependencia_1',100);
             $table->string('nivel_salarial_1',50);
             $table->string('seccion_sindical_1',50);
-            $table->date('birthday');
+            $table->string('birthday');
             $table->string('Edad_menor',10);
             $table->string('email_correo',100);
             $table->string('telefono_celular',15);

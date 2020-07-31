@@ -56,7 +56,7 @@ class InscripcionController extends Controller
         $array = json_decode($response, true);
         foreach ($array['data'] as $key => &$value) {
 			if ($value === "0" || is_null($value)) {
-				$value = "Dato no encontrado";
+				$value = "DATO NO ENCONTRADO";
 			}
 		}
         $data['user'] = $array['data'];
@@ -87,7 +87,7 @@ class InscripcionController extends Controller
             'num_plaza_1'=>'required|numeric',
             'clave_dependencia_1'=>'required|string',
             'nivel_salarial_1'=>'required|string',
-            'seccion_sindical_1'=>'required|numeric',
+            'seccion_sindical_1'=>'required|string',
             'nombre_menor_1'=>'required|string',
             'apellido_paterno_1'=>'required|string',
             'apellido_materno_1'=>'required|string',
@@ -101,11 +101,11 @@ class InscripcionController extends Controller
             'filename_sol'=> 'mimes:pdf,docx',
             'filename_vacu'=> 'mimes:pdf,docx',
             'filename_nac'=> 'mimes:pdf,docx',
+            'filename_com'=> 'mimes:pdf,docx',
             'filename_cert'=> 'mimes:pdf,docx',
             'filename_rec'=> 'mimes:pdf,docx',
             'filename_disc'=> 'mimes:pdf,docx',
             'filename_trab'=> 'mimes:pdf,docx',
-            'filename_com'=> 'mimes:pdf,docx',
             'filename_recp'=> 'mimes:pdf,docx'
         ];
         $messages = [
@@ -129,12 +129,12 @@ class InscripcionController extends Controller
             'nivel_salarial_1.numeric' => 'Su nivel salarial debe ser un número',
             'seccion_sindical_1.required' => 'Su seccion sindical es requerido',
             'seccion_sindical_1.string' => 'Su seccion sindical debe ser un texto',
-            'nombre_menor_1.required' => 'Su seccion sindical es requerido',
-            'nombre_menor_1.string' => 'Su seccion sindical debe ser un texto',
-            'apellido_paterno_1.required' => 'Su apellido paterno es requerido',
-            'apellido_paterno_1.string' => 'Su apellido paterno debe ser un texto',
-            'apellido_materno_1.required' => 'Su apellido materno es requerido',
-            'apellido_materno_1.string' => 'Su apellido materno debe ser un texto',
+            'nombre_menor_1.required' => 'El nombre del menor es requerido',
+            'nombre_menor_1.string' => 'El nombre del menor debe ser un texto',
+            'apellido_paterno_1.required' => 'Su apellido paterno del menor es requerido',
+            'apellido_paterno_1.string' => 'Su apellido paterno del menor debe ser un texto',
+            'apellido_materno_1.required' => 'Su apellido materno del menor es requerido',
+            'apellido_materno_1.string' => 'Su apellido materno del menor debe ser un texto',
             'birthday.required' => 'Su fecha de cumpleaños es requerido',
             'birthday.date' => 'Su fecha de cumpleaños debe ser una fecha',
             'Edad_menor.required' => 'Su edad es requerido',
@@ -148,16 +148,17 @@ class InscripcionController extends Controller
             'telefono_celular.max' => 'Su celular debe contener 10 digitos',
             'telefono_3.required' => 'Su telefono es requerido',
             'telefono_3.numeric' => 'Su telefono debe ser un número',
-            'filename_act.mimes' => 'Tu archivo no es valido',
-            'filename_sol.mimes' => 'Tu archivo no es valido',
-            'filename_vacu.mimes' => 'Tu archivo no es valido',
-            'filename_nac.mimes' => 'Tu archivo no es valido',
-            'filename_cert.mimes' => 'Tu archivo no es valido',
-            'filename_rec.mimes' => 'Tu archivo no es valido',
-            'filename_disc.mimes' => 'Tu archivo no es valido',
-            'filename_trab.mimes' => 'Tu archivo no es valido',
-            'filename_com.mimes' => 'Tu archivo no es valido',
-            'filename_recp.mimes' => 'Tu archivo no es valido',
+            
+            'filename_act.mimes' => 'El acta de nacimiento no es valido',
+            'filename_sol.mimes' => 'La solicitud de Ingreso no es valido',
+            'filename_vacu.mimes' => 'La Cartilla de vacunacion no es valido',
+            'filename_nac.mimes' => 'Certificado de nacimiento no es valido',
+            'filename_com.mimes' => 'Carta compromiso no es valido',
+            'filename_cert.mimes' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no es valido',
+            'filename_rec.mimes' => 'Último recibo de pago impreso del(a) trabajador (a). no es valido',
+            'filename_disc.mimes' => 'Copias de los documentos médicos del tratamiento no es valido',
+            'filename_trab.mimes' => 'Documento de la patria potestad no es valido',
+            'filename_recp.mimes' => 'Copia del último recibo de pago de la persona trabajadora no es valido',
         ];
         $validator = Validator::make($request->all(),$rules,$messages);
         if($validator->fails()){
@@ -165,40 +166,34 @@ class InscripcionController extends Controller
             return redirect('inscripcion_from')->withErrors($validator)->with('message','Se ha producido un error.')->with('typelert','danger');
         }else{
             /* dd("entra aqui a lo chido"); */
-            /* $inscripcionObject = new InscripcionController; 
-            $inscripcionObject->procesaInscripcion($request); */
             Inscripcion::create($request->all());
             //obtiene id de reinscripcion
             $id_reins = Inscripcion::select('id')->orderByDesc('id')->get()->first();
             $id = $id_reins->id;
             $filename_act = $request->file('filename_act');
-            $filename_sol = $request->file('filename_sol');
+            //$filename_sol = $request->file('filename_sol');
             $filename_vacu = $request->file('filename_vacu');
             $filename_nac = $request->file('filename_nac');
-            $filename_cert = $request->file('filename_cert');
-            $filename_rec = $request->file('filename_rec');
+            $filename_com = $request->file('filename_com');
+            //$filename_cert = $request->file('filename_cert');
+            //$filename_rec = $request->file('filename_rec');
             $filename_disc = $request->file('filename_disc');
             $filename_trab = $request->file('filename_trab');
-            $filename_com = $request->file('filename_com');
-            $filename_recp = $request->file('filename_recp');
+            //$filename_recp = $request->file('filename_recp');
     
             $arrayFiles = array(
-                $filename_act, $filename_sol, $filename_vacu, $filename_nac, $filename_cert, $filename_rec, $filename_disc, $filename_trab, $filename_com, $filename_recp
+                array($filename_act,"Acta de nacimiento"),array($filename_vacu,"Cartilla de vacunacion"), 
+                array($filename_nac,"Certificado de nacimiento"), array($filename_com,"Curp"), 
+                array($filename_disc,"Copias de los documentos médicos del tratamiento"),
+                array($filename_trab,"Documento de la patria potestad")
             );
-            if (Inscripcion::setDoc($arrayFiles, $id)) {
+            if (Inscripcion::setDoc($arrayFiles,$id)) {
                 $inscripcion = new InscripcionController;
                 $inscripcion->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo);
                 return redirect('inscripcion_from')->with('mensaje', "Menú creado con exito");
+            }else{
+                return redirect('inscripcion_from')->withErrors($validator)->with('message','Se ha producido un error, no se cargaron todos los archivos.')->with('typelert','danger');
             }
-        }
-    }
-
-    private function procesaInscripcion($request){
-        if($request->tipo_nomina_1 === 0){
-            $request->tipo_nomina_1 = ' ';
-        }
-        if($request->seccion_sindical_1 === 0){
-            $request->seccion_sindical_1 = ' ';
         }
     }
 

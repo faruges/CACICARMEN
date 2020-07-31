@@ -34,7 +34,7 @@ class CreateReinscripcionMenorTable extends Migration
             $table->string('nombre_menor',100);
             $table->string('ap_paterno',50);
             $table->string('ap_materno',50);
-            $table->date('fecha_nacimiento');
+            $table->string('fecha_nacimiento');
             $table->string('edad_menor_ingreso',10);
             $table->string('curp',20);
             $table->string('caci',150);

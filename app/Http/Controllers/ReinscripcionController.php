@@ -60,7 +60,7 @@ class ReinscripcionController extends Controller
             $array = json_decode($response, true);
             foreach ($array['data'] as $key => &$value) {
                 if ($value === "0" || is_null($value)) {
-                    $value = "Dato no encontrado";
+                    $value = "DATO NO ENCONTRADO";
                 }
             }
             $data['user'] = $array['data'];
@@ -137,12 +137,12 @@ class ReinscripcionController extends Controller
             'seccion_sindical.string' => 'Su seccion sindical debe ser un texto',
             'matricula.required' => 'Su seccion sindical es requerido',
             'matricula.string' => 'Su seccion sindical debe ser un texto',
-            'nombre_menor.required' => 'Su seccion sindical es requerido',
-            'nombre_menor.string' => 'Su seccion sindical debe ser un texto',
-            'ap_paterno.required' => 'Su apellido paterno es requerido',
-            'ap_paterno.string' => 'Su apellido paterno debe ser un texto',
-            'ape_materno.required' => 'Su apellido materno es requerido',
-            'ape_materno.string' => 'Su apellido materno debe ser un texto',
+            'nombre_menor.required' => 'El nombre del menor es requerido',
+            'nombre_menor.string' => 'El nombre del menor debe ser un texto',
+            'ap_paterno.required' => 'Su apellido paterno del menor es requerido',
+            'ap_paterno.string' => 'Su apellido paterno del menor debe ser un texto',
+            'ape_materno.required' => 'Su apellido materno del menor es requerido',
+            'ape_materno.string' => 'Su apellido materno del menor debe ser un texto',
             'fecha_nacimiento.required' => 'Su fecha de cumpleaños es requerido',
             'fecha_nacimiento.date' => 'Su fecha de cumpleaños debe ser una fecha',
             'edad_menor_ingreso.required' => 'Su edad es requerido',
@@ -156,16 +156,16 @@ class ReinscripcionController extends Controller
             'telefono_dos.required' => 'Su telefono es requerido',
             'telefono_dos.numeric' => 'Su telefono debe ser un número',
 
-            'filename_act.mimes' => 'Tu archivo no es valido',
-            'filename_sol.mimes' => 'Tu archivo no es valido',
-            'filename_vacu.mimes' => 'Tu archivo no es valido',
-            'filename_nac.mimes' => 'Tu archivo no es valido',
-            'filename_cert.mimes' => 'Tu archivo no es valido',
-            'filename_rec.mimes' => 'Tu archivo no es valido',
-            'filename_disc.mimes' => 'Tu archivo no es valido',
-            'filename_trab.mimes' => 'Tu archivo no es valido',
-            'filename_com.mimes' => 'Tu archivo no es valido',
-            'filename_recp.mimes' => 'Tu archivo no es valido',
+            'filename_act.mimes' => 'El acta de nacimiento no es valido',
+            'filename_sol.mimes' => 'La solicitud de Ingreso no es valido',
+            'filename_vacu.mimes' => 'La Cartilla de vacunacion no es valido',
+            'filename_nac.mimes' => 'Certificado de nacimiento no es valido',
+            'filename_com.mimes' => 'Carta compromiso no es valido',
+            'filename_cert.mimes' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no es valido',
+            'filename_rec.mimes' => 'Último recibo de pago impreso del(a) trabajador (a). no es valido',
+            'filename_disc.mimes' => 'Copias de los documentos médicos del tratamiento no es valido',
+            'filename_trab.mimes' => 'Documento de la patria potestad no es valido',
+            'filename_recp.mimes' => 'Copia del último recibo de pago de la persona trabajadora no es valido',
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
@@ -178,24 +178,29 @@ class ReinscripcionController extends Controller
             $id_reins = Reinscripcion::select('id')->orderByDesc('id')->get()->first();
             $id = $id_reins->id;
             $filename_act = $request->file('filename_act');
-            $filename_sol = $request->file('filename_sol');
+            //$filename_sol = $request->file('filename_sol');
             $filename_vacu = $request->file('filename_vacu');
             $filename_nac = $request->file('filename_nac');
+            $filename_com = $request->file('filename_com');
 
-            $filename_cert = $request->file('filename_cert');
-            $filename_rec = $request->file('filename_rec');
+            //$filename_cert = $request->file('filename_cert');
+            //$filename_rec = $request->file('filename_rec');
             $filename_disc = $request->file('filename_disc');
             $filename_trab = $request->file('filename_trab');
-            $filename_com = $request->file('filename_com');
-            $filename_recp = $request->file('filename_recp');
+            //$filename_recp = $request->file('filename_recp');
 
             $arrayFiles = array(
-                $filename_act, $filename_sol, $filename_vacu, $filename_nac, $filename_cert, $filename_rec, $filename_disc, $filename_trab, $filename_com, $filename_recp
+                array($filename_act,"Acta de nacimiento"), array($filename_vacu,"Cartilla de vacunacion"), 
+                array($filename_nac,"Certificado de nacimiento"), array($filename_com,"Carta compromiso"),  
+                array($filename_disc,"Copias de los documentos médicos del tratamiento"),
+                array($filename_trab,"Documento de la patria potestad")
             );
             if (Reinscripcion::setDoc($arrayFiles, $id)) {
                 $reinscripcion = new ReinscripcionController;
                 $reinscripcion->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email);
                 return redirect('reinscripcion')->with('mensaje', "Menú creado con exito");
+            }else{
+                return redirect('reinscripcion')->withErrors($validator)->with('message','Se ha producido un error, no se cargaron todos los archivos.')->with('typelert','danger');
             }
         }
     }

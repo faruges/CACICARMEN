@@ -2,6 +2,7 @@
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
   <script src="{{URL::asset('js/consulta_webservice.js')}}" type="text/javascript"> </script> 
+  <script src="{{URL::asset('js/add-upper-case.js')}}" type="text/javascript"> </script> 
 @endsection 
 @section('mycontent')
 
@@ -198,17 +199,17 @@ a , h1 {
     <div class="col-sm-6">
           <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
    
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Nombre del Padre/Madre o Tutor<input type="text"placeholder="Nombre del Padre/Madre o Tutor" title="Nombre del Padre/Madre o Tutor"  oninput="this.className = ''" name="nombre_tutor" value="{{$value['CH_nombres']}}"></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Nombre del Padre/Madre o Tutor<input type="text"placeholder="Nombre del Padre/Madre o Tutor" title="Nombre del Padre/Madre o Tutor"  oninput="this.className = ''" name="nombre_tutor" value="{{$value['CH_nombres']}}" readonly></p>
 
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido paterno<input type="text"placeholder="Apellido paterno" title="Apellido paterno" oninput="this.className = ''" name="ap_paterno_t" value="{{$value['CH_paterno']}}"></p>
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido materno<input type="text"placeholder="Apellido materno" title="Apellido materno"  oninput="this.className = ''" name="ap_materno_t" value="{{$value['CH_materno']}}"></p>
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Domicilio particular<input type="text"placeholder="Domicilio particular" title="Domicilio particular" oninput="this.className = ''" name="domicilio"></p>
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Tipo de nómina<input placeholder="Tipo de nómina" title="Tipo de nómina"  oninput="this.className = ''" name="tipo_nomina" value="{{$value['TipoNomina']}}"></p>
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de empleado<input placeholder="Número de empleado" title="Número de empleado" oninput="this.className = ''" name="num_empleado" value="{{$value['NumEmpleado']}}"></p>
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de plaza<input placeholder="Número de plaza" title="Número de plaza" oninput="this.className = ''" name="num_plaza" value="{{$value['NUM_PLAZA']}}"></p>
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Clave de la dependencia<input type="text"placeholder="Clave de la dependencia" title="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia" value="{{$value['Clave_Dependencia']}}"></p>
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Nivel salarial<input placeholder="Nivel salarial" title="Nivel salarial" oninput="this.className = ''" name="nivel_salarial" value="{{$value['NIVEL_SALARIAL']}}"></p>
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Sección sindical<input placeholder="Sección sindical" title="Sección sindical"  oninput="this.className = ''" name="seccion_sindical" value="{{$value['SECCION_SINDICAL']}}"></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido paterno<input type="text"placeholder="Apellido paterno" title="Apellido paterno" oninput="this.className = ''" name="ap_paterno_t" value="{{$value['CH_paterno']}}" readonly></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido materno<input type="text"placeholder="Apellido materno" title="Apellido materno"  oninput="this.className = ''" name="ap_materno_t" value="{{$value['CH_materno']}}" readonly></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Domicilio particular<input type="text"placeholder="Domicilio particular" title="Domicilio particular" oninput="this.className = ''" name="domicilio" onkeyup="mayus(this);"></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Tipo de nómina<input placeholder="Tipo de nómina" title="Tipo de nómina"  oninput="this.className = ''" name="tipo_nomina" value="{{$value['TipoNomina']}}" readonly></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de empleado<input placeholder="Número de empleado" title="Número de empleado" oninput="this.className = ''" name="num_empleado" value="{{$value['NumEmpleado']}}" readonly></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de plaza<input placeholder="Número de plaza" title="Número de plaza" oninput="this.className = ''" name="num_plaza" value="{{$value['NUM_PLAZA']}}" readonly></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Clave de la dependencia<input type="text"placeholder="Clave de la dependencia" title="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia" value="{{$value['Clave_Dependencia']}}" readonly></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Nivel salarial<input placeholder="Nivel salarial" title="Nivel salarial" oninput="this.className = ''" name="nivel_salarial" value="{{$value['NIVEL_SALARIAL']}}" readonly></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Sección sindical<input placeholder="Sección sindical" title="Sección sindical"  oninput="this.className = ''" name="seccion_sindical" value="{{$value['SECCION_SINDICAL']}}" readonly></p>
 
     </div>
     <div class="col-sm-6">
@@ -220,7 +221,7 @@ a , h1 {
        
           <h5>Datos de contacto</h5>
          
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">E-mail<input type="email" placeholder="E-mail" title="E-mail"  oninput="this.className = ''" name="email" value="{{$value['CH_mail']}}"></p>
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">E-mail<input type="email" placeholder="E-mail" title="E-mail"  oninput="this.className = ''" name="email" value="{{$value['CH_mail']}}" readonly></p>
           <p style="font-size: 12px; font-family: Arial, Helvetica;">Teléfono o celular<input type="tel" placeholder="Teléfono o celular"  title="Teléfono o celular" oninput="this.className = ''" name="telefono_uno" maxlength="10"
             pattern="[0-9]{10}"></p>
           <p style="font-size: 12px; font-family: Arial, Helvetica;">Teléfono 2<input type="tel" placeholder="Teléfono 2" title="Teléfono 2"  oninput="this.className = ''" name="telefono_dos" maxlength="10"
@@ -235,7 +236,7 @@ a , h1 {
   <div class="tab">
     <br>
     <label for="curp">CURP:</label>
-    <p><input id="curp" type="text" placeholder="CURP" oninput="this.className = ''" name="curp" pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]"></p>
+    <p><input id="curp" type="text" placeholder="CURP" oninput="this.className = ''" name="curp" onkeyup="mayus(this);" pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]"></p>
     <button id="valida_curp" type="button" onclick="validaCurp()">Validar CURP</button> 
   </div>
   <div class="tab">
@@ -247,17 +248,17 @@ a , h1 {
         
     <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
       
-    <p style="font-size: 12px; font-family: Arial, Helvetica;">CURP<input type="text" id="curp_num" placeholder="CURP" title="CURP" oninput="this.className = ''" name="curp" pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]"></p>
-    <p style="font-size: 12px; font-family: Arial, Helvetica;">Matricula<input type="text" id="" placeholder="Matricula"  title="Matricula"  oninput="this.className = ''" name="matricula"></p>
+    <p style="font-size: 12px; font-family: Arial, Helvetica;">CURP<input type="text" id="curp_num" placeholder="CURP" title="CURP" oninput="this.className = ''" name="curp" pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]" readonly></p>
+    <p style="font-size: 12px; font-family: Arial, Helvetica;">Matricula<input type="text" id="" placeholder="Matricula" onkeyup="mayus(this);" title="Matricula"  oninput="this.className = ''" name="matricula"></p>
 
-    <p style="font-size: 12px; font-family: Arial, Helvetica;">Nombre(s) del menor<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor"  title="Nombre(s) del menor"  oninput="this.className = ''" name="nombre_menor"></p>
-    <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido paterno<input type="text" id="apellido_paterno_1" placeholder="Apellido paterno"  title="Apellido paterno"  oninput="this.className = ''" name="ap_paterno"></p>
-    <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido materno<input type="text" id="apellido_materno_1" placeholder="Apellido materno"   title="Apellido materno" oninput="this.className = ''" name="ap_materno"></p>
+    <p style="font-size: 12px; font-family: Arial, Helvetica;">Nombre(s) del menor<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor"  title="Nombre(s) del menor"  oninput="this.className = ''" name="nombre_menor" readonly></p>
+    <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido paterno<input type="text" id="apellido_paterno_1" placeholder="Apellido paterno"  title="Apellido paterno"  oninput="this.className = ''" name="ap_paterno" readonly></p>
+    <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido materno<input type="text" id="apellido_materno_1" placeholder="Apellido materno"   title="Apellido materno" oninput="this.className = ''" name="ap_materno" readonly></p>
 
     <h5>Fecha de Nacimiento del menor:</h5>
-    <input type="text" id="birthday" name="fecha_nacimiento">
+    <input type="text" id="birthday" name="fecha_nacimiento" readonly>
 
-    <p  style="font-size: 12px; font-family: Arial, Helvetica;">Edad del menor al ingresar al plantel (Año o Meses)<input type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" title="Edad del menor al ingresar al plantel (Año o Meses)"  oninput="this.className = ''"name="edad_menor_ingreso"></p>
+    <p  style="font-size: 12px; font-family: Arial, Helvetica;">Edad del menor al ingresar al plantel (Año o Meses)<input type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" title="Edad del menor al ingresar al plantel (Año o Meses)"  oninput="this.className = ''"name="edad_menor_ingreso" onkeyup="mayus(this);"></p>
 
   <h5>Directorio de los CACI SAF:</h5>
   <select style="font-size: 15px;" name="caci" id="cars">
@@ -270,8 +271,8 @@ a , h1 {
     <br>
     <h5>Acta de nacimiento.</h5>
     <input type="file" id="myFile" name="filename_act">
-    <h5>Solicitud de ingreso perfectamente llenada y firmada.</h5>
-    <input type="file" id="myFile" name="filename_sol">
+    {{--  <h5>Solicitud de ingreso perfectamente llenada y firmada.</h5>
+    <input type="file" id="myFile" name="filename_sol">  --}}
     <h5>Cartilla de vacunacion al corriente (original y copia).</h5>
     <input type="file" id="myFile" name="filename_vacu">
     <h5>Certificado de nacimiento.</h5>
@@ -281,10 +282,10 @@ a , h1 {
     <div class="col-sm-6">
     <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;"><br>
 
-    <h5 >Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o Documento que contengan datos de nacimiento del(a) menor tales como peso, talla, APGAR, etc.</h5>
-    <input type="file" id="myFile" name="filename_cert">
-    <h5 >Último recibo de pago impreso del(a) trabajador (a).</h5>
-    <input type="file" id="myFile" name="filename_rec">
+    {{--  <h5 >Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido, o Documento que contengan datos de nacimiento del(a) menor tales como peso, talla, APGAR, etc.</h5>
+    <input type="file" id="myFile" name="filename_cert">  --}}
+    {{--  <h5 >Último recibo de pago impreso del(a) trabajador (a).</h5>
+    <input type="file" id="myFile" name="filename_rec">  --}}
     <h5>En caso que la o el menor tenga alguna discapacidad o enfermedad crónica, presentar copias de los documentos médicos del tratamiento y/o seguimiento para proporcionarle la atención adecuada.</h5>
     <input type="file" id="myFile" name="filename_disc">
     <h5>En caso de que el trabajador(a) sea el tutor del menor, deberá presentar el documento
@@ -292,8 +293,8 @@ a , h1 {
     <input type="file" id="myFile" name="filename_trab">
     <h5>Carta compromiso.</h5>
     <input type="file" id="myFile" name="filename_com">
-    <h5>Copia del último recibo de pago de la persona trabajadora o usuaria.</h5>
-    <input type="file" id="myFile" name="filename_recp">
+    {{--  <h5>Copia del último recibo de pago de la persona trabajadora o usuaria.</h5>
+    <input type="file" id="myFile" name="filename_recp">  --}}
     @endforeach
 
     </div>

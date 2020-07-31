@@ -122,7 +122,7 @@
                             <tbody>
                                 @foreach ($data as $doc)
                                 <tr>
-                                    <td>{{$doc->nombre}}</td>
+                                    <td>{{$doc->nombre_tramite}}</td>
                                     <td>{{$doc->created_at}}</td>
                                     <td class="actions">
                                         <span class="float-right">

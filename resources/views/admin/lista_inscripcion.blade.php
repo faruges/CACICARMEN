@@ -61,7 +61,7 @@
                 <tbody>
                     @foreach ($lista_caci as $caci)
                     <tr>
-                        <td>{{$caci->nombre_menor}} {{$caci->apellido_paterno_1}} {{$caci->apellido_materno_1}}</td>
+                        <td>{{$caci->nombre_menor_1}} {{$caci->apellido_paterno_1}} {{$caci->apellido_materno_1}}</td>
                         <td>{{$caci->curp_num}}</td>
                         <td>{{$caci->birthday}}</td>
                         <td>{{$caci->Edad_menor}}</td>
