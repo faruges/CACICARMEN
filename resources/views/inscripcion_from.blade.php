@@ -238,7 +238,7 @@ a , h1 {
 <div class="tab">
   <br>
   <label for="curp">CURP:</label>
-  <p><input id="curp" type="text" placeholder="CURP" onkeyup="mayus(this);" oninput="this.className = ''" name="curp"
+  <p><input id="curp" type="text" placeholder="CURP" onkeyup="mayus(this);" oninput="this.className = ''" name="curp" maxlength="18"
     pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]"></p>
   <button id="valida_curp" type="button" onclick="validaCurp()">Validar CURP</button> 
 </div>
@@ -260,7 +260,7 @@ a , h1 {
 
     <h5 for="birthday">Fecha de Nacimiento del menor:</h5>
     <input type="text" id="birthday" name="birthday" readonly>
-    <p style="font-size: 12px; font-family: Arial, Helvetica;">Edad del menor al ingresar al plantel (Año o Meses)<input type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" title="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''" name="Edad_menor" onkeyup="mayus(this);"></p>
+    <p style="font-size: 12px; font-family: Arial, Helvetica;">Edad del menor al ingresar al plantel (Año o Meses)<input id="Edad_menor" type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" title="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''" name="Edad_menor" onkeyup="mayus(this);" readonly></p>
 
   <h5 for="cars">Directorio de los CACI SAF:</h5>
   <select style="font-size: 15px;" name="caci" id="cars">
@@ -308,8 +308,8 @@ a , h1 {
  <label style="color:#054a41; ">Datos de contacto</label>
  <br>
   <p style="font-size: 12px; font-family: Arial, Helvetica;">E-mail<input placeholder="E-mail" title="E-mail" oninput="this.className = ''" name="email_correo" value="{{$value['CH_mail']}}" readonly></p>
-  <p style="font-size: 12px; font-family: Arial, Helvetica;">Teléfono<input type="tel" placeholder="Teléfono" title="Teléfono"  oninput="this.className = ''" name="telefono_celular" maxlength="10" pattern="[0-9]{10}"></p>
-  <p style="font-size: 12px; font-family: Arial, Helvetica;">Celular<input type="tel" placeholder="Celular" title="Celular"  oninput="this.className = ''" name="telefono_3" maxlength="10" pattern="[0-9]{10}"></p>
+  <p style="font-size: 12px; font-family: Arial, Helvetica;">Teléfono<input id="telefono_uno" type="tel" placeholder="Teléfono" title="Teléfono"  oninput="this.className = ''" name="telefono_celular" maxlength="10" pattern="[0-9]{10}"></p>
+  <p style="font-size: 12px; font-family: Arial, Helvetica;">Celular<input id="telefono_dos" type="tel" placeholder="Celular" title="Celular"  oninput="this.className = ''" name="telefono_3" maxlength="10" pattern="[0-9]{10}"></p>
 
   @endforeach
   <br><br>

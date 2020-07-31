@@ -5,8 +5,11 @@
 @endsection
 @section('mycontent') 
 <style>
-    .card {
-        margin: 0px 20px 50px 30px;
+    .card-uno {
+        margin: 0px 10px 50px 70px;
+    }
+    .card-dos {
+        margin: 0px 0px 50px 70px;
     }
 
     .card-title {
@@ -91,7 +94,7 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="card mt50">
+                <div class="card mt50 card-uno col-md-5 col-lg-5 col-xl-5">
                     <div class="card-title">
                         <h1> Datos Solicitante</h1>
                     </div>
@@ -164,7 +167,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="card mt50">
+                <div class="card mt50 card-dos col-md-5 col-lg-5 col-xl-5">
                     <div class="card-title">
                         <h1>Lista de Documentos</h1>
                     </div>
