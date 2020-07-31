@@ -144,10 +144,10 @@ input {
   </div>
 </div>
 
- <div style="text-align: right;">
+ <!-- <div style="text-align: right;">
       <a href="centros">
    <button onclick="adicionar()" class='btn_add'>Regresar</button></a>
-</div>
+</div> -->
 <br><br>
 
 

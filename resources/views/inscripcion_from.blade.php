@@ -366,12 +366,9 @@ function showTab(n) {
   //... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
-      
-  } 
-
-  else {
- document.getElementById("prevBtn").style.display = "inline";
-Swal.fire({
+	
+	
+	Swal.fire({
   title: '<strong>Importante</u></strong>',
   icon: 'success',
   html:
@@ -382,7 +379,13 @@ Swal.fire({
 //  showCancelButton: true,
 })
  
-  
+      
+  } 
+
+  else {
+ document.getElementById("prevBtn").style.display = "inline";
+
+ 
   }
 
   if (n == (x.length - 1)) {

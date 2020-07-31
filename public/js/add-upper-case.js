@@ -11,9 +11,9 @@ $(document).ready(function() {
         var validado = curpValido.match(valCurp);
         if(!validado){
             $("#curp").val('');
-            alert("Curp no valido");
+            alert("Curp no válido");
         }else{
-            alert("Curp valido");
+            //alert("Curp valido");
         }
     });
     $("#telefono_uno").blur(function(){
@@ -22,9 +22,9 @@ $(document).ready(function() {
         var validado = telefono_uno.match(valTelefono);
         if(!validado){
             $("#telefono_uno").val('');
-            alert("Telefono no valido");
+            alert("Telefono no válido");
         }else{
-            alert("Telefono valido");
+            //alert("Telefono valido");
         }
     });
     $("#telefono_dos").blur(function(){
@@ -33,9 +33,9 @@ $(document).ready(function() {
         var validado = telefono_dos.match(valTelefono);
         if(!validado){
             $("#telefono_dos").val('');
-            alert("Telefono no valido");
+            alert("Telefono no válido");
         }else{
-            alert("Telefono valido");
+            //alert("Telefono válido");
         }
     });
 });

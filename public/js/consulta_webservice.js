@@ -43,13 +43,13 @@ function validaCurp() {
             console.log("años",anioReal+'.'+numeroDeMeses % 12); */
             var anioConMeses = anioReal+'.'+numeroDeMeses % 12;
             $("#Edad_menor").val(anioConMeses); 
-            alert("El curp proporcionado fue consultado ante\nEl Registro Nacional de Población (RENAPO) correctamente");            
+            alert("La curp ingresada ha sido validada correctamente");            
 
         },
         error: function(data_e)
         {
             console.log(data_e);
-            alert("La Curp ingresada no ha sido identificada");
+            alert("La Curp ingresada no es válida");
          }
     });
     
