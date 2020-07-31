@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <style>
   #regForm {
-    background-color: #f5f5f0;
     margin: 100px auto;
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px;
@@ -23,11 +22,11 @@
   }
 
   input {
-    padding: 0px;
+    padding: 10px;
     width: 100%;
-    font-size: 11px;
+    font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
-    border: 1px solid #00b140;
+    border: 3px solid #00b140;
   }
 
   input.invalid {
@@ -102,6 +101,24 @@ a , h1 {
   top: 10px;
   right: 10px;  
 }
+
+.fondo {
+  background-image: url("./img/FondoRepeat.png");
+  background-repeat: repeat;
+}
+
+.bgcontainer { 
+            width: 100%;
+        } 
+        #st-box { 
+            float:left; 
+            width:50%; 
+        } 
+        #rd-box { 
+            float:right; 
+            width:50%; 	
+        } 
+
 </style>
 
 
@@ -151,7 +168,7 @@ a , h1 {
                 <div class="col-sm-6">
                 <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2>
                 <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
-                </i>1. Llenar el formulario en el siguiente enlace:</li><br><br>
+                </i>1. Llenar el formulario el siguiente formulario</li><br><br>
                 </i>2. Cargar la siguiente documentación en versión digital (PDF):</li><br>
                 <h5>a) Acta de nacimiento original por ambos lados, del o la menor.</h5>
                 <h5>b) Certicado de nacimiento del o la menor.</h5>
@@ -180,7 +197,7 @@ a , h1 {
  </div>
 
 <body>
- 
+ <div class="fondo">
     <form id="regForm" action="{{route('guardar_reinscripcion_bd')}}" method="POST" enctype="multipart/form-data">
 
        <h1 style="color: #054a41;">Centros de Atención y Cuidado Infantil</h1>
@@ -222,9 +239,9 @@ a , h1 {
           <h5>Datos de contacto</h5>
          
           <p style="font-size: 12px; font-family: Arial, Helvetica;">E-mail<input type="email" placeholder="E-mail" title="E-mail"  oninput="this.className = ''" name="email" value="{{$value['CH_mail']}}" readonly></p>
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Teléfono o celular<input type="tel" placeholder="Teléfono o celular"  title="Teléfono o celular" oninput="this.className = ''" name="telefono_uno" maxlength="10"
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Teléfono<input type="tel" placeholder="Teléfono o celular"  title="Teléfono o celular" oninput="this.className = ''" name="telefono_uno" maxlength="10"
             pattern="[0-9]{10}"></p>
-          <p style="font-size: 12px; font-family: Arial, Helvetica;">Teléfono 2<input type="tel" placeholder="Teléfono 2" title="Teléfono 2"  oninput="this.className = ''" name="telefono_dos" maxlength="10"
+          <p style="font-size: 12px; font-family: Arial, Helvetica;">Celular<input type="tel" placeholder="Teléfono 2" title="Teléfono 2"  oninput="this.className = ''" name="telefono_dos" maxlength="10"
             pattern="[0-9]{10}"></p>
           <br><br>
 
@@ -255,7 +272,7 @@ a , h1 {
     <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido paterno<input type="text" id="apellido_paterno_1" placeholder="Apellido paterno"  title="Apellido paterno"  oninput="this.className = ''" name="ap_paterno" readonly></p>
     <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido materno<input type="text" id="apellido_materno_1" placeholder="Apellido materno"   title="Apellido materno" oninput="this.className = ''" name="ap_materno" readonly></p>
 
-    <h5>Fecha de Nacimiento del menor:</h5>
+    <p>Fecha de Nacimiento del menor:<p>
     <input type="text" id="birthday" name="fecha_nacimiento" readonly>
 
     <p  style="font-size: 12px; font-family: Arial, Helvetica;">Edad del menor al ingresar al plantel (Año o Meses)<input type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" title="Edad del menor al ingresar al plantel (Año o Meses)"  oninput="this.className = ''"name="edad_menor_ingreso" onkeyup="mayus(this);"></p>
@@ -311,7 +328,17 @@ a , h1 {
 
     </div>
   </div>
-
+<div class="bgcontainer"> 
+            <div id="st-box" style="background-image: url('./img/dados.png'); background-repeat: no-repeat; background-position: left bottom;"> 
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+            </div> 
+              
+            
+              
+            <div id="rd-box" style="background-image: url('./img/FondoCuna.png'); background-repeat: no-repeat; background-position: right bottom;"> 
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+            </div> 
+        </div>
 
   <!-- Circles which indicates the steps of the form: -->
   <div style="text-align:center;margin-top:40px;">
@@ -320,6 +347,7 @@ a , h1 {
     <span class="step"></span>
   </div>
   </form>
+</div>
 </body>
 
 <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
@@ -357,8 +385,7 @@ Swal.fire({
 
     document.getElementById("nextBtn").innerHTML = "Enviar";
 
-  // swal("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success" , { buttons: ["Ver Aviso", true],  
- //});
+ 
 
   } 
   else {

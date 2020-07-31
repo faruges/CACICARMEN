@@ -11,7 +11,6 @@
 
 <style>
   #regForm {
-    background-color: #f5f5f0;
     margin: 100px auto;
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px;
@@ -25,11 +24,11 @@
   }
 
   input {
-    padding: 0px;
+    padding: 10px;
     width: 100%;
-    font-size: 11px;
+    font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
-    border: 1px solid #00b140;
+    border: 3px solid #00b140;
   }
 
   input.invalid {
@@ -105,6 +104,23 @@ a , h1 {
   right: 10px;  
 }
 
+.fondo {
+  background-image: url("./img/FondoRepeat.png");
+  background-repeat: repeat;
+  
+}
+
+.bgcontainer { 
+            width: 100%;
+        } 
+        #st-box { 
+            float:left; 
+            width:50%; 
+        } 
+        #rd-box { 
+            float:right; 
+            width:50%; 	
+        } 
 </style>
 
 <div class="alert">
@@ -129,7 +145,7 @@ a , h1 {
           <div class="col-sm-6">
           <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2>
           <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
-          </i>1. Llenar el formulario en el siguiente enlace:</li><br><br>
+          </i>1. Llenar el siguiente formulario.</li><br><br>
           </i>2. Cargar la siguiente documentación en versión digital (PDF):</li><br>
           <h5>a) Acta de nacimiento original por ambos lados, del o la menor.</h5>
           <h5>b) Certicado de nacimiento del o la menor.</h5>
@@ -177,7 +193,7 @@ a , h1 {
       </ul>
   </div>
   @endif
-  
+<div class="fondo">   
 <form id="regForm" action="{{route('guardar_inscripcion_bd')}}" method="POST" enctype="multipart/form-data">
 <h1 style="color: #054a41;">Centros de Atención y Cuidado Infantil</h1>
    <div class="tab">
@@ -201,17 +217,19 @@ a , h1 {
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Apellido materno<input type="text"placeholder="Apellido materno" title="Apellido materno" oninput="this.className = ''" name="apellido_materno_tutor" value="{{$value['CH_materno']}}" readonly></p>
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Domicilio particular<input id="domicilio" type="text"placeholder="Domicilio particular" onkeyup="mayus(this);" title="Domicilio particular" oninput="this.className = ''" name="domicilio_delegracion"></p>
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Tipo de nómina<input  placeholder="Tipo de nómina" title="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina_1" value="{{$value['TipoNomina']}}" readonly></p>
-
-    </div>
-    <div class="col-sm-6">
-    <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
-
-      <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de empleado<input placeholder="Número de empleado" title="Número de empleado" oninput="this.className = ''" name="num_empleado_1" value="{{$value['NumEmpleado']}}" readonly></p>
+	  <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de empleado<input placeholder="Número de empleado" title="Número de empleado" oninput="this.className = ''" name="num_empleado_1" value="{{$value['NumEmpleado']}}" readonly></p>
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Número de plaza<input placeholder="Número de plaza" title="Número de plaza" oninput="this.className = ''" name="num_plaza_1" value="{{$value['NUM_PLAZA']}}" readonly></p>
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Clave de la dependencia<input type="text"placeholder="Clave de la dependencia" title="Clave de la dependencia" oninput="this.className = ''" name="clave_dependencia_1" value="{{$value['Clave_Dependencia']}}" readonly></p>
+    </div>
+    <div class="col-sm-6">
+    <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">      
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Nivel salarial<input placeholder="Nivel salarial" title="Nivel salarial" oninput="this.className = ''" name="nivel_salarial_1" value="{{$value['NIVEL_SALARIAL']}}" readonly></p>
       <p style="font-size: 12px; font-family: Arial, Helvetica;">Sección sindical<input placeholder="Sección sindical" title="Sección sindical" oninput="this.className = ''" name="seccion_sindical_1" value="{{$value['SECCION_SINDICAL']}}" readonly></p><br><br>
+	  <h5>Horario laboral</h5>
+          <input type="time" id="appt" name="horario_laboral_ent">
+          <input type="time" id="appt" name="horario_laboral_sal">
     </div>
+	
 </div>
 </div>
 <p style="color: #f5f5f0;">.</p>
@@ -305,11 +323,23 @@ a , h1 {
 
       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Regresar</button>
       <button type="button" id="nextBtn" onclick="nextPrev(1)">Continuar</button>
-
     </div>
+	
   </div>
+  <div class="bgcontainer"> 
+            <div id="st-box" style="background-image: url('./img/dados.png'); background-repeat: no-repeat; background-position: left bottom;"> 
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+            </div> 
+              
+            
+              
+            <div id="rd-box" style="background-image: url('./img/FondoCuna.png'); background-repeat: no-repeat; background-position: right bottom;"> 
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+            </div> 
+        </div> 
+  
   <div style="text-align:center;margin-top:40px;">
-    <span class="step"></span>
+	<span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
    <span class="step"></span>
@@ -317,6 +347,7 @@ a , h1 {
   </div>
 </form>
 
+</div>
 </body>
 
 <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
@@ -341,7 +372,7 @@ function showTab(n) {
   else {
  document.getElementById("prevBtn").style.display = "inline";
 Swal.fire({
-  title: '<strong>Bienvenido</u></strong>',
+  title: '<strong>Importante</u></strong>',
   icon: 'success',
   html:
     '<b>Estos datos son privados solo el padre o tutor son responsable de dichos datos establecidos.</b> ' +
@@ -350,13 +381,7 @@ Swal.fire({
   
 //  showCancelButton: true,
 })
- //swal.fire("Bienvenidos", "Esta datos son privados solo el padre o tutor son responsable de dichos datos establecidos", "success" ,
-  // { buttons: ["Ver Aviso",  true],  
-  // }) 
-
- //.then(function() {
- // window.location = "{{asset('img/PDF/Aviso_Integral_CACI_SAF.pdf')}}"; 
- //  });
+ 
   
   }
 
@@ -396,7 +421,7 @@ function nextPrev(n) {
 
 
 Swal.fire({
-  title: '<strong>Bienvenido</u></strong>',
+  title: '<strong>Bienvenido2</u></strong>',
   icon: 'success',
   html:
     '<b>La información a sido registrada en el sistema.</b> ' +

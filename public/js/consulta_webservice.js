@@ -22,13 +22,13 @@ function validaCurp() {
             $("#apellido_materno_1" ).val(data.user.apellido2);
             $("#birthday" ).val(data.user.fechNac);
             $("#curp_num" ).val(curp);
-            alert("El curp proporcionado fue consultado ante\nEl Registro Nacional de Población (RENAPO) correctamente");
+            alert("La CURP ingresada ha sido validada ");
             
         },
         error: function(data_e)
         {
             console.log(data_e);
-            alert("El Curp no se encuentra en nuestros Registros");
+            alert("La Curp ingresada no ha sido identificada");
          }
     });
     
