@@ -3,6 +3,7 @@
 @section('mycontent')
 
 
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/4.0.6/sweetalert2.min.css'>
 
 <style>
 
@@ -106,8 +107,10 @@ tr:nth-child(even) {
 
 </style>
 
-  <div class="container">
-
+   <div class="container">
+  <div class="item active">
+     <img src="{{asset('img/11.png')}}" alt="Imagenes" style="width:100%;">
+   </div>
 </div>
         <div class="col-lg-12" style="margin-top: 3%;">
                 <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
@@ -119,9 +122,7 @@ tr:nth-child(even) {
     <div class="accordion-title" data-tab="item1">
        
       <h2 style="text-align: center;">Luz María Gómez Pezuela</h2>
-  
     </div>
-
     <div class="accordion-content" id="item1">
       <p>Dr. Claudio Bernard y Dr. Lucio No.123 (planta baja)</p>
       <p>Col.Doctores C.P. 07620</p>
@@ -129,17 +130,12 @@ tr:nth-child(even) {
       <p>Tel: 55-88-33-20</p>  
       <p>Tel. 51-34-25-50</p>      
     </div>
-
-
-
   <div style="background-color: #f2f2f2;" class="accordion-title">
     <a style="text-align: right; color:#00b140;" href="centros">
     <h2 class="fa fa-sign-out"> Ver información </h2></a>
   </div>
-
-
-
   </div>
+
 
   <div class="accordion-item">
     <div class="accordion-title" data-tab="item2">
@@ -150,10 +146,7 @@ tr:nth-child(even) {
         <p>Col.Doctores C.P. 07620</p>
         <p>Del. Cuauhtémoc</p>
         <p>Tel: 55-78-76-76</p>
-
     </div>
-
-
   <div style="background-color: #f2f2f2;" class="accordion-title">
     <a style="text-align: right; color:#00b140;" href="Eva_Moreno">
     <h2 class="fa fa-sign-out"> Ver información </h2></a>
@@ -222,17 +215,9 @@ tr:nth-child(even) {
     <a style="text-align: right; color:#00b140;" href="Carmen_Serdan">
     <h2 class="fa fa-sign-out"> Ver información </h2></a>
   </div>
-
- 
-
   </div>
-
 </div>
-
-
-
-
-                    </div>
+</div>
 
                 <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
                 	<br><br>	<br>
@@ -240,51 +225,49 @@ tr:nth-child(even) {
                       <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-                        <a href="ubuicacion" target="_blank">
-                        <img src="{{asset('img/ubicacion.png')}}" alt="Imagenes" style="width:100%;"></a>
-                       </div>
-                      </div>
+               <a href="ubuicacion" target="_blank">
+               <img src="{{asset('img/ubicacion.png')}}" alt="Imagenes" style="width:100%;"></a>
+                        </div>
+                        </div>
 
-                      <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
-                        <p class="card-text" id="texto_tweet"><font color="#00b140">
+                         <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
+                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                          <div class="blog-img">
-					      <a href="instalaciones" target="_blank">
-					     <img src="{{asset('img/resposable.jpg')}}"  href="instalaciones" target="_blank"   alt="Imagenes" style="width:100%;"></a>
+					   <a href="Eva_Moreno2">
+					   <img src="{{asset('img/resposable.jpg')}}"  alt="Imagenes" style="width:100%;"></a>
                        </div>
                       </div>
 
                       <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-                        <a href="tramiles_CACI" target="_blank">
-                        <img src="{{asset('img/tramites.jpg')}}" alt="Imagenes" style="width:100%;"></a>
+              <a href="tramiles_CACI" target="_blank">
+              <img src="{{asset('img/tramites.jpg')}}" alt="Imagenes" style="width:100%;"></a>
                        </div>
-                      </div>
-                    </div>
+                       </div>
+                       </div>
 
-                <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
-                      	<br><br>
-
-                      <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
+                       <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
+                       <br><br>
+                       <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
-					     <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;">Centro de Atención y Cuidado Infantil</h2>
-					     <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;">Mtra. Eva Moreno Sánchez</h2>
-							<br>
-							<br><br>
+					             <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;">Centro de Atención y Cuidado Infantil</h2>
+					             <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;">Mtra. Eva Moreno Sánchez</h2>
+						      	   <br>
+							         <br><br>
 							
                       </div>
-                   <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
+                      <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-                        <a href="titular" target="_blank">	
-                        <img src="{{asset('img/instalaciones.jpg')}}" alt="Imagenes" style="width:100%;"></a>
+                  <a href="Eva_Moreno1" target="_blank">	
+                  <img src="{{asset('img/instalaciones.jpg')}}" alt="Imagenes" style="width:100%;"></a>
                        </div>
-                      </div>
+                       </div>
 
-                    <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
+                       <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-                    
                         <img src="{{asset('img/civil.jpg')}}" alt="Imagenes" style="width:100%;"></a>
                        </div>
                       </div>

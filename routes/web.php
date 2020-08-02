@@ -18,57 +18,77 @@ Route::get('/', function () {
     return view('/inicio');
 });
 
-
 Route::get('inicio', function () {
     return view('/inicio');
 });
 
+
+Route::get('/centros', function () {
+    return view('centros');
+});
+Route::get('/Luz_María1', function () {
+    return view('Luz_María1');
+});
+
+Route::get('/Luz_María2', function () {
+    return view('Luz_María2');
+});
+
+
+
 Route::get('/Eva_Moreno', function () {
     return view('Eva_Moreno');
 });
+Route::get('/Eva_Moreno1', function () {
+    return view('Eva_Moreno1');
+});
+Route::get('/Eva_Moreno2', function () {
+    return view('Eva_Moreno2');
+});
+
 
 
 Route::get('/Bertha_von', function () {
     return view('Bertha_von');
 });
+Route::get('Bertha_Von1', function () {
+    return view('Bertha_Von1');
+});
+Route::get('/Bertha_Von2', function () {
+    return view('Bertha_Von2');
+});
+
+
 
 Route::get('/Carolina_Agazzi', function () {
     return view('Carolina_Agazzi');
 });
+Route::get('/Carolina_Agazzi1', function () {
+    return view('Carolina_Agazzi1');
+});
+Route::get('/Carolina_Agazzi2', function () {
+    return view('Carolina_Agazzi2');
+});
+
 
 
 Route::get('/Carmen_Serdan', function () {
     return view('Carmen_Serdan');
 });
+Route::get('/Carmen_Serdan1', function () {
+    return view('Carmen_Serdan1');
+});
+Route::get('/Carmen_Serdan2', function () {
+    return view('Carmen_Serdan2');
+});
+
 
 
 Route::get('/informacion_destacada', function () {
     return view('informacion_destacada');
 });
 
-Route::get('/nosotros', function () {
-    return view('nosotros');
-});
 
-Route::get('/centros', function () {
-    return view('centros');
-});
-
-Route::get('/inscripcion_front', function () {
-    return view('inscripcion_from');
-});
-
-Route::get('/requisitos', function () {
-    return view('requisitos');
-});
-
-Route::get('/tramites', function () {
-    return view('tramites');
-});
-
-Route::get('/civil_proteccion', function () {
-    return view('civil_proteccion');
-});
 
 Route::get('/login', function () {
     return view('login');
@@ -91,15 +111,6 @@ Route::get('/tramiles_CACI', function () {
     return view('tramiles_CACI');
 });
 
-
-Route::get('/instalaciones', function () {
-    return view('instalaciones');
-});
-
-
-Route::get('/titular', function () {
-    return view('titular');
-});
 
 
 Route::get('/registo_aqui', function () {
@@ -129,9 +140,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth',
     Route::get('/lista_menores/{id_caci}', 'ListaMenoresController@menoresByCaci')->name('lista_menores');
 });
 
-Route::get('/niño', function () {
-    return view('niño');
-});
+
 
 Route::get('/ubuicacion', function () {
     return view('ubuicacion');

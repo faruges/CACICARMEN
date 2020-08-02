@@ -76,21 +76,15 @@ div.c {
   <a style="background-color: #00B140; margin-left: 35px; margin-bottom: 23px;" class="active"></a>
 
   <a href="inicio"> Inicio </a>		
-  <!--<a href="nosotros"> Nosotros </a>-->
   <a href="centros"> Centros </a>
-  <!--<a href="requisitos"> Requisitos </a>-->
-  <!-- <a href="civil_proteccion"> Proteccion Civil </a> -->
   <a href="inscripcion_from"> Inscripción </a>
   <a href="reinscripcion"> Reinscripción </a>
-
-
- 
- <!--<<a href="informacion_destacada"> Infomación destacada </a> -->
- <a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información destacada</a>
-  <!--<a href="aviso_privacidar">Avisos de Privacidar </a>-->
-
+  <a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información destacada</a>
   <a href="tramiles_CACI"> Trámites </a>
-  <a style="margin-right:  -800px;" href="login"> Iniciar sesión</a>   
+  <a style="margin-right:  -800px;" href="login"> Iniciar sesión</a> 
+
+
+
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 
 </div>
@@ -113,12 +107,12 @@ div.c {
      				|<a style="color:#33353d;" href="centros" title="CENTROS">CENTROS</a>|
      				|<a style="color:#33353d;" href="inscripcion_from" title="INSCRIPCIÓN">INSCRIPCIÓN</a>|
 					|<a style="color:#33353d;" href="reinscripcion" title="REINSCRIPCIÓN">REINSCRIPCIÓN</a>|
-					|<a style="color:#33353d;" href="#" title="INFORMACIÓN DESTACADA">INFORMACIÓN DESTACADA</a>|
+					|<a style="color:#33353d;" target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}" title="INFORMACIÓN DESTACADA">INFORMACIÓN DESTACADA</a>|
      				|<a style="color:#33353d;" href="tramiles_CACI" title="TRAMITES">TRAMITES</a>|
      				<!-- |<a style="color:#00b140;" href="#" title="PROTECCIÓN CIVIL">PROTECCIÓN</a>|
 					<a style="color:#00b140;" href="#" title="CONTACTENOS">CONTACTENOS</a>| -->
      			</p>
-            <p style="color:#33353d;">©Copyright Plataforma CACI, Todos los derechos reservados 2020 Gobierno CDMX / Teléfonos 5555555555 / ext: 123 - Email: <a style="color:#33353d;" href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a></p>
+            <p style="color:#33353d;">©Copyright Plataforma CACI, Todos los derechos reservados 2020 Gobierno CDMX / Email: <a style="color:#33353d;" href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a></p>
      		</div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12">

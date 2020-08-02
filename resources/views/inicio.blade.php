@@ -18,13 +18,7 @@
 
   <br>
 
-  <p>Los Centros de Atención y Cuidado Infantil de la Secretaría de Finanzas que administra el Gobierno de la Ciudad de
-    México a través de la Subsecretaría de Administración y Capital Humano y la Dirección General de Desarrollo Humano y
-    Profesionalización, proporciona sus servicios a las hijas e hijos de las madres y padres trabajadores del Gobierno
-    de la Ciudad de México basificados con dígito sindical. Así mismo de conformidad con la CIRCULAR
-    SFCDMX/SSACH/DGDHP/003/2018 desde el 8 de enero del 2018, gozan del servicio los trabajadores de base sin dígito
-    sindical, nómina 8 y personal de estructura del ámbito central y de los Órganos Políticos Administrativos del
-    Gobierno de la Ciudad de México. En el rango de edad de los 43 días a los 5 años 11 meses en sus diferentes salas:
+  <p>Los Centros de Atención y Cuidado Infantil de la Secretaría de Administración y Finanzas que administra  la Dirección General de Administración de Personal, través de la Dirección de Desarrollo de la Competencia Laboral, Igualdad Sustantiva y Derechos Humanos brinda un servicio  pedagógico y asistencial a los hijos e hijas de las  personas servidoras públicas del gobierno de la Ciudad de México, en edades desde los  45 días hasta los  5 años 11 meses, favoreciendo su sano desarrollo integral en un ambiente armónico, igualitario e inclusivo, para potenciar sus capacidades y habilidades, a través de los programas establecidos por la Secretaría de Educación Pública, SEP, y actividades lúdicas y recreativas  apegadas a su nivel de desarrollo, edad y contexto socio- cultural.
   </p>
 </div>
 

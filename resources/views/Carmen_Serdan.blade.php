@@ -109,8 +109,11 @@ tr:nth-child(even) {
 
 
 </style>
-  <div class="container">
- </div>
+   <div class="container">
+  <div class="item active">
+     <img src="{{asset('img/11.png')}}" alt="Imagenes" style="width:100%;">
+   </div>
+</div>
         <div class="col-lg-12" style="margin-top: 3%;">
                 <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
                       <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" >Nuestros centros</h2>
@@ -251,8 +254,8 @@ tr:nth-child(even) {
                       <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                          <div class="blog-img">
-					      <a href="instalaciones" target="_blank">
-					     <img src="{{asset('img/resposable.jpg')}}"  href="instalaciones" target="_blank"   alt="Imagenes" style="width:100%;"></a>
+					      <a href="Carmen_Serdan2" >
+					     <img src="{{asset('img/resposable.jpg')}}"  alt="Imagenes" style="width:100%;"></a>
                        </div>
                       </div>
 
@@ -277,7 +280,7 @@ tr:nth-child(even) {
                       <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-                        <a href="titular" target="_blank">	
+                        <a href="Carmen_Serdan1" target="_blank">	
                         <img src="{{asset('img/instalaciones.jpg')}}" alt="Imagenes" style="width:100%;"></a>
                        </div>
                       </div>
