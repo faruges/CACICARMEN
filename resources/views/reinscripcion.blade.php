@@ -249,22 +249,21 @@ a , h1 {
 
     <h5 style=" color:#777777; text-align: center;"><label>Domicilio particular</label></h5>
 
-  <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Calle<input type="text" placeholder="Calle" title="Calle" oninput="this.className = ''" name="nom_calle"></p>
+  <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Calle<input type="text" placeholder="Calle" title="Calle" oninput="this.className = ''" name="calle"></p>
           
 
 
-<p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Código postal<input placeholder="Código postal" title="NCódigo postal" oninput="this.className = ''" name="num_codigo_postal"></p>
-       
+<p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Código postal<input id="codigo_postal" placeholder="Código postal" title="NCódigo postal" oninput="this.className = ''" name="codigo_postal" maxlength="5"></p>
+<input id="tokenCodigoPostalId" oninput="this.className = ''" name="tokenCodigoPostalId" value="SistemaDeRpueba4as4x4vdlsad" hidden>
 
-          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Número<input placeholder="Número" title="Número" oninput="this.className = ''" name="num" ></p>
-
-          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Colonia<input type="text" placeholder="Colonia" title="Colonia" oninput="this.className = ''" name="nom_colonia"></p>
+          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Número<input id="numero_domicilio" placeholder="Número" title="Número" oninput="this.className = ''" name="numero_domicilio" ></p>
+          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;"> Colonia <select style="font-size: 15px;" name="colonia" id="colonia"></select>
+            <!---<p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Colonia<input id="colonia" type="text" placeholder="Colonia" title="Colonia" oninput="this.className = ''" name="colonia" readonly></p>-->
+          
     
-    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Alcaldía<input type="text" placeholder="Alcaldía" title="Alcaldía" oninput="this.className = ''" name="nom_alcaldia"></p>
+    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Alcaldía<input id="alcaldia" type="text" placeholder="Alcaldía" title="Alcaldía" oninput="this.className = ''" name="alcaldia" readonly></p>
          
-
-   
-         
+        
           <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">E-mail<input type="email" placeholder="E-mail" title="E-mail"  oninput="this.className = ''" name="email" value="{{$value['CH_mail']}}" readonly></p>
           <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Teléfono<input id="telefono_uno" type="tel" placeholder="Teléfono o celular"  title="Teléfono o celular" oninput="this.className = ''" name="telefono_uno" maxlength="10"
             pattern="[0-9]{10}"></p>
@@ -300,7 +299,7 @@ a , h1 {
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido materno<input type="text" id="apellido_materno_1" placeholder="Apellido materno"   title="Apellido materno" oninput="this.className = ''" name="ap_materno" readonly></p>
 
      <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" for="birthday">Fecha de Nacimiento del menor:</h5>
-    <input type="text" id="Fecha_Nacimiento_menor" placeholder="Fecha de Nacimiento del menor" title="Fecha de Nacimiento del menor" oninput="this.className = ''" name="Fecha_Nacimiento_menor" readonly>
+    <input type="text" id="birthday" placeholder="Fecha de Nacimiento del menor" title="Fecha de Nacimiento del menor" oninput="this.className = ''" name="fecha_nacimiento" readonly>
 
     <h5  style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Edad del menor al ingresar al plantel (Año o Meses)<input id="Edad_menor" type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" title="Edad del menor al ingresar al plantel (Año o Meses)"  oninput="this.className = ''"name="edad_menor_ingreso" onkeyup="mayus(this);" readonly></h5>
 
@@ -319,7 +318,7 @@ a , h1 {
     <input type="file" id="myFile" name="filename_act">
 
     <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Certificado de nacimiento del o la menor.</h5>
-    <input type="file" id="myFile" name="filename_act">
+    <input type="file" id="myFile" name="filename_nac">
 
   
 
@@ -342,17 +341,17 @@ a , h1 {
     <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;"><br>
 
    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla de vacunación al corriente.</h5>
-    <input type="file" id="myFile" name="filename_act">
+    <input type="file" id="myFile" name="filename_vacu">
 
 
     <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Clave Única de Registro de Población, (CURP) del o la menor.</h5>
-    <input type="file" id="myFile" name="filename_act">
+    <input type="file" id="myFile" name="filename_com">
 
     <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Si el menor presenta algún tipo de discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y  del tratamiento que recibe.</h5>
-    <input type="file" id="myFile" name="filename_act">
+    <input type="file" id="myFile" name="filename_disc">
 
     <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">En caso de que el o la trabajador(a) sea la persona tutora, deberá adjuntar el documento legal que dictamine la patria potestad o guarda y custodia.</h5>
-    <input type="file" id="myFile" name="filename_act">
+    <input type="file" id="myFile" name="filename_trab">
 
 
     
@@ -500,6 +499,12 @@ function nextPrev(n) {
   x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
+  if(currentTab === 1){
+    $(document).ready(function() {
+      $("#nextBtn").attr("disabled", true);
+    });
+    //alert("Hola");
+  }
   // if you have reached the end of the form...
   if (currentTab >= x.length) {
     // ... the form gets submitted:

@@ -3,15 +3,16 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Inscripcion extends Model
 {
     protected $table = 'inscripcion_menor';
     protected $fillable = [
         'nombre_tutor_madres', 'apellido_paterno_tutor', 'apellido_materno_tutor',
-        'domicilio_delegracion', 'tipo_nomina_1', 'num_empleado_1', 'num_plaza_1', 'clave_dependencia_1', 'nivel_salarial_1', 'seccion_sindical_1',
+        'calle','numero_domicilio','colonia','alcaldia','codigo_postal', 'tipo_nomina_1', 'num_empleado_1', 'num_plaza_1', 'clave_dependencia_1', 'nivel_salarial_1', 'seccion_sindical_1',
          'email_correo', 'telefono_celular', 'telefono_3','horario_laboral_ent','horario_laboral_sal',
-        'nombre_menor_1', 'apellido_paterno_1', 'apellido_materno_1', 'curp_num', 'birthday', 'Edad_menor', 'caci'
+        'nombre_menor_1', 'apellido_paterno_1', 'apellido_materno_1', 'curp_num', 'birthday', 'Edad_menor', 'caci','correo_enviado'
     ];
     protected $guarded = ['id'];
     public $timestamps = false;
@@ -47,5 +48,10 @@ class Inscripcion extends Model
         } else {
             return false;
         }
+    }
+    public static function insertFlagEnvioEmail($id){
+        DB::table('inscripcion_menor')
+                ->where('id', $id)
+                ->update(['correo_enviado' => 1]);
     }
 }

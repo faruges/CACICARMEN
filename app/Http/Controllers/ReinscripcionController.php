@@ -83,7 +83,13 @@ class ReinscripcionController extends Controller
             'nombre_tutor' => 'required|string',
             'ap_paterno_t' => 'required|string',
             'ap_materno_t' => 'required|string',
-            'domicilio' => 'required|string',
+            
+            'calle' => 'required|string',
+            'numero_domicilio' => 'required|numeric',
+            'colonia' => 'required|string',
+            'alcaldia' => 'required|string',
+            'codigo_postal' => 'required|numeric',
+
             'tipo_nomina' => 'required|string',
             'num_empleado' => 'required|numeric',
             'num_plaza' => 'required|numeric',
@@ -91,7 +97,6 @@ class ReinscripcionController extends Controller
             'nivel_salarial' => 'required|numeric',
             'seccion_sindical' => 'required|string',
 
-            'matricula' => 'required|string',
             'nombre_menor' => 'required|string',
             'ap_paterno' => 'required|string',
             'ap_materno' => 'required|string',
@@ -121,8 +126,18 @@ class ReinscripcionController extends Controller
             'ap_paterno_t.string' => 'Su apellido paterno debe ser un texto',
             'ap_materno_t.required' => 'Su apellido materno es requerido',
             'ap_materno_t.string' => 'Su apellido materno debe ser un texto',
-            'domicilio.required' => 'Su domicilio es requerido',
-            'domicilio.string' => 'Su domicilio debe ser un texto',
+            
+            'calle.required' => 'Su calle es requerido',
+            'calle.string' => 'Su calle debe ser un texto',
+            'numero_domicilio.required' => 'Su numero de domicilio es requerido',
+            'numero_domicilio.numeric' => 'Su numero de domicilio debe ser un número',
+            'colonia.required' => 'Su colonia es requerido',
+            'colonia.string' => 'Su colonia debe ser un texto',
+            'alcaldia.required' => 'Su alcaldia es requerido',
+            'alcaldia.string' => 'Su alcaldia debe ser un texto',
+            'codigo_postal.required' => 'Su codigo es requerido',
+            'codigo_postal.numeric' => 'Su codigo postal debe ser un número',
+            
             'tipo_nomina.required' => 'Su tipo de nomina es requerido',
             'tipo_nomina.string' => 'Su tipo de nomina debe ser un texto',
             'num_empleado.required' => 'Su numero de empleado es requerido',
@@ -135,8 +150,7 @@ class ReinscripcionController extends Controller
             'nivel_salarial.numeric' => 'Su nivel salarial debe ser un número',
             'seccion_sindical.required' => 'Su seccion sindical es requerido',
             'seccion_sindical.string' => 'Su seccion sindical debe ser un texto',
-            'matricula.required' => 'Su seccion sindical es requerido',
-            'matricula.string' => 'Su seccion sindical debe ser un texto',
+            
             'nombre_menor.required' => 'El nombre del menor es requerido',
             'nombre_menor.string' => 'El nombre del menor debe ser un texto',
             'ap_paterno.required' => 'Su apellido paterno del menor es requerido',

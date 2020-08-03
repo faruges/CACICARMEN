@@ -151,6 +151,8 @@ Route::get('/webservice','WebService@getwebservice')->name('webservice');
 
 Route::post('webservicerenapo', 'WebServicesRENAPO@getCurp')->name('webservicerenapo');
 
+Route::post('webservicecp', 'WebServicesCP@getCP')->name('webservicecp');
+
 /*Pruebas Web Service*/
 /* Route::get('/webservicerenapo', 'WebServicesRENAPO@getCurp')->name('webservicerenapo'); */
 

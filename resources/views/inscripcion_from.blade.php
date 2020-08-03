@@ -185,15 +185,8 @@ a , h1 {
       @endforeach
     </div>
   </div>
-  @elseif (session('mensaje'))
-  <div class="alert alert-success alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h4><i class="icon fa fa-check"></i> Mensaje Sistema Biblioteca</h4>
-      <ul>
-          <li>{{session('mensaje')}}</li>
-      </ul>
-  </div>
   @endif
+  
 <div class="fondo">   
 <form id="regForm" action="{{route('guardar_inscripcion_bd')}}" method="POST" enctype="multipart/form-data">
 <h1 style="color: #054a41;">Inscripción a los  Centros de Atención y Cuidado  Infantil</h1>
@@ -238,11 +231,13 @@ a , h1 {
           <input type="time" id="appt" name="horario_laboral_sal">
 
           <h5 style=" color:#777777; text-align: center;"><label>Domicilio particular</label></h5>
-          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Calle<input type="text" placeholder="Calle" title="Calle" oninput="this.className = ''" name="nom_calle"></p>
-          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Código postal<input placeholder="Código postal" title="NCódigo postal" oninput="this.className = ''" name="num_codigo_postal"></p>
-          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Número<input placeholder="Número" title="Número" oninput="this.className = ''" name="num"></p>
-          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Colonia<input type="text" placeholder="Colonia" title="Colonia" oninput="this.className = ''" name="nom_colonia" ></p>
-          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Alcaldía<input type="text" placeholder="Alcaldía" title="Alcaldía" oninput="this.className = ''" name="nom_alcaldía" ></p>
+          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Calle<input type="text" placeholder="Calle" title="Calle" oninput="this.className = ''" name="calle"></p>
+          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Código postal<input id="codigo_postal" placeholder="Código postal" title="NCódigo postal" oninput="this.className = ''" name="codigo_postal" maxlength="5"></p>
+          <input id="tokenCodigoPostalId" oninput="this.className = ''" name="tokenCodigoPostalId" value="SistemaDeRpueba4as4x4vdlsad" hidden>
+          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Número<input id="numero_domicilio" placeholder="Número" title="Número" oninput="this.className = ''" name="numero_domicilio"></p>
+          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;"> Colonia <select style="font-size: 15px;" name="colonia" id="colonia"></select>
+          <!---<p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Colonia<input id="colonia" type="text" placeholder="Colonia" title="Colonia" oninput="this.className = ''" name="colonia" readonly></p>-->
+          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Alcaldía<input id="alcaldia" type="text" placeholder="Alcaldía" title="Alcaldía" oninput="this.className = ''" name="alcaldia"  readonly></p>
 
 <!--
    <h4><input style="width: 10%;" type="checkbox" name="cb-terminosservicio" required> Acepto términos y condiciones</h4><br>-->
@@ -272,16 +267,16 @@ a , h1 {
 
 
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">CURP<input type="text" id="curp_num" placeholder="CURP" title="CURP" oninput="this.className = ''" name="curp_num"
-      pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]" onkeyup="mayus(this);"></p>
+      pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]" onkeyup="mayus(this);"  readonly></p>
 
 
-    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" >Nombre(s) del menor<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor" title="Nombre(s) del menor" oninput="this.className = ''" name="nombre_menor_1"></p>
-    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido paterno<input type="text" id="apellido_paterno_1" placeholder="Apellido paterno" title="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_1"></p>
+    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" >Nombre(s) del menor<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor" title="Nombre(s) del menor" oninput="this.className = ''" name="nombre_menor_1" readonly></p>
+    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido paterno<input type="text" id="apellido_paterno_1" placeholder="Apellido paterno" title="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_1" readonly></p>
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido materno
     <input type="text" id="apellido_materno_1" placeholder="Apellido materno" title="Apellido materno" oninput="this.className = ''" name="apellido_materno_1" readonly></p>
 
     <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" for="birthday">Fecha de Nacimiento del menor:</h5>
-    <input type="text" id="Fecha_Nacimiento_menor" placeholder="Fecha de Nacimiento del menor" title="Fecha de Nacimiento del menor" oninput="this.className = ''" name="Fecha_Nacimiento_menor" readonly>
+    <input type="text" id="birthday" placeholder="Fecha de Nacimiento del menor" title="Fecha de Nacimiento del menor" oninput="this.className = ''" name="birthday" readonly>
    
     <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Edad del menor al ingresar al plantel (Año o Meses)</h5>
       <input id="Edad_menor" type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" title="Edad del menor al ingresar al plantel (Año o Meses)" oninput="this.className = ''" name="Edad_menor" onkeyup="mayus(this);" readonly>
@@ -323,20 +318,20 @@ a , h1 {
 
 
      <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Certificado de nacimiento del o la menor.</h5>
-    <input type="file" id="myFile" name="filename_act">
+    <input type="file" id="myFile" name="filename_nac">
 
      <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla de vacunación al corriente.</h5>
-    <input type="file" id="myFile" name="filename_act">
+    <input type="file" id="myFile" name="filename_vacu">
 
     
     <h5 style="font-family: Arial, Helvetica; color:#777777;">Clave Única de Registro de Población, (CURP) del o la menor.</h5>
-    <input type="file" id="myFile" name="filename_act">
+    <input type="file" id="myFile" name="filename_com">
 
     <h5 style="font-family: Arial, Helvetica; color:#777777;">Si el menor presenta algún tipo de discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y  del tratamiento que recibe.</h5>
-    <input type="file" id="myFile" name="filename_act">
+    <input type="file" id="myFile" name="filename_disc">
 
     <h5 style="font-family: Arial, Helvetica; color:#777777;">En caso de que el o la trabajador(a) sea la persona tutora, deberá adjuntar el documento legal que dictamine la patria potestad o guarda y custodia.</h5>
-    <input type="file" id="myFile" name="filename_act">
+    <input type="file" id="myFile" name="filename_trab">
 
 
     
@@ -507,6 +502,12 @@ function nextPrev(n) {
   x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
+  if(currentTab === 1){
+    $(document).ready(function() {
+      $("#nextBtn").attr("disabled", true);
+    });
+    //alert("Hola");
+  }
   // if you have reached the end of the form...
   if (currentTab >= x.length) {
     // ... the form gets submitted:

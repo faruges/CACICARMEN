@@ -9,10 +9,11 @@ class Reinscripcion extends Model
     protected $table = 'reinscripcion_menor';
 
     protected $fillable = [
-        'rfc', 'nombre_tutor', 'ap_paterno_t', 'ap_materno_t', 'domicilio', 'tipo_nomina', 'num_empleado', 'num_plaza', 'clave_dependencia',
-        'nivel_salarial', 'seccion_sindical', 'horario_laboral', 'email', 'telefono_uno', 'telefono_dos', 'horario_laboral_ent',
-        'horario_laboral_sal', 'matricula', 'nombre_menor', 'ap_paterno', 'ap_materno', 'curp', 'fecha_nacimiento', 'edad_menor_ingreso',
-        'caci'
+        'rfc', 'nombre_tutor', 'ap_paterno_t', 'ap_materno_t', 'calle','numero_domicilio','colonia','alcaldia','codigo_postal',
+        'tipo_nomina', 'num_empleado', 'num_plaza', 'clave_dependencia','nivel_salarial', 'seccion_sindical', 'horario_laboral',
+        'email', 'telefono_uno', 'telefono_dos', 'horario_laboral_ent',
+        'horario_laboral_sal', 'nombre_menor', 'ap_paterno', 'ap_materno', 'curp', 'fecha_nacimiento', 'edad_menor_ingreso',
+        'caci','correo_enviado'
     ];
     protected $guarded = ['id'];
     public $timestamps = false;
