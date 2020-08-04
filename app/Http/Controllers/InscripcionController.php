@@ -179,14 +179,12 @@ class InscripcionController extends Controller
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            /* dd("entra aqui"); */
             return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error.')->with('typelert', 'danger');
         } else {
             $curp = $request->curp_num;
             //contea si ya menor esta inscrito
             $conteoCurp = Inscripcion::where('curp_num', $curp)->get()->count();
             if ($conteoCurp <= 0) {
-                /* dd("entra aqui a lo chido"); */
                 Inscripcion::create($request->all());
                 //obtiene id de reinscripcion
                 $id_reins = Inscripcion::select('id')->orderByDesc('id')->get()->first();
@@ -215,18 +213,13 @@ class InscripcionController extends Controller
                     if ($envioEmail) {
                         Inscripcion::insertFlagEnvioEmail($id);
                     }
-                    /* $msg = [
-                        'type' => 'success',
-                        'value' => 'Menor inscrito con exito',
-                    ];
-                    session()->put('mensaje', $msg); */
                     //return redirect('inicio');
                     return redirect('inicio')->with('mensaje', "Menor inscrito con exito");
                 } else {
                     return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error, no se cargaron todos los archivos.')->with('typelert', 'danger');
                 }
-            }else{
-               return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar el proceso de Inscripción, el Menor ya esta Inscrito']);
+            } else {
+                return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar el proceso de Inscripción, el Menor ya esta Inscrito']);
             }
         }
     }

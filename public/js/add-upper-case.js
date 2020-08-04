@@ -102,4 +102,14 @@ $(document).ready(function () {
             $('#numero_domicilio').css('background', '#ffffff');
         }
     });
+    $("#terminos").on('change',function () {
+        if($('#terminos').is(':checked')) {
+            $("#nextBtn").attr("disabled", false);
+            //console.log($('#terminos').value);
+            
+        }else{
+            $("#nextBtn").attr("disabled", true);
+             //console.log($('#terminos').value);
+        }
+     });
 });

@@ -3,6 +3,7 @@
 @section('scripts')
   <script src="{{URL::asset('js/consulta_webservice.js')}}" type="text/javascript"> </script> 
   <script src="{{URL::asset('js/add-upper-case.js')}}" type="text/javascript"> </script> 
+  <script src="{{URL::asset('js/inscripcion.js')}}" type="text/javascript"> </script> 
 @endsection 
 @section('mycontent')
 
@@ -186,14 +187,20 @@ a , h1 {
     </div>
   </div>
   @endif
+
+  {{--  <form id="regForm" method="POST" enctype="multipart/form-data">
+    @csrf
+    <button type="submit" onclick="inscripcion(this.form)">hOlz</button>
+  </form>  --}}
   
 <div class="fondo">   
 <form id="regForm" action="{{route('guardar_inscripcion_bd')}}" method="POST" enctype="multipart/form-data">
+{{--  <form id="regForm" onsubmit="inscripcion()" method="POST" enctype="multipart/form-data">  --}}
+  @csrf
 <h1 style="color: #054a41;">Inscripción a los  Centros de Atención y Cuidado  Infantil</h1>
    <div class="tab">
   <br>
 
-        @csrf
 
  @foreach ($data as $item=>$value)
       {{--  <h2>RFC</h2>
@@ -395,6 +402,8 @@ a , h1 {
   <p style="font-size: 12px; font-family: Arial, Helvetica;">Teléfono<input id="telefono_uno" type="tel" placeholder="Teléfono" title="Teléfono"  oninput="this.className = ''" name="telefono_celular" maxlength="10" pattern="[0-9]{10}"></p>
   <p style="font-size: 12px; font-family: Arial, Helvetica;">Celular<input id="telefono_dos" type="tel" placeholder="Celular" title="Celular"  oninput="this.className = ''" name="telefono_3" maxlength="10" pattern="[0-9]{10}"></p>
 
+  <h4><input id="terminos" style="width: 10%;" type="checkbox" name="terminos" required><a href="" >Revisa Terminos y condiciones</a></h4>
+
   @endforeach
   <br><br>
 
@@ -508,19 +517,27 @@ function nextPrev(n) {
     });
     //alert("Hola");
   }
+  if(currentTab === 3){
+    $(document).ready(function() {
+      $("#nextBtn").attr("disabled", true);
+    });
+  }
+  
   // if you have reached the end of the form...
   if (currentTab >= x.length) {
+    Swal.fire({
+      icon: 'success',
+      html:
+        '<b>Estos datos son privados solo el padre o tutor son responsable de dichos datos establecidos.</b> ' ,
+        timer: 10000,
+      confirmButtonText: 'OK',
+      showCloseButton: true,
+    //  showCancelButton: true,
+    })
     // ... the form gets submitted:
     document.getElementById("regForm").submit();
+    //inscripcion();
 
-
-Swal.fire({
-  icon: 'success',
-  html:
-    '<b>Estos datos son privados solo el padre o tutor son responsable de dichos datos establecidos.</b> ' ,
-  showCloseButton: true,
-//  showCancelButton: true,
-})
 
      // swal("Exito", "Tus documentos fueron enviados.", "success");
 

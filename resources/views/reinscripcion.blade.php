@@ -402,6 +402,9 @@ a , h1 {
     <input type="file" id="myFile" name="filename_recp">  --}}
     @endforeach-->
 
+    
+    <h4><input id="terminos" style="width: 10%;" type="checkbox" name="terminos" required><a href="" >Revisa Terminos y condiciones</a></h4>
+
     </div>
     </div>
  </div>
@@ -459,6 +462,7 @@ function showTab(n) {
 	Swal.fire({
   title: '<strong>Atención</u></strong>',
   icon: 'success',
+  timer: 10000,
   html:
     '<b>Estos datos son privados solo el padre o tutor son responsables de dichos datos establecido.</b> ' +
     '<a target="_blank" href="{{asset('img/PDF/Aviso_Integral_CACI_SAF.pdf')}}"><h5 style="color: #00b140;">Ver aviso de privacidad</h5></a> ',
@@ -504,6 +508,11 @@ function nextPrev(n) {
       $("#nextBtn").attr("disabled", true);
     });
     //alert("Hola");
+  }
+  if(currentTab === 2){
+    $(document).ready(function() {
+      $("#nextBtn").attr("disabled", true);
+    });
   }
   // if you have reached the end of the form...
   if (currentTab >= x.length) {

@@ -18,7 +18,11 @@ class CreateReinscripcionMenorTable extends Migration
             $table->string('nombre_tutor',100);
             $table->string('ap_paterno_t',50);
             $table->string('ap_materno_t',50);
-            $table->string('domicilio',150);
+            $table->string('calle',150);
+            $table->string('numero_domicilio',20);
+            $table->string('colonia',100);
+            $table->string('alcaldia',100);
+            $table->string('codigo_postal',20);
             $table->string('tipo_nomina',30);
             $table->string('num_empleado',50);
             $table->string('num_plaza',50);
@@ -30,7 +34,6 @@ class CreateReinscripcionMenorTable extends Migration
             $table->string('email',100);
             $table->string('telefono_uno',15);
             $table->string('telefono_dos',15);
-            $table->string('matricula',100);
             $table->string('nombre_menor',100);
             $table->string('ap_paterno',50);
             $table->string('ap_materno',50);
@@ -38,6 +41,7 @@ class CreateReinscripcionMenorTable extends Migration
             $table->string('edad_menor_ingreso',10);
             $table->string('curp',20);
             $table->string('caci',150);
+            $table->tinyInteger('correo_enviado')->nullable();
             $table->timestamps();
         });
     }

@@ -32,18 +32,27 @@
 <div class="container">
     <div class="card mt50 margin-card">
         <div class="card-header">
+            <div class="float-right">
+                <form id="regForm" action="{{route('export-excel')}}" method="GET" enctype="multipart/form-data">
+                    @csrf
+                    <button id="valida_curp" type="submit" title="Generar Reporte" class="btn btn-lg btn-dark"><i class="fa fa-download"></i></button> 
+                </form>
+            </div>
             <h1><i class="fa fa-bookmark"></i> Reinscripci&oacute;n</h1>
         </div>
         <div class="card-body" style="overflow: auto">
             <table class="table table-striped table-responsive-md">
                 <thead>
                     <tr>
-                        <th>Matricula</th>
                         <th>Nombre Menor</th>
                         <th>Fecha de Nacimiento</th>
                         <th>Edad al Ingreso</th>
                         <th>Tutor</th>
-                        <th>Domicilio</th>
+                        <th>Calle</th>
+                        <th>Número</th>
+                        <th>Colonia</th>
+                        <th>Alcaldia</th>
+                        <th>Codigo Postal</th>
                         <th>Tipo nomina</th>
                         <th>N. empleado</th>
                         <th>N. Plaza</th>
@@ -61,15 +70,18 @@
                 </thead>
                 <tbody>
                     @foreach ($lista_reinscripciones as $reinscripcion)
-                    <tr>
-                        <td>{{$reinscripcion->matricula}}</td>
+                    <tr>                        
                         <td>{{$reinscripcion->nombre_menor}} {{$reinscripcion->ap_paterno}}
                             {{$reinscripcion->ap_materno}}</td>
                         <td>{{$reinscripcion->fecha_nacimiento}}</td>
                         <td>{{$reinscripcion->edad_menor_ingreso}}</td>
                         <td>{{$reinscripcion->nombre_tutor}} {{$reinscripcion->ap_paterno_t}}
                             {{$reinscripcion->ap_materno_t}}</td>
-                        <td>{{$reinscripcion->domicilio}}</td>
+                        <td>{{$reinscripcion->calle}}</td>
+                        <td>{{$reinscripcion->numero_domicilio}}</td>
+                        <td>{{$reinscripcion->colonia}}</td>
+                        <td>{{$reinscripcion->alcaldia}}</td>
+                        <td>{{$reinscripcion->codigo_postal}}</td>
                         <td>{{$reinscripcion->tipo_nomina}}</td>
                         <td>{{$reinscripcion->num_empleado}}</td>
                         <td>{{$reinscripcion->num_plaza}}</td>

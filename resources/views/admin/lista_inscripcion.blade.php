@@ -33,6 +33,12 @@
 <div class="container">
     <div class="card mt50 margin-card">
         <div class="card-header">
+            <div class="float-right">
+                <form id="regForm" action="{{route('export-excel')}}" method="GET" enctype="multipart/form-data">
+                    @csrf
+                    <button id="valida_curp" type="submit" title="Generar Reporte" class="btn btn-lg btn-dark"><i class="fa fa-download"></i></button> 
+                </form>
+            </div>
             <h1><i class="fa fa-book"></i> Inscripci&oacute;n</h1>
         </div>
         <div class="card-body" style="overflow: auto">
@@ -44,7 +50,11 @@
                         <th>Fecha de Nacimiento</th>
                         <th>Edad al Ingreso</th>
                         <th>Tutor</th>
-                        <th>Domicilio</th>
+                        <th>Calle</th>
+                        <th>Número</th>
+                        <th>Colonia</th>
+                        <th>Alcaldia</th>
+                        <th>Codigo Postal</th>
                         <th>Tipo nomina</th>
                         <th>N. empleado</th>
                         <th>N. Plaza</th>
@@ -66,7 +76,11 @@
                         <td>{{$caci->birthday}}</td>
                         <td>{{$caci->Edad_menor}}</td>
                         <td>{{$caci->nombre_tutor_madres}} {{$caci->apellido_paterno_tutor}} {{$caci->apellido_materno_tutor}}</td>
-                        <td>{{$caci->domicilio_delegracion}}</td>
+                        <td>{{$caci->calle}}</td>
+                        <td>{{$caci->numero_domicilio}}</td>
+                        <td>{{$caci->colonia}}</td>
+                        <td>{{$caci->alcaldia}}</td>
+                        <td>{{$caci->codigo_postal}}</td>
                         <td>{{$caci->tipo_nomina_1}}</td>
                         <td>{{$caci->num_empleado_1}}</td>
                         <td>{{$caci->num_plaza_1}}</td>

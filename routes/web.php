@@ -160,3 +160,6 @@ Route::get('/prueba', function () {
     return view('prueba');
 });
 
+/*Exporta Excel*/ 
+Route::get('/export-excel', 'ExportExcelController@excel')->name('export-excel');
+Route::get('/export-excel-reinscripcion', 'ExportExcelReinsController@excel')->name('export-excel-reinscripcion');

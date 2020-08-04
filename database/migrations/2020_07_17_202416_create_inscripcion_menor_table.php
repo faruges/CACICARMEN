@@ -18,7 +18,11 @@ class CreateInscripcionMenorTable extends Migration
             $table->string('nombre_tutor_madres',100);
             $table->string('apellido_paterno_tutor',50);
             $table->string('apellido_materno_tutor',50);
-            $table->string('domicilio_delegracion',150);
+            $table->string('calle',150);
+            $table->string('numero_domicilio',20);
+            $table->string('colonia',100);
+            $table->string('alcaldia',100);
+            $table->string('codigo_postal',20);
             $table->string('tipo_nomina_1',30);
             $table->string('num_empleado_1',50);
             $table->string('num_plaza_1',50);
@@ -37,6 +41,8 @@ class CreateInscripcionMenorTable extends Migration
             $table->string('apellido_materno_1',50);
             $table->string('curp_num',20);
             $table->string('caci',150);
+            $table->string('terminos',20)->nullable();
+            $table->tinyInteger('correo_enviado')->nullable();
             $table->timestamps();
         });
     }
