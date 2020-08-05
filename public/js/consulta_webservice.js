@@ -51,7 +51,7 @@ function validaCurp() {
                     alert("La curp ingresada ha sido validada correctamente");
                 } else {
                     $("#nextBtn").attr("disabled", true);
-                    alert("El menor ya no se puede inscribir,\nya no entra dentro de nuestra categoria de menores,\nEl menor debe ser menor a 5 años y medio");
+                    alert("Estimado usuario\nel menor no pudes ser registrado debido a que\nsupera la edad límite permitida");
                 }
             }
 

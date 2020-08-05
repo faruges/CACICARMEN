@@ -196,16 +196,27 @@ class InscripcionController extends Controller
                 $filename_com = $request->file('filename_com');
                 //$filename_cert = $request->file('filename_cert');
                 //$filename_rec = $request->file('filename_rec');
-                $filename_disc = $request->file('filename_disc');
-                $filename_trab = $request->file('filename_trab');
+                /////$filename_disc = $request->file('filename_disc');
+                /////$filename_trab = $request->file('filename_trab');
                 //$filename_recp = $request->file('filename_recp');
-
-                $arrayFiles = array(
+				$filename_disc = (!empty($request->file('filename_disc')) ? $request->file('filename_disc') : null);
+                $filename_trab = (!empty($request->file('filename_trab')) ? $request->file('filename_trab') : null);
+                
+				$arrayFiles = array(
                     array($filename_act, "Acta de nacimiento"), array($filename_vacu, "Cartilla de vacunacion"),
-                    array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp"),
+                    array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp")/*,
                     array($filename_disc, "Copias de los documentos médicos del tratamiento"),
-                    array($filename_trab, "Documento de la patria potestad")
+                    array($filename_trab, "Documento de la patria potestad")*/
                 );
+				
+				if(!empty($filename_disc)){
+					$arrayFiles[] = array($filename_disc, "Copias de los documentos médicos del tratamiento");
+				}
+				
+				if(!empty($filename_trab)){
+					$arrayFiles[] = array($filename_trab, "Documento de la patria potestad");
+				}
+				
                 if (Inscripcion::setDoc($arrayFiles, $id)) {
 
                     $inscripcion = new InscripcionController;

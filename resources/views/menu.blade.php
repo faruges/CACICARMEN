@@ -80,7 +80,7 @@ div.c {
   <a href="inscripcion_from"> Inscripción </a>
   <a href="reinscripcion"> Reinscripción </a>
   <a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información destacada</a>
-  <a href="tramiles_CACI"> Trámites </a>
+  <!-- <a href="tramiles_CACI"> Trámites </a> -->
   <a style="margin-right:  -800px;" href="login"> Iniciar sesión</a> 
 
 
@@ -108,7 +108,7 @@ div.c {
      				|<a style="color:#33353d;" href="inscripcion_from" title="INSCRIPCIÓN">INSCRIPCIÓN</a>|
 					|<a style="color:#33353d;" href="reinscripcion" title="REINSCRIPCIÓN">REINSCRIPCIÓN</a>|
 					|<a style="color:#33353d;" target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}" title="INFORMACIÓN DESTACADA">INFORMACIÓN DESTACADA</a>|
-     				|<a style="color:#33353d;" href="tramiles_CACI" title="TRAMITES">TRAMITES</a>|
+     				<!--|<a style="color:#33353d;" href="tramiles_CACI" title="TRAMITES">TRAMITES</a>|
      				<!-- |<a style="color:#00b140;" href="#" title="PROTECCIÓN CIVIL">PROTECCIÓN</a>|
 					<a style="color:#00b140;" href="#" title="CONTACTENOS">CONTACTENOS</a>| -->
      			</p>

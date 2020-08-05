@@ -130,7 +130,7 @@ input {
       <h1 style="text-align: center;">Covarrubias Gonzalez Maria Ofelia </h1>
 </div>
  <div style="text-align: right;">
-    <a href="/Carmen_Serdan">
+    <a href="Carmen_Serdan">
    <button onclick="adicionar()" class='btn_add'>Regresar</button>
    <a>
 </div>

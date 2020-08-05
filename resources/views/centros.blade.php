@@ -125,7 +125,7 @@ tr:nth-child(even) {
     </div>
 
     <div class="accordion-content" id="item1">
-      <p>Dr. Claudio Bernard y Dr. Lucio No.123 (planta baja)</p>
+      <p>Dr. Claudio Bernard y Dr. Lucio No.123 </p>
       <p>Col.Doctores C.P. 07620</p>
       <p>Del. Cuauhtémoc</p>
       <p>Tel: 55-88-33-20</p>  
@@ -143,8 +143,8 @@ tr:nth-child(even) {
       <h2 style="text-align: center;">Mtra. Eva Moreno Sánchez</h2>
     </div>
     <div class="accordion-content" id="item2">
-        <p>Dr. Lavista No. 54 casi esquina Dr. Andrade</p>
-        <p>Col.Doctores C.P. 07620</p>
+        <p>Dr. Lavista No. 54 </p>
+        <p>Col.Doctores C.P. 06720</p>
         <p>Del. Cuauhtémoc</p>
         <p>Tel: 55-78-76-76</p>
     </div>
@@ -160,7 +160,7 @@ tr:nth-child(even) {
     </div>
     <div class="accordion-content" id="item3">
          <p>Jesús García No. 63</p>
-         <p>Col. Guerrero C.P. 06300</p>
+         <p>Col. Buenavista C.P. 06350</p>
          <p>Del. Cuauhtémoc</p>
          <p>Tel. 55-92-70-98</p>
          <p>Tel. 55-66-19-29</p>
@@ -198,6 +198,7 @@ tr:nth-child(even) {
           <p>Col. Ramos Millán C.P. 08000</p>
           <p>Del. Iztacalco</p>
           <p>Tel. 56-57-26-89</p>
+		  <p>Tel. 56-34-38-58</p>
     </div>
 
   <div style="background-color: #f2f2f2;" class="accordion-title">
@@ -222,7 +223,7 @@ tr:nth-child(even) {
                        <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-					    <a href="Luz_María1" target="_blank">
+					    <a href="Luz_María2" target="_blank">
 					    <img src="{{asset('img/resposable.jpg')}}" alt="Imagenes" style="width:100%;"></a>
                        </div>
                        </div>
@@ -248,7 +249,7 @@ tr:nth-child(even) {
                        <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-              <a href="Luz_María2" target="_blank">	
+              <a href="Luz_María1" target="_blank">	
               <img src="{{asset('img/instalaciones.jpg')}}" alt="Imagenes" style="width:100%;"></a>
                         </div>
                         </div>

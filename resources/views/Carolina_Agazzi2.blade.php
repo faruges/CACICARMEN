@@ -130,7 +130,7 @@ input {
       <h1 style="text-align: center;">Lic. Garcia Bustamante Maria De Jesus  </h1>
 </div>
  <div style="text-align: right;">
-    <a href="/Carolina_Agazzi">
+    <a href="Carolina_Agazzi">
    <button onclick="adicionar()" class='btn_add'>Regresar</button>
    <a>
 </div>
