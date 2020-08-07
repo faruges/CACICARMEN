@@ -1,4 +1,3 @@
-<p align="center"><strong>Correo 1</strong></p>
 <p align="center"><strong>Registro de preinscripción</strong></p>
 <p>C. {{$nombre}}</p>
 <p>Bienvenida/bienvenido al proceso de preinscripción a los Centros de Atención y Cuidado Infantil de la Secretaría de Administración y Finanzas (CACI-SAF) del Gobierno de la Ciudad de México.</p>

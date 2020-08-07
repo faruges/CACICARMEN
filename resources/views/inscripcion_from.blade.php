@@ -297,7 +297,7 @@ a , h1 {
     <option value="Luz Maria Gomez Pezuela">Luz María Gómez Pezuela</option>
     <option value="Mtra Eva Moreno Sanchez">Mtra. Eva Moreno Sánchez</option>
     <option value="Bertha Von Glumer Leyva">Bertha von Glumer Leyva</option>
-    <option value="Garolina Agazzi">Carolina Agazzi</option>
+    <option value="Carolina Agazzi">Carolina Agazzi</option>
     <option value="Carmen S">Carmen Serdán</option>
   </select></h5>
 

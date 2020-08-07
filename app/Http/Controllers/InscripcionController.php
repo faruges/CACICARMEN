@@ -223,6 +223,7 @@ class InscripcionController extends Controller
                     $envioEmail = $inscripcion->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo);
                     if ($envioEmail) {
                         Inscripcion::insertFlagEnvioEmail($id);
+                        $inscripcion->setRolCaci($id,$request->caci);
                     }
                     //return redirect('inicio');
                     return redirect('inicio')->with('mensaje', "Menor inscrito con exito");
@@ -249,6 +250,31 @@ class InscripcionController extends Controller
         } catch (\Throwable $th) {
             return false;
             dd($th);
+        }
+    }
+
+    private function setRolCaci($id,$rolCaci){
+        switch ($rolCaci) {
+            case 'Luz Maria Gomez Pezuela':
+                $caciLuz = "caciluz";
+                Inscripcion::setCaci($id,$caciLuz);
+                break;
+            case 'Mtra Eva Moreno Sanchez':
+                $caciEva = "cacieva";
+                Inscripcion::setCaci($id,$caciEva);
+                break;
+            case 'Bertha Von Glumer Leyva':
+                $caciBertha = "cacibertha";
+                Inscripcion::setCaci($id,$caciBertha);
+                break;
+            case 'Carolina Agazzi':
+                $caciCarolina = "cacicarolina";
+                Inscripcion::setCaci($id,$caciCarolina);
+                break;
+            case 'Carmen S':
+                $caciCarmen = "cacicarmen";
+                Inscripcion::setCaci($id,$caciCarmen);
+                break;
         }
     }
 

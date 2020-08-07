@@ -24,7 +24,7 @@ function envia_email() {
                 "ape_paterno":ape_paterno,           
                 "email":email           
               },
-        url:url+'admin/email_info_recibida_reinscri',
+        url:url+'email_info_recibida_reinscri',
         success: function(data) 
         { 
             /* swal(
@@ -59,7 +59,7 @@ function envia_email_recib_inscri() {
                 "ape_paterno":ape_paterno,           
                 "email":email           
               },
-        url:url+'admin/email_info_recibida_inscr',
+        url:url+'email_info_recibida_inscr',
         success: function(data) 
         { 
             /* swal(
@@ -94,7 +94,7 @@ function envia_email_info_recib_inscr() {
                 "ape_paterno":ape_paterno,           
                 "email":email           
               },
-        url:url+'admin/email_info_recibida',
+        url:url+'email_info_recibida',
         success: function(data) 
         { 
             /* swal(

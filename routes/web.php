@@ -121,26 +121,56 @@ Route::get('/aviso_privacidar', function () {
     return view('aviso_privacidar');
 });
 
+//rutas para superusuarios
+Route::group(['middleware' => ['permission:view_users|edit_users|delete_users|create_users']], function() {
+    Route::resource('users','UserController');
+    Route::get('create','UserController@create');
+    Route::post('store','UserController@store')->name('store');
+});
 
+Route::group(['middleware' => ['permission:view_roles|edit_roles|delete_roles|create_roles']], function() {
+    Route::resource('roles','RoleController');    
+    Route::post('guardar_rol','RoleController@store')->name('guardar_rol');
+});
+
+Route::group(['middleware' => ['permission:view_inscripcion']], function() {
+//Route::group(['middleware' => ['permission:view_inscripcion']], function() {
+    Route::get('/lista_inscripcion','Admin\AdminController@showListInscri')->name('lista_inscripcion');
+    Route::get('/lista_documentos_inscr/{id}', 'Admin\DocumentosController@show_inscr')->name('lista_documentos_inscr');
+    Route::post('/email_info_recibida_inscr', 'Admin\EmailController@sendEmailRecibiInscrip')->name('email_info_recibida_inscr');
+    Route::get('/email_lista_espera/{nombre_tutor}/{ap_paterno}/{email}', 'Admin\EmailController@sendEmailEspera')->name('email_lista_espera');
+});
+
+Route::group(['middleware' => ['permission:view_reinscripcion']], function() {
+//Route::group(['middleware' => ['permission:view_reinscripcion']], function() {
+    Route::get('/lista_reinscripcion','Admin\AdminController@showListReinscri')->name('lista_reinscripcion');
+    Route::get('/lista_documentos/{id}', 'Admin\DocumentosController@show')->name('lista_documentos');
+    Route::post('/email_info_recibida', 'Admin\EmailController@sendEmailRecibi')->name('email_info_recibida');
+    Route::post('/email_info_recibida_reinscri', 'Admin\EmailController@sendEmailRecibiReinscri')->name('email_info_recibida_reinscri');
+});
+//rutas para roles
+/* Route::group(['middleware' => ['permission:view_roles|edit_roles|delete_roles|create_roles']], function() {
+}); */
+//rutas para login
 Route::get('seguridad/login','Seguridad\LoginController@index')->name('login');
 Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_post');
 Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout');
-
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth','superadmin']], function () {
-    Route::get('', 'AdminController@index');
-    Route::get('/lista_inscripcion','AdminController@showListInscri')->name('lista_inscripcion');
-    Route::get('/lista_reinscripcion','AdminController@showListReinscri')->name('lista_reinscripcion');
-    Route::get('/lista_documentos/{id}', 'DocumentosController@show')->name('lista_documentos');
-    Route::post('/email_info_recibida', 'EmailController@sendEmailRecibi')->name('email_info_recibida');
-    Route::post('/email_info_recibida_reinscri', 'EmailController@sendEmailRecibiReinscri')->name('email_info_recibida_reinscri');
-    Route::post('/email_info_recibida_inscr', 'EmailController@sendEmailRecibiInscrip')->name('email_info_recibida_inscr');
-    Route::get('/email_lista_espera/{nombre_tutor}/{ap_paterno}/{email}', 'EmailController@sendEmailEspera')->name('email_lista_espera');
-    Route::get('/lista_documentos_inscr/{id}', 'DocumentosController@show_inscr')->name('lista_documentos_inscr');
-    Route::get('/detalles_documento/{id}', 'DocumentosController@details')->name('detalles_documento');
-    Route::get('/lista_menores/{id_caci}', 'ListaMenoresController@menoresByCaci')->name('lista_menores');
-});
-
-
+//rutas para el admin
+//Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth','superadmin']], function () {
+    //Route::get('', 'AdminController@index');
+  
+    //Route::get('/lista_inscripcion','AdminController@showListInscri')->name('lista_inscripcion');
+    //Route::get('/lista_reinscripcion','AdminController@showListReinscri')->name('lista_reinscripcion');
+    //Route::get('/lista_documentos/{id}', 'DocumentosController@show')->name('lista_documentos');
+    //Route::post('/email_info_recibida', 'EmailController@sendEmailRecibi')->name('email_info_recibida');
+    //Route::post('/email_info_recibida_reinscri', 'EmailController@sendEmailRecibiReinscri')->name('email_info_recibida_reinscri');
+    //Route::post('/email_info_recibida_inscr', 'EmailController@sendEmailRecibiInscrip')->name('email_info_recibida_inscr');
+    //Route::get('/email_lista_espera/{nombre_tutor}/{ap_paterno}/{email}', 'EmailController@sendEmailEspera')->name('email_lista_espera');
+    //Route::get('/lista_documentos_inscr/{id}', 'DocumentosController@show_inscr')->name('lista_documentos_inscr');
+    
+    //Route::get('/detalles_documento/{id}', 'DocumentosController@details')->name('detalles_documento');
+    //Route::get('/lista_menores/{id_caci}', 'ListaMenoresController@menoresByCaci')->name('lista_menores');
+//});
 
 Route::get('/ubuicacion', function () {
     return view('ubuicacion');

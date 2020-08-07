@@ -41,6 +41,8 @@ class CreateReinscripcionMenorTable extends Migration
             $table->string('edad_menor_ingreso',10);
             $table->string('curp',20);
             $table->string('caci',150);
+            $table->string('terminos',20)->nullable();
+            $table->string('rol_caci',100)->nullable();
             $table->tinyInteger('correo_enviado')->nullable();
             $table->timestamps();
         });

@@ -54,4 +54,9 @@ class Inscripcion extends Model
                 ->where('id', $id)
                 ->update(['correo_enviado' => 1]);
     }
+    public static function setCaci($id,$rolCaci){
+        DB::table('inscripcion_menor')
+                ->where('id', $id)
+                ->update(['rol_caci' => $rolCaci]);
+    }
 }

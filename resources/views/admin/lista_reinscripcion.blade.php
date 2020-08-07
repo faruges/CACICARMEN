@@ -1,4 +1,4 @@
-@extends('admin.admin_inicio')
+@extends('users.users_inicio')
 @section('title','Bienvenidos Plataforma CACI')
 @section('mycontent')
 <style>
@@ -31,6 +31,7 @@
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 <div class="container">
     <div class="card mt50 margin-card">
+        <h1 style="margin-left: 10px;">Bienvenido {{auth()->user()->name}}</h1>
         <div class="card-header">
             <div class="float-right">
                 <form id="regForm" action="{{route('export-excel')}}" method="GET" enctype="multipart/form-data">
@@ -38,12 +39,13 @@
                     <button id="valida_curp" type="submit" title="Generar Reporte" class="btn btn-lg btn-dark"><i class="fa fa-download"></i></button> 
                 </form>
             </div>
-            <h1><i class="fa fa-bookmark"></i> Reinscripci&oacute;n</h1>
+            <h2><i class="fa fa-bookmark"></i> Reinscripci&oacute;n</h2>
         </div>
         <div class="card-body" style="overflow: auto">
             <table class="table table-striped table-responsive-md">
                 <thead>
                     <tr>
+                        <th>Caci</th>
                         <th>Nombre Menor</th>
                         <th>Fecha de Nacimiento</th>
                         <th>Edad al Ingreso</th>
@@ -71,6 +73,7 @@
                 <tbody>
                     @foreach ($lista_reinscripciones as $reinscripcion)
                     <tr>                        
+                        <td>{{$reinscripcion->caci}}</td>
                         <td>{{$reinscripcion->nombre_menor}} {{$reinscripcion->ap_paterno}}
                             {{$reinscripcion->ap_materno}}</td>
                         <td>{{$reinscripcion->fecha_nacimiento}}</td>

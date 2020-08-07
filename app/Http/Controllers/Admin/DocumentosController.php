@@ -60,7 +60,6 @@ class DocumentosController extends Controller
         $data=Documentos::where('inscripcion_menor_id',$id)->get();
         $lista_inscripcion=Inscripcion::where('id',$id)->get();
         return view('admin.lista_documentos_insc',compact('data','id','lista_inscripcion'));
-
     }
 
     public function details($id)

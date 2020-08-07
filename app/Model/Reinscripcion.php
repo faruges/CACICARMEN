@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Reinscripcion extends Model
 {
@@ -48,5 +49,15 @@ class Reinscripcion extends Model
         } else {
             return false;
         }
+    }
+    public static function insertFlagEnvioEmail($id){
+        DB::table('reinscripcion_menor')
+                ->where('id', $id)
+                ->update(['correo_enviado' => 1]);
+    }
+    public static function setCaci($id,$rolCaci){
+        DB::table('reinscripcion_menor')
+                ->where('id', $id)
+                ->update(['rol_caci' => $rolCaci]);
     }
 }

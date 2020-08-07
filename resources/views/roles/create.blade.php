@@ -1,11 +1,42 @@
 @extends('users.users_inicio')
 @section('title','Bienvenidos Plataforma CACI')
+@section('scripts')
+  <script src="{{URL::asset('js/inscripcion.js')}}" type="text/javascript"> </script> 
+@endsection 
 @section('mycontent')
 <style>
-    .enlace-listas {
-        font-size: 30px;
-        margin-left: 10px;
-        text-align: center;
+    .margin-card {
+        margin-bottom: 10%;
+    }
+
+    .btn-regresar {
+        margin: 40px 20px 40px 0px;
+    }
+
+    .container {
+        margin-top: 10px;
+    }
+
+    .table-plain {
+        width: 100%;
+        border-bottom: 1px solid #dee2e6
+    }
+
+    .table-striped .table-plain tbody tr:nth-of-type(2n+1) {
+        background-color: transparent;
+    }
+
+    .table-plain tbody td {
+        background-color: transparent;
+        padding: 2px .75rem;
+    }
+
+    .pn {
+        margin-right: 10px;
+    }
+
+    h2 {
+        margin-top: 20px;
     }
 </style>
 <br>
@@ -31,13 +62,22 @@
 
 
 <div class="container">
-    <div class="card mt50">
+    <div class="card">
         <div class="card-header">
-            <h1><i class="fa fa-building"></i> Bienvenida</h1>
+            <h2 style="font-size: 35px;"><i class="fa fa-user"></i> Crear Rol</h2>
         </div>
-        <div class="card-body" style="margin-bottom: 22%">
-            
-        </div>
+        <form >
+        <form id="regForm" method="POST" enctype="multipart/form-data">
+            <div>
+                <input id="name" type="text" class="form-control" name="name" placeholder="Nombre" required>
+            </div>
+            <div>
+                <input id="permissions" type="text" class="form-control" name="permissions" placeholder="Email" required>                  
+            </div>
+            <div>
+                <button type="button" onclick="createRol()" class="btn btn-success float-right"><i class="fa fa-save"></i> Guardar</button>
+            </div>
+        </form>
     </div>
 </div>
 

@@ -21,13 +21,20 @@ class AdminController extends Controller
 
     public function showListInscri()
     {
-        $lista_caci = ListaCaci::orderBy('id')->get();
+        if (auth()->user()->name === 'supercaci') {
+            $lista_caci = ListaCaci::orderBy('id')->get();
+        } else {
+            $lista_caci = ListaCaci::where('rol_caci', auth()->user()->name)->get();
+        }
         return view('admin.lista_inscripcion', compact('lista_caci'));
     }
     public function showListReinscri()
     {
-        $lista_reinscripciones = Reinscripcion::orderBy('id')->get();
+        if (auth()->user()->name === 'supercaci') {
+            $lista_reinscripciones = Reinscripcion::orderBy('id')->get();
+        } else {
+            $lista_reinscripciones = Reinscripcion::where('rol_caci', auth()->user()->name)->get();
+        }
         return view('admin.lista_reinscripcion', compact('lista_reinscripciones'));
     }
-    
 }

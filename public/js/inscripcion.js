@@ -79,3 +79,57 @@ function inscripcion() {
     });
 
 }
+
+function createUsuario() {
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var rol = $("#rol").val();
+    var password = $("#password").val();
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            "_token": $("meta[name='csrf-token']").attr("content"),
+            "name": name,
+            "email": email,
+            "rol": rol,
+            "password": password
+        },
+        url: url + 'store',
+        success: function (data) {
+            console.log(data);
+            alert("Los Datos se Insertaron Correctamente");
+        },
+        error: function (data_e) {
+            console.log(data_e);
+            alert("No se pudo inscribir");
+        }
+
+    });
+}
+
+function createRol(){
+    var name = $("#name").val();
+    var permissions = $("#permissions").val();
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            "_token": $("meta[name='csrf-token']").attr("content"),
+            "name": name,
+            "permissions": permissions
+        },
+        url: url + 'guardar_rol',
+        success: function (data) {
+            console.log(data);
+            alert("Los Datos se Insertaron Correctamente");
+        },
+        error: function (data_e) {
+            console.log(data_e);
+            alert("No se pudo inscribir");
+        }
+
+    });   
+}

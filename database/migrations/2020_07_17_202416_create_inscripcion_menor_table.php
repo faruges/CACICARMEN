@@ -42,6 +42,7 @@ class CreateInscripcionMenorTable extends Migration
             $table->string('curp_num',20);
             $table->string('caci',150);
             $table->string('terminos',20)->nullable();
+            $table->string('rol_caci',100)->nullable();
             $table->tinyInteger('correo_enviado')->nullable();
             $table->timestamps();
         });

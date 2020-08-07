@@ -1,4 +1,4 @@
-@extends('admin.admin_inicio')
+@extends('users.users_inicio')
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
 <script src="{{URL::asset('js/send_email.js')}}" type="text/javascript"> </script>
@@ -102,10 +102,7 @@
                         @foreach ($lista_reinscripcion as $reinsc)
                         <div class="row row-margin">
                             <h3>Caci SAF: </h3>  <label class="font-label"> {{$reinsc->caci}}</label>
-                        </div>
-                        <div class="row row-margin">
-                            <h3>Matricula: </h3><label class="font-label"> {{$reinsc->matricula}}</label>
-                        </div>
+                        </div>                        
                         <div class="row row-margin">
                             <h3>Nombre Menor: </h3><label class="font-label">{{$reinsc->nombre_menor}}
                                 {{$reinsc->ap_paterno}} {{$reinsc->ap_materno}}</label>
@@ -126,7 +123,19 @@
                                 {{$reinsc->ap_paterno_t}} {{$reinsc->ap_materno_t}}</label>
                         </div>
                         <div class="row row-margin">
-                            <h3>Domicilio: </h3><label class="font-label">{{$reinsc->domicilio}}</label>
+                            <h3>Calle: </h3><label class="font-label">{{$reinsc->calle}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>N&uacute;mero: </h3><label class="font-label">{{$reinsc->numero_domicilio}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Colonia: </h3><label class="font-label">{{$reinsc->colonia}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Alcaldia: </h3><label class="font-label">{{$reinsc->alcaldia}}</label>
+                        </div>
+                        <div class="row row-margin">
+                            <h3>Codigo Postal: </h3><label class="font-label">{{$reinsc->codigo_postal}}</label>
                         </div>
                         <div class="row row-margin">
                             <h3>Tipo Nomina: </h3><label class="font-label">{{$reinsc->tipo_nomina}}</label>

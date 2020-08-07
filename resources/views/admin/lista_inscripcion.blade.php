@@ -1,4 +1,4 @@
-@extends('admin.admin_inicio')
+@extends('users.users_inicio')
 @section('title','Bienvenidos Plataforma CACI')
 @section('mycontent')
 <style>
@@ -32,6 +32,7 @@
 
 <div class="container">
     <div class="card mt50 margin-card">
+        <h1 style="margin-left: 10px;">Bienvenido {{auth()->user()->name}}</h1>
         <div class="card-header">
             <div class="float-right">
                 <form id="regForm" action="{{route('export-excel')}}" method="GET" enctype="multipart/form-data">
@@ -39,12 +40,13 @@
                     <button id="valida_curp" type="submit" title="Generar Reporte" class="btn btn-lg btn-dark"><i class="fa fa-download"></i></button> 
                 </form>
             </div>
-            <h1><i class="fa fa-book"></i> Inscripci&oacute;n</h1>
+            <h2><i class="fa fa-book"></i> Inscripci&oacute;n</h2>
         </div>
         <div class="card-body" style="overflow: auto">
             <table class="table table-striped table-responsive-lg">
                 <thead>
                     <tr>
+                        <th>Caci</th>
                         <th>Nombre Menor</th>
                         <th>Curp</th>
                         <th>Fecha de Nacimiento</th>
@@ -64,13 +66,13 @@
                         <th>Email</th>
                         <th>Telefono Uno</th>
                         <th>Telefono Dos</th>
-                        <th>Caci</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($lista_caci as $caci)
                     <tr>
+                        <td>{{$caci->caci}}</td>
                         <td>{{$caci->nombre_menor_1}} {{$caci->apellido_paterno_1}} {{$caci->apellido_materno_1}}</td>
                         <td>{{$caci->curp_num}}</td>
                         <td>{{$caci->birthday}}</td>
@@ -90,7 +92,6 @@
                         <td>{{$caci->email_correo}}</td>
                         <td>{{$caci->telefono_celular}}</td>
                         <td>{{$caci->telefono_3}}</td>
-                        <td>{{$caci->caci}}</td>
                         <td>
                             <span class="float-right">
                                 <a class="btn btn-md btn-outline-primary"

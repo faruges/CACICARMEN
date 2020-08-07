@@ -1,4 +1,4 @@
-@extends('admin.admin_inicio')
+@extends('users.users_inicio')
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
     <script src="{{URL::asset('js/send_email.js')}}" type="text/javascript"> </script> 
@@ -95,7 +95,13 @@
                         <div class="row row-margin"><h3>Curp:</h3><label class="font-label">{{$reinsc->curp_num}}</label></div>
 
                         <div class="row row-margin"><h3>Nombre Tutor:</h3><label class="font-label">{{$reinsc->nombre_tutor_madres}} {{$reinsc->apellido_paterno_tutor}} {{$reinsc->apellido_materno_tutor}}</label></div>
-                        <div class="row row-margin"><h3>Domicilio:</h3><label class="font-label">{{$reinsc->domicilio_delegracion}}</label></div>
+                        
+                        <div class="row row-margin"><h3>Calle:</h3><label class="font-label">{{$reinsc->calle}}</label></div>
+                        <div class="row row-margin"><h3>N&uacute;mero:</h3><label class="font-label">{{$reinsc->numero_domicilio}}</label></div>
+                        <div class="row row-margin"><h3>Colonia:</h3><label class="font-label">{{$reinsc->colonia}}</label></div>
+                        <div class="row row-margin"><h3>Alcaldia:</h3><label class="font-label">{{$reinsc->alcaldia}}</label></div>
+                        <div class="row row-margin"><h3>Codigo Postal:</h3><label class="font-label">{{$reinsc->codigo_postal}}</label></div>
+                        
                         <div class="row row-margin"><h3>Tipo Nomina:</h3><label class="font-label">{{$reinsc->tipo_nomina_1}}</label></div>
                         <div class="row row-margin"><h3>Numero Empleado:</h3><label class="font-label">{{$reinsc->num_empleado_1}}</label></div>
                         <div class="row row-margin"><h3>Numero Plaza:</h3><label class="font-label">{{$reinsc->num_plaza_1}}</label></div>
