@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\ListaCaci;
 use App\Model\Reinscripcion;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -21,19 +22,20 @@ class AdminController extends Controller
 
     public function showListInscri()
     {
-        if (auth()->user()->name === 'supercaci') {
+        //dd(Session::get('rolName'));
+        if (Session::get('rolName') === 'super_caci') {
             $lista_caci = ListaCaci::orderBy('id')->get();
         } else {
-            $lista_caci = ListaCaci::where('rol_caci', auth()->user()->name)->get();
+            $lista_caci = ListaCaci::where('rol_caci', Session::get('rolName'))->get();
         }
         return view('admin.lista_inscripcion', compact('lista_caci'));
     }
     public function showListReinscri()
     {
-        if (auth()->user()->name === 'supercaci') {
+        if (Session::get('rolName') === 'super_caci') {
             $lista_reinscripciones = Reinscripcion::orderBy('id')->get();
         } else {
-            $lista_reinscripciones = Reinscripcion::where('rol_caci', auth()->user()->name)->get();
+            $lista_reinscripciones = Reinscripcion::where('rol_caci', Session::get('rolName'))->get();
         }
         return view('admin.lista_reinscripcion', compact('lista_reinscripciones'));
     }

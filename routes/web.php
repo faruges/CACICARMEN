@@ -96,22 +96,21 @@ Route::get('/login', function () {
 
 
 Route::get('/inscripcion_from','InscripcionController@index')->name('inscripcion_from');
+Route::get('/formulario_inscripcion', function () {
+    return view('inscripcion_from');
+});
 Route::post('guardar_inscripcion', 'InscripcionController@getwebservice')->name('guardar_inscripcion');
 Route::post('guardar_inscripcion_bd', 'InscripcionController@guardar')->name('guardar_inscripcion_bd');
 
 Route::get('/reinscripcion','ReinscripcionController@index')->name('reinscripcion');
 Route::post('guardar_reinscripcion', 'ReinscripcionController@getwebservice')->name('guardar_reinscripcion');
-
-Route::post('consulta_curp', 'WebServicesRENAPO@getCurp')->name('consulta_curp');
-
 Route::post('guardar_reinscripcion_bd', 'ReinscripcionController@guardar')->name('guardar_reinscripcion_bd');
 
+Route::post('consulta_curp', 'WebServicesRENAPO@getCurp')->name('consulta_curp');
 
 Route::get('/tramiles_CACI', function () {
     return view('tramiles_CACI');
 });
-
-
 
 Route::get('/registo_aqui', function () {
     return view('registo_aqui');
@@ -125,7 +124,10 @@ Route::get('/aviso_privacidar', function () {
 Route::group(['middleware' => ['permission:view_users|edit_users|delete_users|create_users']], function() {
     Route::resource('users','UserController');
     Route::get('create','UserController@create');
+    Route::get('edit/{id}','UserController@edit')->name('edit');
+    Route::post('update/{id}','UserController@update')->name('update');
     Route::post('store','UserController@store')->name('store');
+    Route::get('destroy/{id}','UserController@destroy')->name('destroy');
 });
 
 Route::group(['middleware' => ['permission:view_roles|edit_roles|delete_roles|create_roles']], function() {

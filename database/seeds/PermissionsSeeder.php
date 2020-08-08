@@ -46,11 +46,23 @@ class PermissionsSeeder extends Seeder
 		$superCaciRole = Role::create(['name' => 'super_caci']);
 		$superCaciRole->syncPermissions($permissions_array);
 
-		$caciRole = Role::create(['name' => 'caci']);
-		$caciRole->givePermissionTo($viewBooksPermission);
+		//$caciRole = Role::create(['name' => 'caci']);
+		//$caciRole->givePermissionTo($viewBooksPermission);
         
-        $caciBasico = Role::create(['name' => 'cacibasico']);
-		$caciBasico->givePermissionTo($permissions_array_caci);
+        $caciLuz = Role::create(['name' => 'caciluz']);
+        $caciLuz->givePermissionTo($permissions_array_caci);
+        
+        $caciEva = Role::create(['name' => 'cacieva']);
+        $caciEva->givePermissionTo($permissions_array_caci);
+        
+        $caciBertha = Role::create(['name' => 'cacibertha']);
+        $caciBertha->givePermissionTo($permissions_array_caci);
+        
+        $caciCarolina = Role::create(['name' => 'cacicarolina']);
+        $caciCarolina->givePermissionTo($permissions_array_caci);
+        
+        $caciCarmen = Role::create(['name' => 'cacicarmen']);
+		$caciCarmen->givePermissionTo($permissions_array_caci);
 
 		$userSuperCaci = User::create([
             'name' => 'supercaci',
@@ -61,13 +73,13 @@ class PermissionsSeeder extends Seeder
         $userSuperCaci->assignRole('super_caci');
 
         /////////Create User
-        $userCaci = User::create([
+       /*  $userCaci = User::create([
             'name' => 'caci',
             'email' => 'caci@gmail.com',
             'password' => Hash::make('caci123.,'),
-        ]);
+        ]); */
         ///////////////////////////////////
-        $userCaci->assignRole('caci');
+        //$userCaci->assignRole('caci');
         
         $userCaciLuz = User::create([
             'name' => 'caciluz',
@@ -75,39 +87,39 @@ class PermissionsSeeder extends Seeder
             'password' => Hash::make('caciluz123.,'),
         ]);
         ///////////////////////////////////
-        $userCaciLuz->assignRole('cacibasico');
+        $userCaciLuz->assignRole('caciluz');
 
-        $userCaciLuz = User::create([
+        $userCaciEva = User::create([
             'name' => 'cacieva',
             'email' => 'cacieva@gmail.com',
             'password' => Hash::make('cacieva123.,'),
         ]);
         ///////////////////////////////////
-        $userCaciLuz->assignRole('cacibasico');
+        $userCaciEva->assignRole('cacieva');
 
-        $userCaciLuz = User::create([
+        $userCaciBertha = User::create([
             'name' => 'cacibertha',
             'email' => 'cacibertha@gmail.com',
             'password' => Hash::make('cacibertha123.,'),
         ]);
         ///////////////////////////////////
-        $userCaciLuz->assignRole('cacibasico');
+        $userCaciBertha->assignRole('cacibertha');
 
-        $userCaciLuz = User::create([
+        $userCaciCarolina = User::create([
             'name' => 'cacicarolina',
             'email' => 'cacicarolina@gmail.com',
             'password' => Hash::make('cacicarolina123.,'),
         ]);
         ///////////////////////////////////
-        $userCaciLuz->assignRole('cacibasico');
+        $userCaciCarolina->assignRole('cacicarolina');
         
-        $userCaciLuz = User::create([
+        $userCaciCarmen = User::create([
             'name' => 'cacicarmen',
             'email' => 'cacicarmen@gmail.com',
             'password' => Hash::make('cacicarmen123.,'),
         ]);
         ///////////////////////////////////
-        $userCaciLuz->assignRole('cacibasico');
+        $userCaciCarmen->assignRole('cacicarmen');
 
         ///////////Create User
         User::create([

@@ -31,6 +31,11 @@
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
 <div class="container">
+    @if(Session::has('mensaje'))
+        <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('mensaje') }}
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+        </p>
+    @endif
     <div class="card mt50 margin-card">
         <div class="card-header">
             <div class="float-right">
@@ -60,10 +65,10 @@
                         <td>
                             <span class="float-right">
                                 <a class="btn btn-md btn-outline-primary"
-                                href="#"
+                                href="{{route('edit',$user->id)}}"
                                 title="Editar Usuarios"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-md btn-outline-danger"
-                                    href="#"
+                                    href="{{route('destroy',$user->id)}}"
                                     title="Eliminar Usuarios"><i class="fa fa-trash"></i></a>
                             </span>
                         </td>

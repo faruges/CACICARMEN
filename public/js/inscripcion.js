@@ -109,6 +109,37 @@ function createUsuario() {
     });
 }
 
+function editUsuario(id) {
+    //alert(id);
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var rol = $("#rol").val();
+    var password = $("#password").val();
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            "_token": $("meta[name='csrf-token']").attr("content"),
+            "id": id,
+            "name": name,
+            "email": email,
+            "rol": rol,
+            "password": password
+        },
+        url: url + 'update',
+        success: function (data) {
+            console.log(data);
+            alert("Los Datos se Actualizaron Correctamente");
+        },
+        error: function (data_e) {
+            console.log(data_e);
+            alert("No se pudo Actualizar");
+        }
+
+    });
+}
+
 function createRol(){
     var name = $("#name").val();
     var permissions = $("#permissions").val();

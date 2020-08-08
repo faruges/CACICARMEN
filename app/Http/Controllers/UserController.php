@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends AppBaseController
 {
@@ -60,10 +61,11 @@ class UserController extends AppBaseController
         $user = $this->userRepository->create($input);
         $user->assignRole($request->rol);
 
-        return response()->json();
+        //return response()->json();
         //Flash::success('User saved successfully.');
+        Session::flash('mensaje', 'Usuario se guardo exitosamente!'); 
 
-        //return redirect(route('users.index'));
+        return redirect(route('users.index'));
     }
 
     /**
@@ -114,8 +116,9 @@ class UserController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateUserRequest $request)
+    public function update($id,UpdateUserRequest $request)
     {
+        //dd($request->role);
         $user = $this->userRepository->find($id);
 
         if (empty($user)) {
@@ -133,7 +136,9 @@ class UserController extends AppBaseController
         $user->roles()->detach();
         $user->assignRole($request->role);
 
-        Flash::success('User updated successfully.');
+        //return response()->json();
+        //Flash::success('User updated successfully.');
+        Session::flash('mensaje', 'Usuario se actualizo exitosamente!'); 
 
         return redirect(route('users.index'));
     }
@@ -159,7 +164,8 @@ class UserController extends AppBaseController
 
         $this->userRepository->delete($id);
 
-        Flash::success('User deleted successfully.');
+        //Flash::success('User deleted successfully.');
+        Session::flash('mensaje', 'Usuario se elimino exitosamente!'); 
 
         return redirect(route('users.index'));
     }

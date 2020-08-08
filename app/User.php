@@ -19,25 +19,23 @@ class User extends Authenticatable
      * @var array
      */
     protected $remember_token = false;
-    protected $table = 'users'; 
+    protected $table = 'users';
     protected $fillable = [
         'name', 'email', 'password',
     ];
     protected $guarded = ['id'];
 
-    public function setSession($supercaci_rol)
+    public function setSession()
     {
-        //aqui se pone el nombre de usuario el rol etc
-        if ($supercaci_rol !== 0) {
-            //$rol = Rol::where('id', $supercaci_rol)->get();
-            //dd($this->nombre,$this->id);
-            Session::put([
-                /* 'rol_id' => $rol[0]['id'],
-                'rol_nombre' => $rol[0]['nombre'], */
-                'name' => $this->name,
-                'email' => $this->email               
-            ]); 
-        }
+        //devuelve un string al rol
+        $rolName = $this->getRoleNames();
+        Session::put([
+            /* 'rol_id' => $rol[0]['id'],*/
+            'name' => $this->name,
+            'email' => $this->email,
+            'rolName' => $rolName[0]
+        ]);
+        //}
     }
     /**
      * The attributes that should be hidden for arrays.
@@ -66,5 +64,4 @@ class User extends Authenticatable
         'name' => 'required',
         'email' => 'required|email',
     ];
-
 }

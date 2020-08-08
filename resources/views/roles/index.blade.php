@@ -33,11 +33,11 @@
 <div class="container">
     <div class="card mt50 margin-card">
         <div class="card-header">
-            <div class="float-right">
+            {{--  <div class="float-right">
                 <a class="btn btn-md btn-outline-success"
                 href="{{route('roles.create')}}"
                 title="Crear Usuario"><i class="fa fa-plus"></i></a>
-            </div>
+            </div>  --}}
             <h1><i class="fa fa-users"></i> Roles</h1>
         </div>
         <div class="card-body" style="overflow: auto">
@@ -55,16 +55,16 @@
                         <td>{{$rol->name}}</td>
                         <td>{{implode(" ", $rol->getPermissionNames()->toArray())}}</td>
                         <td>{{$rol->created_at}}</td>
-                        <td>
+                        {{--  <td>
                             <span class="float-right">
                                 <a class="btn btn-md btn-outline-primary"
                                 href="#"
                                 title="Editar Usuarios"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-md btn-outline-danger"
-                                    href="#"
-                                    title="Eliminar Usuarios"><i class="fa fa-trash"></i></a>
+                                    href="{{route('destroy',$rol->id)}}"
+                                    title="Eliminar Rol"><i class="fa fa-trash"></i></a>
                             </span>
-                        </td>
+                        </td>  --}}
                     </tr>
                     @endforeach
                 </tbody>

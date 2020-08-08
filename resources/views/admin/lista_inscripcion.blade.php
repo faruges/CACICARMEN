@@ -40,7 +40,7 @@
                     <button id="valida_curp" type="submit" title="Generar Reporte" class="btn btn-lg btn-dark"><i class="fa fa-download"></i></button> 
                 </form>
             </div>
-            <h2><i class="fa fa-book"></i> Inscripci&oacute;n</h2>
+            <h2><i class="fa fa-book" style="margin-left: 20px;"></i> Inscripci&oacute;n</h2>
         </div>
         <div class="card-body" style="overflow: auto">
             <table class="table table-striped table-responsive-lg">

@@ -34,12 +34,12 @@
         <h1 style="margin-left: 10px;">Bienvenido {{auth()->user()->name}}</h1>
         <div class="card-header">
             <div class="float-right">
-                <form id="regForm" action="{{route('export-excel')}}" method="GET" enctype="multipart/form-data">
+                <form id="regForm" action="{{route('export-excel-reinscripcion')}}" method="GET" enctype="multipart/form-data">
                     @csrf
                     <button id="valida_curp" type="submit" title="Generar Reporte" class="btn btn-lg btn-dark"><i class="fa fa-download"></i></button> 
                 </form>
             </div>
-            <h2><i class="fa fa-bookmark"></i> Reinscripci&oacute;n</h2>
+            <h2><i class="fa fa-bookmark" style="margin-left: 20px;"></i> Reinscripci&oacute;n</h2>
         </div>
         <div class="card-body" style="overflow: auto">
             <table class="table table-striped table-responsive-md">
@@ -49,6 +49,7 @@
                         <th>Nombre Menor</th>
                         <th>Fecha de Nacimiento</th>
                         <th>Edad al Ingreso</th>
+                        <th>Curp</th>
                         <th>Tutor</th>
                         <th>Calle</th>
                         <th>Número</th>
@@ -78,6 +79,7 @@
                             {{$reinscripcion->ap_materno}}</td>
                         <td>{{$reinscripcion->fecha_nacimiento}}</td>
                         <td>{{$reinscripcion->edad_menor_ingreso}}</td>
+                        <td>{{$reinscripcion->curp}}</td>
                         <td>{{$reinscripcion->nombre_tutor}} {{$reinscripcion->ap_paterno_t}}
                             {{$reinscripcion->ap_materno_t}}</td>
                         <td>{{$reinscripcion->calle}}</td>

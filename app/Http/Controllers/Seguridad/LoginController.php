@@ -38,21 +38,13 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        //solo deja entrar a los usuarios con rol admin
-        /* $resultados = $user->get()->where('usuario',$user->usuario);
-        foreach ($resultados as $resultado) {
-            $admin_rol = $resultado->rol_id;
-        } */
-        $admin_rol = 1;
-        //dd($admin_rol);
-        //dd($user->get()->where('usuario',$user->usuario));
-        if ($admin_rol === 1) {
+        if ($user) {
             //como parametro en setSession puedo mandar todos los datos del menor
-            $user->setSession($admin_rol);
+            $user->setSession();
         } else {
             $this->guard()->logout();
             $request->session()->invalidate();
-            return redirect('seguridad/login')->withErrors(['error' => 'Este usuario no es un Admin']);
+            return redirect('seguridad/login')->withErrors(['error' => 'Error en Inicio de Sesión']);
         }
     }
 }

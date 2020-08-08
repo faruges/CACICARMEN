@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Inscripcion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Mail;
 
@@ -64,6 +65,7 @@ class InscripcionController extends Controller
 
             /* return response()->json($data); */
             return view('inscripcion_from', compact('data'));
+            //return redirect('/formulario_inscripcion')->with('data', $data);
         } catch (\Throwable $th) {
             /* dd($th); */
             return redirect('/inscripcion_from')->withErrors(['error' => 'RFC no se encuentra en nuestros registros']);
@@ -177,62 +179,70 @@ class InscripcionController extends Controller
             'filename_trab.mimes' => 'Documento de la patria potestad no es valido',
             'filename_recp.mimes' => 'Copia del último recibo de pago de la persona trabajadora no es valido',
         ];
-        $validator = Validator::make($request->all(), $rules, $messages);
-        if ($validator->fails()) {
-            return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error.')->with('typelert', 'danger');
-        } else {
-            $curp = $request->curp_num;
-            //contea si ya menor esta inscrito
-            $conteoCurp = Inscripcion::where('curp_num', $curp)->get()->count();
-            if ($conteoCurp <= 0) {
-                Inscripcion::create($request->all());
-                //obtiene id de reinscripcion
-                $id_reins = Inscripcion::select('id')->orderByDesc('id')->get()->first();
-                $id = $id_reins->id;
-                $filename_act = $request->file('filename_act');
-                //$filename_sol = $request->file('filename_sol');
-                $filename_vacu = $request->file('filename_vacu');
-                $filename_nac = $request->file('filename_nac');
-                $filename_com = $request->file('filename_com');
-                //$filename_cert = $request->file('filename_cert');
-                //$filename_rec = $request->file('filename_rec');
-                /////$filename_disc = $request->file('filename_disc');
-                /////$filename_trab = $request->file('filename_trab');
-                //$filename_recp = $request->file('filename_recp');
-				$filename_disc = (!empty($request->file('filename_disc')) ? $request->file('filename_disc') : null);
-                $filename_trab = (!empty($request->file('filename_trab')) ? $request->file('filename_trab') : null);
-                
-				$arrayFiles = array(
-                    array($filename_act, "Acta de nacimiento"), array($filename_vacu, "Cartilla de vacunacion"),
-                    array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp")/*,
+        DB::beginTransaction();
+
+        try {
+            $validator = Validator::make($request->all(), $rules, $messages);
+            if ($validator->fails()) {
+                return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error.')->with('typelert', 'danger');
+            } else {
+                $curp = $request->curp_num;
+                //contea si ya menor esta inscrito
+                $conteoCurp = Inscripcion::where('curp_num', $curp)->get()->count();
+                if ($conteoCurp <= 0) {
+                    Inscripcion::create($request->all());
+                    //obtiene id de reinscripcion
+                    $id_reins = Inscripcion::select('id')->orderByDesc('id')->get()->first();
+                    $id = $id_reins->id;
+                    $filename_act = $request->file('filename_act');
+                    //$filename_sol = $request->file('filename_sol');
+                    $filename_vacu = $request->file('filename_vacu');
+                    $filename_nac = $request->file('filename_nac');
+                    $filename_com = $request->file('filename_com');
+                    //$filename_cert = $request->file('filename_cert');
+                    //$filename_rec = $request->file('filename_rec');
+                    /////$filename_disc = $request->file('filename_disc');
+                    /////$filename_trab = $request->file('filename_trab');
+                    //$filename_recp = $request->file('filename_recp');
+                    $filename_disc = (!empty($request->file('filename_disc')) ? $request->file('filename_disc') : null);
+                    $filename_trab = (!empty($request->file('filename_trab')) ? $request->file('filename_trab') : null);
+
+                    $arrayFiles = array(
+                        array($filename_act, "Acta de nacimiento"), array($filename_vacu, "Cartilla de vacunacion"),
+                        array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp")/*,
                     array($filename_disc, "Copias de los documentos médicos del tratamiento"),
                     array($filename_trab, "Documento de la patria potestad")*/
-                );
-				
-				if(!empty($filename_disc)){
-					$arrayFiles[] = array($filename_disc, "Copias de los documentos médicos del tratamiento");
-				}
-				
-				if(!empty($filename_trab)){
-					$arrayFiles[] = array($filename_trab, "Documento de la patria potestad");
-				}
-				
-                if (Inscripcion::setDoc($arrayFiles, $id)) {
+                    );
 
-                    $inscripcion = new InscripcionController;
-                    $envioEmail = $inscripcion->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo);
-                    if ($envioEmail) {
-                        Inscripcion::insertFlagEnvioEmail($id);
-                        $inscripcion->setRolCaci($id,$request->caci);
+                    if (!empty($filename_disc)) {
+                        $arrayFiles[] = array($filename_disc, "Copias de los documentos médicos del tratamiento");
                     }
-                    //return redirect('inicio');
-                    return redirect('inicio')->with('mensaje', "Menor inscrito con exito");
+
+                    if (!empty($filename_trab)) {
+                        $arrayFiles[] = array($filename_trab, "Documento de la patria potestad");
+                    }
+
+                    if (Inscripcion::setDoc($arrayFiles, $id)) {
+
+                        $inscripcion = new InscripcionController;
+                        $envioEmail = $inscripcion->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo);
+                        if ($envioEmail) {
+                            Inscripcion::insertFlagEnvioEmail($id);
+                            $inscripcion->setRolCaci($id, $request->caci);
+                        }
+                        //return redirect('inicio');
+                        DB::commit();
+                        return redirect('inicio')->with('mensaje', "Menor inscrito con exito");
+                    } else {
+                        return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error, no se cargaron todos los archivos.')->with('typelert', 'danger');
+                    }
                 } else {
-                    return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error, no se cargaron todos los archivos.')->with('typelert', 'danger');
+                    return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar el proceso de Inscripción, el Menor ya esta Inscrito']);
                 }
-            } else {
-                return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar el proceso de Inscripción, el Menor ya esta Inscrito']);
             }
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar la Inscripción']);
         }
     }
 
@@ -253,27 +263,28 @@ class InscripcionController extends Controller
         }
     }
 
-    private function setRolCaci($id,$rolCaci){
+    private function setRolCaci($id, $rolCaci)
+    {
         switch ($rolCaci) {
             case 'Luz Maria Gomez Pezuela':
                 $caciLuz = "caciluz";
-                Inscripcion::setCaci($id,$caciLuz);
+                Inscripcion::setCaci($id, $caciLuz);
                 break;
             case 'Mtra Eva Moreno Sanchez':
                 $caciEva = "cacieva";
-                Inscripcion::setCaci($id,$caciEva);
+                Inscripcion::setCaci($id, $caciEva);
                 break;
             case 'Bertha Von Glumer Leyva':
                 $caciBertha = "cacibertha";
-                Inscripcion::setCaci($id,$caciBertha);
+                Inscripcion::setCaci($id, $caciBertha);
                 break;
             case 'Carolina Agazzi':
                 $caciCarolina = "cacicarolina";
-                Inscripcion::setCaci($id,$caciCarolina);
+                Inscripcion::setCaci($id, $caciCarolina);
                 break;
             case 'Carmen S':
                 $caciCarmen = "cacicarmen";
-                Inscripcion::setCaci($id,$caciCarmen);
+                Inscripcion::setCaci($id, $caciCarmen);
                 break;
         }
     }

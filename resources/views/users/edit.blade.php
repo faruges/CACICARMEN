@@ -63,18 +63,18 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h2 style="font-size: 35px;"><i class="fa fa-user"></i> Crear Usuario</h2>
+            <h2 style="font-size: 35px;"><i class="fa fa-user"></i> Editar Usuario</h2>
         </div>
-        <form id="regForm" action="{{route('store')}}" method="POST" enctype="multipart/form-data">
+        <form id="regForm" action="{{route('update',$user->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div>
-                <input id="name" type="text" class="form-control" name="name" placeholder="Nombre" required>
+                <input id="name" type="text" class="form-control" name="name" placeholder="Nombre" value="{{$user->name}}" required>
             </div>
             <div>
-                <input id="email" type="email" class="form-control" name="email" placeholder="Email" required>                  
+                <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{$user->email}}" required>                  
             </div>
             <div>
-                <select style="font-size: 15px;" name="rol" id="rol">
+                <select style="font-size: 15px;" name="role" id="role">
                     <option value='super_caci'>Super Caci</option>
                     <option value='caciluz'>Caci Luz</option>
                     <option value='cacieva'>Caci Eva</option>
@@ -84,15 +84,15 @@
                 </select>
             </div>
             <div>
-                <input id="password" type="password" class="form-control" name="password" placeholder="Password" minlength="8" required>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Nuevo password" minlength="8" required>
             </div>
             <div>
-                {{--  <button type="button" onclick="createUsuario()" class="btn btn-success float-right"><i class="fa fa-save"></i> Guardar</button>  --}}
+                {{--  <button type="button" onclick="editUsuario({{$user->id}})" class="btn btn-primary float-right"><i class="fa fa-save"></i> Actualizar</button>  --}}
                 <span class="float-right">
                     <a class="btn btn-md btn-dark"
                     href="{{route('users.index')}}"
                     title="Regresar"><i class="fa fa-arrow-left"></i> Regresar</a>
-                    <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Guardar</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Actualizar</button>
                 </span>
             </div>
         </form>
