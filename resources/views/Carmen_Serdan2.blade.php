@@ -122,12 +122,11 @@ input {
 
 
 <div style="text-align: center;" class="container gallery-container">
-  <img src="{{asset('img/Responsables/5.jpg')}}" alt="Imagenes" style="width:30%;">
- <!-- <h1 style="text-align: center;">Estanislao Ramírez Ruiz</h1>-->
-  
-      <h1 style="text-align: center;">Titular del Centro de Atención y</h1>
+    <h1 style="text-align: center;">Titular del Centro de Atención y</h1>
     <h1 style="text-align: center;">Cuidado Infantil</h1>
-      <h1 style="text-align: center;">Covarrubias Gonzalez Maria Ofelia </h1>
+    <img src="{{asset('img/Responsables/5.jpg')}}" alt="Imagenes" style="width:30%;">
+    <!-- <h1 style="text-align: center;">Estanislao Ramírez Ruiz</h1>-->
+    <h1 style="text-align: center;">María Ofelia Covarrubias Gonzalez</h1>
 </div>
  <div style="text-align: right;">
     <a href="Carmen_Serdan">

@@ -138,7 +138,7 @@
     <a class="lightbox" href="{{asset('img/CACI_Bertha/2.jpeg')}}">
     <img src="{{asset('img/CACI_Bertha/2.jpeg')}}" alt="Tunnel">
     </a>
-   <h2>Nuestro caci</h2>
+   <h2>Nuestro CACI-SAF</h2>
     </div>
     </div>
             

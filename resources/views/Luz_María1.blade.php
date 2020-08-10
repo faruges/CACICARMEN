@@ -115,7 +115,7 @@
     <a style="height: 900px;" class="lightbox" href="{{asset('img/CACI_1/5.jpg')}}">
     <img src="{{asset('img/CACI_1/5.jpg')}}" alt="Bridge">
     </a>
-    <h2>Nuestro caci</h2>
+    <h2>Nuestro CACI-SAF</h2>
     </div>
     </div>
 
@@ -124,7 +124,7 @@
     <a class="lightbox" href="{{asset('img/CACI_1/7.jpg')}}">
     <img src="{{asset('img/CACI_1/7.jpg')}}" alt="Park">
     </a>
-    <h2>Nuestras actividades</h2>
+    <h2>Actividades</h2>
     </div>
     </div>
 
@@ -133,7 +133,7 @@
     <a class="lightbox" href="{{asset('img/CACI_1/4.jpg')}}">
     <img src="{{asset('img/CACI_1/4.jpg')}}" alt="Tunnel">
     </a>
-    <h2>Nuestras experiencias</h2>
+    <h2>Experiencias</h2>
     </div>
     </div>
         

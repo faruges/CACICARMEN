@@ -166,10 +166,9 @@ a , h1 {
       <div class="col-lg-12" style="margin-top: 2%;">
             <div class="row">
                 <div class="col-sm-6">
-                <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2>
+                <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2><br>
                 <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
-                </i>1. Llenar el formulario el siguiente formulario</li><br><br>
-                </i>2. Cargar la siguiente documentación en versión digital (PDF):</li><br>
+                </i>1. Cargar la siguiente documentación en versión digital (PDF):</li><br>
                 <h5>a) Acta de nacimiento original por ambos lados, del o la menor.</h5>
                 <h5>b) Certicado de nacimiento del o la menor.</h5>
                 <h5>c) Cartilla de vacunación al corriente.</h5>
@@ -178,14 +177,15 @@ a , h1 {
                 <h5>f) En caso de que el o la trabajador(a) sea la persona tutora, deberá adjuntar el documento legal que dictamine la patria potestad o guarda y custodia.</h5>
             </div>
             <div class="col-sm-6"><br>
-                <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;"><br><br>
-                </i>3. Entregar en original la siguiente documentación:</li><br><br>
+                <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;"><br>
+                </i>2. Entregar en original la siguiente documentación:</li><br>
                 <h5>a) Acta de nacimiento del o la menor, excepto quienes ingresan a preescolar 2 y 3.</h5>
                 <h5>b) Cartilla de vacunación del o la menor.</h5>
                 <h5>c) Análisis clínicos. Debido a la contingencia sanitaria deberán entregarse durante los primeros tres meses, a partir del primer día de servicio.</h5>
                 <h5>d) Seis fotografías tamaño infantil recientes e iguales, del o la menor.</h5>
                 <h5>e) Cuatro fotografías tamaño infantil, recientes e iguales del o la trabajador(a).</h5>
                 <h5>f) Cuatro fotografías tamaño infantil, recientes e iguales, de dos personas mayores de edad autorizadas por el (la) solicitante del servicio para recoger a la o el menor.</h5>
+                </i>3. Llenar el siguiente formulario</li><br><br>
                </div>
             </div>
         </div>  
@@ -272,7 +272,7 @@ a , h1 {
 </div>
   <div class="tab">
     <br>
-  <label style="color:#777777;" for="curp">CURP del Menor:</label>
+  <label style="color:#777777;" for="curp">CURP de la niña o niño:</label>
     <p><input id="curp" type="text" placeholder="CURP" oninput="this.className = ''" name="curp" onkeyup="mayus(this);" maxlength="18" pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]"></p>
     <button id="valida_curp" type="button" onclick="validaCurp()">Validar CURP</button> 
   </div>
@@ -281,21 +281,21 @@ a , h1 {
  <div class="col-lg-12">
   <div class="row">
     <div class="col-sm-6">
-        <label style="color:#00b140;" >Datos del Menor</label>
+        <label style="color:#00b140;" >Datos de la niña o niño</label>
         
     <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
-    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Nombre(s) del menor<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor"  title="Nombre(s) del menor"  oninput="this.className = ''" name="nombre_menor" readonly></p>
+    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Nombre(s) de la niña o niño<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor"  title="Nombre(s) del menor"  oninput="this.className = ''" name="nombre_menor" readonly></p>
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido paterno<input type="text" id="apellido_paterno_1" placeholder="Apellido paterno"  title="Apellido paterno"  oninput="this.className = ''" name="ap_paterno" readonly></p>
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido materno<input type="text" id="apellido_materno_1" placeholder="Apellido materno"   title="Apellido materno" oninput="this.className = ''" name="ap_materno" readonly></p>  
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">CURP<input type="text" id="curp_num" placeholder="CURP" title="CURP" oninput="this.className = ''" name="curp" pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]" readonly></p>
    <!-- <p style="font-size: 12px; font-family: Arial, Helvetica;">Matricula<input type="text" id="" placeholder="Matricula" onkeyup="mayus(this);" title="Matricula"  oninput="this.className = ''" name="matricula"></p>-->
 
-     <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" for="birthday">Fecha de Nacimiento del menor:</h5>
+     <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" for="birthday">Fecha de Nacimiento de la niña o niño:</h5>
     <input type="text" id="birthday" placeholder="Fecha de Nacimiento del menor" title="Fecha de Nacimiento del menor" oninput="this.className = ''" name="fecha_nacimiento" readonly>
 
-    <h5  style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Edad del menor al ingresar al plantel (Año o Meses)<input id="Edad_menor" type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" title="Edad del menor al ingresar al plantel (Año o Meses)"  oninput="this.className = ''"name="edad_menor_ingreso" onkeyup="mayus(this);" readonly></h5>
+    <h5  style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Edad de la niña o niño al ingresar al plantel (Año o Meses)<input id="Edad_menor" type="text" placeholder="Edad del menor al ingresar al plantel (Año o Meses)" title="Edad del menor al ingresar al plantel (Año o Meses)"  oninput="this.className = ''"name="edad_menor_ingreso" onkeyup="mayus(this);" readonly></h5>
 
-  <h5  style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" for="cars">Centro de Atención y Cuidado Infantil al que pertenece el menor:
+  <h5  style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" for="cars">Centro de Atención y Cuidado Infantil al que pertenece el menor(No se permiten cambios de CACI al ya asigando):
   <select style="font-size: 15px;" name="caci" id="cars">
     <option value="Luz Maria Gomez Pezuela">Luz María Gómez Pezuela</option>
     <option value="Mtra Eva Moreno Sanchez">Mtra. Eva Moreno Sánchez</option>
@@ -306,10 +306,10 @@ a , h1 {
  
    
 
-    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Acta de nacimiento original por ambos lados, del o la menor.</h5>
+    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Acta de nacimiento original por ambos lados, de la niña o niño.</h5>
     <input type="file" id="myFile" name="filename_act" accept="application/msword, application/pdf">
 
-    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Certificado de nacimiento del o la menor.</h5>
+    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Certificado de nacimiento de la niña o niño.</h5>
     <input type="file" id="myFile" name="filename_nac" accept="application/msword, application/pdf">
 
   
@@ -332,15 +332,15 @@ a , h1 {
     <div class="col-sm-6">
     <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;"><br>
 
-   <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla de vacunación al corriente.</h5>
+   <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla de vacunación al corriente de la niña o niño.</h5>
     <input type="file" id="myFile" name="filename_vacu"accept="application/msword, application/pdf">
 
 
-    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" accept="application/msword, application/pdf">Clave Única de Registro de Población, (CURP) del o la menor.</h5>
-    <input type="file" id="myFile" name="filename_com">
+    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">CURP de la niña o niño.</h5>
+    <input type="file" id="myFile" name="filename_com" accept="application/msword, application/pdf">
 
-    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" accept="application/msword, application/pdf">Si el menor presenta algún tipo de discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y  del tratamiento que recibe.</h5>
-    <input type="file" id="myFile" name="filename_disc">
+    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Si la niña o niño presenta algún tipo de discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y  del tratamiento que recibe.</h5>
+    <input type="file" id="myFile" name="filename_disc" accept="application/msword, application/pdf">
 
     <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">En caso de que el o la trabajador(a) sea la persona tutora, deberá adjuntar el documento legal que dictamine la patria potestad o guarda y custodia.</h5>
     <input type="file" id="myFile" name="filename_trab" accept="application/msword, application/pdf">
@@ -448,16 +448,15 @@ function showTab(n) {
   x[n].style.display = "block";
   //... and fix the Previous/Next buttons:
   if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
+    //document.getElementById("prevBtn").style.display = "none";
 	
 	
 	Swal.fire({
   title: '<strong>Atención</u></strong>',
   icon: 'success',
-  timer: 10000,
   html:
     '<b>Estos datos son privados solo el padre o tutor son responsables de dichos datos establecido.</b> ' +
-    '<a target="_blank" href="{{asset('img/PDF/Aviso_Integral_CACI_SAF.pdf')}}"><h5 style="color: #00b140;">Ver aviso de privacidad</h5></a> ',
+    '<a target="_blank" href="{{asset('img/PDF/aviso_simplificado_sitio_caci.pdf')}}"><h5 style="color: #00b140;">Ver aviso de privacidad</h5></a> ',
   showCloseButton: true,
 //  showCancelButton: true,
 })

@@ -116,7 +116,7 @@ tr:nth-child(even) {
 
         <div class="col-lg-12" style="margin-top: 3%;">
                 <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
-                      <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" >Nuestros centros</h2>
+                      <h2 style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" >Nuestro CACI-SAF</h2>
 
 <div class="accordions">
   <div class="accordion-item">
@@ -156,7 +156,7 @@ tr:nth-child(even) {
 
   <div class="accordion-item">
     <div class="accordion-title" data-tab="item3">
-      <h2 style="text-align: center;">Bertha Von Glumer Leyva</h2>
+      <h2 style="text-align: center;">Bertha Von Glümer Leyva</h2>
     </div>
     <div class="accordion-content" id="item3">
          <p>Jesús García No. 63</p>
@@ -223,7 +223,7 @@ tr:nth-child(even) {
                        <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-					    <a href="Luz_María2" target="_blank">
+					    <a href="Luz_María2">
 					    <img src="{{asset('img/resposable.jpg')}}" alt="Imagenes" style="width:100%;"></a>
                        </div>
                        </div>
@@ -231,8 +231,8 @@ tr:nth-child(even) {
                       <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-              <a href="tramiles_CACI" target="_blank">
-              <img src="{{asset('img/tramites.jpg')}}" alt="Imagenes" style="width:100%;"></a>
+              <!-- <a href="tramiles_CACI" target="_blank"> -->
+              <img src="{{asset('img/tramites.jpg')}}" alt="Imagen" style="width:100%;"></a>
                         </div>
                         </div>
                         </div>
@@ -249,7 +249,7 @@ tr:nth-child(even) {
                        <div class="card-block" style="overflow: hidden; border-color: #cacaca; border-style: solid; border-width: 0px 0px 1px 0px; margin-bottom: 0%; margin-left: 3%; padding-right: 25px; padding-right:0px; background-color: #fff;">
                         <p class="card-text" id="texto_tweet"><font color="#00b140">
                         <div class="blog-img">
-              <a href="Luz_María1" target="_blank">	
+              <a href="Luz_María1">	
               <img src="{{asset('img/instalaciones.jpg')}}" alt="Imagenes" style="width:100%;"></a>
                         </div>
                         </div>

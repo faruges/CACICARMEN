@@ -115,7 +115,7 @@
     <div class="col-sm-12 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
     <a style="height: 900px;" class="lightbox" href="{{asset('img/CACI_Carmen/6.jpg')}}">
-    <img src="{{asset('img/CACI_Carmen/6.jpg')}}" alt="Bridge">
+    <img src="{{asset('img/CACI_Carmen/6.jpg')}}" alt="Imagen">
     </a>
     <h2>Nuestras actividades</h2>
     </div>
@@ -125,7 +125,7 @@
     <div class="col-sm-6 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
     <a class="lightbox" href="{{asset('img/CACI_Carmen/2.jpg')}}">
-    <img style="height: 180px;" src="{{asset('img/CACI_Carmen/8.jpg')}}" alt="Park">
+    <img style="height: 180px;" src="{{asset('img/CACI_Carmen/2.jpg')}}" alt="Imagen">
     </a>
    <h2>Salón de juegos</h2>
     </div>
@@ -134,7 +134,7 @@
     <div class="col-sm-6 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
     <a class="lightbox" href="{{asset('img/CACI_Carmen/3.jpg')}}">
-    <img src="{{asset('img/CACI_Carmen/3.jpg')}}" alt="Tunnel">
+    <img src="{{asset('img/CACI_Carmen/3.jpg')}}" alt="Imagen">
     </a>
     <h2>Nuestro patio</h2>
     </div>
@@ -143,7 +143,7 @@
     <div class="col-sm-10 col-md-6">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
     <a class="lightbox" href="{{asset('img/CACI_Carmen/7.jpg')}}">
-    <img src="{{asset('img/CACI_Carmen/7.jpg')}}" alt="Traffic">
+    <img src="{{asset('img/CACI_Carmen/7.jpg')}}" alt="Imagen">
     </a>
     <h2>Salón maternal</h2>
     </div>
@@ -152,7 +152,7 @@
     <div class="col-sm-10 col-md-6">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
     <a class="lightbox" href="{{asset('img/CACI_Carmen/9.jpg')}}">
-    <img style="height: 295px;" src="{{asset('img/CACI_Carmen/9.jpg')}}" alt="Tunnel">
+    <img style="height: 295px;" src="{{asset('img/CACI_Carmen/9.jpg')}}" alt="Imagen">
     </a>
      <h2>Cocina</h2>
     </div>

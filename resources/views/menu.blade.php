@@ -77,7 +77,7 @@ div.c {
 
   <a href="inicio"> Inicio </a>		
   <a href="centros"> Centros </a>
-  <a href="inscripcion_from"> Inscripción </a>
+  <a href="inscripcion_from"> Preinscripción </a>
   <a href="reinscripcion"> Reinscripción </a>
   <a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información destacada</a>
   <!-- <a href="tramiles_CACI"> Trámites </a> -->

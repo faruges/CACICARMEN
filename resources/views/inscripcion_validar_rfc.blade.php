@@ -113,9 +113,9 @@
 </div>
 @endif
 <form id="regForm" action="{{route('guardar_inscripcion')}}" method="POST" enctype="multipart/form-data">
-    <label style="color:#777777; font-size: 40px; text-align: left; ">Inscripción</label>
+    <label style="color:#777777; font-size: 40px; text-align: left; ">Preinscripción</label>
     @csrf
- <label style="color:#054a41; font-size: 30px; text-align: center; " >Para iniciar el proceso de inscripción, proporciona el siguiente dato.</label>
+ <label style="color:#054a41; font-size: 30px; text-align: center; " >Para iniciar el proceso de preinscripción, proporciona el siguiente dato.</label>
  
      <label style="color:#777777; font-size: 25px; text-align: left; " >RFC</label>
     <p><input type="text" id="rfc" placeholder="RFC"onkeyup="mayus(this);" oninput="this.className = ''" maxlength="13" name="RFC" pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$" required></p>
