@@ -22,7 +22,7 @@ class AdminController extends Controller
 
     public function showListInscri()
     {
-        //dd(Session::get('rolName'));
+        //dd(Session::get('email'));
         if (Session::get('rolName') === 'super_caci') {
             $lista_caci = ListaCaci::orderBy('id')->get();
         } else {

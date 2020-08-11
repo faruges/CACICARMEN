@@ -1,8 +1,9 @@
 @extends('users.users_inicio')
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
-  <script src="{{URL::asset('js/inscripcion.js')}}" type="text/javascript"> </script> 
-@endsection 
+<script src="{{URL::asset('js/inscripcion.js')}}" type="text/javascript"> </script>
+<script src="{{URL::asset('js/usuarios.js')}}" type="text/javascript"> </script>
+@endsection
 @section('mycontent')
 <style>
     .margin-card {
@@ -71,9 +72,6 @@
                 <input id="name" type="text" class="form-control" name="name" placeholder="Nombre" required>
             </div>
             <div>
-                <input id="email" type="email" class="form-control" name="email" placeholder="Email" required>                  
-            </div>
-            <div>
                 <select style="font-size: 15px;" name="rol" id="rol">
                     <option value='super_caci'>Super Caci</option>
                     <option value='caciluz'>Caci Luz</option>
@@ -84,14 +82,17 @@
                 </select>
             </div>
             <div>
-                <input id="password" type="password" class="form-control" name="password" placeholder="Password" minlength="8" required>
+                <input id="email" type="email" class="form-control" name="email" placeholder="Email" readonly required>
+            </div>
+            <div>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password"
+                    minlength="8" required>
             </div>
             <div>
                 {{--  <button type="button" onclick="createUsuario()" class="btn btn-success float-right"><i class="fa fa-save"></i> Guardar</button>  --}}
                 <span class="float-right">
-                    <a class="btn btn-md btn-dark"
-                    href="{{route('users.index')}}"
-                    title="Regresar"><i class="fa fa-arrow-left"></i> Regresar</a>
+                    <a class="btn btn-md btn-dark" href="{{route('users.index')}}" title="Regresar"><i
+                            class="fa fa-arrow-left"></i> Regresar</a>
                     <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Guardar</button>
                 </span>
             </div>

@@ -44,6 +44,7 @@ class CreateInscripcionMenorTable extends Migration
             $table->string('terminos',20)->nullable();
             $table->string('rol_caci',100)->nullable();
             $table->tinyInteger('correo_enviado')->nullable();
+            $table->tinyInteger('correo_enviado_not_recibida')->nullable();
             $table->timestamps();
         });
     }

@@ -67,6 +67,8 @@
                         <th>Email</th>
                         <th>Telefono Uno</th>
                         <th>Telefono Dos</th>
+                        <th>Email Enviado Notificación Recibida</th>
+                        <th>Email Enviado Notificación Recibida Reinscripción</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -98,6 +100,8 @@
                         <td>{{$reinscripcion->email}}</td>
                         <td>{{$reinscripcion->telefono_uno}}</td>
                         <td>{{$reinscripcion->telefono_dos}}</td>
+                        <td>{{$reinscripcion->correo_enviado_not_recibida}}</td>
+                        <td>{{$reinscripcion->correo_enviado_not_recibida_reinscr}}</td>
                         <td>
                             <span class="float-right">
                                 <a class="btn btn-md btn-outline-primary"

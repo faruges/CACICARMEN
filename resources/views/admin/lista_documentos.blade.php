@@ -73,7 +73,9 @@
 
     <div class="card mt50">
         <div class="card-header">
+            <input id="email_caci" value="{{$emailCaci}}" hidden>
             @foreach ($lista_reinscripcion as $reinsc)
+            <input id="id" value="{{$reinsc->id}}" hidden>
             <input id="nombre_tutor" value="{{$reinsc->nombre_tutor}}" hidden>
             <input id="ape_paterno" value="{{$reinsc->ap_paterno_t}}" hidden>
             <input id="email" value="{{$reinsc->email}}" hidden>
@@ -85,9 +87,9 @@
                 <button type="button" id="envia_email_dos" title="Notifica Información Recibida Reinscripción"
                     name="envia_email_dos" onclick="envia_email()" class="btn btn-lg btn-info"><i
                         class="fa fa-envelope"></i></button>
-                <a class="btn btn-lg btn-dark"
+                {{--  <a class="btn btn-lg btn-dark"
                     href="{{route('email_lista_espera',[$reinsc->nombre_tutor,$reinsc->ap_paterno_t,$reinsc->email])}}"
-                    title="Notifica Lista en Espera"><i class="fa fa-envelope"></i></a>
+                    title="Notifica Lista en Espera"><i class="fa fa-envelope"></i></a>  --}}
             </span>
             @endforeach
             <h1><i class="fa fa-file"></i> Valida Reinscripci&oacute;n Solicitante</h1>

@@ -66,6 +66,7 @@
                         <th>Email</th>
                         <th>Telefono Uno</th>
                         <th>Telefono Dos</th>
+                        <th>Email Enviado Notificación Recibida</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -92,6 +93,7 @@
                         <td>{{$caci->email_correo}}</td>
                         <td>{{$caci->telefono_celular}}</td>
                         <td>{{$caci->telefono_3}}</td>
+                        <td>{{$caci->correo_enviado_not_recibida}}</td>
                         <td>
                             <span class="float-right">
                                 <a class="btn btn-md btn-outline-primary"

@@ -10,9 +10,11 @@ var $$ = function(id){ try { return document.getElementById(id) } catch(err) { $
 }); */
 function envia_email() {
 
+    var id = $("#id" ).val();
     var nombre_tutor = $("#nombre_tutor" ).val();
     var ape_paterno = $("#ape_paterno" ).val();
     var email = $("#email" ).val();
+    var email_caci = $("#email_caci" ).val();
     /* console.log(nombre_tutor); */
     $.ajax({
         
@@ -20,9 +22,11 @@ function envia_email() {
         dataType: 'json',
         data: {
                 "_token":$("meta[name='csrf-token']").attr("content"),
+                "id":id,
                 "nombre":nombre_tutor,
                 "ape_paterno":ape_paterno,           
-                "email":email           
+                "email":email,
+                "email_caci":email_caci                      
               },
         url:url+'email_info_recibida_reinscri',
         success: function(data) 
@@ -45,9 +49,11 @@ function envia_email() {
 }
 function envia_email_recib_inscri() {
 
+    var id = $("#id" ).val();
     var nombre_tutor = $("#nombre_tutor" ).val();
     var ape_paterno = $("#ape_paterno" ).val();
     var email = $("#email" ).val();
+    var email_caci = $("#email_caci" ).val();
     /* console.log(nombre_tutor); */
     $.ajax({
         
@@ -55,9 +61,11 @@ function envia_email_recib_inscri() {
         dataType: 'json',
         data: {
                 "_token":$("meta[name='csrf-token']").attr("content"),
+                "id":id,
                 "nombre":nombre_tutor,
                 "ape_paterno":ape_paterno,           
-                "email":email           
+                "email":email,           
+                "email_caci":email_caci           
               },
         url:url+'email_info_recibida_inscr',
         success: function(data) 
@@ -80,9 +88,11 @@ function envia_email_recib_inscri() {
 }
 function envia_email_info_recib_inscr() {
 
+    var id = $("#id" ).val();
     var nombre_tutor = $("#nombre_tutor" ).val();
     var ape_paterno = $("#ape_paterno" ).val();
     var email = $("#email" ).val();
+    var email_caci = $("#email_caci" ).val();
     /* console.log(nombre_tutor); */
     $.ajax({
         
@@ -90,9 +100,11 @@ function envia_email_info_recib_inscr() {
         dataType: 'json',
         data: {
                 "_token":$("meta[name='csrf-token']").attr("content"),
+                "id":id,
                 "nombre":nombre_tutor,
                 "ape_paterno":ape_paterno,           
-                "email":email           
+                "email":email,
+                "email_caci":email_caci           
               },
         url:url+'email_info_recibida',
         success: function(data) 

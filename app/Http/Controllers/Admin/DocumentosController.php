@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Documentos;
 use App\Model\Inscripcion;
 use App\Model\Reinscripcion;
+use Illuminate\Support\Facades\Session;
 
 class DocumentosController extends Controller
 {
@@ -49,17 +50,20 @@ class DocumentosController extends Controller
      */
     public function show($id)
     {
+        $emailCaci = Session::get('email');
         $data=Documentos::where('reinscripcion_menor_id',$id)->get();
         $lista_reinscripcion=Reinscripcion::where('id',$id)->get();
-        return view('admin.lista_documentos',compact('data','id','lista_reinscripcion'));
+        return view('admin.lista_documentos',compact('data','id','lista_reinscripcion','emailCaci'));
 
     }
 
     public function show_inscr($id)
     {
+        //dd(Session::get('email'));
+        $emailCaci = Session::get('email');
         $data=Documentos::where('inscripcion_menor_id',$id)->get();
         $lista_inscripcion=Inscripcion::where('id',$id)->get();
-        return view('admin.lista_documentos_insc',compact('data','id','lista_inscripcion'));
+        return view('admin.lista_documentos_insc',compact('data','id','lista_inscripcion','emailCaci'));
     }
 
     public function details($id)

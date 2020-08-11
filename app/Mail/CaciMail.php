@@ -17,9 +17,11 @@ class CaciMail extends Mailable
      * @return void
      */
     public $data;
-    public function __construct($data)
+    public $dir;
+    public function __construct($dir,$data)
     {
         $this->data = $data;
+        $this->dir = $dir;
     }
 
     /**
@@ -29,7 +31,7 @@ class CaciMail extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'))
+        return $this->from($this->dir)
                     ->view('testmail')
                     ->subject('Notificacion de CACI')
                     ->with($this->data);

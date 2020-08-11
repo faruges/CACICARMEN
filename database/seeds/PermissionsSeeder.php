@@ -66,7 +66,7 @@ class PermissionsSeeder extends Seeder
 
 		$userSuperCaci = User::create([
             'name' => 'supercaci',
-            'email' => 'supercaci@gmail.com',
+            'email' => 'caciadministracion@finanzas.cdmx.gob.mx',
             'password' => Hash::make('supercaci123.,'),
         ]);
         /////////////////////////////////////
@@ -83,7 +83,7 @@ class PermissionsSeeder extends Seeder
         
         $userCaciLuz = User::create([
             'name' => 'caciluz',
-            'email' => 'caciluz@gmail.com',
+            'email' => 'caciluzmariagomez@finanzas.cdmx.gob.mx',
             'password' => Hash::make('caciluz123.,'),
         ]);
         ///////////////////////////////////
@@ -91,7 +91,7 @@ class PermissionsSeeder extends Seeder
 
         $userCaciEva = User::create([
             'name' => 'cacieva',
-            'email' => 'cacieva@gmail.com',
+            'email' => 'cacievamoreno@finanzas.cdmx.gob.mx',
             'password' => Hash::make('cacieva123.,'),
         ]);
         ///////////////////////////////////
@@ -99,7 +99,7 @@ class PermissionsSeeder extends Seeder
 
         $userCaciBertha = User::create([
             'name' => 'cacibertha',
-            'email' => 'cacibertha@gmail.com',
+            'email' => 'caciberthavonglumer@finanzas.cdmx.gob.mx',
             'password' => Hash::make('cacibertha123.,'),
         ]);
         ///////////////////////////////////
@@ -107,7 +107,7 @@ class PermissionsSeeder extends Seeder
 
         $userCaciCarolina = User::create([
             'name' => 'cacicarolina',
-            'email' => 'cacicarolina@gmail.com',
+            'email' => 'cacicarolinaagazzi@finanzas.cdmx.gob.mx',
             'password' => Hash::make('cacicarolina123.,'),
         ]);
         ///////////////////////////////////
@@ -115,7 +115,7 @@ class PermissionsSeeder extends Seeder
         
         $userCaciCarmen = User::create([
             'name' => 'cacicarmen',
-            'email' => 'cacicarmen@gmail.com',
+            'email' => 'cacicarmenserdan@finanzas.cdmx.gob.mx',
             'password' => Hash::make('cacicarmen123.,'),
         ]);
         ///////////////////////////////////
