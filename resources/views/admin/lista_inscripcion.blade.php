@@ -93,7 +93,11 @@
                         <td>{{$caci->email_correo}}</td>
                         <td>{{$caci->telefono_celular}}</td>
                         <td>{{$caci->telefono_3}}</td>
-                        <td>{{$caci->correo_enviado_not_recibida}}</td>
+                        @if ($caci->correo_enviado_not_recibida)
+                        <td>Correo de confirmación Enviado</td>                    
+                        @else
+                        <td>Registros sin enviar correo de recibido</td>
+                        @endif
                         <td>
                             <span class="float-right">
                                 <a class="btn btn-md btn-outline-primary"

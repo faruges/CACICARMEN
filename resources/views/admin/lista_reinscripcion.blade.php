@@ -100,8 +100,16 @@
                         <td>{{$reinscripcion->email}}</td>
                         <td>{{$reinscripcion->telefono_uno}}</td>
                         <td>{{$reinscripcion->telefono_dos}}</td>
-                        <td>{{$reinscripcion->correo_enviado_not_recibida}}</td>
-                        <td>{{$reinscripcion->correo_enviado_not_recibida_reinscr}}</td>
+                        @if ($reinscripcion->correo_enviado_not_recibida)
+                        <td>Correo de confirmación Enviado</td>                    
+                        @else
+                        <td>Registros sin enviar correo de recibido</td>
+                        @endif
+                        @if ($reinscripcion->correo_enviado_not_recibida_reinscr)
+                        <td>Correo de confirmación Enviado</td>                    
+                        @else
+                        <td>Registros sin enviar correo de recibido</td>
+                        @endif
                         <td>
                             <span class="float-right">
                                 <a class="btn btn-md btn-outline-primary"
