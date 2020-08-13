@@ -106,16 +106,16 @@ class InscripcionController extends Controller
             'email_correo' => 'required|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i',
             'telefono_celular' => 'required|numeric',
             'telefono_3' => 'required|numeric',
-            'filename_act' => 'mimes:pdf,docx',
-            'filename_sol' => 'mimes:pdf,docx',
-            'filename_vacu' => 'mimes:pdf,docx',
-            'filename_nac' => 'mimes:pdf,docx',
-            'filename_com' => 'mimes:pdf,docx',
-            'filename_cert' => 'mimes:pdf,docx',
-            'filename_rec' => 'mimes:pdf,docx',
-            'filename_disc' => 'mimes:pdf,docx',
-            'filename_trab' => 'mimes:pdf,docx',
-            'filename_recp' => 'mimes:pdf,docx'
+            'filename_act' => 'mimes:pdf,docx|max:2048',
+            'filename_sol' => 'mimes:pdf,docx|max:2048',
+            'filename_vacu' => 'mimes:pdf,docx|max:2048',
+            'filename_nac' => 'mimes:pdf,docx|max:2048',
+            'filename_com' => 'mimes:pdf,docx|max:2048',
+            'filename_cert' => 'mimes:pdf,docx|max:2048',
+            'filename_rec' => 'mimes:pdf,docx|max:2048',
+            'filename_disc' => 'mimes:pdf,docx|max:2048',
+            'filename_trab' => 'mimes:pdf,docx|max:2048',
+            'filename_recp' => 'mimes:pdf,docx|max:2048'
         ];
         $messages = [
             'nombre_tutor_madres.required' => 'Su nombre es requerido',
@@ -169,15 +169,25 @@ class InscripcionController extends Controller
             'telefono_3.numeric' => 'Su telefono debe ser un número',
 
             'filename_act.mimes' => 'El acta de nacimiento no es valido',
+            'filename_act.max' => 'El acta de nacimiento no debe de exceder en tamaño los 2Mb',
             'filename_sol.mimes' => 'La solicitud de Ingreso no es valido',
-            'filename_vacu.mimes' => 'La Cartilla de vacunacion no es valido',
+            'filename_sol.max' => 'La solicitud de Ingreso no debe de exceder en tamaño los 2Mb',
+            'filename_vacu.mimes' => 'La Cartilla de vacunación no es valido',
+            'filename_vacu.max' => 'La Cartilla de vacunación no debe de exceder en tamaño los 2Mb',
             'filename_nac.mimes' => 'Certificado de nacimiento no es valido',
+            'filename_nac.max' => 'Certificado de nacimiento no debe de exceder en tamaño los 2Mb',
             'filename_com.mimes' => 'Carta compromiso no es valido',
+            'filename_com.max' => 'Carta compromiso no debe de exceder en tamaño los 2Mb',
             'filename_cert.mimes' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no es valido',
+            'filename_cert.max' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no debe de exceder en tamaño los 2Mb',
             'filename_rec.mimes' => 'Último recibo de pago impreso del(a) trabajador (a). no es valido',
+            'filename_rec.max' => 'Último recibo de pago impreso del(a) trabajador (a). no debe de exceder en tamaño los 2Mb',
             'filename_disc.mimes' => 'Copias de los documentos médicos del tratamiento no es valido',
+            'filename_disc.max' => 'Copias de los documentos médicos del tratamiento no debe de exceder en tamaño los 2Mb',
             'filename_trab.mimes' => 'Documento de la patria potestad no es valido',
+            'filename_trab.max' => 'Documento de la patria potestad no debe de exceder en tamaño los 2Mb',
             'filename_recp.mimes' => 'Copia del último recibo de pago de la persona trabajadora no es valido',
+            'filename_recp.max' => 'Copia del último recibo de pago de la persona trabajadora no debe de exceder en tamaño los 2Mb',
         ];
         DB::beginTransaction();
 
