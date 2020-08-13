@@ -23,6 +23,11 @@ Route::get('inicio', function () {
 });
 
 
+Route::get('/preguntas_frecuentes', function () {
+    return view('preguntas_frecuentes');
+});
+
+
 Route::get('/centros', function () {
     return view('centros');
 });
