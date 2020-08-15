@@ -111,23 +111,32 @@
      <label style="color:#777777; font-size: 40px; text-align: left; ">Instalaciones</label>   
      <div class="row">
 
-
+	
+	<div class="col-sm-10 col-md-6">
+    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
+    <a class="lightbox" href="{{asset('img/CACI_Carmen/4.jpg')}}">
+    <img src="{{asset('img/CACI_Carmen/4.jpg')}}" alt="Imagen">
+    </a>
+    <h2>Actividades Pedagógicas</h2>
+    </div>
+    </div>
+	
     <div class="col-sm-12 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
     <a style="height: 900px;" class="lightbox" href="{{asset('img/CACI_Carmen/6.jpg')}}">
     <img src="{{asset('img/CACI_Carmen/6.jpg')}}" alt="Imagen">
     </a>
-    <h2>Nuestras actividades</h2>
+    <h2>Actividades Extracurriculares</h2>
     </div>
     
     </div>
 
     <div class="col-sm-6 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_Carmen/2.jpg')}}">
-    <img style="height: 180px;" src="{{asset('img/CACI_Carmen/2.jpg')}}" alt="Imagen">
+    <a class="lightbox" href="{{asset('img/CACI_Carmen/7.jpg')}}">
+    <img style="height: 180px;" src="{{asset('img/CACI_Carmen/7.jpg')}}" alt="Imagen">
     </a>
-   <h2>Salón de juegos</h2>
+   <h2>Capacitación de Personal</h2>
     </div>
     </div>
 
@@ -136,27 +145,20 @@
     <a class="lightbox" href="{{asset('img/CACI_Carmen/3.jpg')}}">
     <img src="{{asset('img/CACI_Carmen/3.jpg')}}" alt="Imagen">
     </a>
-    <h2>Nuestro patio</h2>
+    <h2>Instalaciones</h2>
     </div>
     </div>
             
-    <div class="col-sm-10 col-md-6">
-    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_Carmen/7.jpg')}}">
-    <img src="{{asset('img/CACI_Carmen/7.jpg')}}" alt="Imagen">
-    </a>
-    <h2>Salón maternal</h2>
-    </div>
-    </div>
+   
     
-    <div class="col-sm-10 col-md-6">
+    <!--<div class="col-sm-10 col-md-6">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
     <a class="lightbox" href="{{asset('img/CACI_Carmen/9.jpg')}}">
     <img style="height: 295px;" src="{{asset('img/CACI_Carmen/9.jpg')}}" alt="Imagen">
     </a>
      <h2>Cocina</h2>
     </div>
-    </div>
+    </div> -->
            
     </div>
     </div>

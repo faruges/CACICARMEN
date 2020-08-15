@@ -118,10 +118,10 @@
     <label style="color:#777777; font-size: 40px; text-align: left; ">Reinscripción</label>
     @csrf
 
-     <label style="color:#054a41; font-size: 30px; text-align: center; " >Para iniciar el procesos de reinscripción, proporciona el siguiente dato.</label>
+     <label style="color:#054a41; font-size: 30px; text-align: center; " >Para iniciar el proceso de reinscripción, proporciona el siguiente dato.</label>
   
      <label style="color:#777777; font-size: 25px; text-align: left; " >RFC</label>
-    <p><input type="text" id="rfc" placeholder="RFC" oninput="this.className = ''" onkeyup="mayus(this);" name="RFC" maxlength="13" pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$" required></p>
+    <p><input type="text" id="rfc" placeholder="RFC de la persona trabajadora" oninput="this.className = ''" onkeyup="mayus(this);" name="RFC" maxlength="13" pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$" required></p>
     {{--  <label style="color:#000; font-size: 25px; text-align: left; " >Token</label>  --}}
     <p><input id="tokenId" placeholder="Token" oninput="this.className = ''" name="tokenId" value="SistemaDeRpueba4as4x4vdlsad" hidden></p>
     <button type="submit">Validar RFC</button>

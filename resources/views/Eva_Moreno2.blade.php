@@ -126,7 +126,7 @@ input {
     <h1 style="text-align: center;">Cuidado Infantil</h1>
     <img src="{{asset('img/Responsables/2.jpg')}}" alt="Imagenes" style="width:30%;">
  <!--<h1 style="text-align: center;">Estanislao Ramírez Ruiz</h1>-->
-    <h1 style="text-align: center;">Lic. Laura Patricia Navarro Aguilera</h1>
+    <h1 style="text-align: center;">Laura Patricia Navarro Aguilera</h1>
 </div>
  <div style="text-align: right;">
     <a href="Eva_Moreno">

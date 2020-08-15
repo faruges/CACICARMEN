@@ -121,36 +121,34 @@
 
     <div class="col-sm-12 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
-    <a style="height: 900px;" class="lightbox" href="{{asset('img/CACI_Eva/3.jpg')}}">
-    <img src="{{asset('img/CACI_Eva/3.jpg')}}" alt="Bridge">
+    <a style="height: 900px;" class="lightbox" href="{{asset('img/CACI_Eva/IMG_9361.JPG')}}">
+    <img src="{{asset('img/CACI_Eva/IMG_9361.JPG')}}" alt="Imagen">
     
     </a>
-    <h2>Graduaciones</h2>
-    </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4">
-    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_Eva/4.jpg')}}">
-    <img src="{{asset('img/CACI_Eva/4.jpg')}}" alt="Park">
-    </a>
-    <h2>Nuestros salones </h2>
+    <h2>Actividades Extracurriculares</h2>
     </div>
     </div>
 
     <div class="col-sm-6 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
     <a class="lightbox" href="{{asset('img/CACI_Eva/33.jpg')}}">
-    <img src="{{asset('img/CACI_Eva/33.jpg')}}" alt="Tunnel">
+    <img src="{{asset('img/CACI_Eva/33.jpg')}}" alt="Imagen">
     </a>
-    <h2>Nuestro CACI-SAF</h2>
+    <h2>Actividades Pedagógicas</h2>
     </div>
     </div>
 
 
 
 
-
+<div class="col-sm-6 col-md-4">
+    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
+    <a class="lightbox" href="{{asset('img/CACI_Eva/4.jpg')}}">
+    <img src="{{asset('img/CACI_Eva/4.jpg')}}" alt="Park">
+    </a>
+    <h2>Capacitación de Personal</h2>
+    </div>
+    </div>
 
   <div class="col-sm-12 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
@@ -164,21 +162,21 @@
 
     <div class="col-sm-6 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_Eva/6.jpg')}}">
-    <img src="{{asset('img/CACI_Eva/6.jpg')}}" alt="Park">
+    <a class="lightbox" href="{{asset('img/CACI_Eva/1.jpg')}}">
+    <img src="{{asset('img/CACI_Eva/1.jpg')}}" alt="Imagen">
     </a>
-    <h2>Nuestras clases</h2>
+    <h2>Instalaciones</h2>
     </div>
     </div>
 
-    <div class="col-sm-6 col-md-4">
+   <!-- <div class="col-sm-6 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
     <a class="lightbox" href="{{asset('img/CACI_Eva/1.jpg')}}">
     <img style="height: 240px;" src="{{asset('img/CACI_Eva/1.jpg')}}" alt="Tunnel">
     </a>
     <h2>Nuestros convivios</h2>
     </div>
-    </div>   
+    </div>   -->
 
     </div>
 </div>

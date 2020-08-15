@@ -77,11 +77,12 @@ div.c {
 
   <a href="inicio"> Inicio </a>		
   <a href="centros"> Centros </a>
-    <a href="preguntas_frecuentes"> Preguntas frecuentes </a>
   <a href="inscripcion_from"> Preinscripción </a>
   <a href="reinscripcion"> Reinscripción </a>
-  <a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información destacada</a>
+  <!--<a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información destacada</a>-->
+  <a href="video">Información destacada</a>
   <!-- <a href="tramiles_CACI"> Trámites </a> -->
+  <a href="preguntas_frecuentes"> Preguntas frecuentes </a>
   <a style="margin-right:  -800px;" href="login"> Iniciar sesión</a> 
 
 
@@ -97,7 +98,7 @@ div.c {
 	
 	<br>
 
-<footer style="background-image:url({{url('img/footer.svg')}})" class="site-footer">
+<footer style="background-image:url({{url('img/footer.svg')}}); margin-top: 50px;" class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
@@ -106,23 +107,26 @@ div.c {
             <a style="color:#33353d;" href="#" title="INICIO">INICIO</a>|
      				<!-- |<a style="color:#00b140;" href="#" title="NOSOTROS">NOSOTROS</a>| -->
      				|<a style="color:#33353d;" href="centros" title="CENTROS">CENTROS</a>|
-     				|<a style="color:#33353d;" href="inscripcion_from" title="INSCRIPCIÓN">INSCRIPCIÓN</a>|
+     				|<a style="color:#33353d;" href="inscripcion_from" title="INSCRIPCIÓN">PREINSCRIPCIÓN</a>|
 					|<a style="color:#33353d;" href="reinscripcion" title="REINSCRIPCIÓN">REINSCRIPCIÓN</a>|
 					|<a style="color:#33353d;" target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}" title="INFORMACIÓN DESTACADA">INFORMACIÓN DESTACADA</a>|
+					|<a style="color:#33353d;" href="preguntas_frecuentes" title="REINSCRIPCIÓN">PREGUNTAS FRECUENTES</a>|
      				<!--|<a style="color:#33353d;" href="tramiles_CACI" title="TRAMITES">TRAMITES</a>|
      				<!-- |<a style="color:#00b140;" href="#" title="PROTECCIÓN CIVIL">PROTECCIÓN</a>|
 					<a style="color:#00b140;" href="#" title="CONTACTENOS">CONTACTENOS</a>| -->
      			</p>
-            <p style="color:#33353d;">©Copyright Plataforma CACI, Todos los derechos reservados 2020 Gobierno CDMX / Email: <a style="color:#33353d;" href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a></p>
+            
      		</div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12">
+		  <!--<p style="color:#33353d;">©Copyright Plataforma CACI, Todos los derechos reservados 2020 Gobierno CDMX / Email: <a style="color:#33353d;" href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a></p> -->
+		  <p style="color:#33353d;">CACI-SAF / Email: <a style="color:#33353d;" href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a></p>
             <ul class="social-icons">
-              <li style="color:#33353d;">SIGUENOS EN:</li>
+              <!-- <li style="color:#33353d;">SIGUENOS EN:</li>
               <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
 			  <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-youtube"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fa fa-youtube"></i></a></li>-->
             </ul>
           </div>
         </div>

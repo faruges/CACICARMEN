@@ -87,10 +87,12 @@ Route::get('/Carmen_Serdan2', function () {
     return view('Carmen_Serdan2');
 });
 
-
-
 Route::get('/informacion_destacada', function () {
     return view('informacion_destacada');
+});
+
+Route::get('/video', function () {
+    return view('video');
 });
 
 

@@ -103,11 +103,12 @@ tr:nth-child(even) {
 
 
 
-</style>
-   <div class="container">
-  <div class="item active">
+</style><br>
+	<div class="item active">
      <img src="{{asset('img/11.png')}}" alt="Imagenes" style="width:100%;">
-   </div>
+	</div>
+   <div class="container">
+  
 </div>
         <div class="col-lg-12" style="margin-top: 3%;">
                 <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">

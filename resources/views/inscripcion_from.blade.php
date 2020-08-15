@@ -137,7 +137,7 @@ a , h1 {
       * Madres, padres o quien ejerza la patria potestad y/o guarda y custodia del o la menor, que sean trabajadoras(es) del Gobierno de la Ciudad de México, con base, sindicalizadas(os) y que coticen al SUTGCDMX.</h4><br>
 
       <h4 style="color: #FFF; text-align: left;">
-      * Personal de estructura, nómina 8, base sin dígito sindical y trabajadores del ámbito central y de las alcaldías del Gobierno de la Ciudad de México, podrán gozar de los benecios que ofrece el CACI-SAF, considerando sólo hasta un 30% de su capacidad instalada, como se establece en los Lineamientos Generales para la Operación de los Centros de Atención y Cuidado Infantil de la Secretaría de Finanzas de la Ciudad de México y de sus Alcadías.</h4><br>
+      * Personal de estructura, nómina 8, base sin dígito sindical y trabajadores del ámbito central y de las alcaldías del Gobierno de la Ciudad de México, podrán gozar de los beneficios que ofrece el CACI-SAF, considerando sólo hasta un 30% de su capacidad instalada, como se establece en los Lineamientos Generales para la Operación de los Centros de Atención y Cuidado Infantil de la Secretaría de Finanzas de la Ciudad de México y de sus Alcadías.</h4><br>
 
       <h4 style="color: #FFF; text-align: left;">
       * El personal de estructura aportará una cuota quincenal de recuperación que será retenida vía nómina.</h4><br>
@@ -153,14 +153,14 @@ a , h1 {
           <h5>c) Cartilla de vacunación al corriente.</h5>
           <h5>d) Clave Única de Registro de Población, (CURP) del o la menor.</h5>
           <h5>e) Si el menor presenta algún tipo de discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y del tratamiento que recibe.</h5>
-          <h5>f) En caso de que el o la trabajador(a) sea la persona tutora, deberá adjuntar el documento legal que dictamine la patria potestad o guarda y custodia.</h5>
+          <h5>f) En caso de que la madre o el padre del o la menor, no sean los solicitantes del servicio, la persona tutora trabajadora del gobierno, adjuntar el documento legal que dictamine la patria potestad y/o guarda y custodia.</h5>
         </div>
      <div class="col-sm-6"><br>
         <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;"><br>
           </i>2. Entregar en original la siguiente documentación:</li>
           <h5>a) Acta de nacimiento del o la menor.</h5>
           <h5>b) Cartilla de vacunación del o la menor.</h5>
-          <h5>c) Análisis clínicos indicados en la conrmación de inscripción.</h5>
+          <h5>c) Análisis clínicos indicados en la confirmación de inscripción.</h5>
           <h5>d) Documentación clínica y diagnóstico de la condición y del tratamiento que recibe, en caso de presentar algún tipo de discapacidad o enfermedad crónica.</h5>
           <h5>e) Documento legal que dictamine la patria potestad o guarda y custodia.</h5>
           <h5>f) Seis fotografías tamaño infantil recientes e iguales, del o la menor.</h5>
@@ -197,7 +197,7 @@ a , h1 {
 <form id="regForm" action="{{route('guardar_inscripcion_bd')}}" method="POST" enctype="multipart/form-data">
 {{--  <form id="regForm" onsubmit="inscripcion()" method="POST" enctype="multipart/form-data">  --}}
   @csrf
-<h1 style="color: #054a41;">Preinscripción a los  Centros de Atención y Cuidado  Infantil</h1>
+<h1 style="color: #054a41;">Preinscripción a los  Centros de Atención y Cuidado Infantil</h1>
    <div class="tab">
   <br>
 
@@ -206,14 +206,14 @@ a , h1 {
       {{--  <h2>RFC</h2>
 <p><input id="rfc" placeholder="RFC" oninput="this.className = ''" name="rfc_num"></p>  --}}
  <div class="col-lg-12">
-     <label style="color:#00b140; ">Datos del trabajador</label>
+     <label style="color:#00b140; ">Datos de la persona trabajadora</label>
     <div class="row">
     <div class="col-sm-6">
       <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
 
-      <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" >Nombre del Padre/Madre o Tutor
+      <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" >Nombre(s)
 
-      <input  type="text"placeholder="Nombre del Padre/Madre o Tutor"  title="Nombre del Padre/Madre o Tutor" oninput="this.className = ''"  name="nombre_tutor_madres" value="{{$value['CH_nombres']}}" readonly> </p>
+      <input  type="text"placeholder="Nombre del Padre/Madre o Tutor"  title="Nombre(s) del Padre/Madre o Tutor" oninput="this.className = ''"  name="nombre_tutor_madres" value="{{$value['CH_nombres']}}" readonly> </p>
       <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido paterno<input type="text"placeholder="Apellido paterno" title="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_tutor" value="{{$value['CH_paterno']}}" readonly></p>
       <p style="font-size: 15px; font-family: Arial, Helvetica;  color:#777777; ">Apellido materno<input type="text"placeholder="Apellido materno" title="Apellido materno" oninput="this.className = ''" name="apellido_materno_tutor" value="{{$value['CH_materno']}}" readonly></p>
       <p style="font-size: 15px; font-family: Arial, Helvetica;  color:#777777;">Tipo de nómina<input  placeholder="Tipo de nómina" title="Tipo de nómina" oninput="this.className = ''" name="tipo_nomina_1" value="{{$value['TipoNomina']}}" readonly></p>
@@ -244,7 +244,7 @@ a , h1 {
           <input id="tokenCodigoPostalId" oninput="this.className = ''" name="tokenCodigoPostalId" value="SistemaDeRpueba4as4x4vdlsad" hidden>
           <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;"> Colonia <select style="font-size: 15px;" name="colonia" id="colonia"></select>
           <!---<p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Colonia<input id="colonia" type="text" placeholder="Colonia" title="Colonia" oninput="this.className = ''" name="colonia" readonly></p>-->
-          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Alcaldía<input id="alcaldia" type="text" placeholder="Alcaldía" title="Alcaldía" oninput="this.className = ''" name="alcaldia"  readonly></p>
+          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Alcaldía/Municipio<input id="alcaldia" type="text" placeholder="Alcaldía" title="Alcaldía" oninput="this.className = ''" name="alcaldia"  readonly></p>
 
 <!--
    <h4><input style="width: 10%;" type="checkbox" name="cb-terminosservicio" required> Acepto términos y condiciones</h4><br>-->
@@ -272,7 +272,7 @@ a , h1 {
     <label style="color:#00b140;" >Datos de la niña o niño</label><br>
     <ul class="list-group" style="color: #000000; font-size: 24px;">
 	
-	<p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" >Nombre(s) de la niña o niño<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor" title="Nombre(s) del menor" oninput="this.className = ''" name="nombre_menor_1" readonly></p>
+	<p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" >Nombre(s)<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor" title="Nombre(s) del menor" oninput="this.className = ''" name="nombre_menor_1" readonly></p>
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido paterno<input type="text" id="apellido_paterno_1" placeholder="Apellido paterno" title="Apellido paterno" oninput="this.className = ''" name="apellido_paterno_1" readonly></p>
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido materno
     <input type="text" id="apellido_materno_1" placeholder="Apellido materno" title="Apellido materno" oninput="this.className = ''" name="apellido_materno_1" readonly></p>
@@ -337,7 +337,7 @@ a , h1 {
     <h5 style="font-family: Arial, Helvetica; color:#777777;">Si la niña o niño presenta algún tipo de discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y  del tratamiento que recibe.</h5>
     <input type="file" id="myFile" name="filename_disc" accept="application/msword, application/pdf">
 
-    <h5 style="font-family: Arial, Helvetica; color:#777777;">En caso de que la trabajadora o trabajador sea la persona tutora, deberá adjuntar el documento legal que dictamine la patria potestad o guarda y custodia.</h5>
+    <h5 style="font-family: Arial, Helvetica; color:#777777;">En caso de que la madre o el padre del o la menor, no sean los solicitantes del servicio, la persona tutora trabajadora del gobierno, adjuntar el documento legal que dictamine la patria potestad y/o guarda y custodia.</h5>
     <input type="file" id="myFile" name="filename_trab" accept="application/msword, application/pdf">
 
 
@@ -469,7 +469,7 @@ function showTab(n) {
   title: '<strong>Atención</u></strong>',
   icon: 'success',
   html:
-    '<b>Estos datos son privados solo el padre o tutor son responsables de dichos datos establecido.</b> ' +
+    '<b>Estos  datos son privados solo la madre, padre o persona tutora  es  responsable de la información capturada.</b> ' +
     '<a target="_blank" href="{{asset('img/PDF/aviso_simplificado_sitio_caci.pdf')}}"><h5 style="color: #00b140;">Ver aviso de privacidad</h5></a> ',
   showCloseButton: true,
 //  showCancelButton: true,
@@ -540,7 +540,7 @@ function nextPrev(n) {
 		showConfirmButton: false,
 		timer: 15000
 	});*/
-	Swal.fire({ icon: 'success', title: 'Su solicitud se ha registrado en el sistema, en breve recibirá correo electrónico referente al registro de su solicitud', 
+	Swal.fire({ icon: 'success', title: 'Su solicitud se ha registrado en el sistema, en breve recibirá un correo electrónico referente al registro de su solicitud', 
             showConfirmButton: false, timer: 10000, allowOutsideClick: false 
 	}).then((result) => {
 		if (result.dismiss === Swal.DismissReason.timer) {

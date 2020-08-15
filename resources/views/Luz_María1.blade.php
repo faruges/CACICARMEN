@@ -109,35 +109,35 @@
 <div class="container gallery-container">
     <div class="tz-gallery">
          <label style="color:#777777; font-size: 40px; text-align: left; ">Instalaciones</label>
-     <div class="row">
-    <div class="col-sm-12 col-md-4">
-    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
-    <a style="height: 900px;" class="lightbox" href="{{asset('img/CACI_1/5.jpg')}}">
-    <img src="{{asset('img/CACI_1/5.jpg')}}" alt="Bridge">
-    </a>
-    <h2>Nuestro CACI-SAF</h2>
-    </div>
-    </div>
+		<div class="row">
+				<div class="col-sm-12 col-md-4">
+					<div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
+						<a style="height: 900px;" class="lightbox" href="{{asset('img/CACI_1/6.jpg')}}">
+						<img src="{{asset('img/CACI_1/6.jpg')}}" alt="Imagen">
+						</a>
+						<h2>Actividades Extracurriculares</h2>
+					</div>
+				</div>
 
-    <div class="col-sm-6 col-md-4">
-    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_1/7.jpg')}}">
-    <img src="{{asset('img/CACI_1/7.jpg')}}" alt="Park">
-    </a>
-    <h2>Actividades</h2>
-    </div>
-    </div>
+				<div class="col-sm-6 col-md-4">
+					<div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
+						<a class="lightbox" href="{{asset('img/CACI_1/2.jpg')}}">
+						<img src="{{asset('img/CACI_1/2.jpg')}}" alt="Imagen">
+						</a>
+						<h2>Actividades Pedagógicas</h2>
+					</div>
+				</div>
 
-    <div class="col-sm-6 col-md-4">
-    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_1/4.jpg')}}">
-    <img src="{{asset('img/CACI_1/4.jpg')}}" alt="Tunnel">
-    </a>
-    <h2>Experiencias</h2>
-    </div>
-    </div>
+				<div class="col-sm-6 col-md-4">
+					<div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
+						<a class="lightbox" href="{{asset('img/CACI_1/4.jpg')}}">
+						<img src="{{asset('img/CACI_1/4.jpg')}}" alt="Imagen">
+						</a>
+						<h2>Instalaciones</h2>
+					</div>
+				</div>
         
-    </div>
+		</div>
     </div>
 
 

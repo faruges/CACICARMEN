@@ -109,50 +109,56 @@
 <div class="container gallery-container">
     <div class="tz-gallery">
                 <label style="color:#777777; font-size: 40px; text-align: left; ">Instalaciones</label>
-     <div class="row">
+		<div class="row">
 
 
-    <div class="col-sm-12 col-md-4">
-    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
-    <a style="height: 900px;" class="lightbox" href="{{asset('img/CACI_Bertha/7.jpeg')}}">
-    <img src="{{asset('img/CACI_Bertha/7.jpeg')}}" alt="Bridge">
-    </a>
-       <h2>Nuestro mural</h2>
-    </div>
- 
-    </div>
+   
 
-    <div class="col-sm-6 col-md-4">
-    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_Bertha/4.jpg')}}">
-    <img style=" height: 180px;" src="{{asset('img/CACI_Bertha/4.jpg')}}" alt="Park">
-    </a>
-   <h2>Salón de juegos</h2>
-    </div>
-
-
-    </div>
-
-    <div class="col-sm-6 col-md-4">
-    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_Bertha/2.jpeg')}}">
-    <img src="{{asset('img/CACI_Bertha/2.jpeg')}}" alt="Tunnel">
-    </a>
-   <h2>Nuestro CACI-SAF</h2>
-    </div>
-    </div>
-            
+				<div class="col-sm-6 col-md-4">
+					<div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
+						<a class="lightbox" href="{{asset('img/CACI_Bertha/foto_6.jpeg')}}">
+						<img style=" height: 180px;" src="{{asset('img/CACI_Bertha/foto_6.jpeg')}}" alt="Park">
+						</a>
+						<h2>Actividades Pedagógicas</h2>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4">
+					<div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
+						<a style="height: 900px;" class="lightbox" href="{{asset('img/CACI_Bertha/foto_5_Act_extra.jpeg')}}">
+						<img src="{{asset('img/CACI_Bertha/foto_5_Act_extra.jpeg')}}" alt="Bridge">
+						</a>
+						   <h2>Actividades Extracurriculares</h2>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
+						<a class="lightbox" href="{{asset('img/CACI_Bertha/Junta_CTE.jpeg')}}">
+						<img src="{{asset('img/CACI_Bertha/Junta_CTE.jpeg')}}" alt="Tunnel">
+						</a>
+					   <h2>Capacitación de Personal</h2>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
+						<a class="lightbox" href="{{asset('img/CACI_Bertha/4.jpg')}}">
+						<img src="{{asset('img/CACI_Bertha/4.jpg')}}" alt="Tunnel">
+						</a>
+						<h2>Instalaciones</h2>
+					</div>
+				</div>
+				
+				
 
            
-    </div>
+		</div>
     </div>
 
 
- <div style="text-align: right;">
-    <a href="Bertha_von">
-   <button onclick="adicionar()" class='btn_add'>Regresar</button>
-   <a>
-</div>
+	 <div style="text-align: right;">
+		<a href="Bertha_von">
+	   <button onclick="adicionar()" class='btn_add'>Regresar</button>
+	   <a>
+	</div>
 
 
 </div>

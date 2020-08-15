@@ -130,7 +130,7 @@ a , h1 {
     <div style="background-color: #054a41;"  class="col-sm-12"><br>
 <h1 style="color:  #FFF; text-align: center; " >Calendario de reinscripción</h1>
 
-
+		<!--
         <div class="col-sm-4" style="text-align: justify-all; "><br>
           <h4 style="color: #FFF; text-align: center;" id="letra_banner">Lunes</h4>
           <h4 style="color: #FFF; text-align: center;" id="letra_banner">Martes</h4>
@@ -159,7 +159,23 @@ a , h1 {
           <h4 style="color: #FFF; text-align: center;" id="letra_banner">Maternal 2</h4>
           <h4 style="color: #FFF; text-align: center;" id="letra_banner">Preescolar 1</h4>
           <h4 style="color: #FFF; text-align: center;" id="letra_banner">Preescolar 2</h4>
-      </div><br>
+      </div><br> -->
+	  
+	   <div class="col-sm-12" ><br>
+          <h3 style="color: #FFF; text-align: center;" id="letra_banner">Primera estapa de reinscripción</h4>
+          <h3 style="color: #FFF; text-align: center;" id="letra_banner"> <u><strong>Del 18 al  21 de agosto</strong></u></h4>
+          <h3 style="color: #FFF; text-align: center;" id="letra_banner">Periodo extraordinario</h4>
+          <h3 style="color: #FFF; text-align: center;" id="letra_banner"><u><strong>Del 24 de agosto al 11 de septiembre<strong></u></h4>
+        </div><br>
+		
+		<!-- <div class="col-sm-6" style="text-align: left;"><br>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">17 de agosto 2020</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">18 de agosto 2020</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">19 de agosto 2020</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">20 de agosto 2020</h4>
+          <h4 style="color: #FFF; text-align: center;" id="letra_banner">21 de agosto 2020</h4>
+          <br>
+      </div> -->
   
   </div>
 
@@ -174,7 +190,7 @@ a , h1 {
                 <h5>c) Cartilla de vacunación al corriente.</h5>
                 <h5>d) Clave Única de Registro de Población, (CURP) del o la menor.</h5>
                 <h5>e) Si el menor presenta algún tipo de discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y del tratamiento que recibe.</h5>
-                <h5>f) En caso de que el o la trabajador(a) sea la persona tutora, deberá adjuntar el documento legal que dictamine la patria potestad o guarda y custodia.</h5>
+                <h5>f) En caso de que la madre o el padre del o la menor, no sean los solicitantes del servicio, la persona tutora trabajadora del gobierno, adjuntar el documento legal que dictamine la patria potestad y/o guarda y custodia.</h5>
             </div>
             <div class="col-sm-6"><br>
                 <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;"><br>
@@ -211,12 +227,12 @@ a , h1 {
          
 
  <div class="col-lg-12">
-   <label style="color: #00b140;">Datos del trabajador</label>
+   <label style="color: #00b140;">Datos de la persona trabajadora</label>
     <div class="row">
     <div class="col-sm-6">
           <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
    
-          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" >Nombre del Padre/Madre o Tutor<input type="text"placeholder="Nombre del Padre/Madre o Tutor" title="Nombre del Padre/Madre o Tutor"  oninput="this.className = ''" name="nombre_tutor" value="{{$value['CH_nombres']}}" readonly></p>
+          <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" >Nombre(s)<input type="text"placeholder="Nombre(s) del Padre/Madre o Tutor" title="Nombre del Padre/Madre o Tutor"  oninput="this.className = ''" name="nombre_tutor" value="{{$value['CH_nombres']}}" readonly></p>
 
           <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido paterno<input type="text"placeholder="Apellido paterno" title="Apellido paterno" oninput="this.className = ''" name="ap_paterno_t" value="{{$value['CH_paterno']}}" readonly></p>
 
@@ -255,7 +271,7 @@ a , h1 {
 	<input id="tokenCodigoPostalId" oninput="this.className = ''" name="tokenCodigoPostalId" value="SistemaDeRpueba4as4x4vdlsad" hidden>
 	<p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;"> Colonia <select style="font-size: 15px;" name="colonia" id="colonia"></select>
             <!---<p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Colonia<input id="colonia" type="text" placeholder="Colonia" title="Colonia" oninput="this.className = ''" name="colonia" readonly></p>-->
-    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Alcaldía<input id="alcaldia" type="text" placeholder="Alcaldía" title="Alcaldía" oninput="this.className = ''" name="alcaldia" readonly></p>
+    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Alcaldía/Municipio<input id="alcaldia" type="text" placeholder="Alcaldía" title="Alcaldía" oninput="this.className = ''" name="alcaldia" readonly></p>
          
         
           <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">E-mail<input type="email" placeholder="E-mail" title="E-mail"  oninput="this.className = ''" name="email" value="{{$value['CH_mail']}}" readonly></p>
@@ -284,7 +300,7 @@ a , h1 {
         <label style="color:#00b140;" >Datos de la niña o niño</label>
         
     <ul class="list-group" style="color: #000000; font-size: 20px; font-weight: 500;">
-    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Nombre(s) de la niña o niño<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor"  title="Nombre(s) del menor"  oninput="this.className = ''" name="nombre_menor" readonly></p>
+    <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Nombre(s)<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor"  title="Nombre(s) del menor"  oninput="this.className = ''" name="nombre_menor" readonly></p>
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido paterno<input type="text" id="apellido_paterno_1" placeholder="Apellido paterno"  title="Apellido paterno"  oninput="this.className = ''" name="ap_paterno" readonly></p>
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Apellido materno<input type="text" id="apellido_materno_1" placeholder="Apellido materno"   title="Apellido materno" oninput="this.className = ''" name="ap_materno" readonly></p>  
     <p style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">CURP<input type="text" id="curp_num" placeholder="CURP" title="CURP" oninput="this.className = ''" name="curp" pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]" readonly></p>
@@ -342,7 +358,7 @@ a , h1 {
     <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Si la niña o niño presenta algún tipo de discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y  del tratamiento que recibe.</h5>
     <input type="file" id="myFile" name="filename_disc" accept="application/msword, application/pdf">
 
-    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">En caso de que el o la trabajador(a) sea la persona tutora, deberá adjuntar el documento legal que dictamine la patria potestad o guarda y custodia.</h5>
+    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">En caso de que la madre o el padre del o la menor, no sean los solicitantes del servicio, la persona tutora trabajadora del gobierno, adjuntar el documento legal que dictamine la patria potestad y/o guarda y custodia.</h5>
     <input type="file" id="myFile" name="filename_trab" accept="application/msword, application/pdf">
 
 
@@ -455,7 +471,7 @@ function showTab(n) {
   title: '<strong>Atención</u></strong>',
   icon: 'success',
   html:
-    '<b>Estos datos son privados solo el padre o tutor son responsables de dichos datos establecido.</b> ' +
+    '<b>Estos  datos son privados solo la madre, padre o persona tutora  es  responsable de la información capturada</b> ' +
     '<a target="_blank" href="{{asset('img/PDF/aviso_simplificado_sitio_caci.pdf')}}"><h5 style="color: #00b140;">Ver aviso de privacidad</h5></a> ',
   showCloseButton: true,
 //  showCancelButton: true,

@@ -116,10 +116,10 @@
 
 
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_Caroliona/4.jpg')}}">
-    <img src="{{asset('img/CACI_Caroliona/4.jpg')}}" alt="Tunnel">
+    <a class="lightbox" href="{{asset('img/CACI_Caroliona/4.jpeg')}}">
+    <img src="{{asset('img/CACI_Caroliona/4.jpeg')}}" alt="Imagen">
     </a>
-    <h2>Nuestros salones</h2>
+    <h2>Actividades Extracurriculares</h2>
     </div>
 
 
@@ -127,19 +127,19 @@
 
     <div class="col-sm-6 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_Caroliona/2.jpg')}}">
-    <img style="height: 245px;" src="{{asset('img/CACI_Caroliona/2.jpg')}}" alt="Park">
+    <a class="lightbox" href="{{asset('img/CACI_Caroliona/1.jpg')}}">
+    <img style="height: 245px;" src="{{asset('img/CACI_Caroliona/1.jpg')}}" alt="Imagen">
     </a>
-   <h2>Actividades</h2>
+   <h2>Actividades Pedagógicas</h2>
     </div>
     </div>
 
     <div class="col-sm-6 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_Caroliona/3.jpg')}}">
-    <img src="{{asset('img/CACI_Caroliona/3.jpg')}}" alt="Tunnel">
+    <a class="lightbox" href="{{asset('img/CACI_Caroliona/6.jpg')}}">
+    <img src="{{asset('img/CACI_Caroliona/6.jpg')}}" alt="Imagen">
     </a>
-    <h2>Nuestro CACI-SAF</h2>
+    <h2>Instalaciones</h2>
     </div>
     </div>
             

@@ -206,18 +206,24 @@ Preguntas frecuentes
           <p>Los protocolos de las medidas sanitarias para el regreso a la Nueva Normalidad se realizarán atendiendo   lo establecido por la Secretaría de Salud, la Secretaría de Educación Pública y el Gobierno de la Ciudad de México.</p>
         </div>
       </div>
-           <div class="accordion__item">
-        <div class="accordion__header">19. ¿Qué procede en el caso de que se presente un caso sospechoso o confirmado de COVID-19 entre la población infantil o el personal que labora en el CACI-SAF?</div>
-        <div class="accordion__body">
-          <p>Las actividades en el centro se suspenderán 14 días naturales como se establece en el documento Guía de Organización para el Regreso Seguro a las Escuelas ante COVID-19.</p>
-        </div>
-      </div>
-           <div class="accordion__item">
-        <div class="accordion__header">20. ¿Los datos personales de la población infantil y de las personas tutoras están protegidos?</div>
-        <div class="accordion__body">
-          <p>Si, en el Sistema de Datos Personales denominado “Expedientes únicos de las niñas y los niños de los CACI-SAF”, en apego a la Ley de Protección de Datos Personales en Posesión de Sujetos Obligados de la Ciudad de México.</p>
-        </div>
-      </div>
+        <div class="accordion__item">
+			<div class="accordion__header">19. ¿Qué procede en el caso de que se presente un caso sospechoso o confirmado de COVID-19 entre la población infantil o el personal que labora en el CACI-SAF?</div>
+			<div class="accordion__body">
+				<p>Las actividades en el centro se suspenderán 14 días naturales como se establece en el documento Guía de Organización para el Regreso Seguro a las Escuelas ante COVID-19.</p>
+			</div>
+		</div>
+		<div class="accordion__item">
+			<div class="accordion__header">20. ¿Los datos personales de la población infantil y de las personas tutoras están protegidos?</div>
+			<div class="accordion__body">
+				<p>Si, en el Sistema de Datos Personales denominado “Expedientes únicos de las niñas y los niños de los CACI-SAF”, en apego a la Ley de Protección de Datos Personales en Posesión de Sujetos Obligados de la Ciudad de México.</p>
+			</div>
+		</div>
+      <div class="accordion__item">
+        <!-- <div class="accordion__header">20. ¿Los datos personales de la población infantil y de las personas tutoras están protegidos?</div>
+			<div class="accordion__body">
+				<p>Si, en el Sistema de Datos Personales denominado “Expedientes únicos de las niñas y los niños de los CACI-SAF”, en apego a la Ley de Protección de Datos Personales en Posesión de Sujetos Obligados de la Ciudad de México.</p> -->
+			</div>
+		</div>
       </div>
     </div>
   </div>

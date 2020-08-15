@@ -106,11 +106,12 @@ tr:nth-child(even) {
 
 </style>
 
-
-  <div class="container">
-  <div class="item active">
+<br>
+<div class="item active">
      <img src="{{asset('img/11.png')}}" alt="Imagenes" style="width:100%;">
    </div>
+  <div class="container">
+  
 </div>
 
 
@@ -125,7 +126,7 @@ tr:nth-child(even) {
     </div>
 
     <div class="accordion-content" id="item1">
-      <p>Dr. Claudio Bernard y Dr. Lucio No.123 </p>
+      <p>Dr. Claudio Bernard No.123 </p>
       <p>Col.Doctores C.P. 07620</p>
       <p>Del. Cuauhtémoc</p>
       <p>Tel: 55-88-33-20</p>  
