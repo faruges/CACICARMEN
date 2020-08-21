@@ -4,20 +4,15 @@
 @section('scripts')
 <script src="{{URL::asset('js/add-upper-case.js')}}" type="text/javascript"> </script>
 @endsection
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
 <style>
   #regForm {
     background-color: #f5f5f0;
     margin: 100px auto;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 40px;
-    width: 70%;
-    min-width: 300px;
-  }
-
-  h1 {
-    text-align: center;
+    padding: 20px;
+    width: 45%;
+    min-width: 400px;
   }
 
   input {
@@ -26,18 +21,17 @@
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     border: 1px solid #00b140;
+    outline: none;
+    border: none;
   }
 
-  input.invalid {
-    background-color: #ffdddd;
-  }
-
-  .tab {
-    display: none;
+  input {
+    padding: 7px;
+    width: 100%;
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    color: #000000;
-
+    border: 3px solid #00b140;
+    border-radius: 15px;
   }
 
   button {
@@ -50,57 +44,6 @@
     cursor: pointer;
   }
 
-  button:hover {
-    opacity: 0.8;
-  }
-
-  #prevBtn {
-    background-color: #bbbbbb;
-  }
-
-  .step {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbbbbb;
-    border: none;
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.5;
-  }
-
-  .step.active {
-    opacity: 1;
-  }
-
-  .step.finish {
-    background-color: #00b140;
-  }
-</style>
-<style>
-  a {
-    text-decoration: none;
-  }
-
-  .alert {
-    background: #eee;
-    padding: 40px;
-    position: relative;
-    font-weight: 600;
-  }
-
-  .close_btn {
-    color: #000;
-    padding: 15px 0px 5px 10px;
-    display: block;
-    position: absolute;
-    top: 40px;
-    right: 40px;
-  }
-
-  .content {
-    padding: 40px;
-  }
 </style>
 
 @if($errors->any())
@@ -123,7 +66,7 @@
      <label style="color:#777777; font-size: 25px; text-align: left; " >RFC</label>
     <p><input type="text" id="rfc" placeholder="RFC de la persona trabajadora" oninput="this.className = ''" onkeyup="mayus(this);" name="RFC" maxlength="13" pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$" required></p>
     {{--  <label style="color:#000; font-size: 25px; text-align: left; " >Token</label>  --}}
-    <p><input id="tokenId" placeholder="Token" oninput="this.className = ''" name="tokenId" value="SistemaDeRpueba4as4x4vdlsad" hidden></p>
+    <p><input id="tokenId" placeholder="Token" oninput="this.className = ''" name="tokenId" value="SistemaDeRpueba4as4x4vdlsad" hidden></p><br>
     <button type="submit">Validar RFC</button>
 </form>    
 
@@ -226,23 +169,6 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
-</script>
-
-
-
-
-<script>
-  $(document).ready(function() {
-
-  if ($(window).width() > 786) {
-    $('.alert').hide().delay(750).slideDown(400);
-  };
-  $('.close_btn').click(function() {
-    $('.close_btn').fadeOut(200);
-    $('.alert').slideUp(400);
-  });
-
-});
 </script>
 
 {{--  <script>

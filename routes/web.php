@@ -23,84 +23,76 @@ Route::get('inicio', function () {
 });
 
 
-Route::get('/preguntas_frecuentes', function () {
-    return view('preguntas_frecuentes');
+Route::get('/centros_Luz_María', function () {
+    return view('centros_Luz_María');
+});
+Route::get('/instalaciones_Luz_María', function () {
+    return view('instalaciones_Luz_María');
+});
+Route::get('/titular_Elisa_Tamara', function () {
+    return view('titular_Elisa_Tamara');
 });
 
 
-Route::get('/centros', function () {
-    return view('centros');
+Route::get('/centros_Eva_Moreno', function () {
+    return view('centros_Eva_Moreno');
 });
-Route::get('/Luz_María1', function () {
-    return view('Luz_María1');
+Route::get('/instalaciones_Eva_Moreno', function () {
+    return view('instalaciones_Eva_Moreno');
 });
-
-Route::get('/Luz_María2', function () {
-    return view('Luz_María2');
-});
-
-
-
-Route::get('/Eva_Moreno', function () {
-    return view('Eva_Moreno');
-});
-Route::get('/Eva_Moreno1', function () {
-    return view('Eva_Moreno1');
-});
-Route::get('/Eva_Moreno2', function () {
-    return view('Eva_Moreno2');
+Route::get('/titular_Laura_Patricia', function () {
+    return view('titular_Laura_Patricia');
 });
 
 
-
-Route::get('/Bertha_von', function () {
-    return view('Bertha_von');
+Route::get('/centros_Bertha_von', function () {
+    return view('centros_Bertha_von');
 });
-Route::get('Bertha_Von1', function () {
-    return view('Bertha_Von1');
+Route::get('instalaciones_Bertha_Von', function () {
+    return view('instalaciones_Bertha_Von');
 });
-Route::get('/Bertha_Von2', function () {
-    return view('Bertha_Von2');
-});
-
-
-
-Route::get('/Carolina_Agazzi', function () {
-    return view('Carolina_Agazzi');
-});
-Route::get('/Carolina_Agazzi1', function () {
-    return view('Carolina_Agazzi1');
-});
-Route::get('/Carolina_Agazzi2', function () {
-    return view('Carolina_Agazzi2');
+Route::get('/titular_Alicia_Judith', function () {
+    return view('titular_Alicia_Judith');
 });
 
 
+Route::get('/centros_Carolina_Agazzi', function () {
+    return view('centros_Carolina_Agazzi');
+});
+Route::get('/instalaciones_Carolina_Agazzi', function () {
+    return view('instalaciones_Carolina_Agazzi');
+});
+Route::get('/titular_María_Jesús', function () {
+    return view('titular_María_Jesús');
+});
 
-Route::get('/Carmen_Serdan', function () {
-    return view('Carmen_Serdan');
+
+Route::get('/centros_Carmen_Serdan', function () {
+    return view('centros_Carmen_Serdan');
 });
-Route::get('/Carmen_Serdan1', function () {
-    return view('Carmen_Serdan1');
+Route::get('/instalaciones_Carmen_Serdan', function () {
+    return view('instalaciones_Carmen_Serdan');
 });
-Route::get('/Carmen_Serdan2', function () {
-    return view('Carmen_Serdan2');
+Route::get('/titular_María_Ofelia', function () {
+    return view('titular_María_Ofelia');
 });
+
 
 Route::get('/informacion_destacada', function () {
     return view('informacion_destacada');
 });
 
-Route::get('/video', function () {
-    return view('video');
+Route::get('/preguntas_frecuentes', function () {
+    return view('preguntas_frecuentes');
 });
-
-
 
 Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/mapas', function () {
+    return view('mapas');
+});
 
 Route::get('/inscripcion_from','InscripcionController@index')->name('inscripcion_from');
 Route::get('/formulario_inscripcion', function () {
@@ -115,17 +107,8 @@ Route::post('guardar_reinscripcion_bd', 'ReinscripcionController@guardar')->name
 
 Route::post('consulta_curp', 'WebServicesRENAPO@getCurp')->name('consulta_curp');
 
-Route::get('/tramiles_CACI', function () {
-    return view('tramiles_CACI');
-});
 
-Route::get('/registo_aqui', function () {
-    return view('registo_aqui');
-});
 
-Route::get('/aviso_privacidar', function () {
-    return view('aviso_privacidar');
-});
 
 //rutas para superusuarios
 Route::group(['middleware' => ['permission:view_users|edit_users|delete_users|create_users']], function() {
@@ -180,11 +163,6 @@ Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout'
     //Route::get('/detalles_documento/{id}', 'DocumentosController@details')->name('detalles_documento');
     //Route::get('/lista_menores/{id_caci}', 'ListaMenoresController@menoresByCaci')->name('lista_menores');
 //});
-
-Route::get('/ubuicacion', function () {
-    return view('ubuicacion');
-});
-
 //Pruebas webservice
 Route::get('/webservice','WebService@getwebservice')->name('webservice');
 
@@ -197,6 +175,14 @@ Route::post('webservicecp', 'WebServicesCP@getCP')->name('webservicecp');
 
 Route::get('/prueba', function () {
     return view('prueba');
+});
+
+Route::get('/registo_aqui', function () {
+    return view('registo_aqui');
+});
+
+Route::get('/aviso_privacidar', function () {
+    return view('aviso_privacidar');
 });
 
 /*Exporta Excel*/ 

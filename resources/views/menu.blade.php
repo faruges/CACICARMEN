@@ -10,124 +10,91 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 
   <link href="{{ asset('css/nav.css')}}" rel="stylesheet"/>
   <link href="{{ asset('css/footer.css')}}" rel="stylesheet"/>
-  <script type="text/javascript">
+
+
+<link rel="stylesheet" href="{{ asset('css/bulma.css')}}"  />
+
+
+
+  
+<script type="text/javascript">
     // var global URL
     var url = '{!! URL::asset('') !!}';
 </script>
   @yield('scripts')
   
 </head>
-<style>
-div.a {
-  position: relative;
-  width: 400px;
-  height: 200px;
-  border: 3px solid red;
-}
 
-div.b {
-  position: absolute;
-  left: auto;
-  width: 100px;
-  height: 120px;
-  border: 3px solid blue;
-} 
 
-div.c {
-  position: absolute;
-  left: 150px;
-  width: 200px;
-  height: 120px;
-  border: 3px solid green;
-} 
+ <nav style="min-height: 85px; border-bottom:0px solid #fff;"> 
+ <div class="container">
+    <nav class="level" id="only-mobile">
+      
+        <div class="level-left">
+            <div class="level-item" id="SAF-mobile"> 
+                <figure class="image">
+                    <img style="width: 300px; height: 70px; padding-top: 10px;" src="{{asset('img/logotipoCDMX.svg')}}" alt="Imagenes" >
+                </figure>
+            </div>
+        </div>
+     
+        <div  class="level-right">
+            <div class="level-item" id="CIUADANA-mobile">
+                <figure class="image">
+                    <img style="width: 250px; padding-top: 10px;" src="{{asset('img/logo CACI.png')}}" alt="Imagenes" >
+                </figure>
+            </div>
+        </div>
+    </nav>
+</div>  
+</nav>
 
-</style>
+
+
+
 
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-sm-6 col-xs-12">
-           <p>
-          <img src="{{asset('img/Logo_CDMX.png')}}" alt="Imagenes" style="width:250px;">
-          </p>
-      </div>
-      <div class="col-md-4 col-sm-6 col-xs-12">
-          <p>
-          <img src="{{asset('img/logo CACI.png')}}" alt="Imagenes" style="width:300px;">
-          </p> 
-        </div>
-      </div>
-     </div>
-
 <div class="container">
 <!-- Static navbar -->
-	
 <div class="topnav" id="myTopnav">
-  <a style="background-color: #00B140; margin-left: 35px; margin-bottom: 23px;" class="active"></a>
-
-  <a href="inicio"> Inicio </a>		
-  <a href="centros"> Centros </a>
-  <a href="inscripcion_from"> Preinscripción </a>
-  <a href="reinscripcion"> Reinscripción </a>
-  <!--<a target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}">Información destacada</a>-->
-  <a href="video">Información destacada</a>
-  <!-- <a href="tramiles_CACI"> Trámites </a> -->
-  <a href="preguntas_frecuentes"> Preguntas frecuentes </a>
-  <a style="margin-right:  -800px;" href="login"> Iniciar sesión</a> 
-
-
-
+  <a class="navbar-brand" style="background-color: #00B140; margin-left: 25px;"></a>
+  <a href="inicio">Inicio</a>		
+  <a href="centros_Luz_María">Centros</a>
+  <a href="inscripcion_from">Preinscripción</a>
+  <a href="reinscripcion">Reinscripción</a>
+  <a href="informacion_destacada">Información destacada</a>
+  <a href="preguntas_frecuentes">Preguntas frecuentes</a>
+  <a href="login">Iniciar sesión</a> 
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-
 </div>
 </div>	
 
 <div class="container">
 @yield('mycontent')
 </div>
-	
-	<br>
 
-<footer style="background-image:url({{url('img/footer.svg')}}); margin-top: 50px;" class="site-footer">
+<footer style="background-image:url({{url('img/footer.svg')}}); margin-top: 100px;" class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
-			  <div>
-     			 <p>
-            <a style="color:#33353d;" href="#" title="INICIO">INICIO</a>|
-     				<!-- |<a style="color:#00b140;" href="#" title="NOSOTROS">NOSOTROS</a>| -->
-     				|<a style="color:#33353d;" href="centros" title="CENTROS">CENTROS</a>|
-     				|<a style="color:#33353d;" href="inscripcion_from" title="INSCRIPCIÓN">PREINSCRIPCIÓN</a>|
-					|<a style="color:#33353d;" href="reinscripcion" title="REINSCRIPCIÓN">REINSCRIPCIÓN</a>|
-					|<a style="color:#33353d;" target="_blank" href="{{asset('doc/incrip_reincrip.pdf')}}" title="INFORMACIÓN DESTACADA">INFORMACIÓN DESTACADA</a>|
-					|<a style="color:#33353d;" href="preguntas_frecuentes" title="REINSCRIPCIÓN">PREGUNTAS FRECUENTES</a>|
-     				<!--|<a style="color:#33353d;" href="tramiles_CACI" title="TRAMITES">TRAMITES</a>|
-     				<!-- |<a style="color:#00b140;" href="#" title="PROTECCIÓN CIVIL">PROTECCIÓN</a>|
-					<a style="color:#00b140;" href="#" title="CONTACTENOS">CONTACTENOS</a>| -->
-     			</p>
-            
-     		</div>
+           <a style="color:#33353d;" href="inicio" title="INICIO">INICIO</a>|
+     	    |<a style="color:#33353d;" href="centros_Luz_María" title="CENTROS">CENTROS</a>|
+     	    |<a style="color:#33353d;" href="inscripcion_from" title="INSCRIPCIÓN">PREINSCRIPCIÓN</a>|
+		      |<a style="color:#33353d;" href="reinscripcion" title="REINSCRIPCIÓN">REINSCRIPCIÓN</a>|
+		      |<a style="color:#33353d;" href="informacion_destacada" title="INFORMACIÓN DESTACADA">INFORMACIÓN DESTACADA</a>|
+		      |<a style="color:#33353d;" href="preguntas_frecuentes" title="REINSCRIPCIÓN">PREGUNTAS FRECUENTES</a>|
+		      |<a style="color:#33353d;" href="login" title="INICIAR SESIÓN">INICIAR SESIÓN</a>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12">
-		  <!--<p style="color:#33353d;">©Copyright Plataforma CACI, Todos los derechos reservados 2020 Gobierno CDMX / Email: <a style="color:#33353d;" href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a></p> -->
-		  <p style="color:#33353d;">CACI-SAF / Email: <a style="color:#33353d;" href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a></p>
-            <ul class="social-icons">
-              <!-- <li style="color:#33353d;">SIGUENOS EN:</li>
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-			  <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-youtube"></i></a></li>-->
-            </ul>
+		      <p style="color:#33353d;">CACI-SAF / Email: <a style="color:#33353d;" href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a></p>
           </div>
         </div>
       </div>
