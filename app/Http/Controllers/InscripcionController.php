@@ -86,7 +86,7 @@ class InscripcionController extends Controller
             'apellido_materno_tutor' => 'required|string',
 
             'calle' => 'required|string',
-            'numero_domicilio' => 'required|numeric',
+            'numero_domicilio' => 'required|string',
             'colonia' => 'required|string',
             'alcaldia' => 'required|string',
             'codigo_postal' => 'required|numeric',
@@ -128,7 +128,7 @@ class InscripcionController extends Controller
             'calle.required' => 'Su calle es requerido',
             'calle.string' => 'Su calle debe ser un texto',
             'numero_domicilio.required' => 'Su numero de domicilio es requerido',
-            'numero_domicilio.numeric' => 'Su numero de domicilio debe ser un número',
+            'numero_domicilio.string' => 'Su numero de domicilio debe ser un texto',
             'colonia.required' => 'Su colonia es requerido',
             'colonia.string' => 'Su colonia debe ser un texto',
             'alcaldia.required' => 'Su alcaldia es requerido',

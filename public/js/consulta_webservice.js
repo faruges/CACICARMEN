@@ -51,7 +51,7 @@ function validaCurp() {
                     alert("La curp ingresada ha sido validada correctamente");
                 } else {
                     $("#nextBtn").attr("disabled", true);
-                    alert("Estimado usuario\nel menor no pudes ser registrado debido a que\nsupera la edad límite permitida");
+                    alert("Estimado usuario\nel menor no puede ser registrado debido a que\nsupera la edad límite permitida");
                 }
             }
 
@@ -75,7 +75,7 @@ function validaCurp() {
         //mesSustraccion = mesActual - mesMenor;
         numeroDeMeses = (anioActual - anioMenor) * 12 + mesActual - mesMenor;
         console.log("num de meses", numeroDeMeses);
-        if (numeroDeMeses > 66) {
+        if (numeroDeMeses > 71) {
             return false;
             //return true;
         } else {

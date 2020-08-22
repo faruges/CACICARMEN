@@ -56,7 +56,7 @@
     <div class="row">
       <div class="col-md-8 col-sm-6 col-xs-12">
         <p>
-          <img src="{{asset('img/Logo_CDMX.png')}}" alt="Imagenes" style="width:250px;">
+          {{--  <img src="{{asset('img/Logo_CDMX.png')}}" alt="Imagenes" style="width:250px;">  --}}
         </p>
       </div>
       <div class="col-md-4 col-sm-6 col-xs-12">
