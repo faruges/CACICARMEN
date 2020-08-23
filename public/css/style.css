@@ -149,7 +149,7 @@
 }*/
 
 .fondo {
-  background-image: url("/img/FondoRepeat.png");
+  background-image: url("../img/FondoRepeat.png");
   background-repeat: repeat;
 }
 

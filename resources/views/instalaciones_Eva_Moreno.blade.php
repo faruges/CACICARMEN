@@ -111,7 +111,15 @@
     <h2>Actividades Extracurriculares</h2>
     </div>
     </div>
-
+	<div class="col-sm-3 col-md-4">
+    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
+    <a class="lightbox" href="{{asset('img/CACI_Eva/1.jpg')}}">
+    <img src="{{asset('img/CACI_Eva/1.jpg')}}" alt="Imagen">
+    </a>
+    <h2>Instalaciones</h2>
+    </div>
+    </div>
+	
     <div class="col-sm-6 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
     <a class="lightbox" href="{{asset('img/CACI_Eva/33.jpg')}}">
@@ -129,7 +137,7 @@
     </div>
     </div>
 
-  <div class="col-sm-12 col-md-4">
+  <!--<div class="col-sm-12 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center; " class="w3-container">
     <a style="height: 900px;" class="lightbox" href="{{asset('img/CACI_Eva/8.jpg')}}">
     <img src="{{asset('img/CACI_Eva/8.jpg')}}" alt="Bridge">
@@ -137,16 +145,9 @@
     </a>
     <h2> Actividades </h2>
     </div>
-    </div>
+    </div> -->
 
-    <div class="col-sm-6 col-md-4">
-    <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">
-    <a class="lightbox" href="{{asset('img/CACI_Eva/1.jpg')}}">
-    <img src="{{asset('img/CACI_Eva/1.jpg')}}" alt="Imagen">
-    </a>
-    <h2>Instalaciones</h2>
-    </div>
-    </div>
+    
 
    <!-- <div class="col-sm-6 col-md-4">
     <div style="color: #333333; font-size: 29px; font-weight: bold; text-transform: none; margin-left: 3%;text-align: center;" class="w3-container">

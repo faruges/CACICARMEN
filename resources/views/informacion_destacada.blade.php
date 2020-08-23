@@ -17,7 +17,7 @@
 </style>
 
 <video id="my-video" class="video-js" controls preload="auto" data-setup='' loop>
-<source src="{{asset('doc/Video.mp4')}}" type="video/mp4">
+<source src="{{asset('doc/video.mp4')}}" type="video/mp4">
 </video>
 
 @endsection

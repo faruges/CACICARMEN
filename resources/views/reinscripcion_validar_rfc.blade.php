@@ -11,7 +11,7 @@
     margin: 100px auto;
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px;
-    width: 45%;
+    width: 55%;
     min-width: 400px;
   }
 
@@ -61,7 +61,7 @@
     <label style="color:#777777; font-size: 40px; text-align: left; ">Reinscripción</label>
     @csrf
 
-     <label style="color:#054a41; font-size: 30px; text-align: center; " >Para iniciar el proceso de reinscripción, proporciona el siguiente dato.</label>
+     <label style="color:#054a41; font-size: 24px; text-align: center; " >Para iniciar el proceso de reinscripción, proporciona el siguiente dato</label>
   
      <label style="color:#777777; font-size: 25px; text-align: left; " >RFC</label>
     <p><input type="text" id="rfc" placeholder="RFC de la persona trabajadora" oninput="this.className = ''" onkeyup="mayus(this);" name="RFC" maxlength="13" pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$" required></p>
