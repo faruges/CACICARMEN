@@ -43,9 +43,12 @@ class PermissionsSeeder extends Seeder
     	$viewBooksPermission = Permission::create(['name' => 'view_users']);
     	array_push($permissions_array, $viewBooksPermission,$permissions_array_caci);
 
+        
 		$superCaciRole = Role::create(['name' => 'super_caci']);
 		$superCaciRole->syncPermissions($permissions_array);
-
+        
+        $superAdmin = Role::create(['name' => 'super_admin']);
+        $superAdmin->syncPermissions($permissions_array);
 		//$caciRole = Role::create(['name' => 'caci']);
 		//$caciRole->givePermissionTo($viewBooksPermission);
         
@@ -63,6 +66,14 @@ class PermissionsSeeder extends Seeder
         
         $caciCarmen = Role::create(['name' => 'cacicarmen']);
 		$caciCarmen->givePermissionTo($permissions_array_caci);
+
+        $userSuperCaci = User::create([
+            'name' => 'superadmin',
+            'email' => 'caciadministracion@finanzas.cdmx.gob.mx',
+            'password' => Hash::make('superadmin123.,'),
+        ]);
+        /////////////////////////////////////
+        $userSuperCaci->assignRole('super_admin');
 
 		$userSuperCaci = User::create([
             'name' => 'supercaci',
