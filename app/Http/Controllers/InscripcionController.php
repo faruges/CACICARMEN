@@ -160,8 +160,8 @@ class InscripcionController extends Controller
             'Edad_menor.string' => 'Su edad debe ser texto',
             'caci.required' => 'Su caci es requerido',
             'caci.string' => 'Su caci debe ser string',
-            'email.required' => 'Su email es requerido',
-            'email.regex' => 'Su email no tiene el formato correcto',
+            'email_correo.required' => 'Su email es requerido',
+            'email_correo.regex' => 'Su email no tiene el formato correcto',
             'telefono_celular.required' => 'Su celular es requerido',
             'telefono_celular.numeric' => 'Su celular debe ser un número',
             'telefono_celular.max' => 'Su celular debe contener 10 digitos',
@@ -169,32 +169,33 @@ class InscripcionController extends Controller
             'telefono_3.numeric' => 'Su telefono debe ser un número',
 
             'filename_act.mimes' => 'El acta de nacimiento no es valido',
-            'filename_act.max' => 'El acta de nacimiento no debe de exceder en tamaño los 2Mb',
+            'filename_act.max' => 'El acta de nacimiento no debe de exceder el tamaño de 2Mb',
             'filename_sol.mimes' => 'La solicitud de Ingreso no es valido',
-            'filename_sol.max' => 'La solicitud de Ingreso no debe de exceder en tamaño los 2Mb',
+            'filename_sol.max' => 'La solicitud de Ingreso no debe de exceder el tamaño de 2Mb',
             'filename_vacu.mimes' => 'La Cartilla de vacunación no es valido',
-            'filename_vacu.max' => 'La Cartilla de vacunación no debe de exceder en tamaño los 2Mb',
+            'filename_vacu.max' => 'La Cartilla de vacunación no debe de exceder el tamaño de 2Mb',
             'filename_nac.mimes' => 'Certificado de nacimiento no es valido',
-            'filename_nac.max' => 'Certificado de nacimiento no debe de exceder en tamaño los 2Mb',
+            'filename_nac.max' => 'Certificado de nacimiento no debe de exceder el tamaño de 2Mb',
             'filename_com.mimes' => 'Carta compromiso no es valido',
-            'filename_com.max' => 'Carta compromiso no debe de exceder en tamaño los 2Mb',
+            'filename_com.max' => 'Carta compromiso no debe de exceder el tamaño de 2Mb',
             'filename_cert.mimes' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no es valido',
-            'filename_cert.max' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no debe de exceder en tamaño los 2Mb',
+            'filename_cert.max' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no debe de exceder el tamaño de 2Mb',
             'filename_rec.mimes' => 'Último recibo de pago impreso del(a) trabajador (a). no es valido',
-            'filename_rec.max' => 'Último recibo de pago impreso del(a) trabajador (a). no debe de exceder en tamaño los 2Mb',
+            'filename_rec.max' => 'Último recibo de pago impreso del(a) trabajador (a). no debe de exceder el tamaño de 2Mb',
             'filename_disc.mimes' => 'Copias de los documentos médicos del tratamiento no es valido',
-            'filename_disc.max' => 'Copias de los documentos médicos del tratamiento no debe de exceder en tamaño los 2Mb',
+            'filename_disc.max' => 'Copias de los documentos médicos del tratamiento no debe de exceder el tamaño de 2Mb',
             'filename_trab.mimes' => 'Documento de la patria potestad no es valido',
-            'filename_trab.max' => 'Documento de la patria potestad no debe de exceder en tamaño los 2Mb',
+            'filename_trab.max' => 'Documento de la patria potestad no debe de exceder el tamaño de 2Mb',
             'filename_recp.mimes' => 'Copia del último recibo de pago de la persona trabajadora no es valido',
-            'filename_recp.max' => 'Copia del último recibo de pago de la persona trabajadora no debe de exceder en tamaño los 2Mb',
+            'filename_recp.max' => 'Copia del último recibo de pago de la persona trabajadora no debe de exceder el tamaño de 2Mb',
         ];
         DB::beginTransaction();
 
         try {
             $validator = Validator::make($request->all(), $rules, $messages);
             if ($validator->fails()) {
-                return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error.')->with('typelert', 'danger');
+                //return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error.')->with('typelert', 'danger');
+                return response()->json(['ok'=>false,'result' => $validator->errors()->all(),'err_valid'=>true]);  
             } else {
                 $curp = $request->curp_num;
                 //contea si ya menor esta inscrito
@@ -242,17 +243,21 @@ class InscripcionController extends Controller
                         }
                         //return redirect('inicio');
                         DB::commit();
-                        return redirect('inicio')->with('mensaje', "Menor inscrito con exito");
+                        return response()->json(['ok'=>true,'result'=>'Menor inscrito con exito','menor' => $request->nombre_menor_1]);    
+                        //return redirect('inicio')->with('mensaje', "Menor inscrito con exito");
                     } else {
-                        return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error, no se cargaron todos los archivos.')->with('typelert', 'danger');
+                        //return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error, no se cargaron todos los archivos.')->with('typelert', 'danger');
+                        return response()->json(['ok'=>false,'result' => $validator->errors()->all(),'err_valid_docs'=>true]);  
                     }
                 } else {
-                    return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar el proceso de Inscripción, el Menor ya esta Inscrito']);
+                    return response()->json(['ok'=>true,'result' => "No se pudo realizar el proceso de Inscripción, el Menor con curp '$request->curp_num' ya esta Inscrito",'Exist'=>true]);     
+                    //return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar el proceso de Inscripción, el Menor ya esta Inscrito']);
                 }
             }
         } catch (\Throwable $th) {
             DB::rollback();
-            return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar la Inscripción']);
+            return response()->json(['ok'=>false,'result' =>'No se pudo realizar la Inscripción']);     
+            //return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar la Inscripción']);
         }
     }
 

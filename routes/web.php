@@ -111,29 +111,31 @@ Route::post('consulta_curp', 'WebServicesRENAPO@getCurp')->name('consulta_curp')
 
 
 //rutas para superusuarios
-Route::group(['middleware' => ['permission:view_users|edit_users|delete_users|create_users']], function() {
+Route::group(['middleware' => ['nocache','permission:view_users|edit_users|delete_users|create_users']], function() {
     Route::resource('users','UserController');
     Route::get('create','UserController@create');
     Route::get('edit/{id}','UserController@edit')->name('edit');
     Route::post('update/{id}','UserController@update')->name('update');
     Route::post('store','UserController@store')->name('store');
     Route::get('destroy/{id}','UserController@destroy')->name('destroy');
+    Route::get('reactive/{id}','UserController@reactive')->name('reactive');
 });
 
-Route::group(['middleware' => ['permission:view_roles|edit_roles|delete_roles|create_roles']], function() {
+Route::group(['middleware' => ['nocache','permission:view_roles|edit_roles|delete_roles|create_roles']], function() {
     Route::resource('roles','RoleController');    
     Route::post('guardar_rol','RoleController@store')->name('guardar_rol');
 });
 
-Route::group(['middleware' => ['permission:view_inscripcion']], function() {
+Route::group(['middleware' => ['permission:view_inscripcion','nocache']], function() {
 //Route::group(['middleware' => ['permission:view_inscripcion']], function() {
     Route::get('/lista_inscripcion','Admin\AdminController@showListInscri')->name('lista_inscripcion');
     Route::get('/lista_documentos_inscr/{id}', 'Admin\DocumentosController@show_inscr')->name('lista_documentos_inscr');
     Route::post('/email_info_recibida_inscr', 'Admin\EmailController@sendEmailRecibiInscrip')->name('email_info_recibida_inscr');
+    Route::post('actualizar_caci','Admin\AdminController@actualizarCaci')->name('actualizar_caci');
     Route::get('/email_lista_espera/{nombre_tutor}/{ap_paterno}/{email}', 'Admin\EmailController@sendEmailEspera')->name('email_lista_espera');
 });
 
-Route::group(['middleware' => ['permission:view_reinscripcion']], function() {
+Route::group(['middleware' => ['nocache','permission:view_reinscripcion']], function() {
 //Route::group(['middleware' => ['permission:view_reinscripcion']], function() {
     Route::get('/lista_reinscripcion','Admin\AdminController@showListReinscri')->name('lista_reinscripcion');
     Route::get('/lista_documentos/{id}', 'Admin\DocumentosController@show')->name('lista_documentos');

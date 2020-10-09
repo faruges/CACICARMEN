@@ -71,6 +71,7 @@ class PermissionsSeeder extends Seeder
             'name' => 'superadmin',
             'email' => 'caciadministracion@finanzas.cdmx.gob.mx',
             'password' => Hash::make('superadmin123.,'),
+            'status' => '1',
         ]);
         /////////////////////////////////////
         $userSuperCaci->assignRole('super_admin');
@@ -79,6 +80,7 @@ class PermissionsSeeder extends Seeder
             'name' => 'supercaci',
             'email' => 'caciadministracion@finanzas.cdmx.gob.mx',
             'password' => Hash::make('supercaci123.,'),
+            'status' => '1',
         ]);
         /////////////////////////////////////
         $userSuperCaci->assignRole('super_caci');
@@ -96,6 +98,7 @@ class PermissionsSeeder extends Seeder
             'name' => 'caciluz',
             'email' => 'caciluzmariagomez@finanzas.cdmx.gob.mx',
             'password' => Hash::make('caciluz123.,'),
+            'status' => '1',
         ]);
         ///////////////////////////////////
         $userCaciLuz->assignRole('caciluz');
@@ -104,6 +107,7 @@ class PermissionsSeeder extends Seeder
             'name' => 'cacieva',
             'email' => 'cacievamoreno@finanzas.cdmx.gob.mx',
             'password' => Hash::make('cacieva123.,'),
+            'status' => '1',
         ]);
         ///////////////////////////////////
         $userCaciEva->assignRole('cacieva');
@@ -112,6 +116,7 @@ class PermissionsSeeder extends Seeder
             'name' => 'cacibertha',
             'email' => 'caciberthavonglumer@finanzas.cdmx.gob.mx',
             'password' => Hash::make('cacibertha123.,'),
+            'status' => '1',
         ]);
         ///////////////////////////////////
         $userCaciBertha->assignRole('cacibertha');
@@ -120,6 +125,7 @@ class PermissionsSeeder extends Seeder
             'name' => 'cacicarolina',
             'email' => 'cacicarolinaagazzi@finanzas.cdmx.gob.mx',
             'password' => Hash::make('cacicarolina123.,'),
+            'status' => '1',
         ]);
         ///////////////////////////////////
         $userCaciCarolina->assignRole('cacicarolina');
@@ -128,6 +134,7 @@ class PermissionsSeeder extends Seeder
             'name' => 'cacicarmen',
             'email' => 'cacicarmenserdan@finanzas.cdmx.gob.mx',
             'password' => Hash::make('cacicarmen123.,'),
+            'status' => '1',
         ]);
         ///////////////////////////////////
         $userCaciCarmen->assignRole('cacicarmen');
@@ -137,6 +144,7 @@ class PermissionsSeeder extends Seeder
             'name' => 'guest',
             'email' => 'guest@gmail.com',
             'password' => Hash::make('guest123.,'),
+            'status' => '1',
         ]);
 
 

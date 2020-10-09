@@ -12,10 +12,10 @@ class Inscripcion extends Model
         'nombre_tutor_madres', 'apellido_paterno_tutor', 'apellido_materno_tutor',
         'calle','numero_domicilio','colonia','alcaldia','codigo_postal', 'tipo_nomina_1', 'num_empleado_1', 'num_plaza_1', 'clave_dependencia_1', 'nivel_salarial_1', 'seccion_sindical_1',
          'email_correo', 'telefono_celular', 'telefono_3','horario_laboral_ent','horario_laboral_sal',
-        'nombre_menor_1', 'apellido_paterno_1', 'apellido_materno_1', 'curp_num', 'birthday', 'Edad_menor', 'caci','correo_enviado','terminos'
+        'nombre_menor_1', 'apellido_paterno_1', 'apellido_materno_1', 'curp_num', 'birthday', 'Edad_menor', 'caci','correo_enviado','terminos','created_at' 
     ];
     protected $guarded = ['id'];
-    public $timestamps = false;
+    public $timestamps = true;
 
     public static function setDoc($uploadedFile, $id_inscri)
     {

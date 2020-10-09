@@ -11,40 +11,51 @@ var $$ = function $$(id) {
 function validaCurp() {
   /* alert(token); */
   var curp = $("#curp").val();
+  var nombreProceso = $("#nombre_proceso").val();
   $.ajax({
     type: 'POST',
     dataType: 'json',
     data: {
       "_token": $("meta[name='csrf-token']").attr("content"),
-      "curp": curp
+      "curp": curp,
+      "nombreProceso": nombreProceso
     },
     url: url + 'webservicerenapo',
     success: function success(data) {
-      if (data.user.nombre === null) {
-        alert("Estimado/a usuario/a: Los datos ingresados no son correctos.");
-      } else {
-        //valida que menor tenga menor o igual de 5 años y medio
-        if (validaCurpNinoMenorCincoAniosyMedio(data.user.fechNac)) {
-          $("#nombre_menor_1").val(data.user.nombre);
-          $("#apellido_paterno_1").val(data.user.apellido1);
-          $("#apellido_materno_1").val(data.user.apellido2);
-          var partesFechaForm = data.user.fechNac.split('/');
+      if (data.ok) {
+        if (data.Exist) {
+          Swal.fire({
+            icon: 'warning',
+            title: data.result,
+            showConfirmButton: true,
+            timer: 10000,
+            allowOutsideClick: true
+          });
+          $("#nextBtn").attr("disabled", true);
+          return;
+        } //valida que menor tenga menor o igual de 5 años y 11 meses
+
+
+        if (validaCurpNinoMenorCincoAniosyMedio(data.datas.user.fechNac)) {
+          $("#nombre_menor_1").val(data.datas.user.nombre);
+          $("#apellido_paterno_1").val(data.datas.user.apellido1);
+          $("#apellido_materno_1").val(data.datas.user.apellido2);
+          var partesFechaForm = data.datas.user.fechNac.split('/');
           var fecha = partesFechaForm[1] + '/' + partesFechaForm[0] + '/' + partesFechaForm[2]; //console.log(typeof(fecha));
 
           $("#birthday").val(fecha);
           $("#curp_num").val(curp); //valida la edad del menor exactamente con decimales ejemplo 2.5
 
-          difMes = mesActual - mesMenor;
-          console.log("algo", difMes, mesActual, mesMenor);
+          difMes = mesActual - mesMenor; //console.log("algo", difMes, mesActual, mesMenor);
 
           if (difMes < 0) {
             var anioReal = anioActual - anioMenor - 1;
           } else if (difMes >= 0) {
             var anioReal = anioActual - anioMenor;
-          }
+          } //console.log("modulo", numeroDeMeses % 12);
+          //console.log("años", anioReal + '.' + numeroDeMeses % 12);
 
-          console.log("modulo", numeroDeMeses % 12);
-          console.log("años", anioReal + '.' + numeroDeMeses % 12);
+
           var anioConMeses = anioReal + '.' + numeroDeMeses % 12; //setea campo de edad con decimales a input
 
           $("#Edad_menor").val(anioConMeses);
@@ -75,8 +86,7 @@ function validaCurp() {
     mesMenor = fechaMenor.getMonth();
     mesActual = fechaActual.getMonth(); //mesSustraccion = mesActual - mesMenor;
 
-    numeroDeMeses = (anioActual - anioMenor) * 12 + mesActual - mesMenor;
-    console.log("num de meses", numeroDeMeses);
+    numeroDeMeses = (anioActual - anioMenor) * 12 + mesActual - mesMenor; //console.log("num de meses", numeroDeMeses);
 
     if (numeroDeMeses > 71) {
       return false; //return true;

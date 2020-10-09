@@ -1,0 +1,98 @@
+:root{
+    --cdmx-color-verde: #00ae42;
+    --cdmx-color-gris: #333333;
+}
+
+.fuente-menu{
+    font-size:  80px;;
+}
+
+.borde_inferior{
+    border-bottom: 7px solid var(--cdmx-color-verde);
+}
+
+.btn-drop-cdmx{
+    /*font-size: 20px;*/
+    font-weight: 500;
+    letter-spacing: .0009em;
+}
+
+.btn-drop-cdmx:not(:disabled):not(.disabled):active, .btn-drop-cdmx:not(:disabled):not(.disabled).active, .show > .btn-drop-cdmx.dropdown-toggle {
+    color: #fff;
+    background-color: var(--cdmx-color-verde);
+}
+
+.no-a-style{
+    text-decoration: none !important;
+}
+
+.dropelementos a:active{
+
+        background-color: var(--cdmx-color-gris);
+    
+}
+
+.bgAcorddionConsulta{
+    height: 100%;
+    width: 100%;
+    background: url('../img/consulta_pagos/imagenes-19.jpg') right center no-repeat;
+    background-size: 45%;
+}
+
+.bgFooterItems{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45%;
+}
+
+.cdmxFiller{
+    filter: invert(42%) sepia(97%) saturate(1008%) hue-rotate(69deg) brightness(100%) contrast(103%);
+
+}
+
+.cdmx-colorv{
+    color: var(--cdmx-color-verde) !important
+}
+
+.cdmx-l-border{
+    border-left: 2px solid var(--cdmx-color-gris);
+}
+
+.cdmx-r-border{
+    border-right: 2px solid var(--cdmx-color-gris);
+}
+
+.cdmx-rl-border{
+    border-right: 2px solid var(--cdmx-color-gris);
+}
+
+.cdmx-full-border{
+    border-style: solid;
+    border-color: var(--cdmx-color-verde);
+}
+
+span.cdmx-l-border{
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-cdmx{
+    color: #fff !important;
+    background-color: var(--cdmx-color-verde);
+    border-color: var(--cdmx-color-verde);
+}
+
+.text-red{
+    color: red;
+}
+
+.bg-color-cdmx-gris{
+    background-color: var(--cdmx-color-gris);
+}
+
+.overflow-wrap-any{
+    overflow-wrap: anywhere !important;
+}

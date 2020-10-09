@@ -84,9 +84,9 @@
                 <button type="button" id="envia_email" title="Notifica Información Recibida"
                     name="envia_email" onclick="envia_email_info_recib_inscr()" class="btn btn-lg btn-primary"><i
                         class="fa fa-envelope"></i></button>
-                <button type="button" id="envia_email_dos" title="Notifica Información Recibida Reinscripción"
+                {{--  <button type="button" id="envia_email_dos" title="Notifica Información Recibida Reinscripción"
                     name="envia_email_dos" onclick="envia_email()" class="btn btn-lg btn-info"><i
-                        class="fa fa-envelope"></i></button>
+                        class="fa fa-envelope"></i></button>  --}}
                 {{--  <a class="btn btn-lg btn-dark"
                     href="{{route('email_lista_espera',[$reinsc->nombre_tutor,$reinsc->ap_paterno_t,$reinsc->email])}}"
                     title="Notifica Lista en Espera"><i class="fa fa-envelope"></i></a>  --}}
@@ -134,19 +134,19 @@
                             <h3>Colonia: </h3><label class="font-label">{{$reinsc->colonia}}</label>
                         </div>
                         <div class="row row-margin">
-                            <h3>Alcaldia: </h3><label class="font-label">{{$reinsc->alcaldia}}</label>
+                            <h3>Alcald&iacute;a: </h3><label class="font-label">{{$reinsc->alcaldia}}</label>
                         </div>
                         <div class="row row-margin">
-                            <h3>Codigo Postal: </h3><label class="font-label">{{$reinsc->codigo_postal}}</label>
+                            <h3>C&oacute;digo Postal: </h3><label class="font-label">{{$reinsc->codigo_postal}}</label>
                         </div>
                         <div class="row row-margin">
-                            <h3>Tipo Nomina: </h3><label class="font-label">{{$reinsc->tipo_nomina}}</label>
+                            <h3>Tipo N&oacute;mina: </h3><label class="font-label">{{$reinsc->tipo_nomina}}</label>
                         </div>
                         <div class="row row-margin">
-                            <h3>Numero Empleado: </h3><label class="font-label">{{$reinsc->num_empleado}}</label>
+                            <h3>N&uacute;mero Empleado: </h3><label class="font-label">{{$reinsc->num_empleado}}</label>
                         </div>
                         <div class="row row-margin">
-                            <h3>Numero Plaza: </h3><label class="font-label">{{$reinsc->num_plaza}}</label>
+                            <h3>N&uacute;mero Plaza: </h3><label class="font-label">{{$reinsc->num_plaza}}</label>
                         </div>
                         <div class="row row-margin">
                             <h3>Clave Dependencia: </h3><label class="font-label">{{$reinsc->clave_dependencia}}</label>
@@ -155,7 +155,7 @@
                             <h3>Nivel Salarial: </h3><label class="font-label">{{$reinsc->nivel_salarial}}</label>
                         </div>
                         <div class="row row-margin">
-                            <h3>Seccion Sindical: </h3><label class="font-label">{{$reinsc->seccion_sindical}}</label>
+                            <h3>Secci&oacute;n Sindical: </h3><label class="font-label">{{$reinsc->seccion_sindical}}</label>
                         </div>
 
                         <div class="row row-margin">

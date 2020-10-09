@@ -172,25 +172,25 @@ class ReinscripcionController extends Controller
             'telefono_dos.numeric' => 'Su telefono debe ser un número',
 
             'filename_act.mimes' => 'El acta de nacimiento no es valido',
-            'filename_act.max' => 'El acta de nacimiento no debe de exceder en tamaño los 2Mb',
+            'filename_act.max' => 'El acta de nacimiento no debe de exceder el tamaño de 2Mb',
             'filename_sol.mimes' => 'La solicitud de Ingreso no es valido',
-            'filename_sol.max' => 'La solicitud de Ingreso no debe de exceder en tamaño los 2Mb',
+            'filename_sol.max' => 'La solicitud de Ingreso no debe de exceder el tamaño de 2Mb',
             'filename_vacu.mimes' => 'La Cartilla de vacunacion no es valido',
-            'filename_vacu.max' => 'La Cartilla de vacunación no debe de exceder en tamaño los 2Mb',
+            'filename_vacu.max' => 'La Cartilla de vacunación no debe de exceder el tamaño de 2Mb',
             'filename_nac.mimes' => 'Certificado de nacimiento no es valido',
-            'filename_nac.max' => 'Certificado de nacimiento no debe de exceder en tamaño los 2Mb',
+            'filename_nac.max' => 'Certificado de nacimiento no debe de exceder el tamaño de 2Mb',
             'filename_com.mimes' => 'Carta compromiso no es valido',
-            'filename_com.max' => 'Carta compromiso no debe de exceder en tamaño los 2Mb',
+            'filename_com.max' => 'Carta compromiso no debe de exceder el tamaño de 2Mb',
             'filename_cert.mimes' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no es valido',
-            'filename_cert.max' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no debe de exceder en tamaño los 2Mb',
+            'filename_cert.max' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no debe de exceder el tamaño de 2Mb',
             'filename_rec.mimes' => 'Último recibo de pago impreso del(a) trabajador (a). no es valido',
-            'filename_rec.max' => 'Último recibo de pago impreso del(a) trabajador (a). no debe de exceder en tamaño los 2Mb',
+            'filename_rec.max' => 'Último recibo de pago impreso del(a) trabajador (a). no debe de exceder el tamaño de 2Mb',
             'filename_disc.mimes' => 'Copias de los documentos médicos del tratamiento no es valido',
-            'filename_disc.max' => 'Copias de los documentos médicos del tratamiento no debe de exceder en tamaño los 2Mb',
+            'filename_disc.max' => 'Copias de los documentos médicos del tratamiento no debe de exceder el tamaño de 2Mb',
             'filename_trab.mimes' => 'Documento de la patria potestad no es valido',
-            'filename_trab.max' => 'Documento de la patria potestad no debe de exceder en tamaño los 2Mb',
+            'filename_trab.max' => 'Documento de la patria potestad no debe de exceder el tamaño de 2Mb',
             'filename_recp.mimes' => 'Copia del último recibo de pago de la persona trabajadora no es valido',
-            'filename_recp.max' => 'Copia del último recibo de pago de la persona trabajadora no debe de exceder en tamaño los 2Mb',
+            'filename_recp.max' => 'Copia del último recibo de pago de la persona trabajadora no debe de exceder el tamaño de 2Mb',
         ];
 
         DB::beginTransaction();
@@ -199,7 +199,8 @@ class ReinscripcionController extends Controller
             $validator = Validator::make($request->all(), $rules, $messages);
             if ($validator->fails()) {
                 /* dd("entra aqui"); */
-                return redirect('reinscripcion')->withErrors($validator)->with('message', 'Se ha producido un error.')->with('typelert', 'danger');
+                return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid' => true]);
+                //return redirect('reinscripcion')->withErrors($validator)->with('message', 'Se ha producido un error.')->with('typelert', 'danger');
             } else {
                 $curp = $request->curp;
                 //contea si ya menor esta inscrito
@@ -247,17 +248,21 @@ class ReinscripcionController extends Controller
                             $reinscripcion->setRolCaci($id, $request->caci);
                         }
                         DB::commit();
-                        return redirect('inicio')->with('mensaje', "Menor reinscrito con exito");
+                        return response()->json(['ok' => true, 'result' => 'Menor reinscrito con exito', 'menor' => $request->nombre_menor]);
+                        //return redirect('inicio')->with('mensaje', "Menor reinscrito con exito");
                     } else {
-                        return redirect('reinscripcion')->withErrors($validator)->with('message', 'Se ha producido un error, no se cargaron todos los archivos.')->with('typelert', 'danger');
+                        return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid_docs' => true]);
+                        //return redirect('reinscripcion')->withErrors($validator)->with('message', 'Se ha producido un error, no se cargaron todos los archivos.')->with('typelert', 'danger');
                     }
                 } else {
-                    return redirect('reinscripcion')->withErrors(['', 'No se pudo realizar el proceso de Reinscripción, el Menor ya esta Inscrito']);
+                    return response()->json(['ok' => true, 'result' => "No se pudo realizar el proceso de Reinscripción, el Menor con curp '$request->curp' ya esta Reinscrito", 'Exist' => true]);
+                    //return redirect('reinscripcion')->withErrors(['', 'No se pudo realizar el proceso de Reinscripción, el Menor ya esta Inscrito']);
                 }
             }
         } catch (\Throwable $th) {
             DB::rollback();
-            return redirect('reinscripcion')->withErrors(['', 'No se pudo realizar la Reinscripción']);
+            return response()->json(['ok' => false, 'result' => 'No se pudo realizar la Reinscripción']);
+            //return redirect('reinscripcion')->withErrors(['', 'No se pudo realizar la Reinscripción']);
         }
     }
 

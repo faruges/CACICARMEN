@@ -83,6 +83,7 @@
             </div>
             <div>
                 <input id="email" type="email" class="form-control" name="email" placeholder="Email" readonly required>
+                {{--  <input id="status" type="text" class="form-control" name="status" value="1" hidden>  --}}
             </div>
             <div>
                 <input id="password" type="password" class="form-control" name="password" placeholder="Password"

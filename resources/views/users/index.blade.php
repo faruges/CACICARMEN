@@ -31,56 +31,93 @@
 
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-<div class="container">
+<div class="container-fluid">
     @if(Session::has('mensaje'))
     <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('mensaje') }}
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
     </p>
     @endif
     <div class="card mt50 margin-card">
-        <div class="card-header">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <h2 class="cdmx-colorv">
+                    Usuarios
+                </h2>
+            </div>
             <div class="float-right">
                 <a class="btn btn-md btn-outline-success" href="{{url('create')}}" title="Crear Usuario"><i
                         class="fa fa-plus"></i></a>
             </div>
-            <h1><i class="fa fa-users"></i> Usuarios</h1>
         </div>
-        <div class="card-body" style="overflow: auto">
-            <table class="table table-striped table-responsive-lg">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Rol</th>
-                        <th>Fecha de Creación</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                    @if (implode(" ", $user->getRoleNames()->toArray()) !== 'super_admin')
-                    <tr>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{implode(" ", $user->getRoleNames()->toArray())}}</td>
-                        <td>{{$user->created_at}}</td>
-                        <td>
-                            @if (implode(" ", $user->getRoleNames()->toArray()) !== 'super_caci' && implode(" ",
-                            $user->getRoleNames()->toArray()) !== 'super_admin')
-                            <span class="float-right">
-                                <a class="btn btn-md btn-outline-primary" href="{{route('edit',$user->id)}}"
-                                    title="Editar Usuarios"><i class="fa fa-edit"></i></a>
-                                <a class="btn btn-md btn-outline-danger" href="{{route('destroy',$user->id)}}"
-                                    title="Eliminar Usuarios"><i class="fa fa-trash"></i></a>
-                            </span>
-                            @endif
-                        </td>
-                    </tr>
-                    @endif 
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+        {{-- <div class="card-header">
+            <div class="float-right">
+                <a class="btn btn-md btn-outline-success" href="{{url('create')}}" title="Crear Usuario"><i
+            class="fa fa-plus"></i></a>
     </div>
+    <h1><i class="fa fa-users"></i> Usuarios</h1>
+</div> --}}
+<div class="card-body" style="overflow: auto">
+    <table class="table table-striped table-responsive-lg">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Fecha de Creación</th>
+            </tr>
+        </thead> 
+        <tbody>
+            @foreach ($users as $user)
+            @if ($rol_user === 'super_caci')
+            @if (implode(" ", $user->getRoleNames()->toArray()) !== 'super_admin' && $user->status === '1')
+            <tr>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{implode(" ", $user->getRoleNames()->toArray())}}</td>
+                <td>{{$user->created_at}}</td>
+                <td>
+                    @if (implode(" ", $user->getRoleNames()->toArray()) !== 'super_caci' && implode(" ",
+                    $user->getRoleNames()->toArray()) !== 'super_admin')
+                    <span class="float-right">
+                        <a class="btn btn-md btn-outline-primary" href="{{route('edit',$user->id)}}"
+                            title="Editar Usuarios"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-md btn-outline-danger" href="{{route('destroy',$user->id)}}"
+                            title="Eliminar Usuarios"><i class="fa fa-trash"></i></a>
+                    </span>
+                    @endif
+                </td>
+            </tr>
+            @endif
+            @elseif ($rol_user === 'super_admin')
+            @if (implode(" ", $user->getRoleNames()->toArray()) !== 'super_admin')
+            <tr>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{implode(" ", $user->getRoleNames()->toArray())}}</td>
+                <td>{{$user->created_at}}</td>
+                <td>
+                    @if ($user->status === '-1')
+                    <span class="float-right">
+                        <a class="btn btn-md btn-outline-success" href="{{route('reactive',$user->id)}}"
+                            title="Reactivar Usuario"><i class="fa fa-undo"></i></a>
+                    </span>
+                    @elseif($user->status === '1')
+                    <span class="float-right">
+                        <a class="btn btn-md btn-outline-primary" href="{{route('edit',$user->id)}}"
+                            title="Editar Usuarios"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-md btn-outline-danger" href="{{route('destroy',$user->id)}}"
+                            title="Eliminar Usuarios"><i class="fa fa-trash"></i></a>
+                    </span>
+                    @endif
+                </td>
+            </tr>
+            @endif
+            @endif
+            @endforeach
+        </tbody>
+    </table>
+</div>
+</div>
 </div>
 
 <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>

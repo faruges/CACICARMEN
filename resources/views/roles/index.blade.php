@@ -30,16 +30,23 @@
 
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-<div class="container">
+<div class="container-fluid">
     <div class="card mt50 margin-card">
-        <div class="card-header">
-            {{--  <div class="float-right">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <h2 class="cdmx-colorv">
+                    Roles
+                </h2>
+            </div>
+        </div>
+        {{-- <div class="card-header">
+             <div class="float-right">
                 <a class="btn btn-md btn-outline-success"
                 href="{{route('roles.create')}}"
                 title="Crear Usuario"><i class="fa fa-plus"></i></a>
-            </div>  --}}
+            </div> 
             <h1><i class="fa fa-users"></i> Roles</h1>
-        </div>
+        </div> --}}
         <div class="card-body" style="overflow: auto">
             <table class="table table-striped table-responsive-lg">
                 <thead>

@@ -10,7 +10,12 @@ function mayus(objeto_input) {
     objeto_input.value = objeto_input.value.toUpperCase();
 }
 
+function allFilesAreCorrect(){
+
+}
+
 $(document).ready(function () {
+    var act_supera_tamanio_permitido = false;
     $("#curp").blur(function () {
         var curpValido = $("#curp").val();
         const valCurp = '[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]';
@@ -46,8 +51,8 @@ $(document).ready(function () {
                     $('#codigo_postal').css('background', '#ffffff');
                     $('#colonia').empty();
                     data.resultado.forEach(element => {
-                        console.log(element['d_asenta']);
-                        console.log(element['D_mnpio']);
+                        //console.log(element['d_asenta']);
+                        //console.log(element['D_mnpio']);
                         $('#colonia').append($('<option></option>').val(element['d_asenta']).html(element['d_asenta']));
                         //colonia = element['d_asenta'];
                         alcaldia = element['D_mnpio'];
@@ -102,14 +107,16 @@ $(document).ready(function () {
             $('#numero_domicilio').css('background', '#ffffff');
         }
     });
-    $("#terminos").on('change',function () {
-        if($('#terminos').is(':checked')) {
+    $("#terminos").on('change', function () {
+        if ($('#terminos').is(':checked')) {
             $("#nextBtn").attr("disabled", false);
             //console.log($('#terminos').value);
-            
-        }else{
+
+        } else {
             $("#nextBtn").attr("disabled", true);
-             //console.log($('#terminos').value);
+            //console.log($('#terminos').value);
         }
-     });
+    });
+   
 });
+

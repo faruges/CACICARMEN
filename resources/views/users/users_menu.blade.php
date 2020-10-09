@@ -119,7 +119,7 @@
           <p style="color:#33353d;">©Copyright Plataforma CACI, Todos los derechos reservados 2020 Gobierno CDMX / Email: <a style="color:#33353d;" href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a></p>
        </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
+        {{-- <div class="col-md-4 col-sm-6 col-xs-12">
           <ul class="social-icons">
             <li style="color:#33353d;">SIGUENOS EN:</li>
             <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
@@ -127,7 +127,7 @@
       <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
             <li><a class="dribbble" href="#"><i class="fa fa-youtube"></i></a></li>
           </ul>
-        </div>
+        </div> --}}
       </div>
     </div>
 </footer>

@@ -1,7 +1,8 @@
 @extends('users.users_inicio')
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
-  <script src="{{URL::asset('js/inscripcion.js')}}" type="text/javascript"> </script> 
+  <script src="{{URL::asset('js/inscripcion.js')}}" type="text/javascript"> </script>
+  <script src="{{URL::asset('js/usuarios.js')}}" type="text/javascript"> </script> 
 @endsection 
 @section('mycontent')
 <style>
@@ -71,10 +72,7 @@
                 <input id="name" type="text" class="form-control" name="name" placeholder="Nombre" value="{{$user->name}}" required>
             </div>
             <div>
-                <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{$user->email}}" required>                  
-            </div>
-            <div>
-                <select style="font-size: 15px;" name="role" id="role">
+                <select style="font-size: 15px;" name="rol" id="rol">
                     <option value='super_caci'>Super Caci</option>
                     <option value='caciluz'>Caci Luz</option>
                     <option value='cacieva'>Caci Eva</option>
@@ -82,6 +80,9 @@
                     <option value='cacicarolina'>Caci Carolina</option>
                     <option value='cacicarmen'>Caci Carmen</option>
                 </select>
+            </div>
+            <div>
+                <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{$user->email}}" readonly required>                  
             </div>
             <div>
                 <input id="password" type="password" class="form-control" name="password" placeholder="Nuevo password" minlength="8" required>
@@ -98,6 +99,13 @@
         </form>
     </div>
 </div>
+
+<script>
+    function getIndexCaci() {
+      document.getElementById("rol").selectedIndex = {{$pos_rol}};
+    }
+    getIndexCaci();
+</script>
 
 <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('vendor/animsition/js/animsition.min.js') }}"></script>

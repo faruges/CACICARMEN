@@ -1,137 +1,239 @@
 @extends('menu')
 @section('title','Bienvenidos Plataforma CACI')
 @section('mycontent')
+
 <style>
 
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 2px;
-  display: inline-block;
-  border: 1px solid rgb(0, 177, 64);
-  box-sizing: border-box;
-
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #00b140;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-}
-
-img.avatar {
-  width: 480%;
-  border-radius: 50%;
-}
-
-.container {
-  padding-bottom: 20px;
-  width:75%;
-  font-size: 15px;
-  font-family: Arial;
-
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  left: 50;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-
-}
-
-/* Modal */
-.modal-content {
-  background-color: #fefefe;
-  margin: 0% auto 15% auto; 
-  border: 1px solid #888;
-
-}
-
-.close:hover,
-.close:focus {
-  color: green;
-  cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 2px;
+    display: inline-block;
+    border: 1px solid rgb(0, 177, 64);
+    box-sizing: border-box;
   
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-
-}
-
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
   }
-  .cancelbtn {
-     width: 100%;
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #00b140;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
   }
-}
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+  img.avatar {
+    width: 480%;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding-bottom: 20px;
+    width:75%;
+    font-size: 15px;
+    font-family: Arial;
+  
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 50;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+  
+  }
+  
+  /* Modal */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 0% auto 15% auto; 
+    border: 1px solid #888;
+  
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: green;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  
+  }
+  
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+  
+  
+  
+  </style>
 
+<head>   
+  <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta content="width=device-width, initial-scale=1" name="viewport">
+      <meta content="" name="author">
+      <link 
+      
+      rel="stylesheet" type="text/css"><link href="{{asset('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" 
+      rel="stylesheet" type="text/css"><link href="{{asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" 
+      rel="stylesheet" type="text/css"><link href="{{asset('assets/global/plugins/select2/css/select2.min.css')}}" rel="stylesheet"
+       type="text/css"><link href="{{asset('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+       <link href="{{asset('assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css">
+       <link href="{{asset('assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css">
+       <link href="{{asset('assets/pages/css/login-5.min.css')}}" rel="stylesheet" type="text/css">
+       <meta name="csrf-token" content="US9lGZDeocuLz7sPPMlNXK1OSldkzEiTpFWwI0Pp"><style></style>
+</head>    
+       <!-- BEGIN GLOBAL MANDATORY STYLES -->
+      <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" /> -->
+  
+  
+  <body class=" login" style="margin-bottom: 30px;">
+  
+      <!-- BEGIN : LOGIN PAGE 5-1 -->
+      <div class="user-login-5">
+          <div class="row bs-reset">
+              <div class="login-bg col-md-6 bs-reset mt-login-5-bsfix" style="position: relative; z-index: 0; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
+              
+              <!--
+                  <div class="login-bg" style="background-image:url(../public/assets/pages/img/login/bg1.jpg)">
+                          <img class="login-logo" src="{{asset('img/SAF_logo_header.svg')}}" style="width:300px;float: l;margin-top:15px;"/> </div>
+                  </div>
+              -->
+              <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 302px; width: 675px; z-index: -999998; position: absolute;"><img style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 675px; height: 506.25px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -102.125px;" src="{{asset('assets/pages/img/login/cdmx3.jpg')}}"></div></div>
+              <div class="col-md-6 login-container bs-reset mt-login-5-bsfix">
+                  <img src="{{asset('img/SAF_logo_header.svg')}}" style="width:500px; margin:15 50;">
+                  <div class="login-content">
+                  
+                      <h1>SISTEMA SAF-CACI</h1>
+                      <p>CENTRO DE ATENCI&Oacute;N Y CUIDADO INFANTIL. </p>
+                      
+                      @if($errors->any())
+                <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+      <div class="alert-text">
+        @foreach ($errors->all() as $error)
+        <span>{{$error}}</span>
+        @endforeach
+      </div>
+    </div>
+    @endif
 
-
-</style>
-
-@if($errors->any())
-<div class="alert alert-danger alert-dismissible">
-  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-  <div class="alert-text">
-    @foreach ($errors->all() as $error)
-    <span>{{$error}}</span>
-    @endforeach
-  </div>
-</div>
-@endif
-<form style="width:90%;" class="modal-content animate" action="{{route('login_post')}}" method="POST" autocomplete="off">
-  @csrf
-    <a style=" text-align: center;"><img src="{{asset('img/logo CACI.png')}}" alt="Logo_CDMX"></a>
-  <div class="container">
-    <label for="usuario"><b>Nombre de usuario:</b></label>
-    <input type="text" placeholder="Nombre de usuario" name="name" required>
-    <br><br>
-    <label for="password"><b>Contraseña:</b></label>
-    <input type="password" placeholder="Contraseña" name="password" required>
-    <br><br>
-    <button type="submit">Entrar</button>
-  </div>
-</form>
-
+                      <form method="POST" class="login-form" action="{{route('login_post')}}" novalidate="novalidate">
+                        @csrf
+                      {{--  <input type="hidden" name="_token" value="US9lGZDeocuLz7sPPMlNXK1OSldkzEiTpFWwI0Pp">                          --}}
+                      <div class="row">
+                                                      
+                      </div>
+                      <br><br><br>
+                          <div class="alert alert-danger display-hide">
+                              <button class="close" data-close="alert"></button>
+                              <span>Ingrese los datos Solicitados </span>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-6">
+                                  <input id="name" type="text" class="form-control form-control-solid placeholder-no-fix form-group" autocomplete="off" autofocus="" placeholder="Ingresa el usuario" name="name" required="" value="" aria-required="true">
+                                  
+                              </div>
+                                  
+                              <div class="col-xs-6">
+                                  <input class="form-control form-control-solid placeholder-no-fix form-group" id="password" type="password" autocomplete="off" placeholder="Contraseña" name="password" required="" aria-required="true"> 
+                              </div>
+                          </div>
+                          
+                          <div class="row">
+                              <!--<div class="col-sm-4">
+                                  <div class="rem-password">
+                                      <label class="rememberme mt-checkbox mt-checkbox-outline">
+                                          <input type="checkbox" name="remember" value="1" /> Remember me
+                                          <span></span>
+                                      </label>
+                                  </div>
+                              </div>-->
+                              
+                             <div class="col-sm-8 text-left">
+                                 
+                                  <button type="submit" class="btn btn-primary">
+                                  Entrar
+                              </button>
+                                
+                              </div>
+                          </div>
+                      </form>
+                      <!-- BEGIN FORGOT PASSWORD FORM -->
+                      <!--<form class="forget-form" action="javascript:;" method="post">
+                          <h3 class="font-green">Forgot Password ?</h3>
+                          <p> Enter your e-mail address below to reset your password. </p>
+                          <div class="form-group">
+                              <input class="form-control placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Email" name="email" /> </div>
+                          <div class="form-actions">
+                              <button type="button" id="back-btn" class="btn green btn-outline">Back</button>
+                              <button type="submit" class="btn btn-success uppercase pull-right">Submit</button>
+                          </div>
+                      </form>-->
+                      <!-- END FORGOT PASSWORD FORM -->
+                  </div>
+                 
+              </div>
+          </div>
+      </div>
+      
+      <!-- END CORE PLUGINS -->
+      <!-- BEGIN PAGE LEVEL PLUGINS -->
+      <script src="{{asset('assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}" type="text/javascript"></script>
+      <script src="{{asset('assets/global/plugins/jquery-validation/js/additional-methods.min.js')}}" type="text/javascript"></script>
+      <script src="{{asset('assets/global/plugins/select2/js/select2.full.min.js')}}" type="text/javascript"></script>
+      <script src="{{asset('assets/global/plugins/backstretch/jquery.backstretch.min.js')}}" type="text/javascript"></script>
+      <!-- END PAGE LEVEL PLUGINS -->
+      <!-- BEGIN THEME GLOBAL SCRIPTS -->
+      <script src="{{asset('assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
+      <!-- END THEME GLOBAL SCRIPTS -->
+      <!-- BEGIN PAGE LEVEL SCRIPTS -->
+      <script src="{{asset('assets/pages/scripts/login-5.min.js')}}" type="text/javascript"></script>
+      
+  
+</body>
 
 
 @endsection

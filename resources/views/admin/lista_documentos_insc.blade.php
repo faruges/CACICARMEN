@@ -101,15 +101,15 @@
                         <div class="row row-margin"><h3>Calle:</h3><label class="font-label">{{$reinsc->calle}}</label></div>
                         <div class="row row-margin"><h3>N&uacute;mero:</h3><label class="font-label">{{$reinsc->numero_domicilio}}</label></div>
                         <div class="row row-margin"><h3>Colonia:</h3><label class="font-label">{{$reinsc->colonia}}</label></div>
-                        <div class="row row-margin"><h3>Alcaldia:</h3><label class="font-label">{{$reinsc->alcaldia}}</label></div>
-                        <div class="row row-margin"><h3>Codigo Postal:</h3><label class="font-label">{{$reinsc->codigo_postal}}</label></div>
+                        <div class="row row-margin"><h3>Alcald&iacute;a:</h3><label class="font-label">{{$reinsc->alcaldia}}</label></div>
+                        <div class="row row-margin"><h3>C&oacute;digo Postal:</h3><label class="font-label">{{$reinsc->codigo_postal}}</label></div>
                         
-                        <div class="row row-margin"><h3>Tipo Nomina:</h3><label class="font-label">{{$reinsc->tipo_nomina_1}}</label></div>
-                        <div class="row row-margin"><h3>Numero Empleado:</h3><label class="font-label">{{$reinsc->num_empleado_1}}</label></div>
-                        <div class="row row-margin"><h3>Numero Plaza:</h3><label class="font-label">{{$reinsc->num_plaza_1}}</label></div>
+                        <div class="row row-margin"><h3>Tipo N&oacute;mina:</h3><label class="font-label">{{$reinsc->tipo_nomina_1}}</label></div>
+                        <div class="row row-margin"><h3>N&uacute;mero Empleado:</h3><label class="font-label">{{$reinsc->num_empleado_1}}</label></div>
+                        <div class="row row-margin"><h3>N&uacute;mero Plaza:</h3><label class="font-label">{{$reinsc->num_plaza_1}}</label></div>
                         <div class="row row-margin"><h3>Clave Dependencia:</h3><label class="font-label">{{$reinsc->clave_dependencia_1}}</label></div>
                         <div class="row row-margin"><h3>Nivel Salarial:</h3><label class="font-label">{{$reinsc->nivel_salarial_1}}</label></div>
-                        <div class="row row-margin"><h3>Seccion Sindical:</h3><label class="font-label">{{$reinsc->seccion_sindical_1}}</label></div>
+                        <div class="row row-margin"><h3>Secci&oacute;n Sindical:</h3><label class="font-label">{{$reinsc->seccion_sindical_1}}</label></div>
 
                         <div class="row row-margin"><h3>Email:</h3><label class="font-label">{{$reinsc->email_correo}}</label></div>
                         <div class="row row-margin"><h3>Telefono Uno:</h3><label class="font-label">{{$reinsc->telefono_celular}}</label></div>

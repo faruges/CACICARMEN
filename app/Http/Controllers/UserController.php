@@ -8,6 +8,7 @@ use App\Repositories\UserRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\DB;
 use Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -31,9 +32,11 @@ class UserController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $users = $this->userRepository->all();        
+        $users = $this->userRepository->all();  
+        $rol_user = Session::get('rolName');
+//        dd($rol_user);  
         return view('users.index')
-            ->with('users', $users);
+            ->with(['users' => $users,'rol_user'=>$rol_user]);
     }
 
     /**
@@ -55,9 +58,10 @@ class UserController extends AppBaseController
      */
     public function store(CreateUserRequest $request)
     {
-        //dd($request->rol);
+        //dd($request->all());
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
+        $input['status'] = '1';
         $user = $this->userRepository->create($input);
         $user->assignRole($request->rol);
 
@@ -98,14 +102,35 @@ class UserController extends AppBaseController
     public function edit($id)
     {
         $user = $this->userRepository->find($id);
+        $position_rol = null;
 
         if (empty($user)) {
             Flash::error('User not found');
 
             return redirect(route('users.index'));
         }
-
-        return view('users.edit')->with('user', $user);
+        $rol = implode(" ", $user->getRoleNames()->toArray());
+        switch ($rol) {
+            case 'super_caci':
+                $position_rol ='0';
+                break;
+            case 'caciluz':
+                $position_rol ='1';
+                break;
+            case 'cacieva':
+                $position_rol ='2';
+                break;
+            case 'cacibertha':
+                $position_rol ='3';
+                break;
+            case 'cacicarolina':
+                $position_rol ='4';
+                break;
+            case 'cacicarmen':
+                $position_rol ='5';
+                break;
+        }
+        return view('users.edit')->with(['user' => $user, 'pos_rol' => $position_rol]);
     }
 
     /**
@@ -118,7 +143,7 @@ class UserController extends AppBaseController
      */
     public function update($id,UpdateUserRequest $request)
     {
-        //dd($request->role);
+        //dd($request->rol);
         $user = $this->userRepository->find($id);
 
         if (empty($user)) {
@@ -134,7 +159,7 @@ class UserController extends AppBaseController
 
         $user = $this->userRepository->update($request->all(), $id);
         $user->roles()->detach();
-        $user->assignRole($request->role);
+        $user->assignRole($request->rol);
 
         //return response()->json();
         //Flash::success('User updated successfully.');
@@ -157,15 +182,36 @@ class UserController extends AppBaseController
         $user = $this->userRepository->find($id);
 
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('Usuario no se encontro');
 
             return redirect(route('users.index'));
         }
 
-        $this->userRepository->delete($id);
+        //$this->userRepository->delete($id);
+        //$this->userRepository->update(['status' => '-1'],$id);
+        DB::table('users')
+                ->where('id', $id)
+                ->update(['status' => '-1']);
 
         //Flash::success('User deleted successfully.');
         Session::flash('mensaje', 'Usuario se elimino exitosamente!'); 
+
+        return redirect(route('users.index'));
+    }
+    public function reactive($id)
+    {
+        $user = $this->userRepository->find($id);
+
+        if (empty($user)) {
+            Flash::error('Usuario no se encontro');
+
+            return redirect(route('users.index'));
+        }
+        DB::table('users')
+                ->where('id', $id)
+                ->update(['status' => '1']);
+        
+        Session::flash('mensaje', 'Usuario se reactivo exitosamente!'); 
 
         return redirect(route('users.index'));
     }

@@ -21,7 +21,7 @@ class User extends Authenticatable
     protected $remember_token = false;
     protected $table = 'users';
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','status',
     ];
     protected $guarded = ['id'];
 
