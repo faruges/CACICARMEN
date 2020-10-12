@@ -2,129 +2,9 @@
 @section('title','Bienvenidos Plataforma CACI')
 @section('mycontent')
 
-<style>
 
-  input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 2px;
-    display: inline-block;
-    border: 1px solid rgb(0, 177, 64);
-    box-sizing: border-box;
-  
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /* Set a style for all buttons */
-  button {
-    background-color: #00b140;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
-  
-  /* Center the image and position the close button */
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    position: relative;
-  }
-  
-  img.avatar {
-    width: 480%;
-    border-radius: 50%;
-  }
-  
-  .container {
-    padding-bottom: 20px;
-    width:75%;
-    font-size: 15px;
-    font-family: Arial;
-  
-  }
-  
-  /* The Modal (background) */
-  .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 50;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-  
-  }
-  
-  /* Modal */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 0% auto 15% auto; 
-    border: 1px solid #888;
-  
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: green;
-    cursor: pointer;
-  }
-  
-  /* Add Zoom Animation */
-  .animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-  }
-  
-  @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
-  }
-    
-  @keyframes animatezoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
-  
-  }
-  
-  @media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-  }
-  
-  
-  
-  </style>
 
-<head>   
-  <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta content="width=device-width, initial-scale=1" name="viewport">
-      <meta content="" name="author">
-      <link 
-      
-      rel="stylesheet" type="text/css"><link href="{{asset('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" 
-      rel="stylesheet" type="text/css"><link href="{{asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" 
-      rel="stylesheet" type="text/css"><link href="{{asset('assets/global/plugins/select2/css/select2.min.css')}}" rel="stylesheet"
-       type="text/css"><link href="{{asset('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css">
-       <link href="{{asset('assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css">
-       <link href="{{asset('assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css">
-       <link href="{{asset('assets/pages/css/login-5.min.css')}}" rel="stylesheet" type="text/css">
-       <meta name="csrf-token" content="US9lGZDeocuLz7sPPMlNXK1OSldkzEiTpFWwI0Pp"><style></style>
-</head>    
+ 
        <!-- BEGIN GLOBAL MANDATORY STYLES -->
       <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" /> -->
   
@@ -146,8 +26,8 @@
                   <img src="{{asset('img/SAF_logo_header.svg')}}" style="width:500px; margin:15 50;">
                   <div class="login-content">
                   
-                      <h1>SISTEMA SAF-CACI</h1>
-                      <p>CENTRO DE ATENCI&Oacute;N Y CUIDADO INFANTIL. </p>
+                      <h1 style="font-family: "Open Sans",sans-serif;">SISTEMA SAF-CACI</h1>
+                      <p style="font-family: "Open Sans",sans-serif;">CENTRO DE ATENCI&Oacute;N Y CUIDADO INFANTIL. </p>
                       
                       @if($errors->any())
                 <div class="alert alert-danger alert-dismissible">
@@ -167,10 +47,10 @@
                                                       
                       </div>
                       <br><br><br>
-                          <div class="alert alert-danger display-hide">
+                          {{--  <div class="alert alert-danger display-hide">
                               <button class="close" data-close="alert"></button>
                               <span>Ingrese los datos Solicitados </span>
-                          </div>
+                          </div>  --}}
                           <div class="row">
                               <div class="col-xs-6">
                                   <input id="name" type="text" class="form-control form-control-solid placeholder-no-fix form-group" autocomplete="off" autofocus="" placeholder="Ingresa el usuario" name="name" required="" value="" aria-required="true">

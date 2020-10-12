@@ -33421,7 +33421,7 @@ body.swal2-height-auto {
         padding-left: 1.2rem; } }
 
 body {
-  background: #f9f9fc; }
+  background: #ffffff; }
   body .kt-container .kt-container {
     width: 100%; }
 
@@ -33536,7 +33536,7 @@ body {
   .kt-header--fixed.kt-header--minimize {
     padding-top: 170px; }
   .kt-header--minimize-all.kt-header--fixed.kt-header--minimize .kt-header .kt-header__bottom {
-    border-top: 1px solid #ebedf2; }
+    border-top: 1px solid #fff; }
   .kt-header--minimize-topbar.kt-header--fixed.kt-header--minimize .kt-header .kt-header__bottom {
     display: none; }
   .kt-header--minimize-menu.kt-header--fixed.kt-header--minimize .kt-header .kt-header__top {
