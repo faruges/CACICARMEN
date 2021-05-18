@@ -62,13 +62,13 @@ class InscripcionController extends Controller
                 }
             }
             $data['user'] = $array['data'];
-
+            /* dd($data); */
             /* return response()->json($data); */
-            return view('inscripcion_from', compact('data'));
+            return view('preinscripcion', compact('data'));
             //return redirect('/formulario_inscripcion')->with('data', $data);
         } catch (\Throwable $th) {
             /* dd($th); */
-            return redirect('/inscripcion_from')->withErrors(['error' => 'RFC no se encuentra en nuestros registros']);
+            return redirect('/preinscripcion_validar_rfc')->withErrors(['error' => 'RFC no se encuentra en nuestros registros']);
         }
     }
 
@@ -84,6 +84,9 @@ class InscripcionController extends Controller
             'nombre_tutor_madres' => 'required|string',
             'apellido_paterno_tutor' => 'required|string',
             'apellido_materno_tutor' => 'required|string',
+
+            'horario_laboral_ent' => 'required|string',
+            'horario_laboral_sal' => 'required|string',
 
             'calle' => 'required|string',
             'numero_domicilio' => 'required|string',
@@ -136,6 +139,11 @@ class InscripcionController extends Controller
             'codigo_postal.required' => 'Su codigo es requerido',
             'codigo_postal.numeric' => 'Su codigo postal debe ser un número',
 
+            'horario_laboral_ent.required' => 'Su horario de entrada es requerido',
+            'horario_laboral_ent.string' => 'Su horario de entrada debe ser un texto',
+            'horario_laboral_sal.required' => 'Su horario de salida es requerido',
+            'horario_laboral_sal.string' => 'Su horario de salida debe ser un texto',
+
             'tipo_nomina_1.required' => 'Su tipo de nomina es requerido',
             'tipo_nomina_1.string' => 'Su tipo de nomina debe ser un texto',
             'num_empleado_1.required' => 'Su numero de empleado es requerido',
@@ -176,8 +184,8 @@ class InscripcionController extends Controller
             'filename_vacu.max' => 'La Cartilla de vacunación no debe de exceder el tamaño de 2Mb',
             'filename_nac.mimes' => 'Certificado de nacimiento no es valido',
             'filename_nac.max' => 'Certificado de nacimiento no debe de exceder el tamaño de 2Mb',
-            'filename_com.mimes' => 'Carta compromiso no es valido',
-            'filename_com.max' => 'Carta compromiso no debe de exceder el tamaño de 2Mb',
+            'filename_com.mimes' => 'CURP no es valido',
+            'filename_com.max' => 'CURP no debe de exceder el tamaño de 2Mb',
             'filename_cert.mimes' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no es valido',
             'filename_cert.max' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no debe de exceder el tamaño de 2Mb',
             'filename_rec.mimes' => 'Último recibo de pago impreso del(a) trabajador (a). no es valido',

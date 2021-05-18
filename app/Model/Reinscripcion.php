@@ -14,7 +14,7 @@ class Reinscripcion extends Model
         'tipo_nomina', 'num_empleado', 'num_plaza', 'clave_dependencia','nivel_salarial', 'seccion_sindical', 'horario_laboral',
         'email', 'telefono_uno', 'telefono_dos', 'horario_laboral_ent',
         'horario_laboral_sal', 'nombre_menor', 'ap_paterno', 'ap_materno', 'curp', 'fecha_nacimiento', 'edad_menor_ingreso',
-        'caci','correo_enviado','created_at'
+        'caci','terminos','correo_enviado','created_at'
     ];
     protected $guarded = ['id'];
     public $timestamps = true;

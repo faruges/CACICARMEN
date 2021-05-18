@@ -10,19 +10,26 @@ function mayus(objeto_input) {
     objeto_input.value = objeto_input.value.toUpperCase();
 }
 
-function allFilesAreCorrect(){
+function allFilesAreCorrect() {
 
 }
-
 $(document).ready(function () {
     var act_supera_tamanio_permitido = false;
+    //se deshabilita el boton enviar
+    $("#enviar").attr("disabled", true);
     $("#curp").blur(function () {
         var curpValido = $("#curp").val();
         const valCurp = '[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]';
         var validado = curpValido.match(valCurp);
         if (!validado) {
             $("#curp").val('');
-            alert("Curp no válido");
+            /* alert("Curp no válido"); */
+            Swal.fire({
+                icon: 'warning',
+                title: 'Curp no válido',
+                showConfirmButton: true,
+                allowOutsideClick: false
+            });
         } else {
             //alert("Curp valido");
         }
@@ -109,14 +116,150 @@ $(document).ready(function () {
     });
     $("#terminos").on('change', function () {
         if ($('#terminos').is(':checked')) {
-            $("#nextBtn").attr("disabled", false);
+            $("#enviar").attr("disabled", false);
             //console.log($('#terminos').value);
 
         } else {
-            $("#nextBtn").attr("disabled", true);
+            $("#enviar").attr("disabled", true);
             //console.log($('#terminos').value);
         }
     });
-   
-});
 
+    $("#filename_act").on('change', function () {
+        act_supera_tamanio_permitido = true;
+        console.log(act_supera_tamanio_permitido);
+        const tamanioArchivoPermitido = 2000000;
+        var dato_archivo_act = $('#filename_act').prop("files")[0];
+        if(dato_archivo_act.size > tamanioArchivoPermitido){
+            //console.log(dato_archivo_act.size);
+            //$("#nextBtn").attr("disabled", true);
+            Swal.fire({
+                title: 'El tamaño del archivo no debe de exceder los 2 Mb',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ok',
+                allowOutsideClick: false
+          });    
+        }else{
+            //alert("si hiciste caso se habilita boton");
+            act_supera_tamanio_permitido = false;
+            console.log(act_supera_tamanio_permitido);
+            $("#nextBtn").attr("disabled", false);
+        }
+    });
+    $("#filename_nac").on('change', function () {
+        nac_supera_tamanio_permitido = true;
+        const tamanioArchivoPermitido = 2000000;
+        var dato_archivo_act = $('#filename_nac').prop("files")[0];
+        if(dato_archivo_act.size > tamanioArchivoPermitido){
+            //console.log(dato_archivo_act.size);
+            //$("#nextBtn").attr("disabled", true);
+            Swal.fire({
+                title: 'El tamaño del archivo no debe de exceder los 2 Mb',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ok',
+                allowOutsideClick: false
+          });    
+        }else{
+            //alert("si hiciste caso se habilita boton");
+            nac_supera_tamanio_permitido = false;
+            $("#nextBtn").attr("disabled", false);
+        }
+    });
+    $("#filename_vacu").on('change', function () {
+        vac_supera_tamanio_permitido = true;
+        const tamanioArchivoPermitido = 2000000;
+        var dato_archivo_act = $('#filename_vacu').prop("files")[0];
+        if(dato_archivo_act.size > tamanioArchivoPermitido){
+            //console.log(dato_archivo_act.size);
+            //$("#nextBtn").attr("disabled", true);
+            Swal.fire({
+                title: 'El tamaño del archivo no debe de exceder los 2 Mb',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ok',
+                allowOutsideClick: false
+          });    
+        }else{
+            vac_supera_tamanio_permitido = false;
+            $("#nextBtn").attr("disabled", false);
+        }
+    });
+    $("#filename_com").on('change', function () {
+        curp_supera_tamanio_permitido = true;
+        const tamanioArchivoPermitido = 2000000;
+        var dato_archivo_act = $('#filename_com').prop("files")[0];
+        if(dato_archivo_act.size > tamanioArchivoPermitido){
+            //console.log(dato_archivo_act.size);
+            //$("#nextBtn").attr("disabled", true);
+            Swal.fire({
+                title: 'El tamaño del archivo no debe de exceder los 2 Mb',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ok',
+                allowOutsideClick: false
+          });    
+        }else{
+          curp_supera_tamanio_permitido = false;
+            $("#nextBtn").attr("disabled", false);
+        }
+    });
+    $("#filename_disc").on('change', function () {
+        disc_supera_tamanio_permitido = true;
+        const tamanioArchivoPermitido = 2000000;
+        var dato_archivo_act = $('#filename_disc').prop("files")[0];
+        if(dato_archivo_act.size > tamanioArchivoPermitido){
+            //console.log(dato_archivo_act.size);
+            //$("#nextBtn").attr("disabled", true);
+            Swal.fire({
+                title: 'El tamaño del archivo no debe de exceder los 2 Mb',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ok',
+                allowOutsideClick: false
+          });    
+        }else{
+            disc_supera_tamanio_permitido = false;
+            $("#nextBtn").attr("disabled", false);
+        }
+    });
+    $("#filename_trab").on('change', function () {
+        trab_supera_tamanio_permitido = true;
+        const tamanioArchivoPermitido = 2000000;
+        var dato_archivo_act = $('#filename_trab').prop("files")[0];
+        if(dato_archivo_act.size > tamanioArchivoPermitido){
+            //console.log(dato_archivo_act.size);
+            //$("#nextBtn").attr("disabled", true);
+            Swal.fire({
+                title: 'El tamaño del archivo no debe de exceder los 2 Mb',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ok',
+                allowOutsideClick: false
+          });    
+        }else{
+            trab_supera_tamanio_permitido = false;
+            $("#nextBtn").attr("disabled", false);
+        }
+    });
+
+});

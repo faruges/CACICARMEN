@@ -98,7 +98,14 @@ Route::get('/inscripcion_from','InscripcionController@index')->name('inscripcion
 Route::get('/formulario_inscripcion', function () {
     return view('inscripcion_from');
 });
-Route::post('guardar_inscripcion', 'InscripcionController@getwebservice')->name('guardar_inscripcion');
+Route::get('/preinscripcion', function () {
+    return view('preinscripcion');
+});
+Route::get('/preinscripcion_validar_rfc', function () {
+    return view('preinscripcion_validar_rfc');
+});
+/* Route::post('guardar_inscripcion', 'InscripcionController@getwebservice')->name('guardar_inscripcion'); */
+Route::post('preinscripcion', 'InscripcionController@getwebservice')->name('preinscripcion');
 Route::post('guardar_inscripcion_bd', 'InscripcionController@guardar')->name('guardar_inscripcion_bd');
 
 Route::get('/reinscripcion','ReinscripcionController@index')->name('reinscripcion');

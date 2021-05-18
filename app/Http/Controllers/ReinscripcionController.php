@@ -66,7 +66,7 @@ class ReinscripcionController extends Controller
             }
             $data['user'] = $array['data'];
 
-            return view('reinscripcion', compact('data'));
+            return view('reinscripcion_tabs', compact('data'));
         } catch (\Throwable $th) {
             return redirect('/reinscripcion')->withErrors(['error' => 'RFC no se encuentra en nuestros registros']);
         }
@@ -84,6 +84,9 @@ class ReinscripcionController extends Controller
             'nombre_tutor' => 'required|string',
             'ap_paterno_t' => 'required|string',
             'ap_materno_t' => 'required|string',
+
+            'horario_laboral_ent' => 'required|string',
+            'horario_laboral_sal' => 'required|string',
 
             'calle' => 'required|string',
             'numero_domicilio' => 'required|string',
@@ -127,6 +130,11 @@ class ReinscripcionController extends Controller
             'ap_paterno_t.string' => 'Su apellido paterno debe ser un texto',
             'ap_materno_t.required' => 'Su apellido materno es requerido',
             'ap_materno_t.string' => 'Su apellido materno debe ser un texto',
+            
+            'horario_laboral_ent.required' => 'Su horario de entrada es requerido',
+            'horario_laboral_ent.string' => 'Su horario de entrada debe ser un texto',
+            'horario_laboral_sal.required' => 'Su horario de salida es requerido',
+            'horario_laboral_sal.string' => 'Su horario de salida debe ser un texto',
 
             'calle.required' => 'Su calle es requerido',
             'calle.string' => 'Su calle debe ser un texto',
@@ -179,8 +187,8 @@ class ReinscripcionController extends Controller
             'filename_vacu.max' => 'La Cartilla de vacunación no debe de exceder el tamaño de 2Mb',
             'filename_nac.mimes' => 'Certificado de nacimiento no es valido',
             'filename_nac.max' => 'Certificado de nacimiento no debe de exceder el tamaño de 2Mb',
-            'filename_com.mimes' => 'Carta compromiso no es valido',
-            'filename_com.max' => 'Carta compromiso no debe de exceder el tamaño de 2Mb',
+            'filename_com.mimes' => 'CURP no es valido',
+            'filename_com.max' => 'CURP no debe de exceder el tamaño de 2Mb',
             'filename_cert.mimes' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no es valido',
             'filename_cert.max' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no debe de exceder el tamaño de 2Mb',
             'filename_rec.mimes' => 'Último recibo de pago impreso del(a) trabajador (a). no es valido',

@@ -18,7 +18,7 @@
   <div class="accordion-content" id="item1">
       <p>Dr. Claudio Bernard No.123 </p>
       <p>Col.Doctores C.P. 06720</p>
-      <p>Alcaldia. Cuauhtémoc</p>
+      <p>Alcaldía. Cuauhtémoc</p>
       <p>Tel: 55-88-33-20</p>  
       <p>Tel. 51-34-25-50</p>      
   </div>
@@ -35,7 +35,7 @@
   <div class="accordion-content" id="item2">
       <p>Dr. Lavista No. 54 </p>
       <p>Col.Doctores C.P. 06720</p>
-      <p>Alcaldia. Cuauhtémoc</p>
+      <p>Alcaldía. Cuauhtémoc</p>
       <p>Tel: 55-78-76-76</p>
   </div>
   <div style="background-color: #f2f2f2;" class="accordion-title">
@@ -51,7 +51,7 @@
   <div class="accordion-content" id="item3">
       <p>Jesús García No. 63</p>
       <p>Col. Buenavista C.P6706350</p>
-      <p>Alcaldia. Cuauhtémoc</p>
+      <p>Alcaldía. Cuauhtémoc</p>
       <p>Tel. 55-92-70-98</p>
       <p>Tel. 55-66-19-29</p>
   </div>
@@ -68,7 +68,7 @@
   <div class="accordion-content" id="item4">
       <p>Oriente 42 No. 360 entre Lorenzo Boturini y Avenida del Taller</p>
       <p>Col. 24 de Abril C.67 15980</p>
-      <p>Alcaldia. Venustiano Carranza</p>
+      <p>Alcaldía. Venustiano Carranza</p>
       <p>Tel. 57-64-40-36</p>
       <p>Tel. 55-52-03-63</p>
   </div>
@@ -85,7 +85,7 @@
   <div class="accordion-content" id="item5">
       <p>Plaza Benito Juárez No. 10</p>
       <p>Col. Gabriel Ramos Millán C.P. 08000</p>
-      <p>Alcaldia. Iztacalco</p>
+      <p>Alcaldía. Iztacalco</p>
       <p>Tel. 56-57-26-89</p>
       <p>Tel. 56-34-38-58</p>
   </div>
