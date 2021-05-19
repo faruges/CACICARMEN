@@ -106,7 +106,7 @@ function validaCurp() {
                     $("#nextBtn").attr("disabled", false);
                     /* alert("La curp ingresada ha sido validada correctamente"); */
                     Swal.fire({
-                        icon: 'warning',
+                        icon: 'success',
                         title: 'La curp ingresada ha sido validada correctamente',
                         showConfirmButton: true,
                         allowOutsideClick: true

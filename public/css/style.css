@@ -84,9 +84,12 @@
     padding: 7px;
     width: 100%;
     font-size: 15px;
-    font-family: Arial;
-    border: 3px solid #00b140;
-    border-radius: 15px;
+    color: #495057;
+    /* font-family: Arial; */
+    /* border: 3px solid #00b140; */
+    border-radius: 3px;
+    outline: none;
+    border: none;
   }
 
   input.invalid {
@@ -109,7 +112,20 @@
     font-family: Arial;
     cursor: pointer;
   }
-
+  .style-green   {
+    background-color: #00b140;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: Arial;
+    cursor: pointer;
+  }
+  
+  .style-green:hover {
+    opacity: 0.8;
+    color: #fff;
+  }
   button:hover {
     opacity: 0.8;
   }

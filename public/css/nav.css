@@ -47,6 +47,51 @@ img{
   }
 }
 
+@media screen and (min-width: 501px) {
+  .logo_cdmx{
+    width: 400px; 
+    height: 100px; 
+    padding-top: 10px;
+  }
+  .logo_caci{
+    width: 250px; 
+    padding-top: 5px;
+  }
+  .logo_cdmx_login{
+    margin-left:2rem; 
+    width:500px; 
+    margin:15 50;
+  }
+}
+@media screen and (max-width: 500px) {
+  .logo_cdmx{
+    width: 250px; 
+    height: 40px; 
+    padding-top: 1px;
+  }
+  .logo_caci{
+    width: 250px; 
+    height: 40px; 
+    padding-top: 1px;
+  }
+  .logo_cdmx_login{
+    margin-left:1rem; 
+    width:180px; 
+    margin:15 50;
+  }
+}
+.menumargin{
+  margin-left:9rem;  
+  opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .menumargin{
+    margin-left:66%;  
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {

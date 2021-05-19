@@ -41,66 +41,6 @@
                 aria-labelledby="kt_tab_pane_1_4">
                 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
 
-                <div class="alert">
-                    <!--<a  href="#" class="close_btn"><i class="fa fa-2x fa-times"></i></a>-->
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div style="background-color: #054a41;" class="col-sm-12">
-                                <h1 style="color:#FFF; text-align: center; ">Calendario de reinscripción</h1>
-                                <div class="col-sm-12">
-                                    <h3 style="color:#FFF; text-align: center;" id="letra_banner">Primera estapa de
-                                        reinscripción</h4>
-                                        <h3 style="color:#FFF; text-align: center;" id="letra_banner"><u>Del 20 agosto
-                                                al 4 de septiembre</u></h4>
-                                            <h3 style="color:#FFF; text-align: center;" id="letra_banner">Periodo
-                                                extraordinario</h4>
-                                                <h3 style="color:#FFF; text-align: center;" id="letra_banner"><u>Del 7
-                                                        al 11 de septiembre</u></h4><br>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12" style="margin-top: 2%;">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2>
-                                        </i>1. Cargar la siguiente documentación en versión digital (PDF):</li>
-                                        <h5>a) Acta de nacimiento original por ambos lados, del o la menor.</h5>
-                                        <h5>b) Certicado de nacimiento del o la menor.</h5>
-                                        <h5>c) Cartilla de vacunación al corriente.</h5>
-                                        <h5>d) Clave Única de Registro de Población, (CURP) del o la menor.</h5>
-                                        <h5>e) Si el menor presenta algún tipo de discapacidad o enfermedad crónica,
-                                            adjuntar documentación clínica
-                                            y diagnóstico de la condición y del tratamiento que recibe.</h5>
-                                        <h5>f) En caso de que la madre o el padre del o la menor, no sean los
-                                            solicitantes del servicio, la persona
-                                            tutora trabajadora del gobierno, adjuntar el documento legal que dictamine
-                                            la patria potestad y/o guarda y
-                                            custodia.</h5>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        </i>2. Entregar en original la siguiente documentación:</li>
-                                        <h5>a) Acta de nacimiento del o la menor, excepto quienes ingresan a preescolar
-                                            2 y 3.</h5>
-                                        <h5>b) Cartilla de vacunación del o la menor.</h5>
-                                        <h5>c) Análisis clínicos. Debido a la contingencia sanitaria deberán entregarse
-                                            durante los primeros tres
-                                            meses, a partir del primer día de servicio.</h5>
-                                        <h5>d) Seis fotografías tamaño infantil recientes e iguales, del o la menor.
-                                        </h5>
-                                        <h5>e) Cuatro fotografías tamaño infantil, recientes e iguales del o la
-                                            trabajador(a).</h5>
-                                        <h5>f) Cuatro fotografías tamaño infantil, recientes e iguales, de dos personas
-                                            mayores de edad autorizadas
-                                            por el (la) solicitante del servicio para recoger a la o el menor.</h5>
-                                        </i>3. Llenar el siguiente formulario</li>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer"></div>
-                    </div>
-                </div>
-
                 <body>
                     <div class="fondo" style="padding: 5rem;">
                         <h1 style="color: #054a41;">Reinscripción a los Centros de Atención y Cuidado Infantil</h1><br>
@@ -209,102 +149,162 @@
 
                                     <label style="color:#00b140;">Datos de la niña o niño</label><br>
 
-                                    <p>Nombre(s)<input type="text" id="nombre_menor_1" placeholder="Nombre(s) del menor"
-                                            title="Nombre(s) del menor" oninput="this.className = ''"
-                                            name="nombre_menor_1" readonly></p>
-                                    <p>Apellido paterno<input type="text" id="apellido_paterno_1"
-                                            placeholder="Apellido paterno" title="Apellido paterno"
-                                            oninput="this.className = ''" name="apellido_paterno_1" readonly></p>
-                                    <p>Apellido materno
-                                        <input type="text" id="apellido_materno_1" placeholder="Apellido materno"
-                                            title="Apellido materno" oninput="this.className = ''"
-                                            name="apellido_materno_1" readonly></p>
-                                    <p>CURP<input type="text" id="curp_num" placeholder="CURP" title="CURP"
-                                            oninput="this.className = ''" name="curp_num"
-                                            pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]"
-                                            onkeyup="mayus(this);" readonly></p>
+                                    <div class="form-group">
+                                        <p>Nombre(s)<input type="text" id="nombre_menor_1"
+                                                placeholder="Nombre(s) del menor" title="Nombre(s) del menor"
+                                                oninput="this.className = ''" name="nombre_menor_1" readonly></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <p>Apellido paterno<input type="text" id="apellido_paterno_1"
+                                                placeholder="Apellido paterno" title="Apellido paterno"
+                                                oninput="this.className = ''" name="apellido_paterno_1" readonly></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <p>Apellido materno
+                                            <input type="text" id="apellido_materno_1" placeholder="Apellido materno"
+                                                title="Apellido materno" oninput="this.className = ''"
+                                                name="apellido_materno_1" readonly></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <p>CURP<input type="text" id="curp_num" placeholder="CURP" title="CURP"
+                                                oninput="this.className = ''" name="curp_num"
+                                                pattern="[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]"
+                                                onkeyup="mayus(this);" readonly></p>
+                                    </div>
 
-                                    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;"
-                                        for="birthday">Fecha de
-                                        Nacimiento de la niña o niño:</h5>
-                                    <input type="text" id="birthday" placeholder="Fecha de Nacimiento del menor"
-                                        title="Fecha de Nacimiento del menor" oninput="this.className = ''"
-                                        name="birthday" readonly>
+                                    <div class="form-group">
+                                        <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;"
+                                            for="birthday">Fecha de
+                                            Nacimiento de la niña o niño:</h5>
+                                        <input type="text" id="birthday" placeholder="Fecha de Nacimiento del menor"
+                                            title="Fecha de Nacimiento del menor" oninput="this.className = ''"
+                                            name="birthday" readonly>
+                                    </div>
 
-                                    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Edad de
-                                        la niña o niño al
-                                        ingresar al plantel (Año y/o meses)</h5>
-                                    <input id="Edad_menor" type="text"
-                                        placeholder="Edad del menor al ingresar al plantel (Año o Meses)"
-                                        title="Edad del menor al ingresar al plantel (Año o Meses)"
-                                        oninput="this.className = ''" name="Edad_menor" onkeyup="mayus(this);" readonly>
-
-                                    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;"
-                                        for="cars">Centro de
-                                        Atención y
-                                        Cuidado Infantil deseado:
-                                        <select style="font-size: 15px;" name="caci" id="caci">
-                                            <option value="Luz Maria Gomez Pezuela">Luz María Gómez Pezuela</option>
-                                            <option value="Mtra Eva Moreno Sanchez">Mtra. Eva Moreno Sánchez</option>
-                                            <option value="Bertha Von Glumer Leyva">Bertha von Glumer Leyva</option>
-                                            <option value="Carolina Agazzi">Carolina Agazzi</option>
-                                            <option value="Carmen S">Carmen Serdán</option>
-                                        </select></h5>
-
-                                    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Acta de
-                                        nacimiento original
-                                        por
-                                        ambos lados de la niña o niño.</h5>
-                                    <input type="file" id="filename_act" name="filename_act"
-                                        title="El tamaño del archivo no debe exceder 2 Mb"
-                                        accept="application/msword, application/pdf">
+                                    <div class="form-group">
+                                        <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Edad
+                                            de
+                                            la niña o niño al
+                                            ingresar al plantel (Año y/o meses)</h5>
+                                        <input id="Edad_menor" type="text"
+                                            placeholder="Edad del menor al ingresar al plantel (Año o Meses)"
+                                            title="Edad del menor al ingresar al plantel (Año o Meses)"
+                                            oninput="this.className = ''" name="Edad_menor" onkeyup="mayus(this);"
+                                            readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;"
+                                            for="cars">Centro de
+                                            Atención y
+                                            Cuidado Infantil deseado:
+                                            <select style="font-size: 15px;" name="caci" id="caci">
+                                                <option value="Luz Maria Gomez Pezuela">Luz María Gómez Pezuela</option>
+                                                <option value="Mtra Eva Moreno Sanchez">Mtra. Eva Moreno Sánchez
+                                                </option>
+                                                <option value="Bertha Von Glumer Leyva">Bertha von Glumer Leyva</option>
+                                                <option value="Carolina Agazzi">Carolina Agazzi</option>
+                                                <option value="Carmen S">Carmen Serdán</option>
+                                            </select></h5>
+                                    </div>
+                                    <div class="form-group">
+                                        <label
+                                            style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Acta
+                                            de nacimiento
+                                            original por ambos lados de la niña o niño.</label>
+                                        <div></div>
+                                        <div class="custom-file">
+                                            <input type="file" id="filename_act" name="filename_act"
+                                                class="custom-file-input"
+                                                title="El tamaño del archivo no debe exceder 2 Mb"
+                                                accept="application/msword, application/pdf">
+                                            <label class="custom-file-label" for="filename_act">Examinar..</label>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="col-sm-6"><br>
-                                    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">
-                                        Certificado de nacimiento
-                                        de la
-                                        niña o niño.</h5>
-                                    <input type="file" id="filename_nac" name="filename_nac"
-                                        title="El tamaño del archivo no debe exceder 2 Mb"
-                                        accept="application/msword, application/pdf">
-                                    <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla
-                                        de vacunación al
-                                        corriente de la niña o niño.</h5>
-                                    <input type="file" id="filename_vacu" name="filename_vacu"
-                                        title="El tamaño del archivo no debe exceder 2 Mb"
-                                        accept="application/msword, application/pdf">
-                                    <h5 style="font-family: Arial, Helvetica; color:#777777;">CURP de la niña o niño.
-                                    </h5>
-                                    <input type="file" id="filename_com" name="filename_com"
-                                        title="El tamaño del archivo no debe exceder 2 Mb"
-                                        accept="application/msword, application/pdf">
-
-                                    <h5 style="font-family: Arial, Helvetica; color:#777777;">Si la niña o niño presenta
-                                        algún tipo de
-                                        discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico
-                                        de la condición y
-                                        del
-                                        tratamiento que recibe.</h5>
-                                    <input type="file" id="filename_disc" name="filename_disc"
-                                        title="El tamaño del archivo no debe exceder 2 Mb"
-                                        accept="application/msword, application/pdf">
-
-                                    <h5 style="font-family: Arial, Helvetica; color:#777777;">En caso de que la madre o
-                                        el padre del o la
-                                        menor, no sean los solicitantes del servicio, la persona tutora trabajadora del
-                                        gobierno, adjuntar
-                                        el
-                                        documento legal que dictamine la patria potestad y/o guarda y custodia.</h5>
-                                    <input type="file" id="filename_trab" name="filename_trab"
-                                        title="El tamaño del archivo no debe exceder 2 Mb"
-                                        accept="application/msword, application/pdf">
-
-                                    <br>
+                                    <div class="form-group">
+                                        <label
+                                            style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Certificado
+                                            de nacimiento
+                                            de la
+                                            niña o niño.</label>
+                                        <div></div>
+                                        <div class="custom-file">
+                                            <input type="file" id="filename_nac" name="filename_nac"
+                                                class="custom-file-input" class="custom-file-input"
+                                                title="El tamaño del archivo no debe exceder 2 Mb"
+                                                accept="application/msword, application/pdf">
+                                            <label class="custom-file-label" for="filename_nac">Examinar..</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label
+                                            style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla
+                                            de vacunación al
+                                            corriente de la niña o niño.</label>
+                                        <div></div>
+                                        <div class="custom-file">
+                                            <input type="file" id="filename_vacu" name="filename_vacu"
+                                                class="custom-file-input"
+                                                title="El tamaño del archivo no debe exceder 2 Mb"
+                                                accept="application/msword, application/pdf">
+                                            <label class="custom-file-label" for="filename_vacu">Examinar..</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label
+                                            style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">CURP
+                                            de la niña o niño.</label>
+                                        <div></div>
+                                        <div class="custom-file">
+                                            <input type="file" id="filename_com" name="filename_com"
+                                                class="custom-file-input"
+                                                title="El tamaño del archivo no debe exceder 2 Mb"
+                                                accept="application/msword, application/pdf">
+                                            <label class="custom-file-label" for="filename_com">Examinar..</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Si
+                                            la niña o niño presenta
+                                            algún tipo de
+                                            discapacidad o enfermedad crónica, adjuntar documentación clínica y
+                                            diagnóstico
+                                            de la condición y
+                                            del
+                                            tratamiento que recibe.</label>
+                                        <div></div>
+                                        <div class="custom-file">
+                                            <input type="file" id="filename_disc" name="filename_disc"
+                                                class="custom-file-input"
+                                                title="El tamaño del archivo no debe exceder 2 Mb"
+                                                accept="application/msword, application/pdf">
+                                            <label class="custom-file-label" for="filename_disc">Examinar..</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">En
+                                            caso de que la madre o
+                                            el padre del o la
+                                            menor, no sean los solicitantes del servicio, la persona tutora trabajadora
+                                            del
+                                            gobierno, adjuntar
+                                            el
+                                            documento legal que dictamine la patria potestad y/o guarda y
+                                            custodia.</label>
+                                        <div></div>
+                                        <div class="custom-file">
+                                            <input type="file" id="filename_trab" name="filename_trab"
+                                                class="custom-file-input"
+                                                title="El tamaño del archivo no debe exceder 2 Mb"
+                                                accept="application/msword, application/pdf">
+                                            <label class="custom-file-label" for="filename_trab">Examinar..</label>
+                                        </div>
+                                    </div>
                                     <h4 style="color:#545151;"><i style="color: #00b140; font-size:30px;"
                                             class="fa fa-newspaper-o"></i>
-                                        <b>
-                                            Nota:</b> Los archivos soportados son .pdf, .docx. Asegúrese que sus
+                                        <b>Nota:</b> Los archivos soportados son .pdf, .docx. Asegúrese que sus
                                         archivos cumplan el requisito
                                     </h4>
                                     <h4><input id="terminos" style="width: 10%;" type="checkbox" name="terminos"
@@ -346,7 +346,7 @@
 <script>
     Swal.fire({
     title: '<strong>Atención</u></strong>',
-    icon: 'success',
+    icon: 'warning',
     html:
       '<b>Estos  datos son privados solo la madre, padre o persona tutora  es  responsable de la información capturada.</b> ' +
       '<a target="_blank" href="{{asset('img/PDF/aviso_simplificado_sitio_caci.pdf')}}"><h5 style="color: #00b140;">Ver aviso de privacidad</h5></a> ',

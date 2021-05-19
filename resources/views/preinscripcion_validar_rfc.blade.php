@@ -18,20 +18,10 @@
   input {
     padding: 10px;
     width: 100%;
-    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    border: 1px solid #00b140;
+    border-radius: 5px;
     outline: none;
     border: none;
-  }
-
-  input {
-    padding: 7px;
-    width: 100%;
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    border: 3px solid #00b140;
-    border-radius: 15px;
   }
 
   button {
@@ -59,8 +49,10 @@
  <label style="color:#777777; font-size: 40px; text-align: left; ">Preinscripción</label>
     @csrf
  <label style="color:#054a41; font-size: 24px; text-align: center;">Para iniciar el proceso de preinscripción, proporciona el siguiente dato</label>
- <label style="color:#777777; font-size: 25px; text-align: left;">RFC</label>
-    <p><input type="text" id="rfc" placeholder="RFC de la persona trabajadora"onkeyup="mayus(this);" oninput="this.className = ''" maxlength="13" name="RFC" pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$" required></p>
+ <div class="form-group">
+  <label style="color:#777777; font-size: 25px; text-align: left;">RFC<span class="text-danger"></span></label>
+  <input class="form-control" type="text" id="rfc" style="font-size: 20px;" placeholder="RFC de la persona trabajadora"onkeyup="mayus(this);" oninput="this.className = ''" maxlength="13" name="RFC" pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$" required>
+</div>
   {{-- <label style="color:#000; font-size: 25px; text-align: left;">Token</label>  --}}
     <p><input id="tokenId" placeholder="Token" oninput="this.className = ''" name="tokenId" value="SistemaDeRpueba4as4x4vdlsad" hidden></p><br>
     <button type="submit">Validar RFC</button>

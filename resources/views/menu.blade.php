@@ -11,14 +11,17 @@
 
     {{--  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>  --}}
     {{--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">  --}}
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    {{--  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>  --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     {{--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  --}}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    {{--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!--begin:: Global Optional Vendors -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    {{--  <link rel="stylesheet" href="{{ asset('assets/css/fontawesome-all.min.css')}}" />  --}}
+    {{--  <link rel="stylesheet" href="{{ asset('assets/css/fontawesome-all.min.css')}}" /> --}}
     <link href="{{ asset('assets/vendors/general/sweetalert2/dist/sweetalert2.css')}}" rel="stylesheet" type="text/css">
     <!--end:: Global Optional Vendors -->
     <link href="{{ asset('assets/vendors/custom/datatables/datatables.bundle.min.css')}}" rel="stylesheet"
@@ -27,6 +30,7 @@
     <!--begin::Global Theme Styles(used by all pages) -->
     <link href="{{ asset('assets/css/demo5/style.bundle.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/estilo_saf.css')}}" rel="stylesheet" type="text/css">
+    <script src="{{URL::asset('js/showhidemenu.js')}}"></script>
     <!--end::Global Theme Styles -->
 
 
@@ -36,7 +40,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/bulma.css')}}" />
 
-    <link href="{{asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet"
+    <link href="{{asset('assets/global/plugins/boostrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet"
         type="text/css">
     <link href="{{asset('assets/global/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet"
@@ -62,8 +66,8 @@
             <div class="level-left">
                 <div class="level-item" id="SAF-mobile">
                     <figure class="image">
-                        <img style="width: 400px; height: 80px; padding-top: 10px;"
-                            src="{{asset('img/logocdmxcaci.png')}}" alt="Imagenes">
+                        <img class="logo_cdmx" id="logo_cdmx"
+                            src="{{asset('img/logocdmxcaci.svg')}}" alt="Imagenes">
                     </figure>
                 </div>
             </div>
@@ -71,9 +75,12 @@
             <div class="level-right">
                 <div class="level-item" id="CIUADANA-mobile">
                     <figure class="image">
-                        <img style="width: 250px; padding-top: 10px;" src="{{asset('img/logo CACI.png')}}"
+                        <img class="logo_caci" id="logo_caci" src="{{asset('img/logo CACI.png')}}"
                             alt="Imagenes">
                     </figure>
+                    <button class="btn p-0 burger-icon burger-icon-left" id="kt_header_menu_mobile_bars_btn" title="Mostrar Menú" onclick="show()" style="margin-bottom:5%; display:none">
+                        <i class="fa fa-bars"></i>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -89,11 +96,13 @@
     <div class="kt-header__bottom borde_inferior">
         <div class="kt-container">
             <!-- begin: Header Menu -->
-            {{--  <button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn">
-                <i class="la la-close"></i>
-            </button>  --}}
-            <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper" style="margin-left:9rem;  opacity: 1;">
+            <button class="kt-header-menu-wrapper-close" title="Cerrar Menú" id="kt_header_menu_mobile_close_btn" onclick="hide()" style="margin-left:55%;">
+                <i class="fa fa-times"></i>
+            </button>
+            {{--  <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper" style="margin-left:66%;  opacity: 1;">                  --}}
+            <div class="kt-header-menu-wrapper menumargin" id="kt_header_menu_wrapper">
                 <div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile ">
+                    {{--  <div class="topnav" id="myTopnav kt-header-menu">  --}}
                     <ul class="kt-menu__nav">
                         <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel ">
                             <!-- kt-menu__item--open-dropdown kt-menu__item--hover -->
@@ -112,10 +121,16 @@
 
                         {{--  <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel ">
                             <a href="{{url('inscripcion_from')}}" class="kt-menu__link">
-                                <span class="kt-menu__link-text">Preinscripción</span>
+                        <span class="kt-menu__link-text">Preinscripción</span>
+                        <i class="kt-menu__ver-arrow la la-angle-right"></i>
+                        </a>
+                        </li> --}}
+                        <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel ">
+                            <a href="{{url('requisitos')}}" class="kt-menu__link">
+                                <span class="kt-menu__link-text">Requisitos</span>
                                 <i class="kt-menu__ver-arrow la la-angle-right"></i>
                             </a>
-                        </li>  --}}
+                        </li>
                         <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel ">
                             <a href="{{url('preinscripcion_validar_rfc')}}" class="kt-menu__link">
                                 <span class="kt-menu__link-text">Preinscripción</span>
@@ -229,8 +244,6 @@
     x.className = "topnav";
   }
 }
-
-
     </script>
 
 </body>

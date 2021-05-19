@@ -18,20 +18,10 @@
   input {
     padding: 10px;
     width: 100%;
-    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    border: 1px solid #00b140;
+    border-radius: 5px;
     outline: none;
     border: none;
-  }
-
-  input {
-    padding: 7px;
-    width: 100%;
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    border: 3px solid #00b140;
-    border-radius: 15px;
   }
 
   button {
@@ -43,7 +33,6 @@
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
   }
-
 </style>
 
 @if($errors->any())
@@ -58,17 +47,24 @@
 @endif
 
 <form id="regForm" action="{{route('guardar_reinscripcion')}}" method="POST" enctype="multipart/form-data">
-    <label style="color:#777777; font-size: 40px; text-align: left; ">Reinscripción</label>
-    @csrf
+  <label style="color:#777777; font-size: 40px; text-align: left; ">Reinscripción</label>
+  @csrf
 
-     <label style="color:#054a41; font-size: 24px; text-align: center; " >Para iniciar el proceso de reinscripción, proporciona el siguiente dato</label>
-  
-     <label style="color:#777777; font-size: 25px; text-align: left; " >RFC</label>
-    <p><input type="text" id="rfc" placeholder="RFC de la persona trabajadora" oninput="this.className = ''" onkeyup="mayus(this);" name="RFC" maxlength="13" pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$" required></p>
-    {{--  <label style="color:#000; font-size: 25px; text-align: left; " >Token</label>  --}}
-    <p><input id="tokenId" placeholder="Token" oninput="this.className = ''" name="tokenId" value="SistemaDeRpueba4as4x4vdlsad" hidden></p><br>
-    <button type="submit">Validar RFC</button>
-</form>    
+  <label style="color:#054a41; font-size: 24px; text-align: center; ">Para iniciar el proceso de reinscripción,
+    proporciona el siguiente dato</label>
+
+  <div class="form-group">
+    <label style="color:#777777; font-size: 25px; text-align: left;">RFC<span class="text-danger"></span></label>
+      <input class="form-control" type="text" id="rfc" placeholder="RFC de la persona trabajadora" oninput="this.className = ''" style="font-size: 20px;"
+        onkeyup="mayus(this);" name="RFC" maxlength="13"
+        pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$" required>
+  </div>
+
+  {{--  <label style="color:#000; font-size: 25px; text-align: left; " >Token</label>  --}}
+  <p><input id="tokenId" placeholder="Token" oninput="this.className = ''" name="tokenId"
+      value="SistemaDeRpueba4as4x4vdlsad" hidden></p><br>
+  <button type="submit">Validar RFC</button>
+</form>
 
 
 

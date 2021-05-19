@@ -14,15 +14,15 @@
     <!-- BEGIN : LOGIN PAGE 5-1 -->
     <div class="user-login-5" style="margin-top: 2rem;">
         <div class="row bs-reset">
-            <div class="login-bg col-md-6 bs-reset mt-login-5-bsfix"
+            <div class="login-bg col-6 col-sm-6 col-md-6 bs-reset mt-login-5-bsfix"
                 style="position: relative; z-index: 0; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
                 <div class="backstretch"
                     style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 302px; width: 675px; z-index: -999998; position: absolute;">
                     <img style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 675px; height: 506.25px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -102.125px;"
-                        src="{{asset('assets/pages/img/login/cdmx3.jpg')}}"></div>
+                        src="{{asset('assets/pages/img/login/cdmx3.svg')}}"></div>
             </div>
-            <div class="col-md-6 login-container bs-reset mt-login-5-bsfix">
-                <img src="{{asset('img/SAF_logo_header.svg')}}" style="margin-left:2rem; width:500px; margin:15 50;">
+            <div class="col-6 col-sm-6 col-md-6 login-container bs-reset mt-login-5-bsfix">
+                <img class="logo_cdmx_login" src="{{asset('img/SAF_logo_header.svg')}}">
                 <div class="login-content" style="margin-left: 3rem;">
                     <h1 style="font-family: " Open Sans",sans-serif;">SISTEMA SAF-CACI</h1>
                     <p style="font-family: " Open Sans",sans-serif;">CENTRO DE ATENCI&Oacute;N Y CUIDADO INFANTIL.

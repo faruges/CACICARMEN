@@ -82,6 +82,10 @@ Route::get('/informacion_destacada', function () {
     return view('informacion_destacada');
 });
 
+Route::get('/requisitos', function () {
+    return view('requisitos');
+});
+
 Route::get('/preguntas_frecuentes', function () {
     return view('preguntas_frecuentes');
 });
@@ -104,6 +108,9 @@ Route::get('/preinscripcion', function () {
 Route::get('/preinscripcion_validar_rfc', function () {
     return view('preinscripcion_validar_rfc');
 });
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 /* Route::post('guardar_inscripcion', 'InscripcionController@getwebservice')->name('guardar_inscripcion'); */
 Route::post('preinscripcion', 'InscripcionController@getwebservice')->name('preinscripcion');
 Route::post('guardar_inscripcion_bd', 'InscripcionController@guardar')->name('guardar_inscripcion_bd');
