@@ -199,6 +199,7 @@ function preinscripcion(){
     var dato_archivo_com = $('#filename_com').prop("files")[0];
     var dato_archivo_disc = $('#filename_disc').prop("files")[0];
     var dato_archivo_trab = $('#filename_trab').prop("files")[0];
+    var dato_archivo_compr_pago = $('#filename_compr_pago').prop("files")[0];
     //console.log("esto tiene", dato_archivo_act.size);
     //var dato_archivo = document.getElementById('filename_act');
     //console.log(dato_archivo);
@@ -213,6 +214,7 @@ function preinscripcion(){
     form_data.append("filename_act", dato_archivo_act);
     form_data.append("filename_vacu", dato_archivo_vacu);
     form_data.append("filename_com", dato_archivo_com);
+    form_data.append("filename_compr_pago", dato_archivo_compr_pago);
 
     $.ajax({
         type: 'POST',
@@ -335,23 +337,25 @@ function reinscripcion(){
     form_data.append("edad_menor_ingreso", $("#Edad_menor").val());
     form_data.append("terminos", $("#terminos").val());
 
-    var dato_archivo_act = $('#filename_act').prop("files")[0];
-    var dato_archivo_nac = $('#filename_nac').prop("files")[0];
+    /* var dato_archivo_act = $('#filename_act').prop("files")[0]; */
+    /* var dato_archivo_nac = $('#filename_nac').prop("files")[0]; */
     var dato_archivo_vacu = $('#filename_vacu').prop("files")[0];
-    var dato_archivo_com = $('#filename_com').prop("files")[0];
+    /* var dato_archivo_com = $('#filename_com').prop("files")[0]; */
     var dato_archivo_disc = $('#filename_disc').prop("files")[0];
-    var dato_archivo_trab = $('#filename_trab').prop("files")[0];
+    /* var dato_archivo_trab = $('#filename_trab').prop("files")[0]; */
+    var dato_archivo_compr_pago = $('#filename_compr_pago').prop("files")[0];
     
     if (dato_archivo_disc !== undefined) {
         form_data.append("filename_disc", dato_archivo_disc);
     }
-    if (dato_archivo_trab !== undefined) {
+    /* if (dato_archivo_trab !== undefined) {
         form_data.append("filename_trab", dato_archivo_trab);
-    }
-    form_data.append("filename_nac", dato_archivo_nac);
-    form_data.append("filename_act", dato_archivo_act);
+    } */
+    /* form_data.append("filename_nac", dato_archivo_nac); */
+    /* form_data.append("filename_act", dato_archivo_act); */
     form_data.append("filename_vacu", dato_archivo_vacu);
-    form_data.append("filename_com", dato_archivo_com);
+    /* form_data.append("filename_com", dato_archivo_com); */
+    form_data.append("filename_compr_pago", dato_archivo_compr_pago);
 
     $.ajax({
         type: 'POST',

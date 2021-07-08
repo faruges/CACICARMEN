@@ -93,7 +93,7 @@
                       oninput="this.className = ''" name="num_plaza_1" value="{{$value['NUM_PLAZA']}}" readonly>
                   </div>
                   <div class="form-group">
-                    <label>Áreas de adscripción<span class="text-danger"></span></label>
+                    <label>Unidad administrativa Área de adscripción<span class="text-danger"></span></label>
                     <input id="clave_dependencia_1" type="text" placeholder="Clave de la dependencia"
                       title="Clave de la dependencia" class="form-control" oninput="this.className = ''"
                       name="clave_dependencia_1" value="{{$value['Clave_Dependencia']}}" readonly>
@@ -252,10 +252,7 @@
 
                 <div class="col-sm-6"><br>
                   <div class="form-group">
-                    <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Certificado de
-                      nacimiento
-                      de la
-                      niña o niño.</label>
+                    <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Copia por ambos lados, del certificado de nacimiento, de la niña o el niño.</label>
                     <div></div>
                     <div class="custom-file">
                       <input type="file" id="filename_nac" name="filename_nac" class="custom-file-input"
@@ -264,9 +261,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla de vacunación
-                      al
-                      corriente de la niña o niño.</label>
+                    <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla de vacunación, solo las páginas de datos identificativos, esquema de vacunación y estado nutricional.</label>
                     <div></div>
                     <div class="custom-file">
                       <input type="file" id="filename_vacu" name="filename_vacu" class="custom-file-input"
@@ -285,6 +280,15 @@
                     </div>
                   </div>
                   <div class="form-group">
+                    <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Último comprobante de pago del trabajador o trabajadora.</label>
+                    <div></div>
+                    <div class="custom-file">
+                      <input type="file" id="filename_compr_pago" name="filename_compr_pago" class="custom-file-input"
+                        title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
+                      <label class="custom-file-label" for="filename_compr_pago">Examinar..</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
                     <label style="font-family: Arial, Helvetica; color:#777777;">Si la niña o niño presenta algún tipo
                       de
                       discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y
@@ -298,10 +302,9 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label style="font-family: Arial, Helvetica; color:#777777;">En caso de que la madre o el padre del
-                      o la
-                      menor, no sean los solicitantes del servicio, la persona tutora trabajadora del gobierno, adjuntar
-                      el documento legal que dictamine la patria potestad y/o guarda y custodia.</label>
+                    <label style="font-family: Arial, Helvetica; color:#777777;">En caso de que el trabajador o trabajadora no
+                       sea el padre o madre biológico, deberá anexar el 
+                      documento legal que dictamine la patria potestad y/o guarda y custodia de la niña o el niño.</label>
                     <div></div>
                     <div class="custom-file">
                       <input type="file" id="filename_trab" name="filename_trab" class="custom-file-input"

@@ -86,42 +86,39 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2>
-                                        </i>1. Cargar la siguiente documentación en versión digital (PDF):</li>
-                                        <h5>a) Acta de nacimiento original por ambos lados, del o la menor.</h5>
-                                        <h5>b) Certicado de nacimiento del o la menor.</h5>
-                                        <h5>c) Cartilla de vacunación al corriente.</h5>
-                                        <h5>d) Clave Única de Registro de Población, (CURP) del o la menor.</h5>
-                                        <h5>e) Si el menor presenta algún tipo de discapacidad o enfermedad crónica,
-                                            adjuntar documentación
-                                            clínica
-                                            y diagnóstico de la condición y del tratamiento que recibe.</h5>
-                                        <h5>f) En caso de que la madre o el padre del o la menor, no sean los
-                                            solicitantes del servicio, la
-                                            persona
-                                            tutora trabajadora del gobierno, adjuntar el documento legal que dictamine
-                                            la patria potestad y/o
-                                            guarda y
-                                            custodia.</h5>
+                                        </i>1. Enviar la siguiente documentación en versión digital (PDF):</li>
+                                        <h5>a) Acta de nacimiento original, por ambos lados, de la niña o el niño.</h5>
+                                        <h5>b) Certificado de nacimiento, por ambos lados, de la niña o el niño.</h5>
+                                        <h5>c) Cartilla de vacunación, solo las páginas de datos identificativos,
+                                            esquema de vacunación y
+                                            estado nutricional.</h5>
+                                        <h5>d) Clave Única de Registro de Población (CURP), de la niña o el niño.</h5>
+                                        <h5>e) Último comprobante del trabajador o trabajadora.</h5>
+                                        <h5>f) Si el niño o la niña presenta algún tipo de discapacidad y/o enfermedad
+                                            crónica,
+                                            anexar documentación médica con diagnóstico y tratamiento. .</h5>
+                                        <h5>g) En caso de que el trabajador o trabajadora no sea el padre o madre
+                                            biológico, deberá adjuntar
+                                            el documento legal que dictamine la patria potestad y/o guarda y custodia de
+                                            la niña o el niño.</h5>
                                     </div>
                                     <div class="col-sm-6">
-                                        </i>2. Entregar en original la siguiente documentación:</li>
-                                        <h5>a) Acta de nacimiento del o la menor.</h5>
-                                        <h5>b) Cartilla de vacunación del o la menor.</h5>
-                                        <h5>c) Análisis clínicos indicados en la confirmación de inscripción.</h5>
-                                        <h5>d) Documentación clínica y diagnóstico de la condición y del tratamiento que
-                                            recibe, en caso de
-                                            presentar algún tipo de discapacidad o enfermedad crónica.</h5>
-                                        <h5>e) Documento legal que dictamine la patria potestad o guarda y custodia.
-                                        </h5>
-                                        <h5>f) Seis fotografías tamaño infantil recientes e iguales, del o la menor.
-                                        </h5>
-                                        <h5>g) Cuatro fotografías tamaño infantil, recientes e iguales del o la
-                                            trabajador(a).</h5>
-                                        <h5>h) Cuatro fotografías tamaño infantil, recientes e iguales, de dos personas
+                                        </i>2. Presentar en original para cotejo la siguiente documentación:</li>
+                                        <h5> a) Acta de nacimiento de la niña o el niño.</h5>
+                                        <h5>b) Cartilla de vacunación completa de la niña o el niño.</h5>
+                                        <h5>c) Documentación médica con diagnóstico y tratamiento.</h5>
+                                        <h5> d) Documento legal que dictamine la patria potestad o guarda y custodia de
+                                            la niña o el niño.</h5>
+                                        </i>3. Entregar en original la siguiente documentación:</li>
+                                        <h5>a) Análisis clínicos indicados en la confirmación de inscripción.</h5>
+                                        <h5>b) Seis fotografías tamaño infantil, recientes e iguales, de la niña o el
+                                            niño.</h5>
+                                        <h5>c) Cuatro fotografías tamaño infantil, recientes, del trabajador o
+                                            trabajadora.</h5>
+                                        <h5>d) Cuatro fotografías tamaño infantil, recientes e iguales, de dos personas
                                             mayores de edad
-                                            autorizadas
-                                            por el (la) solicitante del servicio para recoger a la o el menor.</h5>
-                                        </i>3. Llenar el siguiente formulario.</li>
+                                            autorizadas por el o la solicitante del servicio para entregar y/o recoger a
+                                            la niña o niño.</h5>
                                     </div>
                                 </div>
                             </div>
@@ -139,53 +136,32 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <div style="background-color: #054a41;" class="col-sm-12">
-                                <h1 style="color:#FFF; text-align: center; ">Calendario de reinscripción</h1>
+                                <h1 style="color:#FFF; text-align: center; ">Calendario de reinscripción
+                                    ciclo escolar 2021-2022</h1>
                                 <div class="col-sm-12">
-                                    <h3 style="color:#FFF; text-align: center;" id="letra_banner">Primera estapa de
-                                        reinscripción</h4>
-                                        <h3 style="color:#FFF; text-align: center;" id="letra_banner"><u>Del 20 agosto
-                                                al 4 de septiembre</u></h4>
-                                            <h3 style="color:#FFF; text-align: center;" id="letra_banner">Periodo
-                                                extraordinario</h4>
-                                                <h3 style="color:#FFF; text-align: center;" id="letra_banner"><u>Del 7
-                                                        al 11 de septiembre</u></h4><br>
+                                    <h3 style="color:#FFF; text-align: center;" id="letra_banner"><u>Del 19 al 30 de julio</u></h4>
+                                        <h3 style="color:#FFF; text-align: center;" id="letra_banner">Periodo
+                                            extraordinario</h4>
+                                            <h3 style="color:#FFF; text-align: center;" id="letra_banner"><u>Del 02 al 06 de agosto</u></h4><br>
                                 </div>
                             </div>
 
                             <div class="col-lg-12" style="margin-top: 2%;">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h2 style="color: #054a41;" id="title_list_ip">REQUISITOS:</h2>
-                                        </i>1. Cargar la siguiente documentación en versión digital (PDF):</li>
-                                        <h5>a) Acta de nacimiento original por ambos lados, del o la menor.</h5>
-                                        <h5>b) Certicado de nacimiento del o la menor.</h5>
-                                        <h5>c) Cartilla de vacunación al corriente.</h5>
-                                        <h5>d) Clave Única de Registro de Población, (CURP) del o la menor.</h5>
-                                        <h5>e) Si el menor presenta algún tipo de discapacidad o enfermedad crónica,
-                                            adjuntar documentación clínica
-                                            y diagnóstico de la condición y del tratamiento que recibe.</h5>
-                                        <h5>f) En caso de que la madre o el padre del o la menor, no sean los
-                                            solicitantes del servicio, la persona
-                                            tutora trabajadora del gobierno, adjuntar el documento legal que dictamine
-                                            la patria potestad y/o guarda y
-                                            custodia.</h5>
+                                        <h2 style="color: #054a41;" id="title_list_ip">Enviar la siguiente documentación actualizada en versión digital (PDF):</h2>
+                                        <h5>a) Cartilla de vacunación, solo las páginas de datos identificativos, esquema de vacunación y estado nutricional. </h5>
+                                        <h5>b) Si el menor presenta algún tipo de discapacidad y/o enfermedad crónica, adjuntar documentación médica con diagnóstico y tratamiento.</h5>
+                                        <h5>c) Último comprobante de pago del trabajador o trabajadora.</h5>
                                     </div>
                                     <div class="col-sm-6">
-                                        </i>2. Entregar en original la siguiente documentación:</li>
-                                        <h5>a) Acta de nacimiento del o la menor, excepto quienes ingresan a preescolar
-                                            2 y 3.</h5>
-                                        <h5>b) Cartilla de vacunación del o la menor.</h5>
-                                        <h5>c) Análisis clínicos. Debido a la contingencia sanitaria deberán entregarse
-                                            durante los primeros tres
-                                            meses, a partir del primer día de servicio.</h5>
-                                        <h5>d) Seis fotografías tamaño infantil recientes e iguales, del o la menor.
-                                        </h5>
-                                        <h5>e) Cuatro fotografías tamaño infantil, recientes e iguales del o la
-                                            trabajador(a).</h5>
-                                        <h5>f) Cuatro fotografías tamaño infantil, recientes e iguales, de dos personas
-                                            mayores de edad autorizadas
-                                            por el (la) solicitante del servicio para recoger a la o el menor.</h5>
-                                        </i>3. Llenar el siguiente formulario</li>
+                                        <h2 style="color: #054a41;" id="title_list_ip">Cuando se reanuden las actividades de manera presencial deberá presentar en original: </h2>
+                                        <h5>a) Análisis clínicos de la niña o el niño, indicados en el correo de confirmación de reinscripción que se le enviará.</h5>
+                                        <h5>b) Seis fotografías tamaño infantil, recientes e iguales, de la niña o el niño.</h5>
+                                        <h5>c) Cuatro fotografías tamaño infantil, recientes, del trabajador o trabajadora.</h5>
+                                        <h5>d) Cuatro fotografías tamaño infantil, recientes e iguales, de dos personas mayores de edad
+                                             autorizadas por el o la solicitante del servicio para entregar y/o recoger a la niña o niño.</h5>
+                                        <h5>e) Cartilla de vacunación actualizada de la niña o niño, solo para cotejar.</h5>
                                     </div>
                                 </div>
                             </div>

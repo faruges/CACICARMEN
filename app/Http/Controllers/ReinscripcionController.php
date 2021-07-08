@@ -112,16 +112,13 @@ class ReinscripcionController extends Controller
             'telefono_uno' => 'required|numeric',
             'telefono_dos' => 'required|numeric',
 
-            'filename_act' => 'mimes:pdf,docx|max:2048',
             'filename_sol' => 'mimes:pdf,docx|max:2048',
             'filename_vacu' => 'mimes:pdf,docx|max:2048',
-            'filename_nac' => 'mimes:pdf,docx|max:2048',
             'filename_cert' => 'mimes:pdf,docx|max:2048',
             'filename_rec' => 'mimes:pdf,docx|max:2048',
             'filename_disc' => 'mimes:pdf,docx|max:2048',
-            'filename_trab' => 'mimes:pdf,docx|max:2048',
-            'filename_com' => 'mimes:pdf,docx|max:2048',
-            'filename_recp' => 'mimes:pdf,docx|max:204'
+            'filename_recp' => 'mimes:pdf,docx|max:2048',
+            'filename_compr_pago' => 'mimes:pdf,docx|max:2048'
         ];
         $messages = [
             'nombre_tutor.required' => 'Su nombre es requerido',
@@ -179,26 +176,20 @@ class ReinscripcionController extends Controller
             'telefono_dos.required' => 'Su telefono es requerido',
             'telefono_dos.numeric' => 'Su telefono debe ser un número',
 
-            'filename_act.mimes' => 'El acta de nacimiento no es valido',
-            'filename_act.max' => 'El acta de nacimiento no debe de exceder el tamaño de 2Mb',
             'filename_sol.mimes' => 'La solicitud de Ingreso no es valido',
             'filename_sol.max' => 'La solicitud de Ingreso no debe de exceder el tamaño de 2Mb',
             'filename_vacu.mimes' => 'La Cartilla de vacunacion no es valido',
             'filename_vacu.max' => 'La Cartilla de vacunación no debe de exceder el tamaño de 2Mb',
-            'filename_nac.mimes' => 'Certificado de nacimiento no es valido',
-            'filename_nac.max' => 'Certificado de nacimiento no debe de exceder el tamaño de 2Mb',
-            'filename_com.mimes' => 'CURP no es valido',
-            'filename_com.max' => 'CURP no debe de exceder el tamaño de 2Mb',
             'filename_cert.mimes' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no es valido',
             'filename_cert.max' => 'Copia fotostática del certificado de nacimiento o de la hoja de registro de recién nacido no debe de exceder el tamaño de 2Mb',
             'filename_rec.mimes' => 'Último recibo de pago impreso del(a) trabajador (a). no es valido',
             'filename_rec.max' => 'Último recibo de pago impreso del(a) trabajador (a). no debe de exceder el tamaño de 2Mb',
             'filename_disc.mimes' => 'Copias de los documentos médicos del tratamiento no es valido',
             'filename_disc.max' => 'Copias de los documentos médicos del tratamiento no debe de exceder el tamaño de 2Mb',
-            'filename_trab.mimes' => 'Documento de la patria potestad no es valido',
-            'filename_trab.max' => 'Documento de la patria potestad no debe de exceder el tamaño de 2Mb',
             'filename_recp.mimes' => 'Copia del último recibo de pago de la persona trabajadora no es valido',
             'filename_recp.max' => 'Copia del último recibo de pago de la persona trabajadora no debe de exceder el tamaño de 2Mb',
+            'filename_compr_pago.mimes' => 'Último comprobante de pago del trabajador o trabajadora no es valido.',
+            'filename_compr_pago.max' => 'Último comprobante de pago del trabajador o trabajadora no debe de exceder el tamaño de 2Mb',
         ];
 
         DB::beginTransaction();
@@ -219,11 +210,12 @@ class ReinscripcionController extends Controller
                     //obtiene id de reinscripcion
                     $id_reins = Reinscripcion::select('id')->orderByDesc('id')->get()->first();
                     $id = $id_reins->id;
-                    $filename_act = $request->file('filename_act');
+                    /* $filename_act = $request->file('filename_act'); */
                     //$filename_sol = $request->file('filename_sol');
                     $filename_vacu = $request->file('filename_vacu');
-                    $filename_nac = $request->file('filename_nac');
-                    $filename_com = $request->file('filename_com');
+                    /* $filename_nac = $request->file('filename_nac'); */
+                    /* $filename_com = $request->file('filename_com'); */
+                    $filename_compr_pago = $request->file('filename_compr_pago');
 
                     //$filename_cert = $request->file('filename_cert');
                     //$filename_rec = $request->file('filename_rec');
@@ -231,12 +223,11 @@ class ReinscripcionController extends Controller
                     //$filename_trab = $request->file('filename_trab');
                     //$filename_recp = $request->file('filename_recp');
                     $filename_disc = (!empty($request->file('filename_disc')) ? $request->file('filename_disc') : null);
-                    $filename_trab = (!empty($request->file('filename_trab')) ? $request->file('filename_trab') : null);
+                    /* $filename_trab = (!empty($request->file('filename_trab')) ? $request->file('filename_trab') : null); */
 
                     $arrayFiles = array(
-                        array($filename_act, "Acta de nacimiento"), array($filename_vacu, "Cartilla de vacunacion"),
-                        array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp")/*,  
-                array($filename_disc,"Copias de los documentos médicos del tratamiento"),
+                        array($filename_vacu, "Cartilla de vacunación"),array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
+                        /*,  array($filename_disc,"Copias de los documentos médicos del tratamiento"),
                 array($filename_trab,"Documento de la patria potestad")*/
                     );
 
@@ -244,9 +235,9 @@ class ReinscripcionController extends Controller
                         $arrayFiles[] = array($filename_disc, "Copias de los documentos médicos del tratamiento");
                     }
 
-                    if (!empty($filename_trab)) {
+                    /* if (!empty($filename_trab)) {
                         $arrayFiles[] = array($filename_trab, "Documento de la patria potestad");
-                    }
+                    } */
 
                     if (Reinscripcion::setDoc($arrayFiles, $id)) {
                         $reinscripcion = new ReinscripcionController;

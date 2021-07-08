@@ -70,10 +70,11 @@
                                     <p>Número de plaza<input id="num_plaza" placeholder="Número de plaza"
                                             title="Número de plaza" oninput="this.className = ''" name="num_plaza"
                                             value="{{$value['NUM_PLAZA']}}" readonly></p>
-                                    <p>Áreas de adscripción<input id="clave_dependencia" type="text"
-                                            placeholder="Clave de la dependencia" title="Clave de la dependencia"
-                                            oninput="this.className = ''" name="clave_dependencia"
-                                            value="{{$value['Clave_Dependencia']}}" readonly></p>
+                                    <p>Unidad administrativa Área de adscripción<input id="clave_dependencia"
+                                            type="text" placeholder="Clave de la dependencia"
+                                            title="Clave de la dependencia" oninput="this.className = ''"
+                                            name="clave_dependencia" value="{{$value['Clave_Dependencia']}}" readonly>
+                                    </p>
                                     <p>Nivel salarial<input id="nivel_salarial" placeholder="Nivel salarial"
                                             title="Nivel salarial" oninput="this.className = ''" name="nivel_salarial"
                                             value="{{$value['NIVEL_SALARIAL']}}" readonly></p>
@@ -206,7 +207,7 @@
                                                 <option value="Carmen S">Carmen Serdán</option>
                                             </select></h5>
                                     </div>
-                                    <div class="form-group">
+                                    {{--  <div class="form-group">
                                         <label
                                             style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Acta
                                             de nacimiento
@@ -219,11 +220,11 @@
                                                 accept="application/msword, application/pdf">
                                             <label class="custom-file-label" for="filename_act">Examinar..</label>
                                         </div>
-                                    </div>
+                                    </div>  --}}
                                 </div>
 
                                 <div class="col-sm-6"><br>
-                                    <div class="form-group">
+                                    {{--  <div class="form-group">
                                         <label
                                             style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Certificado
                                             de nacimiento
@@ -237,12 +238,14 @@
                                                 accept="application/msword, application/pdf">
                                             <label class="custom-file-label" for="filename_nac">Examinar..</label>
                                         </div>
-                                    </div>
+                                    </div>  --}}
                                     <div class="form-group">
                                         <label
                                             style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla
-                                            de vacunación al
-                                            corriente de la niña o niño.</label>
+                                            de vacunación, solo las páginas
+                                            de datos identificativos, esquema de vacunación y
+                                            estado nutricional.
+                                        </label>
                                         <div></div>
                                         <div class="custom-file">
                                             <input type="file" id="filename_vacu" name="filename_vacu"
@@ -252,7 +255,7 @@
                                             <label class="custom-file-label" for="filename_vacu">Examinar..</label>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    {{--  <div class="form-group">
                                         <label
                                             style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">CURP
                                             de la niña o niño.</label>
@@ -264,16 +267,27 @@
                                                 accept="application/msword, application/pdf">
                                             <label class="custom-file-label" for="filename_com">Examinar..</label>
                                         </div>
+                                    </div>  --}}
+                                    <div class="form-group">
+                                        <label
+                                            style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Último
+                                            comprobante de pago del trabajador o trabajadora.</label>
+                                        <div></div>
+                                        <div class="custom-file">
+                                            <input type="file" id="filename_compr_pago" name="filename_compr_pago"
+                                                class="custom-file-input"
+                                                title="El tamaño del archivo no debe exceder 2 Mb"
+                                                accept="application/msword, application/pdf">
+                                            <label class="custom-file-label"
+                                                for="filename_compr_pago">Examinar..</label>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Si
-                                            la niña o niño presenta
-                                            algún tipo de
-                                            discapacidad o enfermedad crónica, adjuntar documentación clínica y
-                                            diagnóstico
-                                            de la condición y
-                                            del
-                                            tratamiento que recibe.</label>
+                                        <label
+                                            style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Documentación
+                                            clínica y diagnóstico de la condición y del
+                                            tratamiento que recibe, en caso de presentar algún tipo de
+                                            discapacidad o enfermedad crónica.</label>
                                         <div></div>
                                         <div class="custom-file">
                                             <input type="file" id="filename_disc" name="filename_disc"
@@ -283,7 +297,7 @@
                                             <label class="custom-file-label" for="filename_disc">Examinar..</label>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    {{--  <div class="form-group">
                                         <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">En
                                             caso de que la madre o
                                             el padre del o la
@@ -301,7 +315,7 @@
                                                 accept="application/msword, application/pdf">
                                             <label class="custom-file-label" for="filename_trab">Examinar..</label>
                                         </div>
-                                    </div>
+                                    </div>  --}}
                                     <h4 style="color:#545151;"><i style="color: #00b140; font-size:30px;"
                                             class="fa fa-newspaper-o"></i>
                                         <b>Nota:</b> Los archivos soportados son .pdf, .docx. Asegúrese que sus

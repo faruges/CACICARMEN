@@ -118,7 +118,8 @@ class InscripcionController extends Controller
             'filename_rec' => 'mimes:pdf,docx|max:2048',
             'filename_disc' => 'mimes:pdf,docx|max:2048',
             'filename_trab' => 'mimes:pdf,docx|max:2048',
-            'filename_recp' => 'mimes:pdf,docx|max:2048'
+            'filename_recp' => 'mimes:pdf,docx|max:2048',
+            'filename_compr_pago' => 'mimes:pdf,docx|max:2048'
         ];
         $messages = [
             'nombre_tutor_madres.required' => 'Su nombre es requerido',
@@ -196,6 +197,8 @@ class InscripcionController extends Controller
             'filename_trab.max' => 'Documento de la patria potestad no debe de exceder el tamaño de 2Mb',
             'filename_recp.mimes' => 'Copia del último recibo de pago de la persona trabajadora no es valido',
             'filename_recp.max' => 'Copia del último recibo de pago de la persona trabajadora no debe de exceder el tamaño de 2Mb',
+            'filename_compr_pago.mimes' => 'Último comprobante de pago del trabajador o trabajadora no es valido.',
+            'filename_compr_pago.max' => 'Último comprobante de pago del trabajador o trabajadora no debe de exceder el tamaño de 2Mb',
         ];
         DB::beginTransaction();
 
@@ -218,6 +221,7 @@ class InscripcionController extends Controller
                     $filename_vacu = $request->file('filename_vacu');
                     $filename_nac = $request->file('filename_nac');
                     $filename_com = $request->file('filename_com');
+                    $filename_compr_pago = $request->file('filename_compr_pago');
                     //$filename_cert = $request->file('filename_cert');
                     //$filename_rec = $request->file('filename_rec');
                     /////$filename_disc = $request->file('filename_disc');
@@ -227,10 +231,10 @@ class InscripcionController extends Controller
                     $filename_trab = (!empty($request->file('filename_trab')) ? $request->file('filename_trab') : null);
 
                     $arrayFiles = array(
-                        array($filename_act, "Acta de nacimiento"), array($filename_vacu, "Cartilla de vacunacion"),
-                        array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp")/*,
-                    array($filename_disc, "Copias de los documentos médicos del tratamiento"),
-                    array($filename_trab, "Documento de la patria potestad")*/
+                        array($filename_act, "Acta de nacimiento"), array($filename_vacu, "Cartilla de vacunación"),
+                        array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp"),array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
+                        /*,array($filename_disc, "Copias de los documentos médicos del tratamiento"),
+                        array($filename_trab, "Documento de la patria potestad")*/
                     );
 
                     if (!empty($filename_disc)) {

@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $remember_token = false;
-    protected $table = 'users';
+    protected $table = 'usuarios';
     protected $fillable = [
         'name', 'email', 'password','status',
     ];
