@@ -189,9 +189,9 @@ Route::post('webservicecp', 'WebServicesCP@getCP')->name('webservicecp');
 /*Pruebas Web Service*/
 /* Route::get('/webservicerenapo', 'WebServicesRENAPO@getCurp')->name('webservicerenapo'); */
 
-Route::get('/prueba', function () {
+/* Route::get('/prueba', function () {
     return view('prueba');
-});
+}); */
 
 Route::get('/registo_aqui', function () {
     return view('registo_aqui');
