@@ -130,7 +130,7 @@ $(document).ready(function () {
         console.log(act_supera_tamanio_permitido);
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_act').prop("files")[0];
-        if(dato_archivo_act.size > tamanioArchivoPermitido){
+        if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
@@ -142,8 +142,10 @@ $(document).ready(function () {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Ok',
                 allowOutsideClick: false
-          });    
-        }else{
+            });
+        } else {
+            $("#js-progressbar-act").attr("hidden", false); 
+            addProgressBar($("#js-progressbar-act"));
             //alert("si hiciste caso se habilita boton");
             act_supera_tamanio_permitido = false;
             console.log(act_supera_tamanio_permitido);
@@ -154,7 +156,7 @@ $(document).ready(function () {
         nac_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_nac').prop("files")[0];
-        if(dato_archivo_act.size > tamanioArchivoPermitido){
+        if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
@@ -166,8 +168,10 @@ $(document).ready(function () {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Ok',
                 allowOutsideClick: false
-          });    
-        }else{
+            });
+        } else {
+            $("#js-progressbar-nac").attr("hidden", false); 
+            addProgressBar($("#js-progressbar-nac"));
             //alert("si hiciste caso se habilita boton");
             nac_supera_tamanio_permitido = false;
             $("#nextBtn").attr("disabled", false);
@@ -177,7 +181,7 @@ $(document).ready(function () {
         vac_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_vacu').prop("files")[0];
-        if(dato_archivo_act.size > tamanioArchivoPermitido){
+        if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
@@ -189,8 +193,10 @@ $(document).ready(function () {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Ok',
                 allowOutsideClick: false
-          });    
-        }else{
+            });
+        } else {
+            $("#js-progressbar-vacu").attr("hidden", false); 
+            addProgressBar($("#js-progressbar-vacu"));
             vac_supera_tamanio_permitido = false;
             $("#nextBtn").attr("disabled", false);
         }
@@ -199,7 +205,7 @@ $(document).ready(function () {
         curp_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_com').prop("files")[0];
-        if(dato_archivo_act.size > tamanioArchivoPermitido){
+        if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
@@ -211,9 +217,11 @@ $(document).ready(function () {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Ok',
                 allowOutsideClick: false
-          });    
-        }else{
-          curp_supera_tamanio_permitido = false;
+            });
+        } else {
+            $("#js-progressbar-com").attr("hidden", false); 
+            addProgressBar($("#js-progressbar-com"));
+            curp_supera_tamanio_permitido = false;
             $("#nextBtn").attr("disabled", false);
         }
     });
@@ -221,7 +229,7 @@ $(document).ready(function () {
         disc_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_disc').prop("files")[0];
-        if(dato_archivo_act.size > tamanioArchivoPermitido){
+        if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
@@ -233,8 +241,10 @@ $(document).ready(function () {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Ok',
                 allowOutsideClick: false
-          });    
-        }else{
+            });
+        } else {
+            $("#js-progressbar-disc").attr("hidden", false); 
+            addProgressBar($("#js-progressbar-disc"));
             disc_supera_tamanio_permitido = false;
             $("#nextBtn").attr("disabled", false);
         }
@@ -243,7 +253,7 @@ $(document).ready(function () {
         trab_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_trab').prop("files")[0];
-        if(dato_archivo_act.size > tamanioArchivoPermitido){
+        if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
@@ -255,11 +265,44 @@ $(document).ready(function () {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Ok',
                 allowOutsideClick: false
-          });    
-        }else{
+            });
+        } else {
+            $("#js-progressbar-trab").attr("hidden", false); 
+            addProgressBar($("#js-progressbar-trab"));
+            trab_supera_tamanio_permitido = false;
+            $("#nextBtn").attr("disabled", false);
+        }
+    });
+    $("#filename_compr_pago").on('change', function () {
+        trab_supera_tamanio_permitido = true;
+        const tamanioArchivoPermitido = 2000000;
+        var dato_archivo_act = $('#filename_compr_pago').prop("files")[0];
+        if (dato_archivo_act.size > tamanioArchivoPermitido) {
+            //console.log(dato_archivo_act.size);
+            //$("#nextBtn").attr("disabled", true);
+            Swal.fire({
+                title: 'El tamaño del archivo no debe de exceder los 2 Mb',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ok',
+                allowOutsideClick: false
+            });
+        } else {
+            $("#js-progressbar-compr-pago").attr("hidden", false); 
+            addProgressBar($("#js-progressbar-compr-pago"));
             trab_supera_tamanio_permitido = false;
             $("#nextBtn").attr("disabled", false);
         }
     });
 
+    function addProgressBar(bar) {
+        setTimeout(function () {
+            for (let index = 0; index <= 100; index++) {
+                bar.attr('value', index);
+            }
+        }, 50);
+    }
 });

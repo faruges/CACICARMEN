@@ -1,17 +1,14 @@
-@extends('menu')
+@extends('menu-redu')
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
 <script src="{{URL::asset('js/consulta_webservice.js')}}" type="text/javascript"> </script>
 <script src="{{URL::asset('js/add-upper-case.js')}}" type="text/javascript"> </script>
-<link href="{{ asset('assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
+{{--  <link href="{{ asset('assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-{{--  <link href="{{ asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" /> --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />  --}}
 
-{{--  <link href="{{ asset('assets/css/themes/layout/header/base/light.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('assets/css/themes/layout/header/menu/light.css')}}" rel="stylesheet" type="text/css" /> --}}
-{{--  <link href="{{ asset('assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" /> --}}
+<link rel="stylesheet" href="{{ asset('assets/css/uikit.min.css')}}" />
+
 @endsection
 @section('mycontent')
 <div class="card card-custom">
@@ -83,7 +80,7 @@
                                             name="seccion_sindical" value="{{$value['SECCION_SINDICAL']}}" readonly>
                                     </p>
                                     <h5 style="font-family: Arial, Helvetica; color:#777777;">Horario laboral</h5>
-                                    <input type="time" id="horario_laboral_ent" name="horario_laboral_ent">
+                                    <input type="time" id="horario_laboral_ent" name="horario_laboral_ent" style="margin-bottom: 1rem;">
                                     <input type="time" id="horario_laboral_sal" name="horario_laboral_sal">
                                 </div>
 
@@ -100,8 +97,13 @@
                                             maxlength="5"></p>
                                     <input id="tokenCodigoPostalId" oninput="this.className = ''"
                                         name="tokenCodigoPostalId" value="SistemaDeRpueba4as4x4vdlsad" hidden>
-                                    <p> Colonia <select style="font-size: 15px;" name="colonia" id="colonia"
-                                            required></select></p>
+                                    <p style="margin-bottom: 0rem;">Colonia </p>
+                                    <div class="form-group">
+                                        <select style="font-size: 15px; padding-bottom:5px;" name="colonia" id="colonia"
+                                            required class="form-control"></select>
+                                    </div>
+                                    {{--  <p> Colonia <select style="font-size: 15px;" name="colonia" id="colonia"
+                                            required></select></p>  --}}
                                     <p>Alcaldía/Municipio<input id="alcaldia" type="text" placeholder="Alcaldía"
                                             title="Alcaldía" oninput="this.className = ''" name="alcaldia" readonly>
                                     </p>
@@ -193,7 +195,7 @@
                                             oninput="this.className = ''" name="Edad_menor" onkeyup="mayus(this);"
                                             readonly>
                                     </div>
-                                    <div class="form-group">
+                                    {{--  <div class="form-group">
                                         <h5 style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;"
                                             for="cars">Centro de
                                             Atención y
@@ -206,40 +208,41 @@
                                                 <option value="Carolina Agazzi">Carolina Agazzi</option>
                                                 <option value="Carmen S">Carmen Serdán</option>
                                             </select></h5>
-                                    </div>
-                                    {{--  <div class="form-group">
-                                        <label
-                                            style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Acta
-                                            de nacimiento
-                                            original por ambos lados de la niña o niño.</label>
-                                        <div></div>
-                                        <div class="custom-file">
-                                            <input type="file" id="filename_act" name="filename_act"
-                                                class="custom-file-input"
-                                                title="El tamaño del archivo no debe exceder 2 Mb"
-                                                accept="application/msword, application/pdf">
-                                            <label class="custom-file-label" for="filename_act">Examinar..</label>
-                                        </div>
                                     </div>  --}}
+                                    <div class="form-group">
+                                        <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;" for="cars">Centro de
+                                          Atención y Cuidado Infantil deseado: <span class="text-danger"></span></label>
+                                        <select style="font-size: 15px; padding-bottom: 5px;" name="caci" id="caci" class="form-control">
+                                          <option value="Luz Maria Gomez Pezuela">Luz María Gómez Pezuela</option>
+                                          <option value="Mtra Eva Moreno Sanchez">Mtra. Eva Moreno Sánchez</option>
+                                          <option value="Bertha Von Glumer Leyva">Bertha von Glumer Leyva</option>
+                                          <option value="Carolina Agazzi">Carolina Agazzi</option>
+                                          <option value="Carmen S">Carmen Serdán</option>
+                                        </select>
+                                      </div>
                                 </div>
 
                                 <div class="col-sm-6"><br>
-                                    {{--  <div class="form-group">
-                                        <label
-                                            style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Certificado
-                                            de nacimiento
-                                            de la
-                                            niña o niño.</label>
-                                        <div></div>
-                                        <div class="custom-file">
-                                            <input type="file" id="filename_nac" name="filename_nac"
-                                                class="custom-file-input" class="custom-file-input"
-                                                title="El tamaño del archivo no debe exceder 2 Mb"
-                                                accept="application/msword, application/pdf">
-                                            <label class="custom-file-label" for="filename_nac">Examinar..</label>
-                                        </div>
-                                    </div>  --}}
                                     <div class="form-group">
+                                        <label
+                                          style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Cartilla
+                                          de vacunación, solo las páginas
+                                          de datos identificativos, esquema de vacunación y
+                                          estado nutricional.</label>
+                                        <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                                          <span uk-icon="icon: cloud-upload"></span>
+                                          <span class="uk-text-small">Arraste y suelte un archivo ó</span>
+                                          <div uk-form-custom>
+                                            <input type="file" id="filename_vacu" name="filename_vacu"
+                                              title="El tamaño del archivo no debe exceder 2 Mb"
+                                              accept="application/msword, application/pdf">
+                                            <span class="uk-link">Selecciónelo</span>
+                                          </div>
+                                        </div>
+                                        <progress id="js-progressbar-vacu" class="uk-progress" value="0" max="100"
+                                          style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                      </div>
+                                    {{--  <div class="form-group">
                                         <label
                                             style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla
                                             de vacunación, solo las páginas
@@ -254,21 +257,25 @@
                                                 accept="application/msword, application/pdf">
                                             <label class="custom-file-label" for="filename_vacu">Examinar..</label>
                                         </div>
-                                    </div>
-                                    {{--  <div class="form-group">
-                                        <label
-                                            style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">CURP
-                                            de la niña o niño.</label>
-                                        <div></div>
-                                        <div class="custom-file">
-                                            <input type="file" id="filename_com" name="filename_com"
-                                                class="custom-file-input"
-                                                title="El tamaño del archivo no debe exceder 2 Mb"
-                                                accept="application/msword, application/pdf">
-                                            <label class="custom-file-label" for="filename_com">Examinar..</label>
-                                        </div>
                                     </div>  --}}
                                     <div class="form-group">
+                                        <label
+                                          style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Último
+                                          comprobante de pago del trabajador o trabajadora.</label>
+                                        <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                                          <span uk-icon="icon: cloud-upload"></span>
+                                          <span class="uk-text-small">Arraste y suelte un archivo ó</span>
+                                          <div uk-form-custom>
+                                            <input type="file" id="filename_compr_pago" name="filename_compr_pago"
+                                              title="El tamaño del archivo no debe exceder 2 Mb"
+                                              accept="application/msword, application/pdf">
+                                            <span class="uk-link">Selecciónelo</span>
+                                          </div>
+                                        </div>
+                                        <progress id="js-progressbar-compr-pago" class="uk-progress" value="0" max="100"
+                                          style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                      </div>
+                                    {{--  <div class="form-group">
                                         <label
                                             style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Último
                                             comprobante de pago del trabajador o trabajadora.</label>
@@ -281,8 +288,26 @@
                                             <label class="custom-file-label"
                                                 for="filename_compr_pago">Examinar..</label>
                                         </div>
-                                    </div>
+                                    </div>  --}}
                                     <div class="form-group">
+                                        <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Documentación
+                                            clínica y diagnóstico de la condición y del
+                                            tratamiento que recibe, en caso de presentar algún tipo de
+                                            discapacidad o enfermedad crónica.</label>
+                                        <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                                          <span uk-icon="icon: cloud-upload"></span>
+                                          <span class="uk-text-small">Arraste y suelte un archivo ó</span>
+                                          <div uk-form-custom>
+                                            <input type="file" id="filename_disc" name="filename_disc"
+                                              title="El tamaño del archivo no debe exceder 2 Mb"
+                                              accept="application/msword, application/pdf">
+                                            <span class="uk-link">Selecciónelo</span>
+                                          </div>
+                                        </div>
+                                        <progress id="js-progressbar-disc" class="uk-progress" value="0" max="100"
+                                          style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                      </div>
+                                    {{--  <div class="form-group">
                                         <label
                                             style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Documentación
                                             clínica y diagnóstico de la condición y del
@@ -295,25 +320,6 @@
                                                 title="El tamaño del archivo no debe exceder 2 Mb"
                                                 accept="application/msword, application/pdf">
                                             <label class="custom-file-label" for="filename_disc">Examinar..</label>
-                                        </div>
-                                    </div>
-                                    {{--  <div class="form-group">
-                                        <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">En
-                                            caso de que la madre o
-                                            el padre del o la
-                                            menor, no sean los solicitantes del servicio, la persona tutora trabajadora
-                                            del
-                                            gobierno, adjuntar
-                                            el
-                                            documento legal que dictamine la patria potestad y/o guarda y
-                                            custodia.</label>
-                                        <div></div>
-                                        <div class="custom-file">
-                                            <input type="file" id="filename_trab" name="filename_trab"
-                                                class="custom-file-input"
-                                                title="El tamaño del archivo no debe exceder 2 Mb"
-                                                accept="application/msword, application/pdf">
-                                            <label class="custom-file-label" for="filename_trab">Examinar..</label>
                                         </div>
                                     </div>  --}}
                                     <h4 style="color:#545151;"><i style="color: #00b140; font-size:30px;"
@@ -354,9 +360,12 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script src="{{URL::asset('assets/plugins/global/plugins.bundle.js')}}"></script>
-<script src="{{URL::asset('assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
-{{--  <script src="{{URL::asset('assets/js/scripts.bundle.js')}}"></script> --}}
+{{--  <script src="{{URL::asset('assets/plugins/global/plugins.bundle.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>  --}}
+
+<script src="{{URL::asset('assets/js/uikit.min.js')}}"></script>
+<script src="{{URL::asset('assets/js/uikit-icons.min.js')}}"></script>
+
 <script>
     Swal.fire({
     title: '<strong>Atención</u></strong>',

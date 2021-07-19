@@ -34378,6 +34378,9 @@ body {
         .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link:hover {
           -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease; }
+        .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link-redu:hover {
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
         .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__link-icon {
           font-size: 1.4rem;
           width: 30px;
@@ -34400,6 +34403,11 @@ body {
         .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__link-text {
           font-weight: 500;
           font-size: 1.3rem;
+          text-transform: initial; }
+          /*aqui los hackie, agrego una fuente mas pequeña para el menu secundario*/
+        .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__link-text-redu {
+          font-weight: 500;
+          font-size: 0.92rem;
           text-transform: initial; }
         .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__link-badge {
           padding: 0px 0px 0px 5px; }
@@ -34663,6 +34671,9 @@ body {
     .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__link-bullet.kt-menu__link-bullet--line > span {
       background-color: #b5b2c8; }
     .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__link-text {
+      color: #959eaf; }
+      /*aqui los hackie, agrego un color para el menu secundario*/
+    .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__link-text-redu {
       color: #959eaf; }
     .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__hor-arrow {
       color: #b5b2c8; }

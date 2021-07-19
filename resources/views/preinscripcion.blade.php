@@ -1,17 +1,14 @@
-@extends('menu')
+@extends('menu-redu')
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
 <script src="{{URL::asset('js/consulta_webservice.js')}}" type="text/javascript"> </script>
 <script src="{{URL::asset('js/add-upper-case.js')}}" type="text/javascript"> </script>
-<link href="{{ asset('assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
+{{--  <link href="{{ asset('assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-{{--  <link href="{{ asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" /> --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> --}}
 
-{{--  <link href="{{ asset('assets/css/themes/layout/header/base/light.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('assets/css/themes/layout/header/menu/light.css')}}" rel="stylesheet" type="text/css" /> --}}
-{{--  <link href="{{ asset('assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" /> --}}
+<link rel="stylesheet" href="{{ asset('assets/css/uikit.min.css')}}" />
+
 @endsection
 @section('mycontent')
 <div class="card card-custom">
@@ -239,79 +236,175 @@
                   </div>
 
                   <div class="form-group">
-                    <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Acta de nacimiento
+                    <label
+                      style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Acta
+                      de nacimiento
                       original por ambos lados de la niña o niño.</label>
-                    <div></div>
-                    <div class="custom-file">
-                      <input type="file" id="filename_act" name="filename_act" class="custom-file-input"
-                        title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                      <label class="custom-file-label" for="filename_act">Examinar..</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_act" name="filename_act"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">Selecciónelo</span>
+                      </div>
                     </div>
+                    <progress id="js-progressbar-act" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                    {{--  <div></div>
+                      <div class="custom-file">
+                        <input type="file" id="filename_act" name="filename_act" class="custom-file-input"
+                          title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
+                        <label class="custom-file-label" for="filename_act">Examinar..</label>
+                      </div>  --}}
+                  </div>
+                  <div class="form-group">
+                    <label
+                      style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; ">Copia
+                      por ambos lados,
+                      del certificado de nacimiento, de la niña o el niño.</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_nac" name="filename_nac"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">Selecciónelo</span>
+                      </div>
+                    </div>
+                    <progress id="js-progressbar-nac" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
                   </div>
                 </div>
 
                 <div class="col-sm-6"><br>
+
                   <div class="form-group">
-                    <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Copia por ambos lados, del certificado de nacimiento, de la niña o el niño.</label>
-                    <div></div>
-                    <div class="custom-file">
-                      <input type="file" id="filename_nac" name="filename_nac" class="custom-file-input"
-                        title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                      <label class="custom-file-label" for="filename_nac">Examinar..</label>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla de vacunación, solo las páginas de datos identificativos, esquema de vacunación y estado nutricional.</label>
-                    <div></div>
-                    <div class="custom-file">
-                      <input type="file" id="filename_vacu" name="filename_vacu" class="custom-file-input"
-                        title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                      <label class="custom-file-label" for="filename_vacu">Examinar..</label>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">CURP de la niña o
-                      niño.</label>
-                    <div></div>
-                    <div class="custom-file">
-                      <input type="file" id="filename_com" name="filename_com" class="custom-file-input"
-                        title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                      <label class="custom-file-label" for="filename_com">Examinar..</label>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Último comprobante de pago del trabajador o trabajadora.</label>
-                    <div></div>
-                    <div class="custom-file">
-                      <input type="file" id="filename_compr_pago" name="filename_compr_pago" class="custom-file-input"
-                        title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                      <label class="custom-file-label" for="filename_compr_pago">Examinar..</label>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label style="font-family: Arial, Helvetica; color:#777777;">Si la niña o niño presenta algún tipo
+                    <label
+                      style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Cartilla
                       de
-                      discapacidad o enfermedad crónica, adjuntar documentación clínica y diagnóstico de la condición y
-                      del
-                      tratamiento que recibe.</label>
-                    <div></div>
-                    <div class="custom-file">
-                      <input type="file" id="filename_disc" name="filename_disc" class="custom-file-input"
-                        title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                      <label class="custom-file-label" for="filename_disc">Examinar..</label>
+                      vacunación, solo las páginas de datos identificativos, esquema de vacunación y estado
+                      nutricional.</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_vacu" name="filename_vacu"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">Selecciónelo</span>
+                      </div>
                     </div>
+                    <progress id="js-progressbar-vacu" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                    {{--  <div></div>
+                      <div class="custom-file">
+                        <input type="file" id="filename_vacu" name="filename_vacu" class="custom-file-input"
+                          title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
+                        <label class="custom-file-label" for="filename_vacu">Examinar..</label>
+                      </div>  --}}
                   </div>
                   <div class="form-group">
-                    <label style="font-family: Arial, Helvetica; color:#777777;">En caso de que el trabajador o trabajadora no
-                       sea el padre o madre biológico, deberá anexar el 
-                      documento legal que dictamine la patria potestad y/o guarda y custodia de la niña o el niño.</label>
-                    <div></div>
-                    <div class="custom-file">
-                      <input type="file" id="filename_trab" name="filename_trab" class="custom-file-input"
-                        title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                      <label class="custom-file-label" for="filename_trab">Examinar..</label>
+                    <label
+                      style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">CURP
+                      de la niña o
+                      niño.</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_com" name="filename_com"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">Selecciónelo</span>
+                      </div>
                     </div>
+                    <progress id="js-progressbar-com" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                    {{--  <div></div>
+                      <div class="custom-file">
+                        <input type="file" id="filename_com" name="filename_com" class="custom-file-input"
+                          title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
+                        <label class="custom-file-label" for="filename_com">Examinar..</label>
+                      </div>  --}}
                   </div>
+                  <div class="form-group">
+                    <label
+                      style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Último
+                      comprobante de
+                      pago del trabajador o trabajadora.</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_compr_pago" name="filename_compr_pago"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">Selecciónelo</span>
+                      </div>
+                    </div>
+                    <progress id="js-progressbar-compr-pago" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                    {{--  <div></div>
+                      <div class="custom-file">
+                        <input type="file" id="filename_compr_pago" name="filename_compr_pago" class="custom-file-input"
+                          title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
+                        <label class="custom-file-label" for="filename_compr_pago">Examinar..</label>
+                      </div>  --}}
+                  </div>
+                  <div class="form-group">
+                    <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Documentación
+                      clínica y diagnóstico de la condición y del
+                      tratamiento que recibe, en caso de presentar algún tipo de
+                      discapacidad o enfermedad crónica.</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_disc" name="filename_disc"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">Selecciónelo</span>
+                      </div>
+                    </div>
+                    <progress id="js-progressbar-disc" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                    {{--  <div></div>
+                      <div class="custom-file">
+                        <input type="file" id="filename_disc" name="filename_disc" class="custom-file-input"
+                          title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
+                        <label class="custom-file-label" for="filename_disc">Examinar..</label>
+                      </div>  --}}
+                  </div>
+                  <div class="form-group">
+                    <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">En
+                      caso de que el trabajador o
+                      trabajadora no
+                      sea el padre o madre biológico, deberá anexar el
+                      documento legal que dictamine la patria potestad y/o guarda y custodia de la niña o el
+                      niño.</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_trab" name="filename_trab"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">Selecciónelo</span>
+                      </div>
+                    </div>
+                    <progress id="js-progressbar-trab" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                    {{--  <div></div>
+                      <div class="custom-file">
+                        <input type="file" id="filename_trab" name="filename_trab" class="custom-file-input"
+                          title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
+                        <label class="custom-file-label" for="filename_trab">Examinar..</label>
+                      </div>  --}}
+                  </div>
+
                   <h4 style="color:#545151;"><i style="color: #00b140; font-size:30px;" class="fa fa-newspaper-o"></i>
                     <b>
                       Nota:</b> Los archivos soportados son .pdf, .docx. Asegúrese que sus archivos cumplan el requisito
@@ -373,9 +466,12 @@
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script src="{{URL::asset('assets/plugins/global/plugins.bundle.js')}}"></script>
-<script src="{{URL::asset('assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
-{{--  <script src="{{URL::asset('assets/js/scripts.bundle.js')}}"></script> --}}
+{{--  <script src="{{URL::asset('assets/plugins/global/plugins.bundle.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script> --}}
+
+<script src="{{URL::asset('assets/js/uikit.min.js')}}"></script>
+<script src="{{URL::asset('assets/js/uikit-icons.min.js')}}"></script>
+
 <script>
   Swal.fire({
     title: '<strong>Atención</u></strong>',
