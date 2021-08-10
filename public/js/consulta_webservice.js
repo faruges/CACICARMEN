@@ -31,11 +31,11 @@ function showTab(n) {
         $(document).ready(function () {
             $("#nextBtn").attr("disabled", true);
         });
-    }else if(n == 1){
+    } else if (n == 1) {
         var x = document.getElementsByClassName("tab");
         x[n].style.display = "block";
         $(document).ready(function () {
-            $("#nextBtn").css("display","none");
+            $("#nextBtn").css("display", "none");
         });
     }
     fixStepIndicator(n)
@@ -160,7 +160,7 @@ function validaCurp() {
     }
 }
 
-function preinscripcion(){
+function preinscripcion() {
     var form_data = new FormData();
 
     form_data.append("_token", $("meta[name='csrf-token']").attr("content"));
@@ -223,6 +223,15 @@ function preinscripcion(){
         processData: false,
         contentType: false,
         url: url + 'guardar_inscripcion_bd',
+        beforeSend: function () {
+            Swal.fire({
+                title: "Enviando...",
+                text: "Por favor, Espere.",
+                imageUrl: "https://brave.zone/wp-content/themes/brave/assets/images/ajax_loader.gif",
+                showConfirmButton: false,
+                allowOutsideClick: false
+            });
+        },
         success: function (data) {
             console.log(data);
             if (data.ok) {
@@ -297,6 +306,10 @@ function preinscripcion(){
             }
             //alert("Los Datos se Consultaron Correctamente");
         },
+        complete: function (data) {
+            /* $("#loader").hide(); */
+            /* console.log("Pos se deberia de cerrar el loading"); */
+        },
         error: function (data_e) {
             console.log(data_e);
             //alert("No se pudo inscribir");
@@ -304,7 +317,7 @@ function preinscripcion(){
     });
 }
 
-function reinscripcion(){
+function reinscripcion() {
     var form_data = new FormData();
 
     form_data.append("_token", $("meta[name='csrf-token']").attr("content"));
@@ -344,7 +357,7 @@ function reinscripcion(){
     var dato_archivo_disc = $('#filename_disc').prop("files")[0];
     /* var dato_archivo_trab = $('#filename_trab').prop("files")[0]; */
     var dato_archivo_compr_pago = $('#filename_compr_pago').prop("files")[0];
-    
+
     if (dato_archivo_disc !== undefined) {
         form_data.append("filename_disc", dato_archivo_disc);
     }
@@ -364,6 +377,15 @@ function reinscripcion(){
         processData: false,
         contentType: false,
         url: url + 'guardar_reinscripcion_bd',
+        beforeSend: function () {
+            Swal.fire({
+                title: "Enviando...",
+                text: "Por favor, Espere.",
+                imageUrl: "https://brave.zone/wp-content/themes/brave/assets/images/ajax_loader.gif",
+                showConfirmButton: false,
+                allowOutsideClick: false
+            });
+        },
         success: function (data) {
             console.log(data);
             if (data.ok) {
@@ -400,7 +422,7 @@ function reinscripcion(){
                         icon: 'error',
                         title: '¡Error de Validaciones!',
                         text: data.result,
-                        showConfirmButton: true,                        
+                        showConfirmButton: true,
                         allowOutsideClick: false
                     }).then((result) => {
                         /* if (result.dismiss === Swal.DismissReason.timer) {
@@ -437,6 +459,10 @@ function reinscripcion(){
                 });
             }
             //alert("Los Datos se Consultaron Correctamente");
+        },
+        complete: function (data) {
+            /* $("#loader").hide(); */
+            /* console.log("Pos se deberia de cerrar el loading"); */
         },
         error: function (data_e) {
             console.log(data_e);

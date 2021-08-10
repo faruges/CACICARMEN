@@ -182,6 +182,12 @@ Preguntas frecuentes
 			  <div class="accordion__body">
 				<p>Si, en el Sistema de Datos Personales denominado “Expedientes únicos de las niñas y los niños de los CACI-SAF”, en apego a la Ley de Protección de Datos Personales en Posesión de Sujetos Obligados de la Ciudad de México.</p>
 			</div>
+			</div>
+		    <div class="accordion__item">
+			  <div class="accordion__header">21. ¿Qué puedo hacer si no se ha generado mi registro?</div>
+			  <div class="accordion__body">
+				<p>Comunícate al teléfono 55 5588 4155 Ext. 5831 donde con gusto atenderemos tus dudas sobre tu registro</p>
+			</div>
 		  </div>
       <div class="accordion__item">
 			</div>

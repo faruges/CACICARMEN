@@ -135,7 +135,7 @@ $(document).ready(function () {
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
                 title: 'El tamaño del archivo no debe de exceder los 2 Mb',
-                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido. En caso de tener dudas comunicarse al teléfono 55 5588 4155 Ext. 5831',
                 icon: 'warning',
                 showCancelButton: false,
                 confirmButtonColor: '#3085d6',
@@ -161,7 +161,7 @@ $(document).ready(function () {
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
                 title: 'El tamaño del archivo no debe de exceder los 2 Mb',
-                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido. En caso de tener dudas comunicarse al teléfono 55 5588 4155 Ext. 5831',
                 icon: 'warning',
                 showCancelButton: false,
                 confirmButtonColor: '#3085d6',
@@ -186,7 +186,7 @@ $(document).ready(function () {
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
                 title: 'El tamaño del archivo no debe de exceder los 2 Mb',
-                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido. En caso de tener dudas comunicarse al teléfono 55 5588 4155 Ext. 5831',
                 icon: 'warning',
                 showCancelButton: false,
                 confirmButtonColor: '#3085d6',
@@ -210,7 +210,7 @@ $(document).ready(function () {
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
                 title: 'El tamaño del archivo no debe de exceder los 2 Mb',
-                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido. En caso de tener dudas comunicarse al teléfono 55 5588 4155 Ext. 5831',
                 icon: 'warning',
                 showCancelButton: false,
                 confirmButtonColor: '#3085d6',
@@ -234,7 +234,7 @@ $(document).ready(function () {
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
                 title: 'El tamaño del archivo no debe de exceder los 2 Mb',
-                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido. En caso de tener dudas comunicarse al teléfono 55 5588 4155 Ext. 5831',
                 icon: 'warning',
                 showCancelButton: false,
                 confirmButtonColor: '#3085d6',
@@ -258,7 +258,7 @@ $(document).ready(function () {
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
                 title: 'El tamaño del archivo no debe de exceder los 2 Mb',
-                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido. En caso de tener dudas comunicarse al teléfono 55 5588 4155 Ext. 5831',
                 icon: 'warning',
                 showCancelButton: false,
                 confirmButtonColor: '#3085d6',
@@ -282,7 +282,7 @@ $(document).ready(function () {
             //$("#nextBtn").attr("disabled", true);
             Swal.fire({
                 title: 'El tamaño del archivo no debe de exceder los 2 Mb',
-                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido',
+                text: 'Por favor seleccione un archivo que no exceda el tamaño permitido. En caso de tener dudas comunicarse al teléfono 55 5588 4155 Ext. 5831',
                 icon: 'warning',
                 showCancelButton: false,
                 confirmButtonColor: '#3085d6',

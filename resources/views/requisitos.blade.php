@@ -142,7 +142,7 @@
                                     <h3 style="color:#FFF; text-align: center;" id="letra_banner"><u>Del 19 al 30 de julio</u></h4>
                                         <h3 style="color:#FFF; text-align: center;" id="letra_banner">Periodo
                                             extraordinario</h4>
-                                            <h3 style="color:#FFF; text-align: center;" id="letra_banner"><u>Del 02 al 06 de agosto</u></h4><br>
+                                            <h3 style="color:#FFF; text-align: center;" id="letra_banner"><u>Del 02 al 13 de agosto</u></h4><br>
                                 </div>
                             </div>
 

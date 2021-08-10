@@ -72,6 +72,39 @@ class ReinscripcionController extends Controller
         }
     }
 
+    public function setReinscripcion($request, $validator)
+    {
+        Reinscripcion::create($request->all());
+        //obtiene id de reinscripcion
+        $id_reins = Reinscripcion::select('id')->orderByDesc('id')->get()->first();
+        $id = $id_reins->id;
+        $filename_vacu = $request->file('filename_vacu');
+
+        $filename_compr_pago = $request->file('filename_compr_pago');
+
+        $filename_disc = (!empty($request->file('filename_disc')) ? $request->file('filename_disc') : null);
+
+        $arrayFiles = array(
+            array($filename_vacu, "Cartilla de vacunación"), array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
+        );
+
+        if (!empty($filename_disc)) {
+            $arrayFiles[] = array($filename_disc, "Copias de los documentos médicos del tratamiento");
+        }
+
+        if (Reinscripcion::setDoc($arrayFiles, $id)) {
+            $reinscripcion = new ReinscripcionController;
+            $envioEmail = $reinscripcion->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email);
+            if ($envioEmail) {
+                Reinscripcion::insertFlagEnvioEmail($id);
+                $reinscripcion->setRolCaci($id, $request->caci);
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -127,7 +160,7 @@ class ReinscripcionController extends Controller
             'ap_paterno_t.string' => 'Su apellido paterno debe ser un texto',
             'ap_materno_t.required' => 'Su apellido materno es requerido',
             'ap_materno_t.string' => 'Su apellido materno debe ser un texto',
-            
+
             'horario_laboral_ent.required' => 'Su horario de entrada es requerido',
             'horario_laboral_ent.string' => 'Su horario de entrada debe ser un texto',
             'horario_laboral_sal.required' => 'Su horario de salida es requerido',
@@ -201,67 +234,45 @@ class ReinscripcionController extends Controller
                 return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid' => true]);
                 //return redirect('reinscripcion')->withErrors($validator)->with('message', 'Se ha producido un error.')->with('typelert', 'danger');
             } else {
+                $reinscripcionController = new ReinscripcionController;
                 $curp = $request->curp;
                 //contea si ya menor esta inscrito
                 $conteoCurp = Reinscripcion::where('curp', $curp)->get()->count();
+                //si no esta inscrito, procede a guardar la info
                 if ($conteoCurp <= 0) {
                     /* dd($request)->all(); */
-                    Reinscripcion::create($request->all());
-                    //obtiene id de reinscripcion
-                    $id_reins = Reinscripcion::select('id')->orderByDesc('id')->get()->first();
-                    $id = $id_reins->id;
-                    /* $filename_act = $request->file('filename_act'); */
-                    //$filename_sol = $request->file('filename_sol');
-                    $filename_vacu = $request->file('filename_vacu');
-                    /* $filename_nac = $request->file('filename_nac'); */
-                    /* $filename_com = $request->file('filename_com'); */
-                    $filename_compr_pago = $request->file('filename_compr_pago');
-
-                    //$filename_cert = $request->file('filename_cert');
-                    //$filename_rec = $request->file('filename_rec');
-                    //$filename_disc = $request->file('filename_disc');
-                    //$filename_trab = $request->file('filename_trab');
-                    //$filename_recp = $request->file('filename_recp');
-                    $filename_disc = (!empty($request->file('filename_disc')) ? $request->file('filename_disc') : null);
-                    /* $filename_trab = (!empty($request->file('filename_trab')) ? $request->file('filename_trab') : null); */
-
-                    $arrayFiles = array(
-                        array($filename_vacu, "Cartilla de vacunación"),array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
-                        /*,  array($filename_disc,"Copias de los documentos médicos del tratamiento"),
-                array($filename_trab,"Documento de la patria potestad")*/
-                    );
-
-                    if (!empty($filename_disc)) {
-                        $arrayFiles[] = array($filename_disc, "Copias de los documentos médicos del tratamiento");
-                    }
-
-                    /* if (!empty($filename_trab)) {
-                        $arrayFiles[] = array($filename_trab, "Documento de la patria potestad");
-                    } */
-
-                    if (Reinscripcion::setDoc($arrayFiles, $id)) {
-                        $reinscripcion = new ReinscripcionController;
-                        $envioEmail = $reinscripcion->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email);
-                        if ($envioEmail) {
-                            Reinscripcion::insertFlagEnvioEmail($id);
-                            $reinscripcion->setRolCaci($id, $request->caci);
-                        }
+                    $isSuccesful = $reinscripcionController->setReinscripcion($request, $validator);
+                    if ($isSuccesful) {
                         DB::commit();
                         return response()->json(['ok' => true, 'result' => 'Menor reinscrito con exito', 'menor' => $request->nombre_menor]);
-                        //return redirect('inicio')->with('mensaje', "Menor reinscrito con exito");
                     } else {
                         return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid_docs' => true]);
-                        //return redirect('reinscripcion')->withErrors($validator)->with('message', 'Se ha producido un error, no se cargaron todos los archivos.')->with('typelert', 'danger');
                     }
-                } else {
-                    return response()->json(['ok' => true, 'result' => "No se pudo realizar el proceso de Reinscripción, el Menor con curp '$request->curp' ya esta Reinscrito", 'Exist' => true]);
+                } else if ($conteoCurp >= 1) {
+                    //si ya hay un registro verifica que ya sea en otro ciclo escolar para poderlo reinscribir
+                    $renapoWS = new WebServicesRENAPO;
+                    $intoCicloEscolar = true;
+                    $name_table = 'reinscripcion_menor';
+                    $column_curp = 'curp';
+                    $intoCicloEscolar = $renapoWS->comparaCiclosEscolares($name_table, $column_curp, $curp, $renapoWS);
+                    if ($conteoCurp >= 1 && $intoCicloEscolar === false) {
+                        //si habia mas de un registro pero en diferente ciclo escolar
+                        $isSuccesful = $reinscripcionController->setReinscripcion($request, $validator);
+                        if ($isSuccesful) {
+                            DB::commit();
+                            return response()->json(['ok' => true, 'result' => 'Menor reinscrito con exito', 'menor' => $request->nombre_menor]);
+                        } else {
+                            return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid_docs' => true]);
+                        }
+                    } else if ($conteoCurp >= 1 && $intoCicloEscolar === true) {
+                        return response()->json(['ok' => true, 'result' => "No se puede Reinscribir dos veces en el mismo ciclo escolar", 'Exist' => true]);
+                    }
                     //return redirect('reinscripcion')->withErrors(['', 'No se pudo realizar el proceso de Reinscripción, el Menor ya esta Inscrito']);
                 }
             }
         } catch (\Throwable $th) {
             DB::rollback();
             return response()->json(['ok' => false, 'result' => 'No se pudo realizar la Reinscripción']);
-            //return redirect('reinscripcion')->withErrors(['', 'No se pudo realizar la Reinscripción']);
         }
     }
 

@@ -5,4 +5,4 @@
 <p>Agradecemos su interés; </p>
 <br><br>
 <p><strong>ATENTAMENTE</strong></p>
-<P>Coordinación Académica y de Evaluación Educativa</P>
+<p>Coordinación de Desarrollo Laboral y Formación Continua</p>

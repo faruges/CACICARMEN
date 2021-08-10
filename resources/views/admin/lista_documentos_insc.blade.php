@@ -138,7 +138,7 @@
                                     <td class="actions">
                                         <span class="float-right">
                                             <a class="btn btn-lg btn-outline-success"
-                                                href="{{url('uploads/documentos/'.$doc->nombre)}}"
+                                                href="{{'uploads/documentos/'.$doc->nombre}}"
                                                 title="Ver Detalles Documento" target="_blank"><i
                                                     class="fa fa-file"></i></a>
                                         </span>

@@ -11,6 +11,7 @@
 
 @endsection
 @section('mycontent')
+
 <div class="card card-custom">
     <div class="card-header card-header-tabs-line">
         <div class="col-12 col-md-12 col-lg-12">
