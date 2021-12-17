@@ -15,7 +15,7 @@ class EmailController extends Controller
         /* dd($request)->all(); */
         try {
             //$response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => $request->email];
-            $response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => "r.afinho17roma@gmail.com","emailCaci" => $request->email_caci];
+            $response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => $request->email,"emailCaci" => $request->email_caci];
             Mail::send('admin.mail_in_revision', $response, function ($msj) use ($response) {
                 $msj->from($response['emailCaci']);
                 #el objeto Asunto
@@ -36,7 +36,7 @@ class EmailController extends Controller
         try {
             //aguanta la vara
             //$response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => $request->email];
-            $response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => "r.afinho17roma@gmail.com","emailCaci" => $request->email_caci];
+            $response = ["nombre" => $request->nombre . ' ' . $request->ape_paterno, "email" => $request->email,"emailCaci" => $request->email_caci];
             Mail::send('admin.mail_in_revision', $response, function ($msj) use ($response) {
                 $msj->from($response['emailCaci']);
                 #el objeto Asunto
