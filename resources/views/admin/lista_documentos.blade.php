@@ -3,11 +3,12 @@
 @section('scripts')
 <script src="{{URL::asset('js/send_email.js')}}" type="text/javascript"> </script>
 @endsection
-@section('mycontent') 
+@section('mycontent')
 <style>
     .card-uno {
         margin: 0px 10px 50px 70px;
     }
+
     .card-dos {
         margin: 0px 0px 50px 70px;
     }
@@ -32,7 +33,8 @@
         font-size: 15px;
         margin-left: 5px;
     }
-    .font-label-clave{
+
+    .font-label-clave {
         text-align: right;
         font-style: normal;
         font-size: 10px;
@@ -81,15 +83,13 @@
             <input id="email" value="{{$reinsc->email}}" hidden>
             <span class="float-right">
 
-                <button type="button" id="envia_email" title="Notifica Información Recibida"
-                    name="envia_email" onclick="envia_email_info_recib_inscr()" class="btn btn-lg btn-primary"><i
-                        class="fa fa-envelope"></i></button>
-                {{--  <button type="button" id="envia_email_dos" title="Notifica Información Recibida Reinscripción"
+                <button type="button" id="envia_email" title="Notifica Información Recibida" name="envia_email" onclick="envia_email_info_recib_inscr()" class="btn btn-lg btn-primary"><i class="fa fa-envelope"></i></button>
+                {{-- <button type="button" id="envia_email_dos" title="Notifica Información Recibida Reinscripción"
                     name="envia_email_dos" onclick="envia_email()" class="btn btn-lg btn-info"><i
                         class="fa fa-envelope"></i></button>  --}}
-                {{--  <a class="btn btn-lg btn-dark"
+                {{-- <a class="btn btn-lg btn-dark"
                     href="{{route('email_lista_espera',[$reinsc->nombre_tutor,$reinsc->ap_paterno_t,$reinsc->email])}}"
-                    title="Notifica Lista en Espera"><i class="fa fa-envelope"></i></a>  --}}
+                title="Notifica Lista en Espera"><i class="fa fa-envelope"></i></a> --}}
             </span>
             @endforeach
             <h1><i class="fa fa-file"></i> Valida Reinscripci&oacute;n Solicitante</h1>
@@ -103,15 +103,14 @@
                     <div class="card-body sub-card-body">
                         @foreach ($lista_reinscripcion as $reinsc)
                         <div class="row row-margin">
-                            <h3>Caci SAF: </h3>  <label class="font-label"> {{$reinsc->caci}}</label>
-                        </div>                        
+                            <h3>Caci SAF: </h3> <label class="font-label"> {{$reinsc->caci}}</label>
+                        </div>
                         <div class="row row-margin">
                             <h3>Nombre Menor: </h3><label class="font-label">{{$reinsc->nombre_menor}}
                                 {{$reinsc->ap_paterno}} {{$reinsc->ap_materno}}</label>
                         </div>
                         <div class="row row-margin">
-                            <h3>Fecha de Nacimiento: </h3><label
-                                class="font-label">{{$reinsc->fecha_nacimiento}}</label>
+                            <h3>Fecha de Nacimiento: </h3><label class="font-label">{{$reinsc->fecha_nacimiento}}</label>
                         </div>
                         <div class="row row-margin">
                             <h3>Edad: </h3><label class="font-label">{{$reinsc->edad_menor_ingreso}}</label>
@@ -168,12 +167,10 @@
                             <h3>Telefono Dos: </h3><label class="font-label">{{$reinsc->telefono_dos}}</label>
                         </div>
                         <div class="row row-margin">
-                            <h3>Horario Laboral Entrada: </h3><label
-                                class="font-label">{{$reinsc->horario_laboral_ent}}</label>
+                            <h3>Horario Laboral Entrada: </h3><label class="font-label">{{$reinsc->horario_laboral_ent}}</label>
                         </div>
                         <div class="row row-margin">
-                            <h3>Horario Laboral Salida: </h3><label
-                                class="font-label">{{$reinsc->horario_laboral_sal}}</label>
+                            <h3>Horario Laboral Salida: </h3><label class="font-label">{{$reinsc->horario_laboral_sal}}</label>
                         </div>
                         @endforeach
                     </div>
@@ -198,10 +195,7 @@
                                     <td "font-size: 20px;">{{$doc->created_at}}</td>
                                     <td class="actions">
                                         <span class="float-right">
-                                            <a class="btn btn-lg btn-outline-success"
-                                                href="{{url('uploads/documentos/'.$doc->nombre)}}"
-                                                title="Ver Detalles Documento" target="_blank"><i
-                                                    class="fa fa-file"></i></a>
+                                            <a class="btn btn-lg btn-outline-success" href="{{url('uploads/documentos/'.$doc->nombre)}}" title="Ver Detalles Documento" target="_blank"><i class="fa fa-file"></i></a>
                                         </span>
                                     </td>
                                 </tr>
@@ -214,8 +208,8 @@
         </div>
         <div>
             <span class="float-right btn-regresar">
-                <a class="btn btn-lg btn-primary" href="{{route('lista_reinscripcion')}}" title="Regresar"><i
-                        class="fa fa-backward"></i> Regresar</a>
+                <a class="btn btn-lg btn-primary" href="{{route('lista_reinscripcion')}}" title="Regresar"><i class="fa fa-backward"></i> Regresar</a>
+                <button type="button" id="delete_registro_sol" title="Borrar Registro del Solicitante" name="delete_registro_sol" onclick="del_reg_solicitante('{{$id}}','{{$nameUser}}','lista_reinscripcion','reinscripcion_menor','reinscripcion_menor_id','reinscripcion')" class="btn btn-lg btn-danger"><i class="fa fa-trash"></i>Borrar Registro</button>
             </span>
         </div>
     </div>
@@ -232,7 +226,7 @@
 <script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 
-{{--  <script>
+{{-- <script>
     $(document).ready(function() {
         $("#envia_email").on('click',function()
         {

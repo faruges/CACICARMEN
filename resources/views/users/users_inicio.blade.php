@@ -4,5 +4,3 @@
 @yield('scripts')
     
 @endsection
-
- 

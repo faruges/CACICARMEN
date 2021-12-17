@@ -50,7 +50,7 @@
     <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
         <div class="kt-header-mobile__brand">
             <a class="kt-header-mobile__logo" href="{{url('users')}}">
-                <img style="max-height: 25px; " alt="Logo" src="{{ asset('assets/img/logos/SAF_logo_header.svg')}}">
+                <img style="max-height: 25px; " alt="Logo" src="{{ asset('assets/img/logos/saf_logo_2021.png')}}">
             </a>
         </div>
         <div class="kt-header-mobile__toolbar">
@@ -74,7 +74,7 @@
                                 <div class="kt-header__brand-logo">
                                     <a href="{{url('users')}}">
                                         <img style="max-height: 70px; " alt="Logo"
-                                            src="{{ asset('assets/img/logos/SAF_logo_header.svg')}}">
+                                            src="{{ asset('assets/img/logos/saf_logo_2021.png')}}">
                                     </a>
                                 </div>
                             </div>

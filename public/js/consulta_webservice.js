@@ -104,6 +104,8 @@ function validaCurp() {
                     //setea campo de edad con decimales a input
                     $("#Edad_menor").val(anioConMeses);
                     $("#nextBtn").attr("disabled", false);
+                    //obtiene el caci del menor para plancharlo en la vista
+                    $("#caci_menor_inscrito").val(data.datas.caci);
                     /* alert("La curp ingresada ha sido validada correctamente"); */
                     Swal.fire({
                         icon: 'success',
@@ -192,6 +194,7 @@ function preinscripcion() {
     form_data.append("birthday", $("#birthday").val());
     form_data.append("Edad_menor", $("#Edad_menor").val());
     form_data.append("terminos", $("#terminos").val());
+    form_data.append("status", '1');
 
     var dato_archivo_act = $('#filename_act').prop("files")[0];
     var dato_archivo_nac = $('#filename_nac').prop("files")[0];
@@ -338,7 +341,7 @@ function reinscripcion() {
     form_data.append("seccion_sindical", $("#seccion_sindical").val());
     form_data.append("horario_laboral_ent", $("#horario_laboral_ent").val());
     form_data.append("horario_laboral_sal", $("#horario_laboral_sal").val());
-    form_data.append("caci", $("#caci").val());
+    form_data.append("caci", $("#caci_menor_inscrito").val());
     form_data.append("email", $("#email").val());
     form_data.append("telefono_uno", $("#telefono_uno").val());
     form_data.append("telefono_dos", $("#telefono_dos").val());
@@ -349,6 +352,7 @@ function reinscripcion() {
     form_data.append("fecha_nacimiento", $("#birthday").val());
     form_data.append("edad_menor_ingreso", $("#Edad_menor").val());
     form_data.append("terminos", $("#terminos").val());
+    form_data.append("status", '1');
 
     /* var dato_archivo_act = $('#filename_act').prop("files")[0]; */
     /* var dato_archivo_nac = $('#filename_nac').prop("files")[0]; */

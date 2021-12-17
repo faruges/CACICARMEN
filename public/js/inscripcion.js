@@ -144,6 +144,84 @@ function preinscripcion() {
 
 }
 
+function generateExcel() {
+    var excel_ciclo = $("#excel_ciclo_escolar").val();
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            "_token": $("meta[name='csrf-token']").attr("content"),
+            "excel_ciclo_escolar": excel_ciclo
+        },
+        url: url + 'export-excel',
+        success: function (data) {
+            console.log("holad");
+        }
+    })
+}
+function generateExcelReincripcion() {
+    var excel_ciclo = $("#excel_ciclo_escolar").val();
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            "_token": $("meta[name='csrf-token']").attr("content"),
+            "excel_ciclo_escolar": excel_ciclo
+        },
+        url: url + 'export-excel-reinscripcion',
+        success: function (result, status, xhr) {
+            var disposition = xhr.getResponseHeader('content-disposition');
+            var matches = /"([^"]*)"/.exec(disposition);
+            var filename = (matches != null && matches[1] ? matches[1] : 'salary.xlsx');
+
+            // The actual download
+            var blob = new Blob([result], {
+                type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            });
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+
+            document.body.appendChild(link);
+
+            link.click();
+            document.body.removeChild(link);
+            /* console.log(status.status); */
+        }
+    })
+}
+
+function showMsj(id_reg_solicitante, id_proceso) {
+    /* alert($id_reg_solicitante); */
+    $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        data: {
+            "_token": $("meta[name='csrf-token']").attr("content"),
+            "id": id_reg_solicitante,
+            "id_proceso": id_proceso,
+        },
+        url: url + 'log_by_id',
+        success: function (data) {
+            console.log(data);
+            if (data.ok) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Usuario que elimino el Registro',
+                    text: data.result.nameUser,
+                    showConfirmButton: true,
+                    allowOutsideClick: false
+                });
+            }
+        },
+        error: function (data_e) {
+            console.log(data_e);
+        }
+    });
+}
+
 function reinscripcion() {
 
     var form_data = new FormData();
@@ -177,6 +255,7 @@ function reinscripcion() {
     form_data.append("fecha_nacimiento", $("#birthday").val());
     form_data.append("edad_menor_ingreso", $("#Edad_menor").val());
     form_data.append("terminos", $("#terminos").val());
+    form_data.append("status", '1');
 
     var dato_archivo_act = $('#filename_act').prop("files")[0];
     var dato_archivo_nac = $('#filename_nac').prop("files")[0];
@@ -380,26 +459,26 @@ function editCaci(id, caci) {
 
     switch (caci) {
         case 'Luz Maria Gomez Pezuela':
-            position_caci ='0';
+            position_caci = '0';
             break;
         case 'Mtra Eva Moreno Sanchez':
-            position_caci ='1';
+            position_caci = '1';
             break;
         case 'Bertha Von Glumer Leyva':
-            position_caci ='2';
+            position_caci = '2';
             break;
         case 'Carolina Agazzi':
-            position_caci ='3';
+            position_caci = '3';
             break;
         case 'Carmen S':
-            position_caci ='4';
+            position_caci = '4';
             break;
     }
     getIndexCaci(position_caci);
 }
 
 function getIndexCaci(position_caci) {
-    document.getElementById("caci_nombre").selectedIndex = position_caci; 
+    document.getElementById("caci_nombre").selectedIndex = position_caci;
 }
 
 function actualizarCaci(token) {

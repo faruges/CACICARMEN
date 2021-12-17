@@ -42,7 +42,7 @@
 
 .accordion-item .accordion-title.active-title {
     background-color: #f2f2f2;
-    color: #00b140;
+    color: #235B4E;
 }
 
 .accordion-item .accordion-title h2 {
@@ -104,7 +104,7 @@
   }
 
   button   {
-    background-color: #00b140;
+    background-color: #235B4E;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -113,7 +113,7 @@
     cursor: pointer;
   }
   .style-green   {
-    background-color: #00b140;
+    background-color: #235B4E;
     color: #ffffff;
     border: none;
     padding: 10px 20px;

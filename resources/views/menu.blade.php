@@ -66,6 +66,8 @@
             <div class="level-left">
                 <div class="level-item" id="SAF-mobile">
                     <figure class="image">
+                        <!-- <img class="logo_cdmx" id="logo_cdmx"
+                            src="{{asset('img/saf_logo_2021.png')}}" alt="Imagenes"> -->
                         <img class="logo_cdmx" id="logo_cdmx"
                             src="{{asset('img/logocdmxcaci.svg')}}" alt="Imagenes">
                     </figure>
@@ -118,13 +120,6 @@
                                 <i class="kt-menu__ver-arrow la la-angle-right"></i>
                             </a>
                         </li>
-
-                        {{--  <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel ">
-                            <a href="{{url('inscripcion_from')}}" class="kt-menu__link">
-                        <span class="kt-menu__link-text">Preinscripción</span>
-                        <i class="kt-menu__ver-arrow la la-angle-right"></i>
-                        </a>
-                        </li> --}}
                         <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel ">
                             <a href="{{url('requisitos')}}" class="kt-menu__link">
                                 <span class="kt-menu__link-text">Requisitos</span>
@@ -199,7 +194,7 @@
   <a class="navbar-brand" style="background-color: #00B140; margin-left: 25px;"></a>
   <a href="inicio">Inicio</a>		
   <a href="centros_Luz_María">Centros</a>
-  <a href="inscripcion_from">Preinscripción</a>
+  <a href="preinscripcion_validar_rfc">Preinscripción</a>
   <a href="reinscripcion">Reinscripción</a>
   <a href="informacion_destacada">Información destacada</a>
   <a href="preguntas_frecuentes">Preguntas frecuentes</a>
@@ -218,7 +213,7 @@
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <a style="color:#33353d;" href="inicio" title="INICIO">INICIO</a>|
                     |<a style="color:#33353d;" href="centros_Luz_María" title="CENTROS">CENTROS</a>|
-                    |<a style="color:#33353d;" href="inscripcion_from" title="INSCRIPCIÓN">PREINSCRIPCIÓN</a>|
+                    |<a style="color:#33353d;" href="preinscripcion_validar_rfc" title="INSCRIPCIÓN">PREINSCRIPCIÓN</a>|
                     |<a style="color:#33353d;" href="reinscripcion" title="REINSCRIPCIÓN">REINSCRIPCIÓN</a>|
                     |<a style="color:#33353d;" href="informacion_destacada" title="INFORMACIÓN DESTACADA">INFORMACIÓN
                         DESTACADA</a>|

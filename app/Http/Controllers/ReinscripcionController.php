@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Documentos;
 use App\Model\Reinscripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 use Validator;
-use Mail;
 
 class ReinscripcionController extends Controller
 {
+    public function __construct()
+    {
+        $this->funciones = new Funciones;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,53 +21,48 @@ class ReinscripcionController extends Controller
      */
     public function index()
     {
-        return view('reinscripcion_validar_rfc');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('reinscripcion.reinscripcion_validar_rfc');
     }
 
     public function getwebservice(Request $request)
     {
 
-        try {
-            $RFC = $request->RFC;
-            $tokenId = $request->tokenId;
+        try {            
+            $isPlatformUnable = $this->funciones->testIfPlatformUnable();
+            if ($isPlatformUnable) {
+                return redirect('/reinscripcion')->withErrors(['error' => 'La plataforma esta deshabilitada, ya que No son periodos de Reinscripción. Para saber de la fechas, se encuentran en el apartado de Requisitos.']);
+            } else {
+                $RFC = $request->RFC;
+                $tokenId = $request->tokenId;
 
-            $ch = curl_init();
-            curl_setopt_array($ch, array(
-                CURLOPT_URL => "10.1.181.9:9003/usuarios/loadUserCASI",
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "POST",
-                CURLOPT_POSTFIELDS => "{\n \"security\":\n {\n \"tokenId\":\"$tokenId\"\n },\n \"data\":\n {\n \"RFC\":\"$RFC\"\n }\n \n}",
-                CURLOPT_HTTPHEADER => array("Content-Type:application/json"),
+                $ch = curl_init();
+                curl_setopt_array($ch, array(
+                    CURLOPT_URL => "10.1.181.9:9003/usuarios/loadUserCASI",
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "POST",
+                    CURLOPT_POSTFIELDS => "{\n \"security\":\n {\n \"tokenId\":\"$tokenId\"\n },\n \"data\":\n {\n \"RFC\":\"$RFC\"\n }\n \n}",
+                    CURLOPT_HTTPHEADER => array("Content-Type:application/json"),
 
-            ));
-            $response = curl_exec($ch);
-            curl_close($ch);
+                ));
+                $response = curl_exec($ch);
+                curl_close($ch);
 
-            $array = json_decode($response, true);
-            $array = json_decode($response, true);
-            foreach ($array['data'] as $key => &$value) {
-                if ($value === "0" || is_null($value)) {
-                    $value = "DATO NO ENCONTRADO";
+                $array = json_decode($response, true);
+                $array = json_decode($response, true);
+                foreach ($array['data'] as $key => &$value) {
+                    if ($value === "0" || is_null($value)) {
+                        $value = "DATO NO ENCONTRADO";
+                    }
                 }
-            }
-            $data['user'] = $array['data'];
+                $data['user'] = $array['data'];
 
-            return view('reinscripcion_tabs', compact('data'));
+                return view('reinscripcion.reinscripcion_form', compact('data'));
+            }
         } catch (\Throwable $th) {
             return redirect('/reinscripcion')->withErrors(['error' => 'RFC no se encuentra en nuestros registros']);
         }
@@ -76,8 +72,10 @@ class ReinscripcionController extends Controller
     {
         Reinscripcion::create($request->all());
         //obtiene id de reinscripcion
-        $id_reins = Reinscripcion::select('id')->orderByDesc('id')->get()->first();
-        $id = $id_reins->id;
+        $objectReinscripcion = Reinscripcion::select('id', 'created_at')->orderByDesc('id')->get()->first();    
+        $ciclo_escolar_menor = $this->funciones->getCicloEscolar($objectReinscripcion->created_at);
+        $id = $objectReinscripcion->id;
+        Reinscripcion::setCicloByIdMenor($id, $ciclo_escolar_menor);
         $filename_vacu = $request->file('filename_vacu');
 
         $filename_compr_pago = $request->file('filename_compr_pago');
@@ -92,12 +90,12 @@ class ReinscripcionController extends Controller
             $arrayFiles[] = array($filename_disc, "Copias de los documentos médicos del tratamiento");
         }
 
-        if (Reinscripcion::setDoc($arrayFiles, $id)) {
-            $reinscripcion = new ReinscripcionController;
-            $envioEmail = $reinscripcion->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email);
+        if (Reinscripcion::setDoc($arrayFiles, $id)) {            
+            $envioEmail = $this->funciones->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email);
             if ($envioEmail) {
                 Reinscripcion::insertFlagEnvioEmail($id);
-                $reinscripcion->setRolCaci($id, $request->caci);
+                $reinscripcion = new Reinscripcion;
+                $this->funciones->setRolCaci($id, $request->caci,$reinscripcion,$reinscripcion);
             }
             return true;
         } else {
@@ -237,7 +235,7 @@ class ReinscripcionController extends Controller
                 $reinscripcionController = new ReinscripcionController;
                 $curp = $request->curp;
                 //contea si ya menor esta inscrito
-                $conteoCurp = Reinscripcion::where('curp', $curp)->get()->count();
+                $conteoCurp = Reinscripcion::where('curp', $curp)->where('status', '1')->get()->count();
                 //si no esta inscrito, procede a guardar la info
                 if ($conteoCurp <= 0) {
                     /* dd($request)->all(); */
@@ -249,13 +247,12 @@ class ReinscripcionController extends Controller
                         return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid_docs' => true]);
                     }
                 } else if ($conteoCurp >= 1) {
-                    //si ya hay un registro verifica que ya sea en otro ciclo escolar para poderlo reinscribir
-                    $renapoWS = new WebServicesRENAPO;
-                    $intoCicloEscolar = true;
+                    //si ya hay un registro verifica que ya sea en otro ciclo escolar para poderlo reinscribir                    
+                    $isMenorInsideCicloEscolar = true;
                     $name_table = 'reinscripcion_menor';
                     $column_curp = 'curp';
-                    $intoCicloEscolar = $renapoWS->comparaCiclosEscolares($name_table, $column_curp, $curp, $renapoWS);
-                    if ($conteoCurp >= 1 && $intoCicloEscolar === false) {
+                    $isMenorInsideCicloEscolar = $this->funciones->comparaCiclosEscolares($name_table, $column_curp, $curp);
+                    if ($conteoCurp >= 1 && $isMenorInsideCicloEscolar === false) {
                         //si habia mas de un registro pero en diferente ciclo escolar
                         $isSuccesful = $reinscripcionController->setReinscripcion($request, $validator);
                         if ($isSuccesful) {
@@ -264,7 +261,7 @@ class ReinscripcionController extends Controller
                         } else {
                             return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid_docs' => true]);
                         }
-                    } else if ($conteoCurp >= 1 && $intoCicloEscolar === true) {
+                    } else if ($conteoCurp >= 1 && $isMenorInsideCicloEscolar === true) {
                         return response()->json(['ok' => true, 'result' => "No se puede Reinscribir dos veces en el mismo ciclo escolar", 'Exist' => true]);
                     }
                     //return redirect('reinscripcion')->withErrors(['', 'No se pudo realizar el proceso de Reinscripción, el Menor ya esta Inscrito']);
@@ -274,93 +271,5 @@ class ReinscripcionController extends Controller
             DB::rollback();
             return response()->json(['ok' => false, 'result' => 'No se pudo realizar la Reinscripción']);
         }
-    }
-
-    private function sendEmail($nombre_tutor, $ap_paterno, $email)
-    {
-        try {
-            $response = ["nombre" => $nombre_tutor . ' ' . $ap_paterno, "email" => $email];
-            Mail::send('reinscripcion_email', $response, function ($msj) use ($response) {
-                #el objeto Asunto
-                $msj->subject('Notificacion CACI');
-                #El objeto a quien se lo envias
-                $msj->to($response['email']);
-            });
-            return true;
-        } catch (\Throwable $th) {
-            return false;
-            dd($th);
-        }
-    }
-
-    private function setRolCaci($id, $rolCaci)
-    {
-        switch ($rolCaci) {
-            case 'Luz Maria Gomez Pezuela':
-                $caciLuz = "caciluz";
-                Reinscripcion::setCaci($id, $caciLuz);
-                break;
-            case 'Mtra Eva Moreno Sanchez':
-                $caciEva = "cacieva";
-                Reinscripcion::setCaci($id, $caciEva);
-                break;
-            case 'Bertha Von Glumer Leyva':
-                $caciBertha = "cacibertha";
-                Reinscripcion::setCaci($id, $caciBertha);
-                break;
-            case 'Carolina Agazzi':
-                $caciCarolina = "cacicarolina";
-                Reinscripcion::setCaci($id, $caciCarolina);
-                break;
-            case 'Carmen S':
-                $caciCarmen = "cacicarmen";
-                Reinscripcion::setCaci($id, $caciCarmen);
-                break;
-        }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

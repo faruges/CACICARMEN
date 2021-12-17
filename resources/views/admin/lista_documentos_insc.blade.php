@@ -78,7 +78,7 @@
                     title="Notifica Lista en Espera"><i class="fa fa-envelope"></i></a>  --}}
             </span>
             @endforeach
-            <h1><i class="fa fa-file"></i> Valida Inscripci&oacute;n Solicitante</h1>
+            <h1><i class="fa fa-file"></i> Valida Inscripci&oacute;n Solicitante</h1>            
         </div>
         <div class="card-body">
             <div class="row">
@@ -154,7 +154,9 @@
         <div>
             <span class="float-right btn-regresar">
                 <a class="btn btn-lg btn-primary" href="{{route('lista_inscripcion')}}"
-                    title="Regresar"><i class="fa fa-backward"></i> Regresar</a>
+                title="Regresar"><i class="fa fa-backward"></i> Regresar</a>
+                <button type="button" id="delete_registro_sol" title="Borrar Registro del Solicitante" name="delete_registro_sol" onclick="del_reg_solicitante('{{$id}}','{{$nameUser}}','lista_inscripcion','inscripcion_menor','inscripcion_menor_id','inscripcion')" 
+                            class="btn btn-lg btn-danger"><i class="fa fa-trash"></i>Borrar Registro</button>
             </span>
         </div>
     </div>

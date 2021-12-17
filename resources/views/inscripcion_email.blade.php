@@ -5,4 +5,4 @@
 <p>Agradecemos su interés; </p>
 <br><br>
 <p><strong>ATENTAMENTE</strong></p>
-<p>Coordinación de Desarrollo Laboral y Formación Continua</p>
+<p>CDLyFC</p>

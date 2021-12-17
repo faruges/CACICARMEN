@@ -5,67 +5,52 @@ namespace App\Http\Controllers;
 use App\Model\Inscripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-use Mail;
 
 use Validator;
 
 class InscripcionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function __construct()
     {
-        return view('inscripcion_validar_rfc');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $this->funciones = new Funciones;
     }
 
     public function getwebservice(Request $request)
     {
-        try {
-            $RFC = $request->RFC;
-            $tokenId = $request->tokenId;
+        try {            
+            $isPlatformUnable = $this->funciones->testIfPlatformUnable();            
+            if ($isPlatformUnable) {
+                return redirect('/preinscripcion_validar_rfc')->withErrors(['error' => 'La plataforma esta deshabilitada, ya que No son periodos de Preinscripción. Para saber de la fechas, se encuentran en el apartado de Requisitos.']);
+            } else {
+                $RFC = $request->RFC;
+                $tokenId = $request->tokenId;
+                $ch = curl_init();
+                curl_setopt_array($ch, array(
+                    CURLOPT_URL => "10.1.181.9:9003/usuarios/loadUserCASI",
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "POST",
+                    CURLOPT_POSTFIELDS => "{\n \"security\":\n {\n \"tokenId\":\"$tokenId\"\n },\n \"data\":\n {\n \"RFC\":\"$RFC\"\n }\n \n}",
+                    CURLOPT_HTTPHEADER => array("Content-Type:application/json"),
 
-            $ch = curl_init();
-            curl_setopt_array($ch, array(
-                CURLOPT_URL => "10.1.181.9:9003/usuarios/loadUserCASI",
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "POST",
-                CURLOPT_POSTFIELDS => "{\n \"security\":\n {\n \"tokenId\":\"$tokenId\"\n },\n \"data\":\n {\n \"RFC\":\"$RFC\"\n }\n \n}",
-                CURLOPT_HTTPHEADER => array("Content-Type:application/json"),
+                ));
+                $response = curl_exec($ch);
+                curl_close($ch);
 
-            ));
-            $response = curl_exec($ch);
-            curl_close($ch);
-
-            $array = json_decode($response, true);
-            foreach ($array['data'] as $key => &$value) {
-                if ($value === "0" || is_null($value)) {
-                    $value = "DATO NO ENCONTRADO";
+                $array = json_decode($response, true);
+                foreach ($array['data'] as $key => &$value) {
+                    if ($value === "0" || is_null($value)) {
+                        $value = "DATO NO ENCONTRADO";
+                    }
                 }
+                $data['user'] = $array['data'];
+                return view('preinscripcion.preinscripcion_form', compact('data'));
             }
-            $data['user'] = $array['data'];
-            /* dd($data); */
-            /* return response()->json($data); */
-            return view('preinscripcion', compact('data'));
-            //return redirect('/formulario_inscripcion')->with('data', $data);
         } catch (\Throwable $th) {
             /* dd($th); */
             return redirect('/preinscripcion_validar_rfc')->withErrors(['error' => 'RFC no se encuentra en nuestros registros']);
@@ -206,16 +191,18 @@ class InscripcionController extends Controller
             $validator = Validator::make($request->all(), $rules, $messages);
             if ($validator->fails()) {
                 //return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error.')->with('typelert', 'danger');
-                return response()->json(['ok'=>false,'result' => $validator->errors()->all(),'err_valid'=>true]);  
+                return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid' => true]);
             } else {
                 $curp = $request->curp_num;
                 //contea si ya menor esta inscrito
-                $conteoCurp = Inscripcion::where('curp_num', $curp)->get()->count();
+                $conteoCurp = Inscripcion::where('curp_num', $curp)->where('status', '1')->get()->count();
                 if ($conteoCurp <= 0) {
                     Inscripcion::create($request->all());
                     //obtiene id de reinscripcion
-                    $id_reins = Inscripcion::select('id')->orderByDesc('id')->get()->first();
-                    $id = $id_reins->id;
+                    $objectInscripcion = Inscripcion::select('id', 'created_at')->orderByDesc('id')->get()->first();            
+                    $ciclo_escolar_menor = $this->funciones->getCicloEscolar($objectInscripcion->created_at);
+                    $id = $objectInscripcion->id;
+                    Inscripcion::setCicloByIdMenor($id, $ciclo_escolar_menor);
                     $filename_act = $request->file('filename_act');
                     //$filename_sol = $request->file('filename_sol');
                     $filename_vacu = $request->file('filename_vacu');
@@ -232,7 +219,7 @@ class InscripcionController extends Controller
 
                     $arrayFiles = array(
                         array($filename_act, "Acta de nacimiento"), array($filename_vacu, "Cartilla de vacunación"),
-                        array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp"),array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
+                        array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp"), array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
                         /*,array($filename_disc, "Copias de los documentos médicos del tratamiento"),
                         array($filename_trab, "Documento de la patria potestad")*/
                     );
@@ -245,119 +232,30 @@ class InscripcionController extends Controller
                         $arrayFiles[] = array($filename_trab, "Documento de la patria potestad");
                     }
 
-                    if (Inscripcion::setDoc($arrayFiles, $id)) {
-
-                        $inscripcion = new InscripcionController;
-                        $envioEmail = $inscripcion->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo);
+                    if (Inscripcion::setDoc($arrayFiles, $id)) {            
+                        $envioEmail = $this->funciones->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo);
                         if ($envioEmail) {
                             Inscripcion::insertFlagEnvioEmail($id);
-                            $inscripcion->setRolCaci($id, $request->caci);
+                            $inscripcion = new Inscripcion;
+                            $this->funciones->setRolCaci($id, $request->caci,$inscripcion);
                         }
                         //return redirect('inicio');
                         DB::commit();
-                        return response()->json(['ok'=>true,'result'=>'Menor inscrito con exito','menor' => $request->nombre_menor_1]);    
+                        return response()->json(['ok' => true, 'result' => 'Menor inscrito con exito', 'menor' => $request->nombre_menor_1]);
                         //return redirect('inicio')->with('mensaje', "Menor inscrito con exito");
                     } else {
                         //return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error, no se cargaron todos los archivos.')->with('typelert', 'danger');
-                        return response()->json(['ok'=>false,'result' => $validator->errors()->all(),'err_valid_docs'=>true]);  
+                        return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid_docs' => true]);
                     }
                 } else {
-                    return response()->json(['ok'=>true,'result' => "No se pudo realizar el proceso de Inscripción, el Menor con curp '$request->curp_num' ya esta Inscrito",'Exist'=>true]);     
+                    return response()->json(['ok' => true, 'result' => "No se pudo realizar el proceso de Inscripción, el Menor con curp '$request->curp_num' ya esta Inscrito", 'Exist' => true]);
                     //return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar el proceso de Inscripción, el Menor ya esta Inscrito']);
                 }
             }
         } catch (\Throwable $th) {
             DB::rollback();
-            return response()->json(['ok'=>false,'result' =>'No se pudo realizar la Inscripción']);     
+            return response()->json(['ok' => false, 'result' => 'No se pudo realizar la Inscripción']);
             //return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar la Inscripción']);
         }
-    }
-
-    private function sendEmail($nombre_tutor, $ap_paterno, $email)
-    {
-        try {
-            $response = ["nombre" => $nombre_tutor . ' ' . $ap_paterno, "email" => $email];
-            Mail::send('inscripcion_email', $response, function ($msj) use ($response) {
-                #el objeto Asunto
-                $msj->subject('Notificacion CACI');
-                #El objeto a quien se lo envias
-                $msj->to($response['email']);
-            });
-            return true;
-        } catch (\Throwable $th) {
-            return false;
-            dd($th);
-        }
-    }
-
-    private function setRolCaci($id, $rolCaci)
-    {
-        switch ($rolCaci) {
-            case 'Luz Maria Gomez Pezuela':
-                $caciLuz = "caciluz";
-                Inscripcion::setCaci($id, $caciLuz);
-                break;
-            case 'Mtra Eva Moreno Sanchez':
-                $caciEva = "cacieva";
-                Inscripcion::setCaci($id, $caciEva);
-                break;
-            case 'Bertha Von Glumer Leyva':
-                $caciBertha = "cacibertha";
-                Inscripcion::setCaci($id, $caciBertha);
-                break;
-            case 'Carolina Agazzi':
-                $caciCarolina = "cacicarolina";
-                Inscripcion::setCaci($id, $caciCarolina);
-                break;
-            case 'Carmen S':
-                $caciCarmen = "cacicarmen";
-                Inscripcion::setCaci($id, $caciCarmen);
-                break;
-        }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

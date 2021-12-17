@@ -14,7 +14,7 @@ class Reinscripcion extends Model
         'tipo_nomina', 'num_empleado', 'num_plaza', 'clave_dependencia','nivel_salarial', 'seccion_sindical', 'horario_laboral',
         'email', 'telefono_uno', 'telefono_dos', 'horario_laboral_ent',
         'horario_laboral_sal', 'nombre_menor', 'ap_paterno', 'ap_materno', 'curp', 'fecha_nacimiento', 'edad_menor_ingreso',
-        'caci','terminos','correo_enviado','created_at'
+        'caci','terminos','correo_enviado','ciclo_escolar','status','created_at'
     ];
     protected $guarded = ['id'];
     public $timestamps = true;
@@ -49,6 +49,11 @@ class Reinscripcion extends Model
         } else {
             return false;
         }
+    }
+    public static function setCicloByIdMenor($id,$ciclo_escolar){
+        DB::table('reinscripcion_menor')
+                ->where('id', $id)
+                ->update(['ciclo_escolar' => $ciclo_escolar]);
     }
     public static function insertFlagEnvioEmail($id){
         DB::table('reinscripcion_menor')

@@ -192,7 +192,6 @@ class UserController extends AppBaseController
         DB::table('users')
                 ->where('id', $id)
                 ->update(['status' => '-1']);
-
         //Flash::success('User deleted successfully.');
         Session::flash('mensaje', 'Usuario se elimino exitosamente!'); 
 
