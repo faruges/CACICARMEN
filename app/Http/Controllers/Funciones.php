@@ -119,11 +119,11 @@ class Funciones extends Controller
         return $array_lista_preins_reins;
     }
 
-    public function sendEmail($nombre_tutor, $ap_paterno, $email)
+    public function sendEmail($nombre_tutor, $ap_paterno, $email,$file_email)
     {
         try {
             $response = ["nombre" => $nombre_tutor . ' ' . $ap_paterno, "email" => $email];
-            Mail::send('inscripcion_email', $response, function ($msj) use ($response) {
+            Mail::send($file_email, $response, function ($msj) use ($response) {
                 #el objeto Asunto
                 $msj->subject('Notificacion CACI');
                 #El objeto a quien se lo envias

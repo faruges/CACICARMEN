@@ -233,7 +233,7 @@ class InscripcionController extends Controller
                     }
 
                     if (Inscripcion::setDoc($arrayFiles, $id)) {            
-                        $envioEmail = $this->funciones->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo);
+                        $envioEmail = $this->funciones->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo,'preinscripcion.inscripcion_email');
                         if ($envioEmail) {
                             Inscripcion::insertFlagEnvioEmail($id);
                             $inscripcion = new Inscripcion;

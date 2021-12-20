@@ -91,7 +91,7 @@ class ReinscripcionController extends Controller
         }
 
         if (Reinscripcion::setDoc($arrayFiles, $id)) {            
-            $envioEmail = $this->funciones->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email);
+            $envioEmail = $this->funciones->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email,'reinscripcion.reinscripcion_email');
             if ($envioEmail) {
                 Reinscripcion::insertFlagEnvioEmail($id);
                 $reinscripcion = new Reinscripcion;
