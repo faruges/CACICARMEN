@@ -1,5 +1,8 @@
 @extends('users.users_inicio')
 @section('title','Bienvenidos Plataforma CACI')
+@section('scripts')
+<script src="{{URL::asset('js/inscripcion.js')}}" type="text/javascript"> </script>
+@endsection
 @section('mycontent')
 <style>
     .margin-card{

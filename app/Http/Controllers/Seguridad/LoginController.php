@@ -35,19 +35,27 @@ class LoginController extends Controller
         return redirect('/login');
 
         /* $request->session()->invalidate();
-
         return $this->loggedOut($request) ?: redirect('/login'); */
     }
 
     protected function authenticated(Request $request, $user)
-    {
+    {   
+        /* if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        } */        
         if ($user) {
             //como parametro en setSession puedo mandar todos los datos del menor
-            $user->setSession();
+            $user->setSession();                     
+            /* dd($this->middleware('auth')); */
         } else {
             $this->guard()->logout();
             $request->session()->invalidate();
-            return redirect('seguridad/login')->withErrors(['error' => 'Error en Inicio de Sesión']);
+            return redirect('seguridad/logout')->withErrors(['error' => 'Error en Inicio de Sesión']);
         }
-    }
+
+        /* $this->incrementLoginAttempts($request);
+        return $this->sendFailedLoginResponse($request); */
+    }    
 }

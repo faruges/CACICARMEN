@@ -189,7 +189,7 @@ class UserController extends AppBaseController
 
         //$this->userRepository->delete($id);
         //$this->userRepository->update(['status' => '-1'],$id);
-        DB::table('users')
+        DB::table('usuarios')
                 ->where('id', $id)
                 ->update(['status' => '-1']);
         //Flash::success('User deleted successfully.');
@@ -206,7 +206,7 @@ class UserController extends AppBaseController
 
             return redirect(route('users.index'));
         }
-        DB::table('users')
+        DB::table('usuarios')
                 ->where('id', $id)
                 ->update(['status' => '1']);
         

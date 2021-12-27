@@ -11,20 +11,17 @@
     <!-- BEGIN : LOGIN PAGE 5-1 -->
     <div class="user-login-5" style="margin-top: 2rem;">
         <div class="row bs-reset">
-            <div class="login-bg col-6 col-sm-6 col-md-6 bs-reset mt-login-5-bsfix"
-                style="position: relative; z-index: 0; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
-                <div class="backstretch"
-                    style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 302px; width: 675px; z-index: -999998; position: absolute;">
-                    <img style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 675px; height: 506.25px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -102.125px;"
-                        src="{{asset('assets/pages/img/login/cdmx3.svg')}}"></div>
+            <div class="login-bg col-6 col-sm-6 col-md-6 bs-reset mt-login-5-bsfix" style="position: relative; z-index: 0; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
+                <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 302px; width: 675px; z-index: -999998; position: absolute;">
+                    <img style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 675px; height: 506.25px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -102.125px;" src="{{asset('assets/pages/img/login/cdmx3.svg')}}">
+                </div>
             </div>
             <div class="col-6 col-sm-6 col-md-6 login-container bs-reset mt-login-5-bsfix">
                 <img class="logo_cdmx_login" src="{{asset('img/saf_logo_2021.png')}}">
                 <div class="login-content" style="margin-left: 3rem;">
                     <h1 style="font-family: " Open Sans",sans-serif;">SISTEMA SAF-CACI</h1>
                     <p style="font-family: " Open Sans",sans-serif;">CENTRO DE ATENCI&Oacute;N Y CUIDADO INFANTIL.
-                    </p>
-
+                    </p>                    
                     @if($errors->any())
                     <div class="alert alert-danger alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
@@ -41,17 +38,12 @@
                         <br><br><br>
                         <div class="row">
                             <div class="col-xs-6">
-                                <input id="name" type="text"
-                                    class="form-control form-control-solid placeholder-no-fix form-group"
-                                    autocomplete="off" autofocus="" placeholder="Ingresa el usuario" name="name"
-                                    required="" value="" aria-required="true">
+                                <input id="name" type="text" class="form-control form-control-solid placeholder-no-fix form-group" autocomplete="off" autofocus="" placeholder="Ingresa el usuario" name="name" required="" value="" aria-required="true">
 
                             </div>
 
                             <div class="col-xs-6">
-                                <input class="form-control form-control-solid placeholder-no-fix form-group"
-                                    id="password" type="password" autocomplete="off" placeholder="Contraseña"
-                                    name="password" required="" aria-required="true">
+                                <input class="form-control form-control-solid placeholder-no-fix form-group" id="password" type="password" autocomplete="off" placeholder="Contraseña" name="password" required="" aria-required="true">
                             </div>
                         </div>
 
@@ -75,8 +67,7 @@
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <script src="{{asset('assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}" type="text/javascript">
     </script>
-    <script src="{{asset('assets/global/plugins/jquery-validation/js/additional-methods.min.js')}}"
-        type="text/javascript"></script>
+    <script src="{{asset('assets/global/plugins/jquery-validation/js/additional-methods.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/global/plugins/select2/js/select2.full.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/global/plugins/backstretch/jquery.backstretch.min.js')}}" type="text/javascript">
     </script>

@@ -100,7 +100,7 @@
 
 <div class="container-fluid">
     <div class="card mt50 margin-card">
-        <div class="kt-portlet__head">
+        <div class="kt-portlet__head">            
             <div class="kt-portlet__head-label">
                 <h2 class="cdmx-colorv">
                     Inscripción

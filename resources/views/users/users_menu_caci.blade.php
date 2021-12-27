@@ -356,7 +356,9 @@
             <script src="{{asset('assets/vendors/general/block-ui/jquery.blockUI.js')}}" type="text/javascript">
             </script>
             <!--end::Page Vendors -->
-
+            <!-- Seccion expira libreria para realizar lo antes dicho-->
+            <script src="https://unpkg.com/@travishorn/session-timeout"></script>
+            <!-- <script src="{{ URL::asset('js/session-timeout.js') }}"></script> -->
             <!-- <script src="{{ URL::asset('js/datatables.js') }}" defer></script> -->
             <script src="{{ URL::asset('assets/global/scripts/datatable.js') }}" type="text/javascript"></script>
             <script src="{{ URL::asset('assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript">
@@ -365,7 +367,6 @@
                 type="text/javascript"></script>
             <script src="{{ URL::asset('assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js') }}"
                 type="text/javascript"></script>
-
         </b></b>
 
 

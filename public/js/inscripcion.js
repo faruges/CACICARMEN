@@ -542,3 +542,15 @@ function actualizarCaci(token) {
         }
     });
 }
+$(document).ready(function () {
+    sessionTimeout({
+        warnAfter: 3600000,
+        logOutUrl: 'public/seguridad/logout',
+        timeOutAfter: 3900000,
+        timeOutUrl: 'public/seguridad/logout',
+        message: '¿Estas todavia aqui?',
+        logOutBtnText:'Cerrar Sesión',
+        titleText:'La Sesión esta por expirar',
+        stayConnectedBtnText: 'Mantenerse Conectado'        
+    });
+});
