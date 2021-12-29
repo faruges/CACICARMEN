@@ -58,11 +58,11 @@ class UserController extends AppBaseController
      */
     public function store(CreateUserRequest $request)
     {
-        //dd($request->all());
+        /* dd($request->all()); */
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
         $input['status'] = '1';
-        $user = $this->userRepository->create($input);
+        $user = $this->userRepository->create($input);        
         $user->assignRole($request->rol);
 
         //return response()->json();
@@ -100,7 +100,7 @@ class UserController extends AppBaseController
      * @return Response
      */
     public function edit($id)
-    {
+    {        
         $user = $this->userRepository->find($id);
         $position_rol = null;
 
@@ -177,9 +177,9 @@ class UserController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
-    {
-        $user = $this->userRepository->find($id);
+    public function destroy(Request $request)
+    {        
+        $user = $this->userRepository->find($request->id);
 
         if (empty($user)) {
             Flash::error('Usuario no se encontro');
@@ -190,12 +190,12 @@ class UserController extends AppBaseController
         //$this->userRepository->delete($id);
         //$this->userRepository->update(['status' => '-1'],$id);
         DB::table('usuarios')
-                ->where('id', $id)
+                ->where('id', $request->id)
                 ->update(['status' => '-1']);
         //Flash::success('User deleted successfully.');
-        Session::flash('mensaje', 'Usuario se elimino exitosamente!'); 
-
-        return redirect(route('users.index'));
+        /* Session::flash('mensaje', 'Usuario se elimino exitosamente!'); */ 
+        /* return redirect(route('users.index')); */
+        return response()->json(['ok'=>true,'result'=>'¡Usuario se elimino éxitosamente!']);
     }
     public function reactive($id)
     {

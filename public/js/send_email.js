@@ -1,16 +1,4 @@
 var $$ = function (id) { try { return document.getElementById(id) } catch (err) { $err(err); } };
-$(document).ready(function () {
-    sessionTimeout({
-        warnAfter: 10000,
-        logOutUrl: 'seguridad/logout',
-        timeOutAfter: 15000,
-        timeOutUrl: 'seguridad/logout',
-        message: '¿Estas todavia aqui?',
-        logOutBtnText:'Cerrar Sesión',
-        titleText:'La Sesión esta por expirar',
-        stayConnectedBtnText: 'Mantenerse Conectado'        
-    });
-});
 
 function del_reg_solicitante(id_reg_solicitante, nameUser, lista, tabla, id_proceso, proceso) {
     /* alert($nameUser); */

@@ -2,6 +2,7 @@
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
 <script src="{{URL::asset('js/send_email.js')}}" type="text/javascript"> </script>
+<script src="{{URL::asset('js/session_out.js')}}" type="text/javascript"> </script>
 @endsection
 @section('mycontent')
 <style>

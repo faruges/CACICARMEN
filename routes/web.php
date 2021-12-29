@@ -127,7 +127,7 @@ Route::group(['middleware' => ['nocache', 'permission:view_users|edit_users|dele
     Route::get('edit/{id}', 'UserController@edit')->name('edit');
     Route::post('update/{id}', 'UserController@update')->name('update');
     Route::post('store', 'UserController@store')->name('store');
-    Route::get('destroy/{id}', 'UserController@destroy')->name('destroy');
+    Route::post('destroy', 'UserController@destroy')->name('destroy');
     Route::get('reactive/{id}', 'UserController@reactive')->name('reactive');
 });
 

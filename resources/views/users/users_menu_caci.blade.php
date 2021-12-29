@@ -302,7 +302,7 @@
                             <div class="col-lg-12">
                                 <div class="kt-footer__section">
                                     <h3 class="kt-footer__title">©Copyright Plataforma CACI, Todos los derechos
-                                        reservados 2020 Gobierno CDMX / Email: <a style="color:#33353d;"
+                                        reservados {{date("Y")}} Gobierno CDMX / Email: <a style="color:#33353d;"
                                             href="mailto:caciadministracion@finanzas.cdmx.gob.mx"></a>caciadministracion@finanzas.cdmx.gob.mx
                                     </h3>
                                 </div>

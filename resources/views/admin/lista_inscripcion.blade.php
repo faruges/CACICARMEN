@@ -29,7 +29,7 @@
         /* to take the same width as tr */
         overflow-y: scroll;
         /* sirve junto a tbody para ir creciendo progresivamente y se vea mejor el texto */
-        width: 180%;
+        width: 190%;
         border: 1px solid #ddd;
         /* - 17px because of the scrollbar width */
         /* background-color: blue; */
@@ -42,7 +42,7 @@
         /* e.g. */
         overflow-y: scroll;
         /* sirve junto a thead para ir creciendo progresivamente y se vea mejor el texto */
-        width: 180%;
+        width: 190%;
         border: 1px solid #ddd;
         /* background-color: purple; */
         /* keeps the scrollbar even if it doesn't need it; display purpose */
@@ -50,7 +50,7 @@
 
     th,
     td {
-        width: 6.25%;
+        width: 5.88%;
         /* to enable "word-break: break-all" */
         padding: 0px;
         word-break: break-all;
@@ -160,7 +160,7 @@
                     <th>Secci&oacute;n Sindical</th>
                     <th>Email</th>
                     <th>Telefono Uno</th>
-                    <!-- <th>Telefono Dos</th> -->
+                    <th>Telefono Dos</th>
                     <th>Email Enviado Notificación Recibida</th>
                     <th>Acciones</th>
                 </tr>
@@ -173,9 +173,7 @@
                     <td>{{$caci['nombre_menor_1']}} {{$caci['apellido_paterno_1']}} {{$caci['apellido_materno_1']}}</td>
                     <td>{{$caci['curp_num']}}</td>
                     <td>{{$caci['Edad_menor']}}</td>
-                    <td>{{$caci['nombre_tutor_madres']}} {{$caci['apellido_paterno_tutor']}}
-                        {{$caci['apellido_materno_tutor']}}
-                    </td>
+                    <td>{{$caci['nombre_tutor_madres']}} {{$caci['apellido_paterno_tutor']}} {{$caci['apellido_materno_tutor']}}</td>
                     <td>{{$caci['tipo_nomina_1']}}</td>
                     <td>{{$caci['num_empleado_1']}}</td>
                     <td>{{$caci['num_plaza_1']}}</td>
@@ -184,7 +182,7 @@
                     <td>{{$caci['seccion_sindical_1']}}</td>
                     <td>{{$caci['email_correo']}}</td>
                     <td>{{$caci['telefono_celular']}}</td>
-                    <!-- <td>{{$caci['telefono_3']}}</td> -->
+                    <td>{{$caci['telefono_3']}}</td>
                     @if ($caci['correo_enviado_not_recibida'])
                     <td>Correo de confirmación Enviado</td>
                     @else

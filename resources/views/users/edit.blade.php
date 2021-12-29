@@ -1,10 +1,10 @@
 @extends('users.users_inicio')
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
-  <!-- <script src="{{URL::asset('js/inscripcion.js')}}" type="text/javascript"> </script> -->
-  <script src="{{URL::asset('js/usuarios.js')}}" type="text/javascript"> </script> 
-  <script src="{{URL::asset('js/session_out.js')}}" type="text/javascript"> </script> 
-@endsection 
+<!-- <script src="{{URL::asset('js/inscripcion.js')}}" type="text/javascript"> </script> -->
+<script src="{{URL::asset('js/usuarios.js')}}" type="text/javascript"> </script>
+<script src="{{URL::asset('js/session_out.js')}}" type="text/javascript"> </script>
+@endsection
 @section('mycontent')
 <style>
     .margin-card {
@@ -40,6 +40,29 @@
     h2 {
         margin-top: 20px;
     }
+
+    .format-label {
+        font-size: 50px;
+        margin-bottom: 1rem;
+    }
+
+    .label-red {
+        background-color: #ff4040;
+        padding: 1rem;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 1rem;
+        width: 20rem;
+    }
+
+    .label-green {
+        background-color: #00ab6b;
+        padding: 1rem;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 1rem;
+        width: 20rem;
+    }
 </style>
 <br>
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -67,43 +90,65 @@
         <div class="card-header">
             <h2 style="font-size: 35px;"><i class="fa fa-user"></i> Editar Usuario</h2>
         </div>
-        <form id="regForm" action="{{route('update',$user->id)}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div>
-                <input id="name" type="text" class="form-control" name="name" placeholder="Nombre" value="{{$user->name}}" required>
-            </div>
-            <div>
-                <select style="font-size: 15px;" name="rol" id="rol">
-                    <option value='super_caci'>Super Caci</option>
-                    <option value='caciluz'>Caci Luz</option>
-                    <option value='cacieva'>Caci Eva</option>
-                    <option value='cacibertha'>Caci Bertha</option>
-                    <option value='cacicarolina'>Caci Carolina</option>
-                    <option value='cacicarmen'>Caci Carmen</option>
-                </select>
-            </div>
-            <div>
-                <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{$user->email}}" readonly required>                  
-            </div>
-            <div>
-                <input id="password" type="password" class="form-control" name="password" placeholder="Nuevo password" minlength="8" required>
-            </div>
-            <div>
-                {{--  <button type="button" onclick="editUsuario({{$user->id}})" class="btn btn-primary float-right"><i class="fa fa-save"></i> Actualizar</button>  --}}
-                <span class="float-right">
-                    <a class="btn btn-md btn-dark"
-                    href="{{route('users.index')}}"
-                    title="Regresar"><i class="fa fa-arrow-left"></i> Regresar</a>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Actualizar</button>
-                </span>
-            </div>
-        </form>
+        <div class="card-body">
+            <form id="regForm" action="{{route('update',$user->id)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <label class="format-label">Nombre de Usuario</label>
+                    <input id="name" type="text" class="form-control" name="name" placeholder="Nombre" value="{{$user->name}}" required>
+                </div>
+                <div class="form-group">
+                    <label class="format-label">Elije otro Rol</label>
+                    <select style="font-size: 15px;" name="rol" id="rol">
+                        <option value='super_caci'>Super Caci</option>
+                        <option value='caciluz'>Caci Luz</option>
+                        <option value='cacieva'>Caci Eva</option>
+                        <option value='cacibertha'>Caci Bertha</option>
+                        <option value='cacicarolina'>Caci Carolina</option>
+                        <option value='cacicarmen'>Caci Carmen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="format-label">Email</label>
+                    <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{$user->email}}" readonly required>
+                </div>
+                <div class="form-group">
+                    <label class="format-label">Password</label>
+                    <div class="input-group">
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Nuevo password" minlength="8" required>
+                        <div class="input-group-append">
+                            <button id="show_pass" type="button" class="btn btn-primary" title="Mostrar Contraseña" onclick="mostrarPass('pass')"><span class="fa fa-eye-slash icon"></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="format-label">Repite Password</label>
+                    <div class="input-group">
+                        <input id="password_repeat" type="password" class="form-control" name="password_repeat" placeholder="Repite Password" minlength="8" required>
+                        <div class="input-group-append">
+                            <button id="show_pass" type="button" title="Mostrar Contraseña" class="btn btn-primary" onclick="mostrarPass('pass_repeat')"><span class="fa fa-eye-slash icon-repeat"></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div id="label-warning-pass"></div>
+                    <div id="label-success-pass"></div>
+                </div>
+                <div>
+                    {{-- <button type="button" onclick="editUsuario({{$user->id}})" class="btn btn-primary float-right"><i class="fa fa-save"></i> Actualizar</button> --}}
+                    <span class="float-right">
+                        <a class="btn btn-md btn-dark" href="{{route('users.index')}}" title="Regresar"><i class="fa fa-arrow-left"></i> Regresar</a>
+                        <button type="submit" id="save_user" class="btn btn-primary"><i class="fa fa-edit"></i> Actualizar</button>
+                    </span>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
 <script>
     function getIndexCaci() {
-      document.getElementById("rol").selectedIndex = {{$pos_rol}};
+        document.getElementById("rol").selectedIndex = {{$pos_rol}};
     }
     getIndexCaci();
 </script>

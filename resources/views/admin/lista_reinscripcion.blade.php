@@ -29,7 +29,7 @@
         /* to take the same width as tr */
         overflow-y: scroll;
         /* sirve junto a tbody para ir creciendo progresivamente y se vea mejor el texto */
-        width: 180%;
+        width: 190%;
         border: 1px solid #ddd;
         /* - 17px because of the scrollbar width */
         /* background-color: blue; */
@@ -42,7 +42,7 @@
         /* e.g. */
         overflow-y: scroll;
         /* sirve junto a thead para ir creciendo progresivamente y se vea mejor el texto */
-        width: 180%;
+        width: 190%;
         border: 1px solid #ddd;
         /* background-color: purple; */
         /* keeps the scrollbar even if it doesn't need it; display purpose */
@@ -50,7 +50,7 @@
 
     th,
     td {
-        width: 6.25%;
+        width: 5.88%;
         /* to enable "word-break: break-all" */
         padding: 0px;
         word-break: break-all;
@@ -174,7 +174,7 @@
                     <th>Horario Laboral Sal.</th> -->
                     <th>Email</th>
                     <th>Telefono Uno</th>
-                    <!-- <th>Telefono Dos</th> -->
+                    <th>Telefono Dos</th>
                     <th>Email Enviado Notificación Recibida</th>
                     <th>Email Enviado Notificación Recibida Reinscripción</th>
                     <th>Acciones</th>
@@ -204,7 +204,7 @@
                     <td>{{$reinscripcion['horario_laboral_sal']}}</td> -->
                     <td>{{$reinscripcion['email']}}</td>
                     <td>{{$reinscripcion['telefono_uno']}}</td>
-                    <!-- <td>{{$reinscripcion['telefono_dos']}}</td> -->
+                    <td>{{$reinscripcion['telefono_dos']}}</td>
                     @if ($reinscripcion['correo_enviado_not_recibida'])
                     <td>Correo de confirmación Enviado</td>
                     @else
