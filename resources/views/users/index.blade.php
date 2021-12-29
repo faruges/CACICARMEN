@@ -37,8 +37,8 @@
 
 <div class="container-fluid">
     @if(Session::has('mensaje'))
-    <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('mensaje') }}
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+    <p style="margin-left:70%; width:30%; font-weight: 500; font-size: 1.5rem;;" class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('mensaje') }}
+        <button style="margin-left: 5rem;" type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
     </p>
     @endif
     <div class="card mt50 margin-card">
