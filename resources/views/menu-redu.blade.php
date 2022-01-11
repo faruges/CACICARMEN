@@ -212,22 +212,22 @@
         @yield('mycontent')
     </div>
 
-    <footer style="background-image:url({{url('img/footer.svg')}}); margin-top: 100px;" class="site-footer">
+    <footer style="background-image:url({{url('img/footer2022.svg')}}); margin-top: 100px;" class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
-                    <a style="color:#33353d;" href="inicio" title="INICIO">INICIO</a>|
-                    |<a style="color:#33353d;" href="centros_Luz_María" title="CENTROS">CENTROS</a>|
-                    |<a style="color:#33353d;" href="inscripcion_from" title="INSCRIPCIÓN">PREINSCRIPCIÓN</a>|
-                    |<a style="color:#33353d;" href="reinscripcion" title="REINSCRIPCIÓN">REINSCRIPCIÓN</a>|
-                    |<a style="color:#33353d;" href="informacion_destacada" title="INFORMACIÓN DESTACADA">INFORMACIÓN
+                    <a style="color:#fff;" href="inicio" title="INICIO">INICIO</a>|
+                    |<a style="color:#fff;" href="centros_Luz_María" title="CENTROS">CENTROS</a>|
+                    |<a style="color:#fff;" href="inscripcion_from" title="INSCRIPCIÓN">PREINSCRIPCIÓN</a>|
+                    |<a style="color:#fff;" href="reinscripcion" title="REINSCRIPCIÓN">REINSCRIPCIÓN</a>|
+                    |<a style="color:#fff;" href="informacion_destacada" title="INFORMACIÓN DESTACADA">INFORMACIÓN
                         DESTACADA</a>|
-                    |<a style="color:#33353d;" href="preguntas_frecuentes" title="REINSCRIPCIÓN">PREGUNTAS
+                    |<a style="color:#fff;" href="preguntas_frecuentes" title="REINSCRIPCIÓN">PREGUNTAS
                         FRECUENTES</a>|
-                    |<a style="color:#33353d;" href="login" title="INICIAR SESIÓN">INICIAR SESIÓN</a>
+                    |<a style="color:#fff;" href="login" title="INICIAR SESIÓN">INICIAR SESIÓN</a>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <p style="color:#33353d;">CACI-SAF / Email: <a style="color:#33353d;"
+                    <p style="color:#fff;">CACI-SAF / Email: <a style="color:#fff;"
                             href="mailto:caciadministracion@finanzas.cdmx.gob.mx">caciadministracion@finanzas.cdmx.gob.mx</a>
                     </p>
                 </div>

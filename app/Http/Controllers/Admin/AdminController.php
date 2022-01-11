@@ -37,7 +37,7 @@ class AdminController extends Controller
             $lista_caci = ListaCaci::where('rol_caci', Session::get('rolName'))->where('status', '1')->orderBy('id', 'desc')->get();
         }
         /* $array_lista_preins_reins = $adminController->showCicloEscolar($lista_caci); */
-        $array_lista_preins_reins = $lista_caci;        
+        $array_lista_preins_reins = $lista_caci;
         return view('admin.lista_inscripcion', compact('array_lista_preins_reins', 'ciclos_escolares_filter'));
     }
     public function showListReinscri()
@@ -83,13 +83,13 @@ class AdminController extends Controller
     {
         try {
             /* $adminController = new AdminController; */
-            DB::table('inscripcion_menor')
-                ->where('id', $request->id)
-                ->update(['caci' => $request->caci_nombre]);
-            $inscripcion = new Inscripcion;
-            $this->funciones->setRolCaci($request->id, $request->caci_nombre, $inscripcion);
-            return response()->json(['ok' => true, 'result' => 'Caci se actualizo correctamente', 'caci' => 'inscripcion']);
             if ($request->tramite === 'inscripcion') {
+                DB::table('inscripcion_menor')
+                    ->where('id', $request->id)
+                    ->update(['caci' => $request->caci_nombre]);
+                $inscripcion = new Inscripcion;
+                $this->funciones->setRolCaci($request->id, $request->caci_nombre, $inscripcion);
+                return response()->json(['ok' => true, 'result' => 'Caci se actualizo correctamente', 'caci' => 'inscripcion']);
             } elseif ($request->tramite === 'reinscripcion') {
                 DB::table('reinscripcion_menor')
                     ->where('id', $request->id)

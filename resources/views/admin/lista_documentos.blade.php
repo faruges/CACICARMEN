@@ -2,6 +2,7 @@
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
 <script src="{{URL::asset('js/send_email.js')}}" type="text/javascript"> </script>
+<script src="{{URL::asset('js/add-upper-case.js')}}" type="text/javascript"> </script>
 <script src="{{URL::asset('js/session_out.js')}}" type="text/javascript"> </script>
 @endsection
 @section('mycontent')
@@ -196,7 +197,10 @@
                                     <td "font-size: 20px;">{{$doc->created_at}}</td>
                                     <td class="actions">
                                         <span class="float-right">
-                                            <a class="btn btn-lg btn-outline-success" href="{{url('uploads/documentos/'.$doc->nombre)}}" title="Ver Detalles Documento" target="_blank"><i class="fa fa-file"></i></a>
+                                            <a class="btn btn-md btn-outline-success" href="{{url('uploads/documentos/'.$doc->nombre)}}" title="Ver Detalles Documento" target="_blank"><i class="fa fa-file"></i></a>
+                                            <button class="btn btn-md btn-info" type="button" title="Actualizar Documento"
+                                                onclick="sust_file('{{$doc->id}}','reinscripcion')"><i
+                                                    class="fa fa-recycle"></i></button>
                                         </span>
                                     </td>
                                 </tr>
@@ -212,6 +216,43 @@
                 <a class="btn btn-lg btn-primary" href="{{route('lista_reinscripcion')}}" title="Regresar"><i class="fa fa-backward"></i> Regresar</a>
                 <button type="button" id="delete_registro_sol" title="Borrar Registro del Solicitante" name="delete_registro_sol" onclick="del_reg_solicitante('{{$id}}','{{$nameUser}}','lista_reinscripcion','reinscripcion_menor','reinscripcion_menor_id','reinscripcion')" class="btn btn-lg btn-danger"><i class="fa fa-trash"></i>Borrar Registro</button>
             </span>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="fileEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel" style="font-size: 45px;">Actualizar Documento</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                            <span uk-icon="icon: cloud-upload"></span>
+                            <span class="uk-text-small">Seleccióne Archivo</span>
+                            <div uk-form-custom>
+                                <input type="text" class="form-control" id="id_file" hidden>
+                                <input type="text" class="form-control" id="tramite" hidden>
+                                <input type="file" id="file_upgrade" name="file_upgrade"
+                                    title="El tamaño del archivo no debe exceder 2 Mb"
+                                    accept="application/msword, application/pdf">
+                                <span class="uk-link">2 Mb máximo</span>
+                            </div>
+                        </div>
+                        <progress id="js-progressbar-disc" class="uk-progress" value="0" max="100"
+                            style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal()"><i class="fa fa-close"></i>
+                    Cerrar</button>
+                <button id="upgrade_doc" type="button" onclick="actualizarDocumento('{{ csrf_token() }}')" class="btn btn-primary"><i
+                        class="fa fa-edit"></i> Actualizar</button>
+            </div>
         </div>
     </div>
 </div>

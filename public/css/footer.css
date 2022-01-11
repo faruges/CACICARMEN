@@ -1,18 +1,15 @@
 @charset "utf-8";
 
-	
 /** Footer **/
-	
-.site-footer
-{
-  background-color:#235B4E;
-  padding:45px 0 20px;
-  font-size:15px;
-  line-height:24px;
-  /* margin-top: 5rem; */
-  color:#000;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
 
+.site-footer {
+    background-color: #235B4E;
+    padding: 45px 0 20px;
+    font-size: 15px;
+    line-height: 24px;
+    /* margin-top: 5rem; */
+    color: #fff;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+}

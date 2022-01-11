@@ -73,36 +73,91 @@ class DocumentosController extends Controller
     {
 
         $nameDocumento = DB::table('documentos')
-            ->where($request->id_proceso, $request->id)->get()->pluck('nombre'); 
+            ->where($request->id_proceso, $request->id)->get()->pluck('nombre');
         $array_image = $this->funciones->saveImagePath($nameDocumento);
-        for ($index=0; $index < count($array_image); $index++) {
-            if (!File::exists($array_image[$index])) {                
+        for ($index = 0; $index < count($array_image); $index++) {
+            if (!File::exists($array_image[$index])) {
                 return false;
             }
-        }        
+        }
         return $array_image;
     }
-    
+
     public function destroy(Request $request)
     {
         /* dd($request->lista); */
         if ($request->id) {
             DB::table($request->tabla)
-            ->where('id', $request->id)
-            ->update(['status' => '-1']);
+                ->where('id', $request->id)
+                ->update(['status' => '-1']);
             DB::table('logs')->insert([
-                [$request->id_proceso => $request->id, 'nameUser' => $request->nameUser,'proceso'=>$request->proceso]
+                [$request->id_proceso => $request->id, 'nameUser' => $request->nameUser, 'proceso' => $request->proceso]
             ]);
             $documentosController = new DocumentosController;
             $array_image = $documentosController->compruebaSiExisteDocs($request);
-            if($array_image){
-                File::delete($array_image);           
+            if ($array_image) {
+                File::delete($array_image);
                 return response()->json(['ok' => true]);
-            }else{
+            } else {
                 return response()->json(['ok' => false]);
-            }            
+            }
         } else {
             return response()->json(['ok' => false]);
+        }
+    }
+    public function compruebaSiExisteOneDoc($id_file)
+    {
+        $nameDocumento = DB::table('documentos')
+            ->where('id', $id_file)->get()->pluck('nombre');
+        $array_image = $this->funciones->saveImagePath($nameDocumento);
+        for ($index = 0; $index < count($array_image); $index++) {
+            if (!File::exists($array_image[$index])) {
+                return false;
+            }
+        }
+        return $array_image;
+    }
+    public function updateDocOfUser($documentosController, $id_file, $request_file_upgrade, $tramite)
+    {
+        //devuelve el path de la imagen es decir la direccion en donde se encuentra
+        $array_path_image = $documentosController->compruebaSiExisteOneDoc($id_file);
+        if ($array_path_image) {
+            //elimina fisicamente el archivo dentro del sistema de archivos
+            File::delete($array_path_image);
+            $file_upgrade = $request_file_upgrade;
+            $filename = time() . ' ' . $file_upgrade->getClientOriginalName();
+            //guarda en sistema de archivos
+            $file_upgrade->move('uploads/documentos', $filename);
+            DB::table('documentos')
+                ->where('id', $id_file)
+                ->update(['nombre' => $filename]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function actualizarDoc(Request $request)
+    {
+        /* dd($request->all()); */
+        $documentosController = new DocumentosController;
+        try {
+            if ($request->tramite === 'inscripcion') {
+                $response = $documentosController->updateDocOfUser($documentosController, $request->id_file, $request->file('file_upgrade'), $request->tramite);
+                if ($response) {
+                    return response()->json(['ok' => true, 'result' => 'Documento se actualizo correctamente', 'caci' => 'inscripcion']);
+                }else{
+                    return response()->json(['ok' => false, 'result' => 'No se pudo realizar la actualizacion del Documento']);
+                }
+            } elseif ($request->tramite === 'reinscripcion') {
+                $response = $documentosController->updateDocOfUser($documentosController, $request->id_file, $request->file('file_upgrade'), $request->tramite);
+                if ($response) {
+                    return response()->json(['ok' => true, 'result' => 'Documento se actualizo correctamente', 'caci' => 'reinscripcion']);
+                }else{
+                    return response()->json(['ok' => false, 'result' => 'No se pudo realizar la actualizacion del Documento']);
+                }
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['ok' => false, 'result' => 'No se pudo realizar la actualizacion del Documento']);
         }
     }
 }

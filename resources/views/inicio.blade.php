@@ -14,7 +14,7 @@
 
 <div class="item active">
   <a href="#">
-    <img src="{{asset('img/banner_PIZARRON-02.svg')}}" alt="Imagen" style="width:100%;">
+    <img src="{{asset('img/banner_PIZARRON-2022.svg')}}" alt="Imagen" style="width:100%;">
   </a>
 </div>
 <div class="jumbotron" align="center">

@@ -148,6 +148,7 @@ Route::group(['middleware' => ['permission:view_inscripcion', 'nocache']], funct
     Route::get('log_by_id', 'Admin\DocumentosController@getDataLogById')->name('log_by_id');
     Route::post('/email_info_recibida_inscr', 'Admin\EmailController@sendEmailRecibiInscrip')->name('email_info_recibida_inscr');
     Route::post('actualizar_caci', 'Admin\AdminController@actualizarCaci')->name('actualizar_caci');
+    Route::post('actualizar_documento', 'Admin\DocumentosController@actualizarDoc')->name('actualizar_documento');
     Route::get('/email_lista_espera/{nombre_tutor}/{ap_paterno}/{email}', 'Admin\EmailController@sendEmailEspera')->name('email_lista_espera');
 });
 
