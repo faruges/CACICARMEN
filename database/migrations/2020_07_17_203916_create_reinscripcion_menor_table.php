@@ -15,6 +15,7 @@ class CreateReinscripcionMenorTable extends Migration
     {
         Schema::create('reinscripcion_menor', function (Blueprint $table) {
             $table->Increments('id');
+            $table->string('rfc',13);
             $table->string('nombre_tutor',100);
             $table->string('ap_paterno_t',50);
             $table->string('ap_materno_t',50);

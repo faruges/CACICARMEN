@@ -1,4 +1,4 @@
-@extends('menu-redu')
+@extends('menu')
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
 <script src="{{URL::asset('js/consulta_webservice.js')}}" type="text/javascript"> </script>
@@ -11,8 +11,12 @@
 
 @endsection
 @section('mycontent')
-
-<div class="card card-custom">
+<style>
+    h1,label,span{
+      font-family: 'source sans pro', sans-serif;
+    }
+</style>
+<div class="card card-custom" style="margin-top: 2rem;">
     <div class="card-header card-header-tabs-line">
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card-toolbar">
@@ -40,7 +44,7 @@
 
                 <body>
                     <div class="fondo" style="padding: 5rem;">
-                        <h1 style="color: #054a41;">Reinscripción a los Centros de Atención y Cuidado Infantil</h1><br>
+                        <h1 style="color: #054a41;">Reinscripción a los Centros de Atención y Cuidado Infantil</h1><br>                        
                         @foreach ($data as $item=>$value)
                         <div class="col-lg-12">
                             <label style="color: #235B4E;">Datos de la persona trabajadora</label>
@@ -78,7 +82,7 @@
                                             required></select></p>  --}}
                                     <p>Alcaldía/Municipio<input id="alcaldia" type="text" placeholder="Alcaldía" title="Alcaldía" oninput="this.className = ''" name="alcaldia" readonly>
                                     </p>
-                                    <p>E-mail<input id="email" type="email" placeholder="E-mail" title="E-mail" oninput="this.className = ''" name="email" value="{{$value['CH_mail']}}" readonly></p>
+                                    <p>E-mail<input id="email" type="email" placeholder="E-mail" title="E-mail" oninput="this.className = ''" name="email" value="{{$value['CH_mail']}}"></p>
                                     <p>Teléfono a 10 dígitos<input id="telefono_uno" type="tel" placeholder="Teléfono o celular" title="Teléfono o celular" oninput="this.className = ''" name="telefono_uno" maxlength="10" pattern="[0-9]{10}"></p>
                                     <p>Celular a 10 dígitos<input id="telefono_dos" type="tel" placeholder="Teléfono 2" title="Teléfono 2" oninput="this.className = ''" name="telefono_dos" maxlength="10" pattern="[0-9]{10}"></p>
                                     <br><br>
@@ -165,25 +169,128 @@
                                             <option value="Carolina Agazzi">Carolina Agazzi</option>
                                             <option value="Carmen S">Carmen Serdán</option>
                                         </select> -->
+                                        <div class="form-group" style="margin-top: 2rem;">
+                                            <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Cartilla
+                                                de vacunación, solo las páginas
+                                                de datos identificativos, esquema de vacunación y
+                                                estado nutricional.</label>
+                                            <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                                                <span uk-icon="icon: cloud-upload"></span>
+                                                <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                                                <div uk-form-custom>
+                                                    <input type="file" id="filename_vacu" name="filename_vacu" title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
+                                                    <span class="uk-link">2 Mb máximo</span>
+                                                </div>
+                                            </div>
+                                            <progress id="js-progressbar-vacu" class="uk-progress" value="0" max="100" style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Último
+                                                comprobante de pago del trabajador o trabajadora.</label>
+                                            <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                                                <span uk-icon="icon: cloud-upload"></span>
+                                                <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                                                <div uk-form-custom>
+                                                    <input type="file" id="filename_compr_pago" name="filename_compr_pago" title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
+                                                    <span class="uk-link">2 Mb máximo</span>
+                                                </div>
+                                            </div>
+                                            <progress id="js-progressbar-compr-pago" class="uk-progress" value="0" max="100" style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Documentación
+                                                clínica y diagnóstico de la condición y del
+                                                tratamiento que recibe, en caso de presentar algún tipo de
+                                                discapacidad o enfermedad crónica.</label>
+                                            <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                                                <span uk-icon="icon: cloud-upload"></span>
+                                                <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                                                <div uk-form-custom>
+                                                    <input type="file" id="filename_disc" name="filename_disc" title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
+                                                    <span class="uk-link">2 Mb máximo</span>
+                                                </div>
+                                            </div>
+                                            <progress id="js-progressbar-disc" class="uk-progress" value="0" max="100" style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6"><br>
                                     <div class="form-group">
-                                        <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Cartilla
-                                            de vacunación, solo las páginas
-                                            de datos identificativos, esquema de vacunación y
-                                            estado nutricional.</label>
+                                        <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Credencial</label>
                                         <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
-                                            <span uk-icon="icon: cloud-upload"></span>
-                                            <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
-                                            <div uk-form-custom>
-                                                <input type="file" id="filename_vacu" name="filename_vacu" title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                                                <span class="uk-link">2 Mb máximo</span>
-                                            </div>
+                                          <span uk-icon="icon: cloud-upload"></span>
+                                          <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                                          <div uk-form-custom>
+                                            <input type="file" id="filename_credencial" name="filename_credencial"
+                                              title="El tamaño del archivo no debe exceder 2 Mb"
+                                              accept="application/msword, application/pdf">
+                                            <span class="uk-link">2 Mb máximo</span>
+                                          </div>
                                         </div>
-                                        <progress id="js-progressbar-vacu" class="uk-progress" value="0" max="100" style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
-                                    </div>
+                                        <progress id="js-progressbar-credencial" class="uk-progress" value="0" max="100"
+                                          style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                      </div>
+                                      <div class="form-group">
+                                        <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Gafete</label>
+                                        <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                                          <span uk-icon="icon: cloud-upload"></span>
+                                          <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                                          <div uk-form-custom>
+                                            <input type="file" id="filename_gafete" name="filename_gafete"
+                                              title="El tamaño del archivo no debe exceder 2 Mb"
+                                              accept="application/msword, application/pdf">
+                                            <span class="uk-link">2 Mb máximo</span>
+                                          </div>
+                                        </div>
+                                        <progress id="js-progressbar-gafete" class="uk-progress" value="0" max="100"
+                                          style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                      </div>
+                                      <div class="form-group">
+                                        <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Solicitud de preinscripción</label>
+                                        <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                                          <span uk-icon="icon: cloud-upload"></span>
+                                          <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                                          <div uk-form-custom>
+                                            <input type="file" id="filename_solicitud" name="filename_solicitud"
+                                              title="El tamaño del archivo no debe exceder 2 Mb"
+                                              accept="application/msword, application/pdf">
+                                            <span class="uk-link">2 Mb máximo</span>
+                                          </div>
+                                        </div>
+                                        <progress id="js-progressbar-solicitud" class="uk-progress" value="0" max="100"
+                                          style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                      </div>
+                                      <div class="form-group">
+                                        <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Carta de autorización</label>
+                                        <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                                          <span uk-icon="icon: cloud-upload"></span>
+                                          <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                                          <div uk-form-custom>
+                                            <input type="file" id="filename_carta" name="filename_carta"
+                                              title="El tamaño del archivo no debe exceder 2 Mb"
+                                              accept="application/msword, application/pdf">
+                                            <span class="uk-link">2 Mb máximo</span>
+                                          </div>
+                                        </div>
+                                        <progress id="js-progressbar-carta" class="uk-progress" value="0" max="100"
+                                          style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                      </div>
+                                      <div class="form-group">
+                                        <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Solicitud de análisis clinicos</label>
+                                        <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                                          <span uk-icon="icon: cloud-upload"></span>
+                                          <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                                          <div uk-form-custom>
+                                            <input type="file" id="filename_sol_anali" name="filename_sol_anali"
+                                              title="El tamaño del archivo no debe exceder 2 Mb"
+                                              accept="application/msword, application/pdf">
+                                            <span class="uk-link">2 Mb máximo</span>
+                                          </div>
+                                        </div>
+                                        <progress id="js-progressbar-sol-anali" class="uk-progress" value="0" max="100"
+                                          style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                                      </div>
                                     {{-- <div class="form-group">
                                         <label
                                             style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Cartilla
@@ -200,19 +307,7 @@
                                             <label class="custom-file-label" for="filename_vacu">Examinar..</label>
                                         </div>
                                     </div>  --}}
-                                    <div class="form-group">
-                                        <label style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Último
-                                            comprobante de pago del trabajador o trabajadora.</label>
-                                        <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
-                                            <span uk-icon="icon: cloud-upload"></span>
-                                            <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
-                                            <div uk-form-custom>
-                                                <input type="file" id="filename_compr_pago" name="filename_compr_pago" title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                                                <span class="uk-link">2 Mb máximo</span>
-                                            </div>
-                                        </div>
-                                        <progress id="js-progressbar-compr-pago" class="uk-progress" value="0" max="100" style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
-                                    </div>
+                                    
                                     {{-- <div class="form-group">
                                         <label
                                             style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Último
@@ -227,21 +322,6 @@
                                                 for="filename_compr_pago">Examinar..</label>
                                         </div>
                                     </div>  --}}
-                                    <div class="form-group">
-                                        <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Documentación
-                                            clínica y diagnóstico de la condición y del
-                                            tratamiento que recibe, en caso de presentar algún tipo de
-                                            discapacidad o enfermedad crónica.</label>
-                                        <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
-                                            <span uk-icon="icon: cloud-upload"></span>
-                                            <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
-                                            <div uk-form-custom>
-                                                <input type="file" id="filename_disc" name="filename_disc" title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                                                <span class="uk-link">2 Mb máximo</span>
-                                            </div>
-                                        </div>
-                                        <progress id="js-progressbar-disc" class="uk-progress" value="0" max="100" style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
-                                    </div>
                                     {{-- <div class="form-group">
                                         <label
                                             style="font-size: 15px; font-family: Arial, Helvetica; color:#777777;">Documentación
@@ -257,11 +337,12 @@
                                             <label class="custom-file-label" for="filename_disc">Examinar..</label>
                                         </div>
                                     </div>  --}}
+                                    <input type="text" id="rfc_tutor" value="{{$value['RFC']}}" hidden/>
                                     <h4 style="color:#545151;"><i style="color: #235B4E; font-size:30px;" class="fa fa-newspaper-o"></i>
                                         <b>Nota:</b> Los archivos soportados son .pdf, .docx. Asegúrese que sus
                                         archivos cumplan el requisito
                                     </h4>
-                                    <h4><input id="terminos" style="width: 10%;" type="checkbox" name="terminos" required><a href="img/PDF/Terminos_cond_caci_agosto20.pdf" target="_blank">Revisar y aceptar términos y
+                                    <h4><input id="terminos" style="width: 10%;" type="checkbox" name="terminos" required><a href="img/PDF/20_A_AVISO_DE_PRIVACIDAD_INTEGRAL_Tramites_procedimientos_CACI_SAF.pdf" target="_blank">Revisar y aceptar términos y
                                             condiciones</a></h4>
                                 </div>
                             </div>
@@ -303,7 +384,7 @@
         title: '<strong>Atención</u></strong>',
         icon: 'warning',
         html: '<b>Estos  datos son privados solo la madre, padre o persona tutora  es  responsable de la información capturada.</b> ' +
-            '<a target="_blank" href="{{asset('img/PDF/aviso_simplificado_sitio_caci.pdf')}}"><h5 style="color: #235B4E;">Ver aviso de privacidad</h5></a>',
+            '<a target="_blank" href="{{asset('img/PDF/20_B_AVISO_DE_PRIVACIDAD_SIMPLIFICADO_Tramites_procedimientos_CACI_SAF.pdf')}}"><h5 style="color: #235B4E;">Ver aviso de privacidad</h5></a>',
         showCloseButton: true
     })
 </script>

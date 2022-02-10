@@ -1,4 +1,4 @@
-@extends('menu-redu')
+@extends('menu')
 @section('title','Bienvenidos Plataforma CACI')
 @section('scripts')
 <script src="{{URL::asset('js/consulta_webservice.js')}}" type="text/javascript"> </script>
@@ -11,7 +11,12 @@
 
 @endsection
 @section('mycontent')
-<div class="card card-custom">
+<style>
+  h1,label,span{
+    font-family: font-family: 'source sans pro', sans-serif;
+  }
+</style>
+<div class="card card-custom" style="margin-top: 2rem;">
   <div class="card-header card-header-tabs-line">
     <div class="col-12 col-md-12 col-lg-12">
       <div class="card-toolbar">
@@ -45,9 +50,7 @@
 
         <body>
           <div class="fondo" style="margin-bottom: 10rem;">
-
-
-            <h1 style="color: #054a41;">Preinscripción a los Centros de Atención y Cuidado Infantil</h1>          
+            <h1 style="color: #054a41;">Preinscripción a los Centros de Atención y Cuidado Infantil</h1>             
             @foreach ($data as $item=>$value)
             <div class="col-lg-12">
               <label style="color:#235B4E; ">Datos de la persona trabajadora</label>
@@ -276,10 +279,6 @@
                     <progress id="js-progressbar-nac" class="uk-progress" value="0" max="100"
                       style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
                   </div>
-                </div>
-
-                <div class="col-sm-6"><br>
-
                   <div class="form-group">
                     <label
                       style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Cartilla
@@ -322,14 +321,11 @@
                     </div>
                     <progress id="js-progressbar-com" class="uk-progress" value="0" max="100"
                       style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
-                    {{--  <div></div>
-                      <div class="custom-file">
-                        <input type="file" id="filename_com" name="filename_com" class="custom-file-input"
-                          title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                        <label class="custom-file-label" for="filename_com">Examinar..</label>
-                      </div>  --}}
                   </div>
-                  <div class="form-group">
+                </div>
+
+                <div class="col-sm-6"><br>
+                  {{--  <div class="form-group">
                     <label
                       style="font-size: 15px; font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Último
                       comprobante de
@@ -346,13 +342,7 @@
                     </div>
                     <progress id="js-progressbar-compr-pago" class="uk-progress" value="0" max="100"
                       style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
-                    {{--  <div></div>
-                      <div class="custom-file">
-                        <input type="file" id="filename_compr_pago" name="filename_compr_pago" class="custom-file-input"
-                          title="El tamaño del archivo no debe exceder 2 Mb" accept="application/msword, application/pdf">
-                        <label class="custom-file-label" for="filename_compr_pago">Examinar..</label>
-                      </div>  --}}
-                  </div>
+                  </div>  --}}
                   <div class="form-group">
                     <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Documentación
                       clínica y diagnóstico de la condición y del
@@ -403,7 +393,81 @@
                         <label class="custom-file-label" for="filename_trab">Examinar..</label>
                       </div>  --}}
                   </div>
-
+                  <div class="form-group">
+                    <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Credencial</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_credencial" name="filename_credencial"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">2 Mb máximo</span>
+                      </div>
+                    </div>
+                    <progress id="js-progressbar-credencial" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                  </div>
+                  <div class="form-group">
+                    <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Gafete</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_gafete" name="filename_gafete"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">2 Mb máximo</span>
+                      </div>
+                    </div>
+                    <progress id="js-progressbar-gafete" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                  </div>
+                  <div class="form-group">
+                    <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Solicitud de preinscripción</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_solicitud" name="filename_solicitud"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">2 Mb máximo</span>
+                      </div>
+                    </div>
+                    <progress id="js-progressbar-solicitud" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                  </div>
+                  <div class="form-group">
+                    <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Carta de autorización</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_carta" name="filename_carta"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">2 Mb máximo</span>
+                      </div>
+                    </div>
+                    <progress id="js-progressbar-carta" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                  </div>
+                  <div class="form-group">
+                    <label style="font-family: Arial, Helvetica; color:#777777; margin-bottom:0rem; margin-top:0rem;">Solicitud de análisis clinicos</label>
+                    <div class="js-upload uk-placeholder uk-text-center" style="margin-top: 0rem;">
+                      <span uk-icon="icon: cloud-upload"></span>
+                      <span class="uk-text-small">Arraste y suelte un archivo ó Selecciónelo</span>
+                      <div uk-form-custom>
+                        <input type="file" id="filename_sol_anali" name="filename_sol_anali"
+                          title="El tamaño del archivo no debe exceder 2 Mb"
+                          accept="application/msword, application/pdf">
+                        <span class="uk-link">2 Mb máximo</span>
+                      </div>
+                    </div>
+                    <progress id="js-progressbar-sol-anali" class="uk-progress" value="0" max="100"
+                      style="margin-top: 0rem; margin-bottom: 0rem;" hidden></progress>
+                  </div>
                   <h4 style="color:#545151;"><i style="color: #235B4E; font-size:30px;" class="fa fa-newspaper-o"></i>
                     <b>
                       Nota:</b> Los archivos soportados son .pdf, .docx. Asegúrese que sus archivos cumplan el requisito
@@ -436,7 +500,7 @@
               <div class="form-group">
                 <label>E-mail<span class="text-danger"></span></label>
                 <input id="email_correo" placeholder="E-mail" title="E-mail" oninput="this.className = ''"
-                  class="form-control" name="email_correo" value="{{$value['CH_mail']}}" readonly>
+                  class="form-control" name="email_correo" value="{{$value['CH_mail']}}">
               </div>
               <div class="form-group">
                 <label>Teléfono a 10 dígitos<span class="text-danger"></span></label>
@@ -448,8 +512,9 @@
                 <input id="telefono_3" type="tel" placeholder="Celular" title="Celular" class="form-control"
                   oninput="this.className = ''" name="telefono_3" maxlength="10" pattern="[0-9]{10}">
               </div>
+              <input id="rfc_tutor" type="text" value="{{$value['RFC']}}" hidden/>
               <h4><input id="terminos" style="width: 10%;" type="checkbox" name="terminos" required><a
-                  href="img/PDF/Terminos_cond_caci_agosto20.pdf" target="_blank">Revisar y aceptar términos y
+                  href="img/PDF/20_A_AVISO_DE_PRIVACIDAD_INTEGRAL_Tramites_procedimientos_CACI_SAF.pdf" target="_blank">Revisar y aceptar términos y
                   condiciones</a></h4>
               <br>
             </div>
@@ -477,7 +542,7 @@
     icon: 'warning',
     html:
       '<b>Estos  datos son privados solo la madre, padre o persona tutora  es  responsable de la información capturada.</b> ' +
-      '<a target="_blank" href="{{asset('img/PDF/aviso_simplificado_sitio_caci.pdf')}}"><h5 style="color: #235B4E;">Ver aviso de privacidad</h5></a> ',
+      '<a target="_blank" href="{{asset('img/PDF/20_B_AVISO_DE_PRIVACIDAD_SIMPLIFICADO_Tramites_procedimientos_CACI_SAF.pdf')}}"><h5 style="color: #235B4E;">Ver aviso de privacidad</h5></a> ',
     showCloseButton: true
   })
 </script>

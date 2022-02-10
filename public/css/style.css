@@ -22,7 +22,7 @@
 /*Accordion*/
 
 .accordions {
-   font-family: arial;
+  font-family: 'source sans pro';
     width: 90%;
     margin: 40px auto;
 }
@@ -63,7 +63,7 @@
 
   #regForm {
     margin: 100px auto;
-    font-family: Arial;
+    font-family: 'source sans pro';
     padding: 20px;
     width: 70%;
     min-width: 300px;
@@ -72,11 +72,12 @@
 
   h1  {
     text-align: center;
+    font-family: 'source sans pro';
   }
 
   p   {
     font-size: 15px;
-    font-family: Arial; 
+    font-family: 'source sans pro';
     color:#777777;
   }
 
@@ -98,7 +99,7 @@
 
   .tab {
     display: none;
-    font-family: Arial;
+    font-family: 'source sans pro';
     font-size: 30px;
     color: #000000;
   }
@@ -109,7 +110,7 @@
     border: none;
     padding: 10px 20px;
     font-size: 20px;
-    font-family: Arial;
+    font-family: 'source sans pro';
     cursor: pointer;
   }
   .style-green   {
@@ -118,7 +119,7 @@
     border: none;
     padding: 10px 20px;
     font-size: 20px;
-    font-family: Arial;
+    font-family: 'source sans pro';
     cursor: pointer;
   }
   

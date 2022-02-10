@@ -17,6 +17,7 @@ class PermissionsSeeder extends Seeder
     {
         $permissions_array=[];
         $permissions_array_caci=[];
+        $permissions_array_form_repos=[];
         
     	array_push($permissions_array, Permission::create(['name' => 'create_users']));
     	array_push($permissions_array, Permission::create(['name' => 'edit_users']));
@@ -27,6 +28,8 @@ class PermissionsSeeder extends Seeder
     	array_push($permissions_array, Permission::create(['name' => 'edit_roles']));
         array_push($permissions_array, Permission::create(['name' => 'delete_roles']));
         
+        array_push($permissions_array, Permission::create(['name' => 'view_repositorio']));
+
         //array_push($permissions_array,Permission::create(['name' => 'view_inscripcion']));
         array_push($permissions_array,Permission::create(['name' => 'edit_inscripcion']));
         array_push($permissions_array,Permission::create(['name' => 'delete_inscripcion']));
@@ -38,6 +41,7 @@ class PermissionsSeeder extends Seeder
         array_push($permissions_array,Permission::create(['name' => 'create_reinscripcion']));
         //permisos caci inscr y reinsc
         array_push($permissions_array_caci,Permission::create(['name' => 'view_inscripcion']));
+        array_push($permissions_array_form_repos,Permission::create(['name' => 'view_form_datos_repositorio']));
         array_push($permissions_array_caci,Permission::create(['name' => 'view_reinscripcion']));
 
     	$viewBooksPermission = Permission::create(['name' => 'view_users']);
@@ -53,7 +57,7 @@ class PermissionsSeeder extends Seeder
 		//$caciRole->givePermissionTo($viewBooksPermission);
         
         $caciLuz = Role::create(['name' => 'caciluz']);
-        $caciLuz->givePermissionTo($permissions_array_caci);
+        $caciLuz->givePermissionTo($permissions_array_caci,$permissions_array_form_repos);
         
         $caciEva = Role::create(['name' => 'cacieva']);
         $caciEva->givePermissionTo($permissions_array_caci);

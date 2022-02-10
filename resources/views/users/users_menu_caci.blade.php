@@ -23,6 +23,7 @@
 
     <!--begin:: Global Optional Vendors -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="{{ asset('assets/vendors/general/sweetalert2/dist/sweetalert2.css')}}" rel="stylesheet" type="text/css">
     <!--end:: Global Optional Vendors -->
@@ -181,6 +182,14 @@
                                             @can('view_reinscripcion')
                                             <a href="{{url('lista_reinscripcion')}}" class="kt-menu__link">
                                                 <span class="kt-menu__link-text">Reinscripción</span>
+                                                <i class="kt-menu__ver-arrow la la-angle-right"></i>
+                                            </a>
+                                            @endcan
+                                        </li>
+                                        <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel ">
+                                            @can('view_repositorio')
+                                            <a href="{{url('all_datos_repositorio')}}" class="kt-menu__link">
+                                                <span class="kt-menu__link-text">Datos Repositorio</span>
                                                 <i class="kt-menu__ver-arrow la la-angle-right"></i>
                                             </a>
                                             @endcan

@@ -23,10 +23,10 @@ Route::get('inicio', function () {
 });
 
 
-Route::get('/centros_Luz_María', function () {
+Route::get('/centros_caci', function () {
     return view('centros_caci.centros_Luz_María');
 });
-Route::get('/instalaciones_Luz_María', function () {
+/* Route::get('/instalaciones_Luz_María', function () {
     return view('centros_caci.instalaciones_Luz_María');
 });
 Route::get('/titular_Elisa_Tamara', function () {
@@ -75,7 +75,7 @@ Route::get('/instalaciones_Carmen_Serdan', function () {
 });
 Route::get('/titular_María_Ofelia', function () {
     return view('centros_caci.titular_María_Ofelia');
-});
+}); */
 
 
 Route::get('/informacion_destacada', function () {
@@ -94,9 +94,11 @@ Route::get('/login', function () {
     return view('secciones_menu.login');
 });
 
-Route::get('/mapas', function () {
+/* Route::get('/mapas', function () {
     return view('centros_caci.mapas');
-});
+}); */
+
+Route::get('/prueba', 'ReinscripcionController@prueba')->name('prueba');
 
 Route::get('/preinscripcion', function () {
     return view('preinscripcion_form');
@@ -105,7 +107,7 @@ Route::get('/preinscripcion_validar_rfc', function () {
     return view('preinscripcion.preinscripcion_validar_rfc');
 });
 
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+/* Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index'); */
 
 /* Route::post('guardar_inscripcion', 'InscripcionController@getwebservice')->name('guardar_inscripcion'); */
 Route::post('preinscripcion', 'InscripcionController@getwebservice')->name('preinscripcion');
@@ -136,14 +138,26 @@ Route::group(['middleware' => ['nocache', 'permission:view_roles|edit_roles|dele
     Route::post('guardar_rol', 'RoleController@store')->name('guardar_rol');
 });
 
+Route::group(['middleware' => ['permission:view_repositorio', 'nocache']], function () {
+    Route::get('all_datos_repositorio', 'Admin\DocumentosController@getAllDatosRepos')->name('all_datos_repositorio');
+    Route::get('ver_detalles_repo_pre/{id}', 'Admin\DocumentosController@getByIdRepo')->name('ver_detalles_repo_pre');
+    Route::post('/get_list_repo_by_ciclo', 'Admin\DocumentosController@getAllDatosReposByCicloEscolar')->name('get_list_repo_by_ciclo');
+    Route::get('all_datos_repositorio_reins', 'Admin\DocumentosController@getAllDatosReposReins')->name('all_datos_repositorio_reins');
+    Route::get('ver_detalles_repo_reins/{id}', 'Admin\DocumentosController@getByIdRepoReins')->name('ver_detalles_repo_reins');
+    Route::post('/get_list_repo_reins_by_ciclo', 'Admin\DocumentosController@getAllDatosReposReinsByCicloEscolar')->name('get_list_repo_reins_by_ciclo');
+});
 Route::group(['middleware' => ['permission:view_inscripcion', 'nocache']], function () {
     //Route::group(['middleware' => ['permission:view_inscripcion']], function() {
-    Route::get('/prueba', function () {
+    /* Route::get('/prueba', function () {
         return view('admin.prueba');
-    });
+    }); */
     Route::get('/lista_inscripcion', 'Admin\AdminController@showListInscri')->name('lista_inscripcion');
     Route::post('/get_list_by_ciclo', 'Admin\AdminController@getListByCicloEscolar')->name('get_list_by_ciclo');
     Route::get('/lista_documentos_inscr/{id}', 'Admin\DocumentosController@show_inscr')->name('lista_documentos_inscr');
+    Route::post('/set_data_respositorio', 'Admin\DocumentosController@setDataRepositorio')->name('set_data_respositorio');
+    Route::post('/set_persona_autorizada', 'Admin\DocumentosController@setPersonaAutorizada')->name('set_persona_autorizada');
+    Route::post('/update_data_respositorio/{idRepo}', 'Admin\DocumentosController@updateDataRepositorio')->name('update_data_respositorio');
+    Route::post('/update_persona_autorizada/{idPA}', 'Admin\DocumentosController@updatePA')->name('update_persona_autorizada');
     Route::get('destroy_reg_sol', 'Admin\DocumentosController@destroy')->name('destroy_reg_sol');
     Route::get('log_by_id', 'Admin\DocumentosController@getDataLogById')->name('log_by_id');
     Route::post('/email_info_recibida_inscr', 'Admin\EmailController@sendEmailRecibiInscrip')->name('email_info_recibida_inscr');
@@ -157,8 +171,10 @@ Route::group(['middleware' => ['nocache', 'permission:view_reinscripcion']], fun
     Route::get('/lista_reinscripcion', 'Admin\AdminController@showListReinscri')->name('lista_reinscripcion');
     Route::post('/get_list_by_ciclo_reins', 'Admin\AdminController@getListByCicloEscolarReins')->name('get_list_by_ciclo_reins');
     Route::get('/lista_documentos/{id}', 'Admin\DocumentosController@show')->name('lista_documentos');
+    Route::post('/set_data_respositorio_reinscripcion', 'Admin\DocumentosController@setDataRepositorioReinscripcion')->name('set_data_respositorio_reinscripcion');
+    Route::post('/update_data_respositorio_reinscripcion/{idRepo}', 'Admin\DocumentosController@updateDataRepositorioReinscripcion')->name('update_data_respositorio_reinscripcion');
     Route::post('/email_info_recibida', 'Admin\EmailController@sendEmailRecibi')->name('email_info_recibida');
-    Route::post('/email_info_recibida_reinscri', 'Admin\EmailController@sendEmailRecibiReinscri')->name('email_info_recibida_reinscri');
+    Route::post('/email_info_recibida_reinscri', 'Admin\EmailController@sendEmailRecibiReinscri')->name('email_info_recibida_reinscri');    
 });
 //rutas para roles
 /* Route::group(['middleware' => ['permission:view_roles|edit_roles|delete_roles|create_roles']], function() {

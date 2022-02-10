@@ -1,4 +1,4 @@
-var $$ = function (id) {
+var $$ = function(id) {
     try {
         return document.getElementById(id)
     } catch (err) {
@@ -16,7 +16,7 @@ function nextPrev(n) {
     // Increase or decrease the current tab by 1:
     currentTab = currentTab + n;
     if (currentTab === 0) {
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#nextBtn").attr("disabled", true);
         });
         //alert("Hola");
@@ -28,13 +28,13 @@ function showTab(n) {
     if (n == 0) {
         var x = document.getElementsByClassName("tab");
         x[n].style.display = "block";
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#nextBtn").attr("disabled", true);
         });
     } else if (n == 1) {
         var x = document.getElementsByClassName("tab");
         x[n].style.display = "block";
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#nextBtn").css("display", "none");
         });
     }
@@ -67,7 +67,7 @@ function validaCurp() {
             "nombreProceso": nombreProceso
         },
         url: url + 'webservicerenapo',
-        success: function (data) {
+        success: function(data) {
             if (data.ok) {
                 if (data.Exist) {
                     Swal.fire({
@@ -80,53 +80,62 @@ function validaCurp() {
                     $("#nextBtn").attr("disabled", true);
                     return;
                 }
-                //valida que menor tenga menor o igual de 5 años y 11 meses
-                if (validaCurpNinoMenorCincoAniosyMedio(data.datas.user.fechNac)) {
-                    $("#nombre_menor_1").val(data.datas.user.nombre);
-                    $("#apellido_paterno_1").val(data.datas.user.apellido1);
-                    $("#apellido_materno_1").val(data.datas.user.apellido2);
-                    var partesFechaForm = data.datas.user.fechNac.split('/');
-                    var fecha = partesFechaForm[1] + '/' + partesFechaForm[0] + '/' + partesFechaForm[2];
-                    //console.log(typeof(fecha));
-                    $("#birthday").val(fecha);
-                    $("#curp_num").val(curp);
-                    //valida la edad del menor exactamente con decimales ejemplo 2.5
-                    difMes = mesActual - mesMenor;
-                    //console.log("algo", difMes, mesActual, mesMenor);
-                    if (difMes < 0) {
-                        var anioReal = (anioActual - anioMenor) - 1;
-                    } else if (difMes >= 0) {
-                        var anioReal = (anioActual - anioMenor);
-                    }
-                    //console.log("modulo", numeroDeMeses % 12);
-                    //console.log("años", anioReal + '.' + numeroDeMeses % 12);
-                    var anioConMeses = anioReal + '.' + numeroDeMeses % 12;
-                    //setea campo de edad con decimales a input
-                    $("#Edad_menor").val(anioConMeses);
-                    $("#nextBtn").attr("disabled", false);
-                    //obtiene el caci del menor para plancharlo en la vista
-                    $("#caci_menor_inscrito").val(data.datas.caci);
-                    /* alert("La curp ingresada ha sido validada correctamente"); */
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'La curp ingresada ha sido validada correctamente',
-                        showConfirmButton: true,
-                        allowOutsideClick: true
-                    });
-
-                } else {
+                if (data.warning) {
                     $("#nextBtn").attr("disabled", true);
-                    /* alert("Estimado usuario\nel menor no puede ser registrado debido a que\nsupera la edad límite permitida"); */
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Estimado usuario\nel menor no puede ser registrado debido a que\nsupera la edad límite permitida',
+                        title: 'Estimado usuario\nel menor no puede ser registrado debido a que\nno ha iniciado su Preinscripción',
                         showConfirmButton: true,
                         allowOutsideClick: true
                     });
+                } else {
+                    if (validaCurpNinoMenorCincoAniosyMedio(data.datas.user.fechNac)) {
+                        //valida que menor tenga menor o igual de 5 años y 11 meses
+                        $("#nombre_menor_1").val(data.datas.user.nombre);
+                        $("#apellido_paterno_1").val(data.datas.user.apellido1);
+                        $("#apellido_materno_1").val(data.datas.user.apellido2);
+                        var partesFechaForm = data.datas.user.fechNac.split('/');
+                        var fecha = partesFechaForm[1] + '/' + partesFechaForm[0] + '/' + partesFechaForm[2];
+                        //console.log(typeof(fecha));
+                        $("#birthday").val(fecha);
+                        $("#curp_num").val(curp);
+                        //valida la edad del menor exactamente con decimales ejemplo 2.5
+                        difMes = mesActual - mesMenor;
+                        //console.log("algo", difMes, mesActual, mesMenor);
+                        if (difMes < 0) {
+                            var anioReal = (anioActual - anioMenor) - 1;
+                        } else if (difMes >= 0) {
+                            var anioReal = (anioActual - anioMenor);
+                        }
+                        //console.log("modulo", numeroDeMeses % 12);
+                        //console.log("años", anioReal + '.' + numeroDeMeses % 12);
+                        var anioConMeses = anioReal + '.' + numeroDeMeses % 12;
+                        //setea campo de edad con decimales a input
+                        $("#Edad_menor").val(anioConMeses);
+                        $("#nextBtn").attr("disabled", false);
+                        //obtiene el caci del menor para plancharlo en la vista
+                        $("#caci_menor_inscrito").val(data.datas.caci);
+                        /* alert("La curp ingresada ha sido validada correctamente"); */
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'La curp ingresada ha sido validada correctamente',
+                            showConfirmButton: true,
+                            allowOutsideClick: true
+                        });
+                    } else {
+                        $("#nextBtn").attr("disabled", true);
+                        /* alert("Estimado usuario\nel menor no puede ser registrado debido a que\nsupera la edad límite permitida"); */
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Estimado usuario\nel menor no puede ser registrado debido a que\nsupera la edad límite permitida',
+                            showConfirmButton: true,
+                            allowOutsideClick: true
+                        });
+                    }
                 }
             }
         },
-        error: function (data_e) {
+        error: function(data_e) {
             console.log(data_e);
             /* alert("La Curp ingresada no es válida"); */
             Swal.fire({
@@ -166,6 +175,7 @@ function preinscripcion() {
     var form_data = new FormData();
 
     form_data.append("_token", $("meta[name='csrf-token']").attr("content"));
+    form_data.append("rfc", $("#rfc_tutor").val());
     form_data.append("nombre_tutor_madres", $("#nombre_tutor_madres").val());
     form_data.append("apellido_paterno_tutor", $("#apellido_paterno_tutor").val());
     form_data.append("apellido_materno_tutor", $("#apellido_materno_tutor").val());
@@ -202,7 +212,13 @@ function preinscripcion() {
     var dato_archivo_com = $('#filename_com').prop("files")[0];
     var dato_archivo_disc = $('#filename_disc').prop("files")[0];
     var dato_archivo_trab = $('#filename_trab').prop("files")[0];
-    var dato_archivo_compr_pago = $('#filename_compr_pago').prop("files")[0];
+
+    var dato_archivo_credencial = $('#filename_credencial').prop("files")[0];
+    var dato_archivo_gafete = $('#filename_gafete').prop("files")[0];
+    var dato_archivo_solicitud = $('#filename_solicitud').prop("files")[0];
+    var dato_archivo_carta = $('#filename_carta').prop("files")[0];
+    var dato_archivo_sol_anali = $('#filename_sol_anali').prop("files")[0];
+    /* var dato_archivo_compr_pago = $('#filename_compr_pago').prop("files")[0]; */
     //console.log("esto tiene", dato_archivo_act.size);
     //var dato_archivo = document.getElementById('filename_act');
     //console.log(dato_archivo);
@@ -217,7 +233,13 @@ function preinscripcion() {
     form_data.append("filename_act", dato_archivo_act);
     form_data.append("filename_vacu", dato_archivo_vacu);
     form_data.append("filename_com", dato_archivo_com);
-    form_data.append("filename_compr_pago", dato_archivo_compr_pago);
+
+    form_data.append("filename_credencial", dato_archivo_credencial);
+    form_data.append("filename_gafete", dato_archivo_gafete);
+    form_data.append("filename_solicitud", dato_archivo_solicitud);
+    form_data.append("filename_carta", dato_archivo_carta);
+    form_data.append("filename_sol_anali", dato_archivo_sol_anali);
+    /* form_data.append("filename_compr_pago", dato_archivo_compr_pago); */
 
     $.ajax({
         type: 'POST',
@@ -226,7 +248,7 @@ function preinscripcion() {
         processData: false,
         contentType: false,
         url: url + 'guardar_inscripcion_bd',
-        beforeSend: function () {
+        beforeSend: function() {
             Swal.fire({
                 title: "Enviando...",
                 text: "Por favor, Espere.",
@@ -235,7 +257,7 @@ function preinscripcion() {
                 allowOutsideClick: false
             });
         },
-        success: function (data) {
+        success: function(data) {
             console.log(data);
             if (data.ok) {
                 if (data.Exist) {
@@ -309,11 +331,11 @@ function preinscripcion() {
             }
             //alert("Los Datos se Consultaron Correctamente");
         },
-        complete: function (data) {
+        complete: function(data) {
             /* $("#loader").hide(); */
             /* console.log("Pos se deberia de cerrar el loading"); */
         },
-        error: function (data_e) {
+        error: function(data_e) {
             console.log(data_e);
             //alert("No se pudo inscribir");
         }
@@ -324,6 +346,7 @@ function reinscripcion() {
     var form_data = new FormData();
 
     form_data.append("_token", $("meta[name='csrf-token']").attr("content"));
+    form_data.append("rfc", $("#rfc_tutor").val());
     form_data.append("nombre_tutor", $("#nombre_tutor").val());
     form_data.append("ap_paterno_t", $("#ap_paterno_t").val());
     form_data.append("ap_materno_t", $("#ap_materno_t").val());
@@ -362,6 +385,12 @@ function reinscripcion() {
     /* var dato_archivo_trab = $('#filename_trab').prop("files")[0]; */
     var dato_archivo_compr_pago = $('#filename_compr_pago').prop("files")[0];
 
+    var dato_archivo_credencial = $('#filename_credencial').prop("files")[0];
+    var dato_archivo_gafete = $('#filename_gafete').prop("files")[0];
+    var dato_archivo_solicitud = $('#filename_solicitud').prop("files")[0];
+    var dato_archivo_carta = $('#filename_carta').prop("files")[0];
+    var dato_archivo_sol_anali = $('#filename_sol_anali').prop("files")[0];
+
     if (dato_archivo_disc !== undefined) {
         form_data.append("filename_disc", dato_archivo_disc);
     }
@@ -374,6 +403,12 @@ function reinscripcion() {
     /* form_data.append("filename_com", dato_archivo_com); */
     form_data.append("filename_compr_pago", dato_archivo_compr_pago);
 
+    form_data.append("filename_credencial", dato_archivo_credencial);
+    form_data.append("filename_gafete", dato_archivo_gafete);
+    form_data.append("filename_solicitud", dato_archivo_solicitud);
+    form_data.append("filename_carta", dato_archivo_carta);
+    form_data.append("filename_sol_anali", dato_archivo_sol_anali);
+
     $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -381,7 +416,7 @@ function reinscripcion() {
         processData: false,
         contentType: false,
         url: url + 'guardar_reinscripcion_bd',
-        beforeSend: function () {
+        beforeSend: function() {
             Swal.fire({
                 title: "Enviando...",
                 text: "Por favor, Espere.",
@@ -390,7 +425,7 @@ function reinscripcion() {
                 allowOutsideClick: false
             });
         },
-        success: function (data) {
+        success: function(data) {
             console.log(data);
             if (data.ok) {
                 if (data.Exist) {
@@ -464,11 +499,11 @@ function reinscripcion() {
             }
             //alert("Los Datos se Consultaron Correctamente");
         },
-        complete: function (data) {
+        complete: function(data) {
             /* $("#loader").hide(); */
             /* console.log("Pos se deberia de cerrar el loading"); */
         },
-        error: function (data_e) {
+        error: function(data_e) {
             console.log(data_e);
             //alert("No se pudo inscribir");
         }

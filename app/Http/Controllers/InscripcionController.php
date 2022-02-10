@@ -24,7 +24,7 @@ class InscripcionController extends Controller
                 return redirect('/preinscripcion_validar_rfc')->withErrors(['error' => 'La plataforma esta deshabilitada, ya que No son periodos de Preinscripción. Para saber de la fechas, se encuentran en el apartado de Requisitos.']);
             } else {
                 $RFC = $request->RFC;
-                $tokenId = $request->tokenId;
+                $tokenId = $request->tokenId;                
                 $ch = curl_init();
                 curl_setopt_array($ch, array(
                     CURLOPT_URL => "10.1.181.9:9003/usuarios/loadUserCASI",
@@ -67,6 +67,7 @@ class InscripcionController extends Controller
     {
         $rules = [
             'nombre_tutor_madres' => 'required|string',
+            'rfc' => 'required|string',
             'apellido_paterno_tutor' => 'required|string',
             'apellido_materno_tutor' => 'required|string',
 
@@ -104,11 +105,17 @@ class InscripcionController extends Controller
             'filename_disc' => 'mimes:pdf,docx|max:2048',
             'filename_trab' => 'mimes:pdf,docx|max:2048',
             'filename_recp' => 'mimes:pdf,docx|max:2048',
-            'filename_compr_pago' => 'mimes:pdf,docx|max:2048'
+            'filename_credencial' => 'mimes:pdf,docx|max:2048',
+            'filename_gafete' => 'mimes:pdf,docx|max:2048',
+            'filename_solicitud' => 'mimes:pdf,docx|max:2048',
+            'filename_carta' => 'mimes:pdf,docx|max:2048',
+            'filename_sol_anali' => 'mimes:pdf,docx|max:2048',
         ];
         $messages = [
             'nombre_tutor_madres.required' => 'Su nombre es requerido',
             'nombre_tutor_madres.string' => 'Su nombre debe ser un texto',
+            'nombre_tutor_madres.required' => 'Su RFC es requerido',
+            'nombre_tutor_madres.string' => 'Su RFC debe ser un texto',
             'apellido_paterno_tutor.required' => 'Su apellido paterno es requerido',
             'apellido_paterno_tutor.string' => 'Su apellido paterno debe ser un texto',
             'apellido_materno_tutor.required' => 'Su apellido materno es requerido',
@@ -182,8 +189,17 @@ class InscripcionController extends Controller
             'filename_trab.max' => 'Documento de la patria potestad no debe de exceder el tamaño de 2Mb',
             'filename_recp.mimes' => 'Copia del último recibo de pago de la persona trabajadora no es valido',
             'filename_recp.max' => 'Copia del último recibo de pago de la persona trabajadora no debe de exceder el tamaño de 2Mb',
-            'filename_compr_pago.mimes' => 'Último comprobante de pago del trabajador o trabajadora no es valido.',
-            'filename_compr_pago.max' => 'Último comprobante de pago del trabajador o trabajadora no debe de exceder el tamaño de 2Mb',
+            
+            'filename_credencial.mimes' => 'Credencial no es valido',
+            'filename_credencial.max' => 'Credencial no debe de exceder el tamaño de 2Mb',
+            'filename_gafete.mimes' => 'Gafete no es valido',
+            'filename_gafete.max' => 'Gafete no debe de exceder el tamaño de 2Mb',
+            'filename_solicitud.mimes' => 'Solicitud de preinscripción no es valido',
+            'filename_solicitud.max' => 'Solicitud de preinscripción no debe de exceder el tamaño de 2Mb',
+            'filename_carta.mimes' => 'Carta de autorización no es valido',
+            'filename_carta.max' => 'Carta de autorización no debe de exceder el tamaño de 2Mb',
+            'filename_sol_anali.mimes' => 'Solicitud de análisis clinicos no es valido',
+            'filename_sol_anali.max' => 'Solicitud de análisis clinicos no debe de exceder el tamaño de 2Mb'
         ];
         DB::beginTransaction();
 
@@ -208,7 +224,13 @@ class InscripcionController extends Controller
                     $filename_vacu = $request->file('filename_vacu');
                     $filename_nac = $request->file('filename_nac');
                     $filename_com = $request->file('filename_com');
-                    $filename_compr_pago = $request->file('filename_compr_pago');
+
+                    $filename_credencial = $request->file('filename_credencial');
+                    $filename_gafete = $request->file('filename_gafete');
+                    $filename_solicitud = $request->file('filename_solicitud');
+                    $filename_carta = $request->file('filename_carta');
+                    $filename_sol_anali = $request->file('filename_sol_anali');
+                    /* $filename_compr_pago = $request->file('filename_compr_pago'); */
                     //$filename_cert = $request->file('filename_cert');
                     //$filename_rec = $request->file('filename_rec');
                     /////$filename_disc = $request->file('filename_disc');
@@ -219,7 +241,8 @@ class InscripcionController extends Controller
 
                     $arrayFiles = array(
                         array($filename_act, "Acta de nacimiento"), array($filename_vacu, "Cartilla de vacunación"),
-                        array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp"), array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
+                        array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp"), array($filename_credencial, "Credencial"), array($filename_gafete, "Gafete"), array($filename_solicitud, "Solicitud de preinscripción o reinscripción"), array($filename_carta, "Carta de autorización"), array($filename_sol_anali, "Solicitud de análisis clinicos")
+                        /* , array($filename_compr_pago, "Último Comprobante de pago del Trabajador") */
                         /*,array($filename_disc, "Copias de los documentos médicos del tratamiento"),
                         array($filename_trab, "Documento de la patria potestad")*/
                     );

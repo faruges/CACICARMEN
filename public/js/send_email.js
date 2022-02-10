@@ -145,21 +145,10 @@ function envia_email() {
         },
         url: url + 'email_info_recibida_reinscri',
         success: function(data) {
-            /* swal(
-                {
-                    type:'success',
-                    title: data.message,                                                                  
-                }                  
-                )         */
-            /* Swal.fire({
+            Swal.fire({
                 icon: 'success',
-                title: 'Eliminado!',
-                text: 'Ha borrado el registro',
-                showConfirmButton: false,
-                timer: 7000,
-                allowOutsideClick: false
-            }) */
-            alert("Email Enviado Correctamente");
+                title: "Email Enviado Correctamente"
+            });
         },
         error: function(data_e) {
             console.log(data_e);
@@ -191,13 +180,10 @@ function envia_email_recib_inscri() {
         },
         url: url + 'email_info_recibida_inscr',
         success: function(data) {
-            /* swal(
-                {
-                    type:'success',
-                    title: data.message,                                                                  
-                }                  
-                )         */
-            alert("Email Enviado Correctamente");
+            Swal.fire({
+                icon: 'success',
+                title: "Email Enviado Correctamente"
+            });
         },
         error: function(data_e) {
             console.log(data_e);
@@ -229,13 +215,10 @@ function envia_email_info_recib_inscr() {
         },
         url: url + 'email_info_recibida',
         success: function(data) {
-            /* swal(
-                {
-                    type:'success',
-                    title: data.message,                                                                  
-                }                  
-                )         */
-            alert("Email Enviado Correctamente");
+            Swal.fire({
+                icon: 'success',
+                title: "Email Enviado Correctamente"
+            });
         },
         error: function(data_e) {
             console.log(data_e);

@@ -9,16 +9,18 @@
   #regForm {
     background-color: #f5f5f0;
     margin: 100px auto;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: font-family: 'source sans pro', sans-serif;
     padding: 20px;
     width: 55%;
     min-width: 400px;
   }
-
+  label{
+    font-family: font-family: 'source sans pro', sans-serif;
+  }
   input {
     padding: 10px;
     width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: font-family: 'source sans pro', sans-serif;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -30,7 +32,7 @@
     border: none;
     padding: 10px 20px;
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: font-family: 'source sans pro', sans-serif;
     cursor: pointer;
   }
 </style>

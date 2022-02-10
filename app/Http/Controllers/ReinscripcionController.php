@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Reinscripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use thiagoalessio\TesseractOCR\TesseractOCR;
 
 use Validator;
 
@@ -24,10 +25,31 @@ class ReinscripcionController extends Controller
         return view('reinscripcion.reinscripcion_validar_rfc');
     }
 
+    public function prueba()
+    {
+        /* echo Pdf::getText(public_path() . "\prueba.pdf"); */
+        /* $text = (new Pdf('C:\laragon\bin\git\mingw64\bin'))
+            ->setPdf('prueba.pdf')
+            ->text();
+        dd($text); */
+        //Parse pdf file and build necessary objects.
+        /* $parser = new \Smalot\PdfParser\Parser();
+        $pdf = $parser->parseFile(public_path() . "\uploads\prueba.pdf");
+        $text = $pdf->getText();
+        dd($text); */
+        /* $ocr = new TesseractOCR();
+        $ocr->image(public_path() . "\uploads\prueba.jpg");
+        $ocr->run(); */
+        $tesseract = (new TesseractOCR(public_path() . "\uploads\prueba_2.jpg"))
+            ->executable('C:\Program Files\Tesseract-OCR\tesseract.exe')
+            ->run();
+        dd($tesseract);
+    }
+
     public function getwebservice(Request $request)
     {
 
-        try {            
+        try {
             $isPlatformUnable = $this->funciones->testIfPlatformUnable();
             if ($isPlatformUnable) {
                 return redirect('/reinscripcion')->withErrors(['error' => 'La plataforma esta deshabilitada, ya que No son periodos de Reinscripción. Para saber de la fechas, se encuentran en el apartado de Requisitos.']);
@@ -72,7 +94,7 @@ class ReinscripcionController extends Controller
     {
         Reinscripcion::create($request->all());
         //obtiene id de reinscripcion
-        $objectReinscripcion = Reinscripcion::select('id', 'created_at')->orderByDesc('id')->get()->first();    
+        $objectReinscripcion = Reinscripcion::select('id', 'created_at')->orderByDesc('id')->get()->first();
         $ciclo_escolar_menor = $this->funciones->getCicloEscolar($objectReinscripcion->created_at);
         $id = $objectReinscripcion->id;
         Reinscripcion::setCicloByIdMenor($id, $ciclo_escolar_menor);
@@ -82,20 +104,32 @@ class ReinscripcionController extends Controller
 
         $filename_disc = (!empty($request->file('filename_disc')) ? $request->file('filename_disc') : null);
 
+        $filename_credencial = $request->file('filename_credencial');
+        $filename_gafete = $request->file('filename_gafete');
+        $filename_solicitud = $request->file('filename_solicitud');
+        $filename_carta = $request->file('filename_carta');
+        $filename_sol_anali = $request->file('filename_sol_anali');
+
         $arrayFiles = array(
-            array($filename_vacu, "Cartilla de vacunación"), array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
+            array($filename_vacu, "Cartilla de vacunación"), 
+            array($filename_compr_pago, "Último Comprobante de pago del Trabajador"),
+            array($filename_credencial, "Credencial"), 
+            array($filename_gafete, "Gafete"), 
+            array($filename_solicitud, "Solicitud de preinscripción o reinscripción"), 
+            array($filename_carta, "Carta de autorización"), 
+            array($filename_sol_anali, "Solicitud de análisis clinicos")
         );
 
         if (!empty($filename_disc)) {
             $arrayFiles[] = array($filename_disc, "Copias de los documentos médicos del tratamiento");
         }
 
-        if (Reinscripcion::setDoc($arrayFiles, $id)) {            
-            $envioEmail = $this->funciones->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email,'reinscripcion.reinscripcion_email');
+        if (Reinscripcion::setDoc($arrayFiles, $id)) {
+            $envioEmail = $this->funciones->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email, 'reinscripcion.reinscripcion_email');
             if ($envioEmail) {
                 Reinscripcion::insertFlagEnvioEmail($id);
                 $reinscripcion = new Reinscripcion;
-                $this->funciones->setRolCaci($id, $request->caci,$reinscripcion,$reinscripcion);
+                $this->funciones->setRolCaci($id, $request->caci, $reinscripcion, $reinscripcion);
             }
             return true;
         } else {
@@ -113,6 +147,7 @@ class ReinscripcionController extends Controller
     {
         $rules = [
             'nombre_tutor' => 'required|string',
+            'rfc' => 'required|string',
             'ap_paterno_t' => 'required|string',
             'ap_materno_t' => 'required|string',
 
@@ -149,11 +184,18 @@ class ReinscripcionController extends Controller
             'filename_rec' => 'mimes:pdf,docx|max:2048',
             'filename_disc' => 'mimes:pdf,docx|max:2048',
             'filename_recp' => 'mimes:pdf,docx|max:2048',
-            'filename_compr_pago' => 'mimes:pdf,docx|max:2048'
+            'filename_compr_pago' => 'mimes:pdf,docx|max:2048',
+            'filename_credencial' => 'mimes:pdf,docx|max:2048',
+            'filename_gafete' => 'mimes:pdf,docx|max:2048',
+            'filename_solicitud' => 'mimes:pdf,docx|max:2048',
+            'filename_carta' => 'mimes:pdf,docx|max:2048',
+            'filename_sol_anali' => 'mimes:pdf,docx|max:2048',
         ];
         $messages = [
             'nombre_tutor.required' => 'Su nombre es requerido',
             'nombre_tutor.string' => 'Su nombre debe ser un texto',
+            'rfc.required' => 'Su nombre es requerido',
+            'rfc.string' => 'Su nombre debe ser un texto',
             'ap_paterno_t.required' => 'Su apellido paterno es requerido',
             'ap_paterno_t.string' => 'Su apellido paterno debe ser un texto',
             'ap_materno_t.required' => 'Su apellido materno es requerido',
@@ -221,6 +263,17 @@ class ReinscripcionController extends Controller
             'filename_recp.max' => 'Copia del último recibo de pago de la persona trabajadora no debe de exceder el tamaño de 2Mb',
             'filename_compr_pago.mimes' => 'Último comprobante de pago del trabajador o trabajadora no es valido.',
             'filename_compr_pago.max' => 'Último comprobante de pago del trabajador o trabajadora no debe de exceder el tamaño de 2Mb',
+
+            'filename_credencial.mimes' => 'Credencial no es valido',
+            'filename_credencial.max' => 'Credencial no debe de exceder el tamaño de 2Mb',
+            'filename_gafete.mimes' => 'Gafete no es valido',
+            'filename_gafete.max' => 'Gafete no debe de exceder el tamaño de 2Mb',
+            'filename_solicitud.mimes' => 'Solicitud de preinscripción no es valido',
+            'filename_solicitud.max' => 'Solicitud de preinscripción no debe de exceder el tamaño de 2Mb',
+            'filename_carta.mimes' => 'Carta de autorización no es valido',
+            'filename_carta.max' => 'Carta de autorización no debe de exceder el tamaño de 2Mb',
+            'filename_sol_anali.mimes' => 'Solicitud de análisis clinicos no es valido',
+            'filename_sol_anali.max' => 'Solicitud de análisis clinicos no debe de exceder el tamaño de 2Mb',
         ];
 
         DB::beginTransaction();

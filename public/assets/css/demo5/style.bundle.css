@@ -32,7 +32,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1399px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /*--font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
+  --font-family-sans-serif: 'source sans pro', sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
 *,
@@ -52,7 +53,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Poppins";
+  font-family: 'source sans pro';
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -11486,7 +11487,7 @@ code {
     .nav-tabs.nav-tabs-line a.nav-link.active {
       background-color: transparent;
       color: #595d6e;
-      border-bottom: 1px solid #3d94fb; }
+      border-bottom: 1px solid #9f2241; }
       .nav-tabs.nav-tabs-line.nav.nav-tabs .nav-link:hover > i, .nav-tabs.nav-tabs-line.nav.nav-tabs .nav-link.active > i,
       .nav-tabs.nav-tabs-line a.nav-link:hover > i,
       .nav-tabs.nav-tabs-line a.nav-link.active > i {
@@ -34401,10 +34402,10 @@ body {
             width: 5px;
             height: 1px; }
         .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__link-text {
-          font-weight: 500;
-          font-size: 1.3rem;
+          font-weight: 600;
+          font-size: 1.08rem;
           text-transform: initial; }
-          /*aqui los hackie, agrego una fuente mas pequeña para el menu secundario*/
+          /*aqui hay hack, agrego una fuente mas pequeña para el menu secundario*/
         .kt-header-menu .kt-menu__nav > .kt-menu__item > .kt-menu__link .kt-menu__link-text-redu {
           font-weight: 500;
           font-size: 0.92rem;
