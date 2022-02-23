@@ -64,9 +64,9 @@
 
 <link href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
-<link href="{{ asset('css/util.css') }}" rel="stylesheet">
+{{--  <link href="{{ asset('css/util.css') }}" rel="stylesheet">
 
-<link href="{{ asset('css/main.css') }}" rel="stylesheet">
+<link href="{{ asset('css/main.css') }}" rel="stylesheet">  --}}
 
 <div class="container">
     <div class="card mt50">

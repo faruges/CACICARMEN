@@ -60,16 +60,16 @@ class PermissionsSeeder extends Seeder
         $caciLuz->givePermissionTo($permissions_array_caci,$permissions_array_form_repos);
         
         $caciEva = Role::create(['name' => 'cacieva']);
-        $caciEva->givePermissionTo($permissions_array_caci);
+        $caciEva->givePermissionTo($permissions_array_caci,$permissions_array_form_repos);
         
         $caciBertha = Role::create(['name' => 'cacibertha']);
-        $caciBertha->givePermissionTo($permissions_array_caci);
+        $caciBertha->givePermissionTo($permissions_array_caci,$permissions_array_form_repos);
         
         $caciCarolina = Role::create(['name' => 'cacicarolina']);
-        $caciCarolina->givePermissionTo($permissions_array_caci);
+        $caciCarolina->givePermissionTo($permissions_array_caci,$permissions_array_form_repos);
         
         $caciCarmen = Role::create(['name' => 'cacicarmen']);
-		$caciCarmen->givePermissionTo($permissions_array_caci);
+		$caciCarmen->givePermissionTo($permissions_array_caci,$permissions_array_form_repos);
 
         $userSuperCaci = User::create([
             'name' => 'superadmin',
