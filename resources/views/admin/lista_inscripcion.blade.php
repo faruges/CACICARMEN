@@ -9,21 +9,21 @@
     .margin-card {
         margin-bottom: 10%;
     }
-
+    
     .btn-regresar {
         margin: 40px 20px 40px 0px;
     }
-
+    
     table {
         width: 100%;
     }
-
+    
     table,
     td {
         border-collapse: collapse;
         border: 0px solid #000;
     }
-
+    
     thead {
         display: table;
         /* to take the same width as tr */
@@ -34,7 +34,7 @@
         /* - 17px because of the scrollbar width */
         /* background-color: blue; */
     }
-
+    
     tbody {
         display: block;
         /* to enable vertical scrolling */
@@ -47,7 +47,7 @@
         /* background-color: purple; */
         /* keeps the scrollbar even if it doesn't need it; display purpose */
     }
-
+    
     th,
     td {
         width: 5.88%;
@@ -56,25 +56,28 @@
         word-break: break-all;
         /* 4. */
     }
-
+    
     tr {
         display: table;
         /* display purpose; th's border */
         box-sizing: border-box;
         /* because of the border (Chrome needs this line, but not FF) */
     }
-
+    
     td {
         text-align: center;
         border-bottom: none;
         border-left: none;
     }
-
+    
     .topRight {
         /* background-color: blue; */
         margin-left: 85%;
         margin-right: 15%;
         color: #fff;
+    }
+    .m-top{
+        margin-top:2rem;
     }
 </style>
 <br>
@@ -140,16 +143,15 @@
     </div>
     <h2><i class="fa fa-book" style="margin-left: 20px;"></i> Inscripci&oacute;n</h2>
 </div> --}}
-<div class="card-body" style="overflow: auto">
+<div class="card-body">
     <div class="portlet-body flip-scroll">
-        <table id="tableReg" class="table table-bordered table-striped table-condensed flip-content">
-            {{-- <table class="table table-striped table-responsive-lg"> --}}
-            <thead class="flip-content">
+        <table id="tableIn" class="table stripe table-bordered table-striped row-border order-column">
+            <thead>
                 <tr>
+                    <th>Curp</th>
                     <th>Ciclo Escolar</th>
                     <th>Caci</th>
                     <th>Menor</th>
-                    <th>Curp</th>
                     <th>Edad Ingreso</th>
                     <th>Tutor</th>
                     <th>Tipo nomina</th>
@@ -168,10 +170,10 @@
             <tbody>
                 @foreach ($array_lista_preins_reins as $caci)
                 <tr>
+                    <th style="font-size: 0.88rem;text-align: start; padding:0;">{{$caci['curp_num']}}</th>
                     <td>{{$caci['ciclo_escolar']}}</td>
                     <td>{{$caci['caci']}}</td>
                     <td>{{$caci['nombre_menor_1']}} {{$caci['apellido_paterno_1']}} {{$caci['apellido_materno_1']}}</td>
-                    <td>{{$caci['curp_num']}}</td>
                     <td>{{$caci['Edad_menor']}}</td>
                     <td>{{$caci['nombre_tutor_madres']}} {{$caci['apellido_paterno_tutor']}} {{$caci['apellido_materno_tutor']}}</td>
                     <td>{{$caci['tipo_nomina_1']}}</td>
@@ -262,7 +264,6 @@ title="Regresar"><i class="fa fa-backward"></i> Regresar</a>
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
 
 
 @endsection

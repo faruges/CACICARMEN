@@ -56,7 +56,6 @@
         word-break: break-all;
         /* 4. */
     }
-
     tr {
         display: table;
         /* display purpose; th's border */
@@ -75,6 +74,9 @@
         margin-left: 85%;
         margin-right: 15%;
         color: #fff;
+    }
+    .m-top{
+        margin-top:2rem;
     }
 </style>
 <br>
@@ -147,17 +149,17 @@
     </div>
     <h2><i class="fa fa-bookmark" style="margin-left: 20px;"></i> Reinscripci&oacute;n</h2>
 </div> --}}
-<div class="card-body" style="overflow: auto">
+<div class="card-body">
     <div class="portlet-body flip-scroll">
-        <table class="table table-bordered table-striped table-condensed flip-content">
+        <table id="tableIn" class="table stripe table-bordered table-striped table-condensed row-border order-column">
             {{-- <table class="table table-striped table-responsive-md"> --}}
-            <thead class="flip-content">
+            <thead>
                 <tr>
+                    <th>Curp</th>
                     <th>Ciclo Escolar</th>
                     <th>Caci</th>
                     <th>Menor</th>
                     <th>Edad Ingreso</th>
-                    <!-- <th>Curp</th> -->
                     <th>Tutor</th>
                     <!-- <th>Calle</th>
                     <th>Número</th>
@@ -174,7 +176,7 @@
                     <th>Horario Laboral Sal.</th> -->
                     <th>Email</th>
                     <th>Telefono Uno</th>
-                    <th>Telefono Dos</th>
+                    {{--  <th>Telefono Dos</th>  --}}
                     <th>Email Enviado Notificación Recibida</th>
                     <th>Email Enviado Notificación Recibida Reinscripción</th>
                     <th>Acciones</th>
@@ -183,11 +185,11 @@
             <tbody>
                 @foreach ($array_lista_preins_reins as $reinscripcion)
                 <tr>
+                    <th style="font-size: 0.88rem;text-align: start; padding:0;">{{$reinscripcion['curp']}}</th>
                     <td>{{$reinscripcion['ciclo_escolar']}}</td>
                     <td>{{$reinscripcion['caci']}}</td>
                     <td>{{$reinscripcion['nombre_menor']}} {{$reinscripcion['ap_paterno']}} {{$reinscripcion['ap_materno']}}</td>
                     <td>{{$reinscripcion['edad_menor_ingreso']}}</td>
-                    <!-- <td>{{$reinscripcion['curp']}}</td> -->
                     <td>{{$reinscripcion['nombre_tutor']}} {{$reinscripcion['ap_paterno_t']}} {{$reinscripcion['ap_materno_t']}}</td>
                     <!-- <td>{{$reinscripcion['calle']}}</td>
                     <td>{{$reinscripcion['numero_domicilio']}}</td>
@@ -204,7 +206,7 @@
                     <td>{{$reinscripcion['horario_laboral_sal']}}</td> -->
                     <td>{{$reinscripcion['email']}}</td>
                     <td>{{$reinscripcion['telefono_uno']}}</td>
-                    <td>{{$reinscripcion['telefono_dos']}}</td>
+                    {{--  <td>{{$reinscripcion['telefono_dos']}}</td>  --}}
                     @if ($reinscripcion['correo_enviado_not_recibida'])
                     <td>Correo de confirmación Enviado</td>
                     @else

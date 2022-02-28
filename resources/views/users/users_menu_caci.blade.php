@@ -32,7 +32,7 @@
 
     <!--begin::Global Theme Styles(used by all pages) -->
     <link href="{{ asset('assets/css/demo5/style.bundle.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/css/estilo_saf.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/estilo_saf.css')}}" rel="stylesheet" type="text/css">  
     <!--end::Global Theme Styles -->
 
     <script type="text/javascript">

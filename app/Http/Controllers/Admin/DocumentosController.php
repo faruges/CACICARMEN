@@ -29,25 +29,37 @@ class DocumentosController extends Controller
     {
         $datosReposPre = DatosRepositorioFinalPre::get();
         $ciclos_escolares_filter = $this->funciones->getFilterAllCiclos('datos_repositorio_final_pre');
-        return view('admin.all_datos_repos', compact('datosReposPre', 'ciclos_escolares_filter'));
+        $ciclo_escolar_report = null;
+        $tabla = 'datos_repositorio_final_pre';
+        $name_key_foreing_repost = 'datos_repositorio_final_pre_id';
+        return view('admin.all_datos_repos', compact('datosReposPre', 'ciclos_escolares_filter','ciclo_escolar_report','tabla','name_key_foreing_repost'));
     }
     public function getAllDatosReposByCicloEscolar(Request $request)
     {
         $datosReposPre = DatosRepositorioFinalPre::where('ciclo_escolar', $request->ciclo_escolar)->orderBy('id', 'desc')->get();
         $ciclos_escolares_filter = $this->funciones->getFilterAllCiclos('datos_repositorio_final_pre');
-        return view('admin.all_datos_repos', compact('datosReposPre', 'ciclos_escolares_filter'));
+        $ciclo_escolar_report = $request->ciclo_escolar;
+        $tabla = 'datos_repositorio_final_pre';
+        $name_key_foreing_repost = 'datos_repositorio_final_pre_id';
+        return view('admin.all_datos_repos', compact('datosReposPre', 'ciclos_escolares_filter','ciclo_escolar_report','tabla','name_key_foreing_repost'));
     }
     public function getAllDatosReposReins()
     {
         $datosReposReins = DatosRepositorioFinalReins::get();
         $ciclos_escolares_filter = $this->funciones->getFilterAllCiclos('datos_repositorio_final_reins');
-        return view('admin.all_datos_repos_reins', compact('datosReposReins', 'ciclos_escolares_filter'));
+        $ciclo_escolar_report = null;
+        $tabla = 'datos_repositorio_final_reins';
+        $name_key_foreing_repost = 'datos_repositorio_final_reins_id';
+        return view('admin.all_datos_repos_reins', compact('datosReposReins', 'ciclos_escolares_filter','ciclo_escolar_report','tabla','name_key_foreing_repost'));
     }
     public function getAllDatosReposReinsByCicloEscolar(Request $request)
     {
         $datosReposReins = DatosRepositorioFinalReins::where('ciclo_escolar', $request->ciclo_escolar)->orderBy('id', 'desc')->get();
         $ciclos_escolares_filter = $this->funciones->getFilterAllCiclos('datos_repositorio_final_reins');
-        return view('admin.all_datos_repos_reins', compact('datosReposReins', 'ciclos_escolares_filter'));
+        $ciclo_escolar_report = $request->ciclo_escolar;
+        $tabla = 'datos_repositorio_final_reins';
+        $name_key_foreing_repost = 'datos_repositorio_final_reins_id';
+        return view('admin.all_datos_repos_reins', compact('datosReposReins', 'ciclos_escolares_filter','ciclo_escolar_report','tabla','name_key_foreing_repost'));
     }
     public function getByIdRepo($id)
     {

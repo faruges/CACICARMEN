@@ -145,6 +145,7 @@ Route::group(['middleware' => ['permission:view_repositorio', 'nocache']], funct
     Route::get('all_datos_repositorio_reins', 'Admin\DocumentosController@getAllDatosReposReins')->name('all_datos_repositorio_reins');
     Route::get('ver_detalles_repo_reins/{id}', 'Admin\DocumentosController@getByIdRepoReins')->name('ver_detalles_repo_reins');
     Route::post('/get_list_repo_reins_by_ciclo', 'Admin\DocumentosController@getAllDatosReposReinsByCicloEscolar')->name('get_list_repo_reins_by_ciclo');
+    Route::post('/excel_data_repository', 'CreateReportController@excel')->name('excel_data_repository');
 });
 Route::group(['middleware' => ['permission:view_inscripcion', 'nocache']], function () {
     //Route::group(['middleware' => ['permission:view_inscripcion']], function() {
@@ -200,5 +201,5 @@ Route::get('/aviso_privacidar', function () {
 });
 
 /*Exporta Excel*/
-Route::post('/export-excel', 'ExportExcelController@excel')->name('export-excel');
-Route::post('/export-excel-reinscripcion', 'ExportExcelReinsController@excel')->name('export-excel-reinscripcion');
+/* Route::post('/export-excel', 'ExportExcelController@excel')->name('export-excel');
+Route::post('/export-excel-reinscripcion', 'ExportExcelReinsController@excel')->name('export-excel-reinscripcion'); */

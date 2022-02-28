@@ -78,7 +78,7 @@ $(function() {
     $("#grupo_sanguineo").blur(function() {
         $("#tab_3_4")[0].click();
     });
-
+    $("#ciclo_escolar").val();
     $("#anio_registro_nac_nino").blur(function() {
         var valor = $("#anio_registro_nac_nino").val();
         const valTelefono = '[0-9]{4}';

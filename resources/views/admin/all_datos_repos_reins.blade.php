@@ -3,10 +3,18 @@
 @section('scripts')
 <script src="{{URL::asset('js/add-upper-case.js')}}" type="text/javascript"> </script>
 <script src="{{URL::asset('js/inscripcion.js')}}" type="text/javascript"> </script>
+<script src="{{ URL::asset('js/idioma.js')}}" type="text/javascript"></script>
 
 @endsection
 @section('mycontent')
-
+<style>
+    .m-bottom{
+        margin-bottom:1rem;
+    }
+    .m-top{
+        margin-top:1rem;
+    }
+</style>
 <br>
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -72,13 +80,25 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row float-right" style="margin: 1rem 4.5rem;">
+                            <form method="POST" action="{{route('excel_data_repository')}}" style="margin-top: 0.5rem;">
+                                @csrf
+                                    <input id="ciclo_escolar" name="ciclo_escolar" type="text" value="{{$ciclo_escolar_report}}"
+                                        hidden />
+                                    <input id="tabla" name="tabla" type="text" value="{{$tabla}}"
+                                        hidden />
+                                    <input id="name_key_foreing_repost" name="name_key_foreing_repost" type="text" value="{{$name_key_foreing_repost}}"
+                                        hidden />
+                                <button class="btn btn-md btn-dark" onclick="this.form.submit()">Generar Reporte</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="card-body" style="overflow: auto">
             <div class="portlet-body flip-scroll">
-                <table id="tableReg" class="table table-bordered table-striped table-condensed flip-content">
+                <table id="tableRegs" class="table table-bordered table-striped table-condensed flip-content">
                     <thead class="flip-content">
                         <tr>
                             <th>Caci</th>
