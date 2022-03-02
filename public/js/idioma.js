@@ -24,6 +24,7 @@ $(document).ready(function() {
             "url": url + "assets/global/plugins/datatables/Spanish.json"
         },
         "dom": '<"row"<"col-sm-12 col-md-6 m-bottom"f><"col-sm-12 col-md-6">>rt<"bottom m-top"lip><"clear">',
+        fixedColumns: true
         /* dom: 'Bfrtip', */
         /* buttons: [
           'excel'
