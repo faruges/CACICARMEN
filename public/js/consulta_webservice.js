@@ -305,7 +305,7 @@ function preinscripcion() {
                 if (data.err_valid_docs) {
                     Swal.fire({
                         icon: 'error',
-                        title: '¡Error Documentos, Validaciones!',
+                        title: '¡Error en Documentos, Validaciones!',
                         text: data.result,
                         showConfirmButton: true,
                         allowOutsideClick: false
@@ -473,7 +473,7 @@ function reinscripcion() {
                 if (data.err_valid_docs) {
                     Swal.fire({
                         icon: 'error',
-                        title: '¡Error de Documentos, Validaciones!',
+                        title: '¡Error en Documentos, Validaciones!',
                         text: data.result,
                         showConfirmButton: true,
                         allowOutsideClick: false

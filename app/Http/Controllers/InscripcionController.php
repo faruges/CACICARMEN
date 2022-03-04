@@ -268,7 +268,7 @@ class InscripcionController extends Controller
                         //return redirect('inicio')->with('mensaje', "Menor inscrito con exito");
                     } else {
                         //return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error, no se cargaron todos los archivos.')->with('typelert', 'danger');
-                        return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid_docs' => true]);
+                        return response()->json(['ok' => false, 'result' => "Se esta cargando uno o mas Documentos repetidos, se le sugiere volver a cargar todos los Documentos", 'err_valid_docs' => true]);
                     }
                 } else {
                     return response()->json(['ok' => true, 'result' => "No se pudo realizar el proceso de Inscripción, el Menor con curp '$request->curp_num' ya esta Inscrito", 'Exist' => true]);

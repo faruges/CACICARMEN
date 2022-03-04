@@ -549,12 +549,14 @@ $(function() {
     $("#codigo_postal_laboral_segundo_empleo").blur(function() {
         $("#tab_4_4")[0].click();
     });
-
+    arrayNamesFiles = [];
     $("#filename_act").on('change', function() {
         act_supera_tamanio_permitido = true;
         console.log(act_supera_tamanio_permitido);
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_act').prop("files")[0];
+        /* console.log(dato_archivo_act.prop("files")[0].name); */
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -569,6 +571,7 @@ $(function() {
                 allowOutsideClick: false
             });
         } else {
+            console.log(arrayNamesFiles);
             $("#js-progressbar-act").attr("hidden", false);
             addProgressBar($("#js-progressbar-act"));
             //alert("si hiciste caso se habilita boton");
@@ -581,6 +584,7 @@ $(function() {
         nac_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_nac').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -595,6 +599,7 @@ $(function() {
                 allowOutsideClick: false
             });
         } else {
+            console.log(arrayNamesFiles);
             $("#js-progressbar-nac").attr("hidden", false);
             addProgressBar($("#js-progressbar-nac"));
             //alert("si hiciste caso se habilita boton");
@@ -606,6 +611,7 @@ $(function() {
         vac_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_vacu').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -620,6 +626,7 @@ $(function() {
                 allowOutsideClick: false
             });
         } else {
+            addToArrayNameFiles(dato_archivo_act.name);
             $("#js-progressbar-vacu").attr("hidden", false);
             addProgressBar($("#js-progressbar-vacu"));
             vac_supera_tamanio_permitido = false;
@@ -630,6 +637,7 @@ $(function() {
         curp_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_com').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -654,6 +662,7 @@ $(function() {
         disc_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_disc').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -678,6 +687,7 @@ $(function() {
         disc_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#file_upgrade').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -703,6 +713,7 @@ $(function() {
         trab_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_trab').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -727,6 +738,7 @@ $(function() {
         trab_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_credencial').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -751,6 +763,7 @@ $(function() {
         trab_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_gafete').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -775,6 +788,7 @@ $(function() {
         trab_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_solicitud').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -799,6 +813,7 @@ $(function() {
         trab_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_carta').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -823,6 +838,7 @@ $(function() {
         trab_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_sol_anali').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -847,6 +863,7 @@ $(function() {
         trab_supera_tamanio_permitido = true;
         const tamanioArchivoPermitido = 2000000;
         var dato_archivo_act = $('#filename_compr_pago').prop("files")[0];
+        addToArrayNameFiles(dato_archivo_act.name);
         if (dato_archivo_act.size > tamanioArchivoPermitido) {
             //console.log(dato_archivo_act.size);
             //$("#nextBtn").attr("disabled", true);
@@ -867,6 +884,12 @@ $(function() {
             $("#nextBtn").attr("disabled", false);
         }
     });
+
+    function addToArrayNameFiles(nameFile) {
+        arrayNamesFiles.push({
+            "name": nameFile
+        });
+    }
 
     function addProgressBar(bar) {
         setTimeout(function() {

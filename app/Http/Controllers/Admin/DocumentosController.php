@@ -611,22 +611,29 @@ class DocumentosController extends Controller
     public function destroy(Request $request)
     {
         /* dd($request->lista); */
-        if ($request->id) {
-            DB::table($request->tabla)
-                ->where('id', $request->id)
-                ->update(['status' => '-1']);
-            DB::table('logs')->insert([
-                [$request->id_proceso => $request->id, 'nameUser' => $request->nameUser, 'proceso' => $request->proceso]
-            ]);
-            $documentosController = new DocumentosController;
-            $array_image = $documentosController->compruebaSiExisteDocs($request);
-            if ($array_image) {
-                File::delete($array_image);
-                return response()->json(['ok' => true]);
+        DB::beginTransaction();
+        try {
+            if ($request->id) {
+                DB::table($request->tabla)
+                    ->where('id', $request->id)
+                    ->update(['status' => '-1']);
+                DB::table('logs')->insert([
+                    [$request->id_proceso => $request->id, 'nameUser' => $request->nameUser, 'proceso' => $request->proceso]
+                ]);
+                $documentosController = new DocumentosController;
+                $array_image = $documentosController->compruebaSiExisteDocs($request);
+                if ($array_image) {
+                    File::delete($array_image);
+                    DB::commit();
+                    return response()->json(['ok' => true]);
+                } else {
+                    return response()->json(['ok' => false]);
+                }
             } else {
                 return response()->json(['ok' => false]);
             }
-        } else {
+        } catch (\Throwable $th) {
+            DB::rollback();
             return response()->json(['ok' => false]);
         }
     }

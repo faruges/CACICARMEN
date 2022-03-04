@@ -297,7 +297,7 @@ class ReinscripcionController extends Controller
                         DB::commit();
                         return response()->json(['ok' => true, 'result' => 'Menor reinscrito con exito', 'menor' => $request->nombre_menor]);
                     } else {
-                        return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid_docs' => true]);
+                        return response()->json(['ok' => false, 'result' => "Se esta cargando uno o mas Documentos repetidos, se le sugiere volver a cargar todos los Documentos", 'err_valid_docs' => true]);
                     }
                 } else if ($conteoCurp >= 1) {
                     //si ya hay un registro verifica que ya sea en otro ciclo escolar para poderlo reinscribir                    
@@ -312,7 +312,7 @@ class ReinscripcionController extends Controller
                             DB::commit();
                             return response()->json(['ok' => true, 'result' => 'Menor reinscrito con exito', 'menor' => $request->nombre_menor]);
                         } else {
-                            return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid_docs' => true]);
+                            return response()->json(['ok' => false, 'result' => "Se esta cargando uno o mas Documentos repetidos, se le sugiere volver a cargar todos los Documentos", 'err_valid_docs' => true]);
                         }
                     } else if ($conteoCurp >= 1 && $isMenorInsideCicloEscolar === true) {
                         return response()->json(['ok' => true, 'result' => "No se puede Reinscribir dos veces en el mismo ciclo escolar", 'Exist' => true]);
