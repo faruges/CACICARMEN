@@ -120,8 +120,6 @@ Route::post('guardar_reinscripcion_bd', 'ReinscripcionController@guardar')->name
 Route::post('consulta_curp', 'WebServicesRENAPO@getCurp')->name('consulta_curp');
 
 
-
-
 //rutas para superusuarios
 Route::group(['middleware' => ['nocache', 'permission:view_users|edit_users|delete_users|create_users']], function () {
     Route::resource('users', 'UserController');
@@ -175,7 +173,7 @@ Route::group(['middleware' => ['nocache', 'permission:view_reinscripcion']], fun
     Route::post('/set_data_respositorio_reinscripcion', 'Admin\DocumentosController@setDataRepositorioReinscripcion')->name('set_data_respositorio_reinscripcion');
     Route::post('/update_data_respositorio_reinscripcion/{idRepo}', 'Admin\DocumentosController@updateDataRepositorioReinscripcion')->name('update_data_respositorio_reinscripcion');
     Route::post('/email_info_recibida', 'Admin\EmailController@sendEmailRecibi')->name('email_info_recibida');
-    Route::post('/email_info_recibida_reinscri', 'Admin\EmailController@sendEmailRecibiReinscri')->name('email_info_recibida_reinscri');    
+    Route::post('/email_info_recibida_reinscri', 'Admin\EmailController@sendEmailRecibiReinscri')->name('email_info_recibida_reinscri');
 });
 //rutas para roles
 /* Route::group(['middleware' => ['permission:view_roles|edit_roles|delete_roles|create_roles']], function() {

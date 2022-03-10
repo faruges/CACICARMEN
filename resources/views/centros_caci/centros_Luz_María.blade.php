@@ -23,7 +23,7 @@
             margin-left: 1.3rem;
             margin-top: 0;
             margin-bottom: 0;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-family: 'source sans pro', sans-serif;
         }
 
@@ -35,9 +35,24 @@
         }
 
         .style-location-caci {
-            margin-top: 2rem;
+            /*  margin-top: 2rem; */
             background-color: #9F2241;
-            padding: 0.5rem 5rem;
+            padding-right: 0.9rem;
+            padding-left: 0.9rem;
+            padding-top: 0.4rem;
+            padding-bottom: 0.69rem;
+        }
+
+        .style-gallery-caci {
+            /* margin-top: 2rem; */
+            margin-left:0.5rem ;
+            background-color: #9F2241;
+            padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'sans source pro', sans-serif;
         }
 
         .card-info-caci {
@@ -94,9 +109,18 @@
             .style-location-caci {
                 margin-top: 2rem;
                 margin-bottom: 2rem;
-                margin-left: 3rem;
+                margin-left: 2.5rem;
+                background-color: #9F2241;
+                padding: 0.5rem 4.3rem;
+            }
+
+            .style-gallery-caci {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                margin-left: 2.5rem;
                 background-color: #9F2241;
                 padding: 0.5rem 5rem;
+                padding-right: 4rem;
             }
 
             .card-info-caci {
@@ -157,6 +181,18 @@
         }
 
         .mySlides2 {
+            display: none;
+        }
+
+        .mySlides3 {
+            display: none;
+        }
+
+        .mySlides4 {
+            display: none;
+        }
+
+        .mySlides5 {
             display: none;
         }
 
@@ -232,12 +268,36 @@
             opacity: 0.6;
         }
 
+        .demo3 {
+            opacity: 0.6;
+        }
+
+        .demo4 {
+            opacity: 0.6;
+        }
+
+        .demo5 {
+            opacity: 0.6;
+        }
+
         .active,
         .demo:hover {
             opacity: 1;
         }
 
         .demo2:hover {
+            opacity: 1;
+        }
+
+        .demo3:hover {
+            opacity: 1;
+        }
+
+        .demo4:hover {
+            opacity: 1;
+        }
+
+        .demo5:hover {
             opacity: 1;
         }
 
@@ -264,13 +324,16 @@
                     55-88-33-20
                     / 51-34-25-50</p>
                 <div><a href="https://goo.gl/maps/Ts16yzXegSedRCg38" target="_blank" class="style-location-caci"><span
-                            style="color: #fff; font-weight: 700; font-size: 1rem; font-family: 'sans source pro', sans-serif;">VER
-            UBICACIÓN</span></a></div>
+                            style="color: #fff; font-weight: 700; font-size: 1rem; font-family: 'sans source pro', sans-serif;">VER UBICACIÓN</span></a>
+
+                    <button type="button" class=" style-gallery-caci" data-toggle="modal"
+                            data-target="#ModalCarousel">
+                        Ver Imagenes
+                    </button>
+                </div>
             </div>
             <div>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalCarousel">
-                    Ver Imagenes
-                </button>
+
 
                 <!-- Modal -->
                 <div class="modal fade" id="ModalCarousel" tabindex="-1" role="dialog"
@@ -427,13 +490,16 @@
                 <p class="style-tel-caci"><img src="img/ICONO TELÉFONO 2-33.svg" style="height: 1rem; width: 1rem;"/>
                     55-78-76-76</p>
                 <div><a href="https://goo.gl/maps/9CqK6D3MNmFqobA68" target="_blank" class="style-location-caci"><span
-                            style="color: #fff; font-weight: 700; font-size: 1rem; font-family: 'sans source pro', sans-serif;">VER
-            UBICACIÓN</span></a></div>
-                <div>
-                    <button type="button" onclick="showl2(4)" class="btn btn-primary btn-lg" data-toggle="modal"
+                            style="color: #fff; font-weight: 700; font-size: 1rem; font-family: 'sans source pro', sans-serif;">VER UBICACIÓN</span></a>
+
+                    <button type="button" onclick="showl2(4)" class="style-gallery-caci" data-toggle="modal"
                             data-target="#ModalCarousel2">
                         Ver Imagenes
                     </button>
+                </div>
+
+                <div>
+
 
                     <!-- Modal -->
                     <div class="modal fade" id="ModalCarousel2" tabindex="-1" role="dialog"
@@ -685,9 +751,198 @@
                 <p class="style-tel-caci"><img src="img/ICONO TELÉFONO 2-33.svg" style="height: 1rem; width: 1rem;"/>
                     55-92-70-98 / 55-66-19-29</p>
                 <div><a href="https://goo.gl/maps/HB3mgqfYiWXWPeRr8" target="_blank" class="style-location-caci"><span
-                            style="color: #fff; font-weight: 700; font-size: 1rem; font-family: 'sans source pro', sans-serif;">VER
-            UBICACIÓN</span></a></div>
+                            style="color: #fff; font-weight: 700; font-size: 1rem; font-family: 'sans source pro', sans-serif;">VER UBICACIÓN</span></a>
+
+                    <button type="button" onclick="showl2(6)" class=" style-gallery-caci" data-toggle="modal"
+                            data-target="#ModalCarousel3">
+                        Ver Imagenes
+                    </button>
+                </div>
             </div>
+            <!--            modal -->
+            <div>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="ModalCarousel3" tabindex="-1" role="dialog"
+                     aria-labelledby="ModalCarouselLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div id="carousel-modal-demo" class="carousel slide" data-ride="carousel">
+
+
+                                <div class="container">
+                                    <div class="mySlides3">
+                                        <div class="numbertext">1 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-06.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides3">
+                                        <div class="numbertext">2 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-06 (1).jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides3">
+                                        <div class="numbertext">3 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-07.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides3">
+                                        <div class="numbertext">4 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-08.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides3">
+                                        <div class="numbertext">5 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-09.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides3">
+                                        <div class="numbertext">6 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-10.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides3">
+                                        <div class="numbertext">7 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-11.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides3">
+                                        <div class="numbertext">8 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-12.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides3">
+                                        <div class="numbertext">9 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-12 (1).jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides3">
+                                        <div class="numbertext">10 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-36.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides3">
+                                        <div class="numbertext">11 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-46-01.jpg"
+                                            style="width:100%">
+                                    </div>
+
+
+                                    <a class="prev" onclick="plusSlides3(-1)">❮</a>
+                                    <a class="next" onclick="plusSlides3(1)">❯</a>
+
+                                    <div class="caption-container">
+                                        <p id="caption3"></p>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-06.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(1)" alt="1"
+                                                 id="inicio">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-06 (1).jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(2)" alt="2">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-07.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(3)" alt="3">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-08.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(4)" alt="4">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-09.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(5)" alt="5">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-10.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(6)" alt="6">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-11.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(7)" alt="7">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-12.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(8)" alt="8">
+                                        </div>
+
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-12 (1).jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(9)" alt="9">
+                                        </div>
+
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-45-36.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(10)" alt="10">
+                                        </div>
+
+                                        <div class="column">
+                                            <img class="demo3 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CAC_6/PHOTO-2022-01-12-14-46-01.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(11)" alt="11">
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--            modal -->
+
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="card card-info-caci">
@@ -721,9 +976,238 @@
                 <div>
                     <a href="https://www.google.com.mx/maps/place/Ote.+42+360,+24+de+Abril,+Venustiano+Carranza,+15980+Ciudad+de+M%C3%A9xico,+CDMX/@19.415703,-99.118255,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1febc6e4fee5d:0x5ce6a39b00030f8!8m2!3d19.415703!4d-99.1160663"
                        target="_blank" class="style-location-caci"><span
-                            style="color: #fff; font-weight: 700; font-size: 1rem; font-family: 'sans source pro', sans-serif;">VER
-            UBICACIÓN</span></a></div>
+                            style="color: #fff; font-weight: 700; font-size: 1rem; font-family: 'sans source pro', sans-serif;">
+                            VER UBICACIÓN</span></a>
+
+                    <button type="button" onclick="showl2(7)" class="style-gallery-caci" data-toggle="modal"
+                            data-target="#ModalCarousel4">
+                        Ver Imagenes
+                    </button>
+                </div>
             </div>
+            <!--            modal -->
+            <div>
+
+                <div class="modal fade" id="ModalCarousel4" tabindex="-1" role="dialog"
+                     aria-labelledby="ModalCarouselLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div id="carousel-modal-demo" class="carousel slide" data-ride="carousel">
+
+
+                                <div class="container">
+                                    <div class="mySlides4">
+                                        <div class="numbertext">1 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp_Image_2022-02-17_at_14-14-18_(1).jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">2 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.18 (2).jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">3 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.19.jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">4 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.19 (1).jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">5 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.20.jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">6 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.20 (1).jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">7 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.20 (2).jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">8 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.21 (1).jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">9 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.21 (2).jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">10 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.21 (4).jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">11 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.22.jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">12 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.32.31.jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">13 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.33.01.jpeg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides4">
+                                        <div class="numbertext">14 / 11</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.35.42.jpeg"
+                                            style="width:100%">
+                                    </div>
+
+
+                                    <a class="prev" onclick="plusSlides4(-1)">❮</a>
+                                    <a class="next" onclick="plusSlides4(1)">❯</a>
+
+                                    <div class="caption-container">
+                                        <p id="caption4"></p>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp_Image_2022-02-17_at_14-14-18_(1).jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(1)" alt="1"
+                                                 id="inicio">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.18 (2).jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(2)" alt="2">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.19.jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(3)" alt="3">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.19 (1).jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(4)" alt="4">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.20.jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(5)" alt="5">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.20 (1).jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(6)" alt="6">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.20 (2).jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(7)" alt="7">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.21 (1).jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(8)" alt="8">
+                                        </div>
+
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.21 (2).jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(9)" alt="9">
+                                        </div>
+
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.21 (4).jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(10)" alt="10">
+                                        </div>
+
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.14.22.jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(11)" alt="11">
+                                        </div>
+
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.32.31.jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(12)" alt="12">
+                                        </div>
+
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.33.01.jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(13)" alt="13">
+                                        </div>
+
+                                        <div class="column">
+                                            <img class="demo4 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_7/WhatsApp Image 2022-02-17 at 14.35.42.jpeg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(14)" alt="14">
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--            modal -->
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="card card-info-caci">
@@ -755,10 +1239,174 @@
                 <p class="style-tel-caci"><img src="img/ICONO TELÉFONO 2-33.svg" style="height: 1rem; width: 1rem;"/>
                     56-57-26-89</p>
                 <div><a href="https://goo.gl/maps/ufsH814YwNL2Zhu56" target="_blank" class="style-location-caci"><span
-                            style="color: #fff; font-weight: 700; font-size: 1rem; font-family: 'sans source pro', sans-serif;">VER
-            UBICACIÓN</span></a></div>
+                            style="color: #fff; font-weight: 700; font-size: 1rem; font-family: 'sans source pro', sans-serif;">
+                            VER UBICACIÓN</span></a>
+
+                    <button type="button" onclick="showl2(8)" class=" style-gallery-caci" data-toggle="modal"
+                            data-target="#ModalCarousel5">
+                        Ver Imagenes
+                    </button>
+                </div>
+
             </div>
+
+            <!--            modal -->
+            <div>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="ModalCarousel5" tabindex="-1" role="dialog"
+                     aria-labelledby="ModalCarouselLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div id="carousel-modal-demo" class="carousel slide" data-ride="carousel">
+
+
+                                <div class="container">
+                                    <div class="mySlides5">
+                                        <div class="numbertext">1 / 9</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-51.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides5">
+                                        <div class="numbertext">2 / 9</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-51 (1).jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides5">
+                                        <div class="numbertext">3 / 9</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-52.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides5">
+                                        <div class="numbertext">4 / 9</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-52 (1).jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides5">
+                                        <div class="numbertext">5 / 9</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-52 (2).jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides5">
+                                        <div class="numbertext">6 / 9</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-53.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides5">
+                                        <div class="numbertext">7 / 9</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-54 (1).jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides5">
+                                        <div class="numbertext">8 / 9</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-55.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <div class="mySlides5">
+                                        <div class="numbertext">9 / 9</div>
+                                        <img
+                                            src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-56.jpg"
+                                            style="width:100%">
+                                    </div>
+
+                                    <a class="prev" onclick="plusSlides5(-1)">❮</a>
+                                    <a class="next" onclick="plusSlides5(1)">❯</a>
+
+                                    <div class="caption-container">
+                                        <p id="caption5"></p>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="column">
+                                            <img class="demo5 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-51.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(1)" alt="1"
+                                                 id="inicio">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo5 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-51 (1).jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(2)" alt="2">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo5 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-52.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(3)" alt="3">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo5 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-52 (1).jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(4)" alt="4">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo5 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-52 (2).jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(5)" alt="5">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo5 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-53.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(6)" alt="6">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo5 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-54 (1).jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(7)" alt="7">
+                                        </div>
+                                        <div class="column">
+                                            <img class="demo5 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-55.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(8)" alt="8">
+                                        </div>
+
+                                        <div class="column">
+                                            <img class="demo5 cursor"
+                                                 src="img/modal_carussel_centro_casi/FOTOS_CACI_8/PHOTO-2022-01-13-20-05-56.jpg"
+                                                 style="width:100%"
+                                                 onclick="currentSlide(9)" alt="9">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--            modal -->
+
+
         </div>
+
         <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="card card-info-caci">
                 <div class="card-body">
@@ -779,7 +1427,6 @@
     <script>
 
         var slideIndex = 1;
-        var indexImg = [];
         var stado;
         showSlides(slideIndex);
         sSlider2(slideIndex);
@@ -792,8 +1439,20 @@
             sSlider2(slideIndex += n, stado);
         }
 
+        function plusSlides3(n) {
+            sSlider2(slideIndex += n, stado);
+        }
+
+        function plusSlides4(n) {
+            sSlider2(slideIndex += n, stado);
+        }
+
+        function plusSlides5(n) {
+            sSlider2(slideIndex += n, stado);
+        }
+
         function currentSlide(n) {
-            indexImg = [n];
+
             showSlides(slideIndex = n);
             sSlider2(slideIndex = n, stado);
 
@@ -802,9 +1461,7 @@
 
         function showl2(m) {
             stado = m;
-
             sSlider2(slideIndex, m);
-
             return m;
         }
 
@@ -842,6 +1499,19 @@
             var slides2 = document.getElementsByClassName("mySlides2");
             var dots2 = document.getElementsByClassName("demo2");
             var captionText2 = document.getElementById("caption2");
+
+            var slides3 = document.getElementsByClassName("mySlides3");
+            var dots3 = document.getElementsByClassName("demo3");
+            var captionText3 = document.getElementById("caption3");
+
+            var slides4 = document.getElementsByClassName("mySlides4");
+            var dots4 = document.getElementsByClassName("demo4");
+            var captionText4 = document.getElementById("caption4");
+
+            var slides5 = document.getElementsByClassName("mySlides5");
+            var dots5 = document.getElementsByClassName("demo5");
+            var captionText5 = document.getElementById("caption5");
+
             if (m === 4) {
 
                 if (n > slides2.length) {
@@ -859,8 +1529,62 @@
                 slides2[slideIndex - 1].style.display = "block";
                 dots2[slideIndex - 1].className += " active";
                 captionText2.innerHTML = dots2[slideIndex - 1].alt;
-
             }
+            if (m === 6) {
+
+                if (n > slides3.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides3.length
+                }
+                for (i = 0; i < slides3.length; i++) {
+                    slides3[i].style.display = "none";
+                }
+                for (i = 0; i < dots3.length; i++) {
+                    dots3[i].className = dots3[i].className.replace(" active", "");
+                }
+                slides3[slideIndex - 1].style.display = "block";
+                dots3[slideIndex - 1].className += " active";
+                captionText3.innerHTML = dots3[slideIndex - 1].alt;
+            }
+
+            if (m === 7) {
+                if (n > slides4.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides4.length
+                }
+                for (i = 0; i < slides4.length; i++) {
+                    slides4[i].style.display = "none";
+                }
+                for (i = 0; i < dots4.length; i++) {
+                    dots4[i].className = dots4[i].className.replace(" active", "");
+                }
+                slides4[slideIndex - 1].style.display = "block";
+                dots4[slideIndex - 1].className += " active";
+                captionText4.innerHTML = dots4[slideIndex - 1].alt;
+            }
+
+            if (m === 8) {
+                if (n > slides5.length) {
+                    slideIndex = 1;
+                }
+                if (n < 1) {
+                    slideIndex = slides5.length;
+                }
+                for (i = 0; i < slides5.length; i++) {
+                    slides5[i].style.display = "none";
+                }
+                for (i = 0; i < dots5.length; i++) {
+                    dots5[i].className = dots5[i].className.replace(" active", "");
+                }
+                slides5[slideIndex - 1].style.display = "block";
+                dots5[slideIndex - 1].className += " active";
+                captionText5.innerHTML = dots5[slideIndex - 1].alt;
+            }
+
         }
 
 
