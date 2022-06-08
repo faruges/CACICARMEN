@@ -436,6 +436,7 @@ function getDataRepositoryFinal() {
     var alcaldia_laboral_segundo_empleo = $("#alcaldia_laboral_segundo_empleo").val();
     var codigo_postal_laboral_segundo_empleo = $("#codigo_postal_laboral_segundo_empleo").val();
     var ciclo_escolar = $("#ciclo_escolar").val();
+    // var unidad_administrativa=$("#unidad_administrativa").val();
 
     var dataJson = {
         "_token": $("meta[name='csrf-token']").attr("content"),
@@ -523,7 +524,8 @@ function getDataRepositoryFinal() {
         "colonia_laboral_segundo_empleo": colonia_laboral_segundo_empleo,
         "alcaldia_laboral_segundo_empleo": alcaldia_laboral_segundo_empleo,
         "codigo_postal_laboral_segundo_empleo": codigo_postal_laboral_segundo_empleo,
-        "ciclo_escolar": ciclo_escolar
+        "ciclo_escolar": ciclo_escolar,
+        // "unidad_administrativa": unidad_administrativa
     }
     return dataJson;
 }
@@ -585,7 +587,7 @@ function getPersonasAutorizadas(id) {
         "tel_laboral_person_autorizada": tel_laboral_person_autorizada,
         "extension_tel_laboral_person_autorizada": extension_tel_laboral_person_autorizada
     });
-    //procesamiento de persona autorizada 2    
+    //procesamiento de persona autorizada 2
     var datos_repositorio_final_pre_id_dos = id;
     var nombre_comple_person_autorizada_dos = $("#nombre_comple_person_autorizada_dos").val();
     var entidad_nac_person_autorizada_dos = $("#entidad_nac_person_autorizada_dos").val();
@@ -702,7 +704,7 @@ function getPersonasAutorizadasReins(id) {
         "tel_laboral_person_autorizada": tel_laboral_person_autorizada,
         "extension_tel_laboral_person_autorizada": extension_tel_laboral_person_autorizada
     });
-    //procesamiento de persona autorizada 2    
+    //procesamiento de persona autorizada 2
     var datos_repositorio_final_pre_id_dos = id;
     var nombre_comple_person_autorizada_dos = $("#nombre_comple_person_autorizada_dos").val();
     var entidad_nac_person_autorizada_dos = $("#entidad_nac_person_autorizada_dos").val();
@@ -795,13 +797,14 @@ function preinscripcion() {
     form_data.append("birthday", $("#birthday").val());
     form_data.append("Edad_menor", $("#Edad_menor").val());
     form_data.append("terminos", $("#terminos").val());
-
+    form_data.append("unidad_administrativa", $("#unidad_administrativa").val());
     var dato_archivo_act = $('#filename_act').prop("files")[0];
     var dato_archivo_nac = $('#filename_nac').prop("files")[0];
     var dato_archivo_vacu = $('#filename_vacu').prop("files")[0];
     var dato_archivo_com = $('#filename_com').prop("files")[0];
     var dato_archivo_disc = $('#filename_disc').prop("files")[0];
     var dato_archivo_trab = $('#filename_trab').prop("files")[0];
+    var dato_archivo_compr_pago = $('#filename_compr_pago').prop("files")[0];
     //console.log("esto tiene", dato_archivo_disc, dato_archivo_trab);
     //var dato_archivo = document.getElementById('filename_act');
     //console.log(dato_archivo);
@@ -816,6 +819,7 @@ function preinscripcion() {
     form_data.append("filename_act", dato_archivo_act);
     form_data.append("filename_vacu", dato_archivo_vacu);
     form_data.append("filename_com", dato_archivo_com);
+    form_data.append("filename_compr_pago", dato_archivo_compr_pago);
 
     $.ajax({
         type: 'POST',
@@ -1021,6 +1025,7 @@ function reinscripcion() {
     form_data.append("edad_menor_ingreso", $("#Edad_menor").val());
     form_data.append("terminos", $("#terminos").val());
     form_data.append("status", '1');
+    form_data.append("unidad_administrativa",$("#unidad_administrativa").val());
 
     var dato_archivo_act = $('#filename_act').prop("files")[0];
     var dato_archivo_nac = $('#filename_nac').prop("files")[0];

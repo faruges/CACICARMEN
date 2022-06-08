@@ -93,6 +93,7 @@ class DatosRepositorioFinalReins extends Model
         'colonia_laboral_segundo_empleo',
         'alcaldia_laboral_segundo_empleo',
         'codigo_postal_laboral_segundo_empleo',
+        'ciclo_escolar',
         'created_at'
     ];
     protected $guarded = ['id'];

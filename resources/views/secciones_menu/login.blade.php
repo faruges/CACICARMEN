@@ -21,7 +21,7 @@
                 <div class="login-content" style="margin-left: 3rem;">
                     <h1 style="font-family: 'sans source pro'; font-size: 2.23rem; color:#9F2241; font-weight:800;">SISTEMA CACI-SAF</h1>
                     <p style="font-family: 'sans source pro'; font-weight: 500; color: #403B3A;">CENTRO DE ATENCI&Oacute;N Y CUIDADO INFANTIL.
-                    </p>                    
+                    </p>
                     @if($errors->any())
                     <div class="alert alert-danger alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>

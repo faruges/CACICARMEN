@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Inscripcion;
+use App\Model\InscripcionMenor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use Validator;
+use function Sodium\add;
 
 class InscripcionController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->funciones = new Funciones;
@@ -18,13 +19,13 @@ class InscripcionController extends Controller
 
     public function getwebservice(Request $request)
     {
-        try {            
-            $isPlatformUnable = $this->funciones->testIfPlatformUnable();            
+        try {
+            $isPlatformUnable = $this->funciones->testIfPlatformUnable();
             if ($isPlatformUnable) {
                 return redirect('/preinscripcion_validar_rfc')->withErrors(['error' => 'La plataforma esta deshabilitada, ya que No son periodos de Preinscripción. Para saber de la fechas, se encuentran en el apartado de Requisitos.']);
             } else {
                 $RFC = $request->RFC;
-                $tokenId = $request->tokenId;                
+                $tokenId = $request->tokenId;
                 $ch = curl_init();
                 curl_setopt_array($ch, array(
                     CURLOPT_URL => "10.1.181.9:9003/usuarios/loadUserCASI",
@@ -48,7 +49,18 @@ class InscripcionController extends Controller
                         $value = "DATO NO ENCONTRADO";
                     }
                 }
-                $data['user'] = $array['data'];
+
+                $array = json_decode($response, true);
+                foreach ($array['data_adicional'] as $key => &$value) {
+                    if ($value === "0" || is_null($value)) {
+                        $value = "DATO NO ENCONTRADO";
+                    }
+                }
+                $data_1=$array['data_adicional'];
+                $data_2 = $array['data'];
+
+                $data['user']=array_merge($data_1, $data_2);
+
                 return view('preinscripcion.preinscripcion_form', compact('data'));
             }
         } catch (\Throwable $th) {
@@ -189,7 +201,7 @@ class InscripcionController extends Controller
             'filename_trab.max' => 'Documento de la patria potestad no debe de exceder el tamaño de 2Mb',
             'filename_recp.mimes' => 'Copia del último recibo de pago de la persona trabajadora no es valido',
             'filename_recp.max' => 'Copia del último recibo de pago de la persona trabajadora no debe de exceder el tamaño de 2Mb',
-            
+
             'filename_credencial.mimes' => 'Credencial no es valido',
             'filename_credencial.max' => 'Credencial no debe de exceder el tamaño de 2Mb',
             'filename_gafete.mimes' => 'Gafete no es valido',
@@ -204,21 +216,23 @@ class InscripcionController extends Controller
         DB::beginTransaction();
 
         try {
+//                       dd($request->all());
             $validator = Validator::make($request->all(), $rules, $messages);
             if ($validator->fails()) {
                 //return redirect('inscripcion_from')->withErrors($validator)->with('message', 'Se ha producido un error.')->with('typelert', 'danger');
                 return response()->json(['ok' => false, 'result' => $validator->errors()->all(), 'err_valid' => true]);
             } else {
+//            dd($request->all());
                 $curp = $request->curp_num;
                 //contea si ya menor esta inscrito
-                $conteoCurp = Inscripcion::where('curp_num', $curp)->where('status', '1')->get()->count();
+                $conteoCurp = InscripcionMenor::where('curp_num', $curp)->where('status', '1')->get()->count();
                 if ($conteoCurp <= 0) {
-                    Inscripcion::create($request->all());
+                    InscripcionMenor::create($request->all());
                     //obtiene id de reinscripcion
-                    $objectInscripcion = Inscripcion::select('id', 'created_at')->orderByDesc('id')->get()->first();            
+                    $objectInscripcion = InscripcionMenor::select('id', 'created_at')->orderByDesc('id')->get()->first();
                     $ciclo_escolar_menor = $this->funciones->getCicloEscolar($objectInscripcion->created_at);
                     $id = $objectInscripcion->id;
-                    Inscripcion::setCicloByIdMenor($id, $ciclo_escolar_menor);
+                    InscripcionMenor::setCicloByIdMenor($id, $ciclo_escolar_menor);
                     $filename_act = $request->file('filename_act');
                     //$filename_sol = $request->file('filename_sol');
                     $filename_vacu = $request->file('filename_vacu');
@@ -230,7 +244,7 @@ class InscripcionController extends Controller
                     $filename_solicitud = $request->file('filename_solicitud');
                     $filename_carta = $request->file('filename_carta');
                     $filename_sol_anali = $request->file('filename_sol_anali');
-                    /* $filename_compr_pago = $request->file('filename_compr_pago'); */
+                    $filename_compr_pago = $request->file('filename_compr_pago');
                     //$filename_cert = $request->file('filename_cert');
                     //$filename_rec = $request->file('filename_rec');
                     /////$filename_disc = $request->file('filename_disc');
@@ -242,7 +256,7 @@ class InscripcionController extends Controller
                     $arrayFiles = array(
                         array($filename_act, "Acta de nacimiento"), array($filename_vacu, "Cartilla de vacunación"),
                         array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp"), array($filename_credencial, "Credencial"), array($filename_gafete, "Gafete"), array($filename_solicitud, "Solicitud de preinscripción o reinscripción"), array($filename_carta, "Carta de autorización"), array($filename_sol_anali, "Solicitud de análisis clinicos")
-                        /* , array($filename_compr_pago, "Último Comprobante de pago del Trabajador") */
+                    , array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
                         /*,array($filename_disc, "Copias de los documentos médicos del tratamiento"),
                         array($filename_trab, "Documento de la patria potestad")*/
                     );
@@ -255,11 +269,12 @@ class InscripcionController extends Controller
                         $arrayFiles[] = array($filename_trab, "Documento de la patria potestad");
                     }
 
-                    if (Inscripcion::setDoc($arrayFiles, $id)) {            
+                    if (InscripcionMenor::setDoc($arrayFiles, $id)) {
                         $envioEmail = $this->funciones->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo,'preinscripcion.inscripcion_email');
                         if ($envioEmail) {
-                            Inscripcion::insertFlagEnvioEmail($id);
-                            $inscripcion = new Inscripcion;
+
+                            InscripcionMenor::insertFlagEnvioEmail($id);
+                            $inscripcion = new InscripcionMenor();
                             $this->funciones->setRolCaci($id, $request->caci,$inscripcion);
                         }
                         //return redirect('inicio');
@@ -277,6 +292,7 @@ class InscripcionController extends Controller
             }
         } catch (\Throwable $th) {
             DB::rollback();
+
             return response()->json(['ok' => false, 'result' => 'No se pudo realizar la Inscripción']);
             //return redirect('inscripcion_from')->withErrors(['', 'No se pudo realizar la Inscripción']);
         }

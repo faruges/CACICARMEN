@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Inscripcion;
-use App\Model\Reinscripcion;
+use App\Model\InscripcionMenor;
+use App\Model\ReinscripcionMenor;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
@@ -52,21 +52,23 @@ class WebServicesRENAPO extends Controller
                 $name_table = 'inscripcion_menor';
                 $curp = $request->curp;
                 //contea si ya menor esta inscrito
-                $conteoCurp = Inscripcion::where('curp_num', $curp)->where('status', '1')->get()->count();
+                $conteoCurp = InscripcionMenor::where('curp_num', $curp)->where('status', '1')->get()->count();
                 $datas['caci'] = null;
                 if ($conteoCurp >= 1) {
                     $column_curp = 'curp_num';
                     $isMenorInsideCicloEscolar = $this->funciones->comparaCiclosEscolares($name_table, $column_curp, $curp);
                     if ($isMenorInsideCicloEscolar == true) {
-                        $ultimo_ciclo_escolar_menor = Inscripcion::orderBy('ciclo_escolar','desc')->where('curp_num', $curp)->pluck('ciclo_escolar')->first();
+                        $ultimo_ciclo_escolar_menor = InscripcionMenor::orderBy('ciclo_escolar','desc')->where('curp_num', $curp)->pluck('ciclo_escolar')->first();
                     }
                 }
             } else if ($request->nombreProceso === "reinscripcion") {
+
+//                dd($request->nombreProceso);
                 $name_table = 'reinscripcion_menor';
                 $curp = $request->curp;
                 //recupera el caci en donde esta inscrito el menor
-                $caci_menor_reinscrito = Reinscripcion::where('curp', $curp)->pluck('caci')->first();
-                $caci_menor_inscrito = Inscripcion::where('curp_num', $curp)->pluck('caci')->first();
+                $caci_menor_reinscrito = ReinscripcionMenor::where('curp', $curp)->pluck('caci')->first();
+                $caci_menor_inscrito = InscripcionMenor::where('curp_num', $curp)->pluck('caci')->first();
                 if ($caci_menor_reinscrito) {
                     $datas['caci'] = $caci_menor_reinscrito;
                 }
@@ -77,12 +79,16 @@ class WebServicesRENAPO extends Controller
                     $datas['caci'] = null;
                 }
                 //contea si ya menor esta inscrito
-                $conteoCurp = Reinscripcion::where('curp', $curp)->where('status', '1')->get()->count();
+                $conteoCurp = ReinscripcionMenor::where('curp', $curp)->where('status', '1')->get()->count();
+//                dd(ReinscripcionMenor::where('curp', $curp)->where('status', '1')->get());
+
                 if ($conteoCurp >= 1) {
                     $column_curp = 'curp';
                     $isMenorInsideCicloEscolar = $this->funciones->comparaCiclosEscolares($name_table, $column_curp, $curp);
+
+
                     if ($isMenorInsideCicloEscolar == true) {
-                        $ultimo_ciclo_escolar_menor = Reinscripcion::orderBy('ciclo_escolar','desc')->where('curp', $curp)->pluck('ciclo_escolar')->first();
+                        $ultimo_ciclo_escolar_menor = ReinscripcionMenor::orderBy('ciclo_escolar','desc')->where('curp', $curp)->pluck('ciclo_escolar')->first();
                     }
                 }
             }

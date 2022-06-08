@@ -28,6 +28,9 @@
 
     h3 {
         text-align: center;
+        font-style: normal;
+        font-size: 15px;
+        margin-left: 5px;
     }
 
     .font-label {
@@ -122,6 +125,10 @@
                             <h3>Curp: </h3><label class="font-label">{{$reinsc->curp}}</label>
                         </div>
 
+                            <div class="row row-margin">
+                                <h3>Unidad administrativa: </h3><label class="font-label">{{$reinsc->unidad_administrativa}}</label>
+                            </div>
+
                         <div class="row row-margin">
                             <h3>Nombre Tutor: </h3><label class="font-label">{{$reinsc->nombre_tutor}}
                                 {{$reinsc->ap_paterno_t}} {{$reinsc->ap_materno_t}}</label>
@@ -211,7 +218,8 @@
             </div>
         </div>
         @can('view_form_datos_repositorio')
-        <div class="row">            
+
+        <div class="row">
             <div class="card mx-auto col-md-10 col-lg-10 col-xl-10">
                 <div class="card-header card-header-tabs-line">
                     <div class="col-12 col-md-12 col-lg-12">
@@ -434,6 +442,10 @@
                                         <input type="text" id="rfc_padre" name="rfc_padre" class="form-control" placeholder="RFC con Homoclave" value="{{$dataWS['RFC']}}" readonly />
                                         <label>Curp<span class="text-danger"></span></label>
                                         <input type="text" id="curp_padre" name="curp_padre" class="form-control" placeholder="Curp" value="{{$dataWS['CURP']}}" readonly maxlength="18"/>
+
+{{--                                        <label>Unidad Administrativa<span class="text-danger"></span></label>--}}
+{{--                                        <input type="text" id="unidad_administrativa" name="unidad_administrativa" class="form-control" placeholder="UA" value="{{$dataWS['UA']}}" readonly maxlength="18"/>--}}
+
                                         <label>Género<span class="text-danger"></span></label>
                                         <input type="text" id="genero_padre" name="genero_padre" class="form-control" placeholder="Género" value="" />
                                         <label>Entidad de Nacimiento<span class="text-danger"></span></label>

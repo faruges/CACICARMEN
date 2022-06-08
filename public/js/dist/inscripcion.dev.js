@@ -179,6 +179,7 @@ function reinscripcion() {
   var dato_archivo_com = $('#filename_com').prop("files")[0];
   var dato_archivo_disc = $('#filename_disc').prop("files")[0];
   var dato_archivo_trab = $('#filename_trab').prop("files")[0];
+  var datos_archivo_compr_pago=$('#filename_compr_pago').prop("files")[0];
 
   if (dato_archivo_disc !== undefined) {
     form_data.append("filename_disc", dato_archivo_disc);
@@ -192,6 +193,7 @@ function reinscripcion() {
   form_data.append("filename_act", dato_archivo_act);
   form_data.append("filename_vacu", dato_archivo_vacu);
   form_data.append("filename_com", dato_archivo_com);
+  form_data.append("filename_compr_pago", datos_archivo_compr_pago);
   $.ajax({
     type: 'POST',
     dataType: 'json',

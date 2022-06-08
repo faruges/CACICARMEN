@@ -20,5 +20,5 @@ class Logs extends Model
     ];
     protected $guarded = ['id'];
     public $timestamps = true;
-    
+
 }

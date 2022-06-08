@@ -204,6 +204,7 @@ function preinscripcion() {
     form_data.append("birthday", $("#birthday").val());
     form_data.append("Edad_menor", $("#Edad_menor").val());
     form_data.append("terminos", $("#terminos").val());
+    form_data.append("unidad_administrativa", $("#unidad_administrativa").val());
     form_data.append("status", '1');
 
     var dato_archivo_act = $('#filename_act').prop("files")[0];
@@ -218,7 +219,7 @@ function preinscripcion() {
     var dato_archivo_solicitud = $('#filename_solicitud').prop("files")[0];
     var dato_archivo_carta = $('#filename_carta').prop("files")[0];
     var dato_archivo_sol_anali = $('#filename_sol_anali').prop("files")[0];
-    /* var dato_archivo_compr_pago = $('#filename_compr_pago').prop("files")[0]; */
+    var dato_archivo_compr_pago = $('#filename_compr_pago').prop("files")[0];
     //console.log("esto tiene", dato_archivo_act.size);
     //var dato_archivo = document.getElementById('filename_act');
     //console.log(dato_archivo);
@@ -239,7 +240,7 @@ function preinscripcion() {
     form_data.append("filename_solicitud", dato_archivo_solicitud);
     form_data.append("filename_carta", dato_archivo_carta);
     form_data.append("filename_sol_anali", dato_archivo_sol_anali);
-    /* form_data.append("filename_compr_pago", dato_archivo_compr_pago); */
+    form_data.append("filename_compr_pago", dato_archivo_compr_pago);
 
     $.ajax({
         type: 'POST',
@@ -375,6 +376,7 @@ function reinscripcion() {
     form_data.append("fecha_nacimiento", $("#birthday").val());
     form_data.append("edad_menor_ingreso", $("#Edad_menor").val());
     form_data.append("terminos", $("#terminos").val());
+    form_data.append("unidad_administrativa", $("#unidad_administrativa").val());
     form_data.append("status", '1');
 
     /* var dato_archivo_act = $('#filename_act').prop("files")[0]; */

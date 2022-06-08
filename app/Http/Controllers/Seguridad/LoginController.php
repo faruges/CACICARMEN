@@ -39,15 +39,15 @@ class LoginController extends Controller
     }
 
     protected function authenticated(Request $request, $user)
-    {   
+    {
         /* if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
 
             return $this->sendLockoutResponse($request);
-        } */        
+        } */
         if ($user) {
             //como parametro en setSession puedo mandar todos los datos del menor
-            $user->setSession();                     
+            $user->setSession();
             /* dd($this->middleware('auth')); */
         } else {
             $this->guard()->logout();
@@ -57,5 +57,5 @@ class LoginController extends Controller
 
         /* $this->incrementLoginAttempts($request);
         return $this->sendFailedLoginResponse($request); */
-    }    
+    }
 }

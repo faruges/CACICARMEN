@@ -244,8 +244,8 @@
                 <a href="{{url('inicio')}}" class="nav-enlace oculta"><span class="style-span-menu">Inicio</span></a>
                 <a href="{{url('centros_caci')}}" class="nav-enlace oculta"><span class="style-span-menu">Centros</span></a>
                 <a href="{{url('requisitos')}}" class="nav-enlace oculta"><span class="style-span-menu">Requisitos</span></a>
-                <a href="{{url('preinscripcion_validar_rfc')}}" class="nav-enlace oculta"><span class="style-span-menu">Preinscripción</span></a>
-                <a href="{{url('reinscripcion')}}" class="nav-enlace oculta"><span class="style-span-menu">Reinscripción</span></a>
+{{--                <a href="{{url('preinscripcion_validar_rfc')}}" class="nav-enlace oculta"><span class="style-span-menu">Preinscripción</span></a>--}}
+{{--                <a href="{{url('reinscripcion')}}" class="nav-enlace oculta"><span class="style-span-menu">Reinscripción</span></a>--}}
                 <a href="{{url('informacion_destacada')}}" class="nav-enlace oculta"><span class="style-span-menu">Información destacada</span></a>
                 <a href="{{url('preguntas_frecuentes')}}" class="nav-enlace oculta"><span class="style-span-menu">Preguntas frecuentes</span></a>
             </nav>
@@ -267,7 +267,7 @@
                                 style="height: 1.5rem; width: 2rem;" /> 55 51 34 25 00
                             	ext. 5869 y 5870</p>
                         {{--  <p class="tel-contacto">caciadministracion@finanzas.cdmx.gob.mx</p>--}}
-                        <p class="hour-atencion"> Horario de atención: 09:00 a 18:00 hrs.</p>  
+                        <p class="hour-atencion"> Horario de atención: 09:00 a 18:00 hrs.</p>
                         <a class="aviso-priv" href="http://procesos.finanzas.cdmx.gob.mx/OIP/index.php/Datos_Personales"
                             target="_blank"> Ver Avisos de Privacidad</a>
                     </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Reinscripcion;
+use App\Model\ReinscripcionMenor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use thiagoalessio\TesseractOCR\TesseractOCR;
@@ -81,9 +81,17 @@ class ReinscripcionController extends Controller
                         $value = "DATO NO ENCONTRADO";
                     }
                 }
-                $data['user'] = $array['data'];
 
-                return view('reinscripcion.reinscripcion_form', compact('data'));
+                foreach ($array['data_adicional'] as $key => &$value) {
+                    if ($value === "0" || is_null($value)) {
+                        $value = "DATO NO ENCONTRADO";
+                    }
+                }
+                $data_adicional = $array['data_adicional'];
+                $data_1 = $array['data'];
+                $data['user'] = array_merge($data_adicional, $data_1);
+
+                return view('reinscripcion.reinscripcion_form.blade.php', compact('data'));
             }
         } catch (\Throwable $th) {
             return redirect('/reinscripcion')->withErrors(['error' => 'RFC no se encuentra en nuestros registros']);
@@ -92,12 +100,12 @@ class ReinscripcionController extends Controller
 
     public function setReinscripcion($request, $validator)
     {
-        Reinscripcion::create($request->all());
+        ReinscripcionMenor::create($request->all());
         //obtiene id de reinscripcion
-        $objectReinscripcion = Reinscripcion::select('id', 'created_at')->orderByDesc('id')->get()->first();
+        $objectReinscripcion = ReinscripcionMenor::select('id', 'created_at')->orderByDesc('id')->get()->first();
         $ciclo_escolar_menor = $this->funciones->getCicloEscolar($objectReinscripcion->created_at);
         $id = $objectReinscripcion->id;
-        Reinscripcion::setCicloByIdMenor($id, $ciclo_escolar_menor);
+        ReinscripcionMenor::setCicloByIdMenor($id, $ciclo_escolar_menor);
         $filename_vacu = $request->file('filename_vacu');
 
         $filename_compr_pago = $request->file('filename_compr_pago');
@@ -111,12 +119,12 @@ class ReinscripcionController extends Controller
         $filename_sol_anali = $request->file('filename_sol_anali');
 
         $arrayFiles = array(
-            array($filename_vacu, "Cartilla de vacunación"), 
+            array($filename_vacu, "Cartilla de vacunación"),
             array($filename_compr_pago, "Último Comprobante de pago del Trabajador"),
-            array($filename_credencial, "Credencial"), 
-            array($filename_gafete, "Gafete"), 
-            array($filename_solicitud, "Solicitud de preinscripción o reinscripción"), 
-            array($filename_carta, "Carta de autorización"), 
+            array($filename_credencial, "Credencial"),
+            array($filename_gafete, "Gafete"),
+            array($filename_solicitud, "Solicitud de preinscripción o reinscripción"),
+            array($filename_carta, "Carta de autorización"),
             array($filename_sol_anali, "Solicitud de análisis clinicos")
         );
 
@@ -124,11 +132,11 @@ class ReinscripcionController extends Controller
             $arrayFiles[] = array($filename_disc, "Copias de los documentos médicos del tratamiento");
         }
 
-        if (Reinscripcion::setDoc($arrayFiles, $id)) {
+        if (ReinscripcionMenor::setDoc($arrayFiles, $id)) {
             $envioEmail = $this->funciones->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email, 'reinscripcion.reinscripcion_email');
             if ($envioEmail) {
-                Reinscripcion::insertFlagEnvioEmail($id);
-                $reinscripcion = new Reinscripcion;
+                ReinscripcionMenor::insertFlagEnvioEmail($id);
+                $reinscripcion = new ReinscripcionMenor;
                 $this->funciones->setRolCaci($id, $request->caci, $reinscripcion, $reinscripcion);
             }
             return true;
@@ -177,6 +185,7 @@ class ReinscripcionController extends Controller
             'email' => 'required|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i',
             'telefono_uno' => 'required|numeric',
             'telefono_dos' => 'required|numeric',
+            'unidad_administrativa'=> 'required|string',
 
             'filename_sol' => 'mimes:pdf,docx|max:2048',
             'filename_vacu' => 'mimes:pdf,docx|max:2048',
@@ -229,7 +238,8 @@ class ReinscripcionController extends Controller
             'nivel_salarial.numeric' => 'Su nivel salarial debe ser un número',
             'seccion_sindical.required' => 'Su seccion sindical es requerido',
             'seccion_sindical.string' => 'Su seccion sindical debe ser un texto',
-
+            'unidad_administrativa.required'=> 'Su unidad administrativa es requerida',
+            'unidad_administrativa.string'=> 'Su unidad administrativa tiene que ser texto',
             'nombre_menor.required' => 'El nombre del menor es requerido',
             'nombre_menor.string' => 'El nombre del menor debe ser un texto',
             'ap_paterno.required' => 'Su apellido paterno del menor es requerido',
@@ -288,7 +298,7 @@ class ReinscripcionController extends Controller
                 $reinscripcionController = new ReinscripcionController;
                 $curp = $request->curp;
                 //contea si ya menor esta inscrito
-                $conteoCurp = Reinscripcion::where('curp', $curp)->where('status', '1')->get()->count();
+                $conteoCurp = ReinscripcionMenor::where('curp', $curp)->where('status', '1')->get()->count();
                 //si no esta inscrito, procede a guardar la info
                 if ($conteoCurp <= 0) {
                     /* dd($request)->all(); */
@@ -300,7 +310,7 @@ class ReinscripcionController extends Controller
                         return response()->json(['ok' => false, 'result' => "Se esta cargando uno o mas Documentos repetidos, se le sugiere volver a cargar todos los Documentos", 'err_valid_docs' => true]);
                     }
                 } else if ($conteoCurp >= 1) {
-                    //si ya hay un registro verifica que ya sea en otro ciclo escolar para poderlo reinscribir                    
+                    //si ya hay un registro verifica que ya sea en otro ciclo escolar para poderlo reinscribir
                     $isMenorInsideCicloEscolar = true;
                     $name_table = 'reinscripcion_menor';
                     $column_curp = 'curp';

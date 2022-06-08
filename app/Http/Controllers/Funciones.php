@@ -50,9 +50,9 @@ class Funciones extends Controller
         $dia = explode(' ', $dia_with_hora);
         //constantes que definen el rango del ciclo escolar
         $fecha_ini_escolar = $anio . '-07-19';
-        $fecha_final_escolar = (intval($anio) + 1) . '-07-18';
-        $pre_fecha_ini_escolar = (intval($anio) - 1) . '-07-19';
-        $pre_fecha_final_escolar = $anio . '-07-18';
+        $fecha_final_escolar = (intval($anio) + 1) . '-06-07';
+        $pre_fecha_ini_escolar = (intval($anio) - 1) . '-06-08';
+        $pre_fecha_final_escolar = $anio . '-06-07';
         //concateno la fecha actual de la inscripcion ojo, ya no tiene la hora
         $fecha_procesada = $anio . '-' . $mes . '-' . $dia[0];
         //dd($fecha_ini_escolar,$fecha_final_escolar,$fecha_procesada,$pre_fecha_ini_escolar,$pre_fecha_final_escolar);
@@ -112,7 +112,7 @@ class Funciones extends Controller
                 //dd($array_ciclo_escolar);
             }
             $indice_lista_caci = $indice_lista_caci + 1;
-            //avanza al siguiente arreglo en la lista de inscripcion            
+            //avanza al siguiente arreglo en la lista de inscripcion
             $array_list_caci_with_cicl_escolar = array_merge($array_lista_caci[$indice_lista_caci], $array_ciclo_escolar);
             array_push($array_lista_preins_reins, $array_list_caci_with_cicl_escolar);
         }
@@ -178,15 +178,15 @@ class Funciones extends Controller
         $array_image_path = [];
         foreach ($nameDocumento as $value) {
             $image_path = public_path('uploads/documentos/' . $value);
-            array_push($array_image_path, $image_path);            
+            array_push($array_image_path, $image_path);
         }
-        return $array_image_path;        
+        return $array_image_path;
     }
 
     public function comparaCiclosEscolares($name_table,$column_curp,$curp)
     {
         /* $fecha_de_registro = DB::table($name_table)->where('curp_num', $curp)->value('created_at')->orderBy('id','desc'); */
-        $data_menor = DB::table($name_table)->where($column_curp, $curp)->orderBy('created_at','desc')->first();        
+        $data_menor = DB::table($name_table)->where($column_curp, $curp)->orderBy('created_at','desc')->first();
         /* dd($data_menor); */
         $inscripcion = new Funciones;
         $ciclo_escolar_inscripcion = $data_menor->ciclo_escolar;

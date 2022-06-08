@@ -217,7 +217,7 @@ class DocumentosController extends Controller
             'detec_nutricion' => 'string',
             'fecha_preins' => 'date',
             'matricula' => 'string',
-            'grupo_nino' => 'string',            
+            'grupo_nino' => 'string',
             'nombre_comple_nino' => 'required|string',
             'edad_nino' => 'required|string',
             'curp_nino' => 'required|string',
@@ -233,7 +233,7 @@ class DocumentosController extends Controller
             'alcaldia_nino' => 'string',
             'necesidades_nino' => 'string',
             'institucion_nino' => 'string',
-            'derechohabiencia_nino' => 'string',            
+            'derechohabiencia_nino' => 'string',
             'grupo_sanguineo' => 'string',
             'nombre_completo_padre' => 'required|string',
             'rfc_padre' => 'required|string',
@@ -249,7 +249,7 @@ class DocumentosController extends Controller
             'domicilio_calle_padre' => 'required|string',
             'numero_domici_padre' => 'required|string',
             'colonia_padre' => 'required|string',
-            'alcaldia_padre' => 'required|string',        
+            'alcaldia_padre' => 'required|string',
             'email_padre' => 'required|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i',
             'clave_sector_padre' => 'required|string',
             'ente_administrativo_padre' => 'required|string',
@@ -448,7 +448,7 @@ class DocumentosController extends Controller
         $arrayRepo = $listaDatosReposRe->toArray();
         $isEmptyLista = empty($arrayRepo);
         if (!$isEmptyLista) {
-            //hay datos en el repositorio, entonces se planchan estos en la vista            
+            //hay datos en el repositorio, entonces se planchan estos en la vista
             $lista_reinscripcion = Reinscripcion::where('id', $id)->get();
             /* dd($lista_reinscripcion); */
             $idRepositorio = $listaDatosReposRe[0]['id'];
@@ -482,7 +482,7 @@ class DocumentosController extends Controller
         $arrayRepo = $listaDatosReposPre->toArray();
         $isEmptyLista = empty($arrayRepo);
         if (!$isEmptyLista) {
-            //hay datos en el repositorio, entonces se planchan estos en la vista            
+            //hay datos en el repositorio, entonces se planchan estos en la vista
             $lista_inscripcion = Inscripcion::where('id', $id)->get();
             $idRepositorio = $listaDatosReposPre[0]['id'];
             $nameColumnPreinsc = 'datos_repositorio_final_pre_id';

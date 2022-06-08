@@ -29,6 +29,10 @@
 
     h3 {
         text-align: center;
+
+        font-style: normal;
+        font-size: 15px;
+        margin-left: 5px;
     }
 
     .font-label {
@@ -215,7 +219,7 @@
                                             <span class="nav-text">Datos de la niña o niño</span>
                                         </a>
                                     </li>
-                                    
+
                                     <li class="nav-item">
                                         <a class="nav-link" id="tab_3_4" data-toggle="tab" href="#kt_tab_pane_3_4">
                                             <span class="nav-icon"><i class="fa fa-phone"></i></span>
