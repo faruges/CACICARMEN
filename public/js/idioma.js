@@ -10,10 +10,10 @@ $(document).ready(function() {
         scrollY: "500px",
         scrollX: true,
         scrollCollapse: true,
-        fixedColumns: {
-            left: 1,
-            right: 1
-        }
+        // fixedColumns: {
+        //     left: 1,
+        //     right: 1
+        // }
         /* dom: 'Bfrtip',
         buttons: [
           'excel'

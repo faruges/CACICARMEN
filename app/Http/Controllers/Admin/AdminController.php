@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Funciones;
-use App\Model\InscripcionMenor;
+use App\Model\Inscripcion;
 use App\Model\ListaCaci;
-use App\Model\ReinscripcionMenor;
+use App\Model\Reinscripcion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -45,9 +45,9 @@ class AdminController extends Controller
         //instancia el objeto para poder llamar las funciones dentro de la clase
         $ciclos_escolares_filter = $this->funciones->getFilterAllCiclos('reinscripcion_menor');
         if (Session::get('rolName') === 'super_caci' || Session::get('rolName') === 'super_admin') {
-            $lista_reinscripciones = ReinscripcionMenor::orderBy('id', 'desc')->get();
+            $lista_reinscripciones = Reinscripcion::orderBy('id', 'desc')->get();
         } else {
-            $lista_reinscripciones = ReinscripcionMenor::where('rol_caci', Session::get('rolName'))->where('status', '1')->orderBy('id', 'desc')->get();
+            $lista_reinscripciones = Reinscripcion::where('rol_caci', Session::get('rolName'))->where('status', '1')->orderBy('id', 'desc')->get();
         }
         /* $array_lista_preins_reins = $adminController->showCicloEscolar($lista_reinscripciones); */
         $array_lista_preins_reins = $lista_reinscripciones;
@@ -71,9 +71,9 @@ class AdminController extends Controller
     {
         $ciclos_escolares_filter = $this->funciones->getFilterAllCiclos('reinscripcion_menor');
         if (Session::get('rolName') === 'super_caci' || Session::get('rolName') === 'super_admin') {
-            $lista_reinscripciones = ReinscripcionMenor::where('ciclo_escolar', $request->ciclo_escolar)->orderBy('id', 'desc')->get();
+            $lista_reinscripciones = Reinscripcion::where('ciclo_escolar', $request->ciclo_escolar)->orderBy('id', 'desc')->get();
         } else {
-            $lista_reinscripciones = ReinscripcionMenor::where('rol_caci', Session::get('rolName'))->where('ciclo_escolar', $request->ciclo_escolar)->where('status', '1')->orderBy('id', 'desc')->get();
+            $lista_reinscripciones = Reinscripcion::where('rol_caci', Session::get('rolName'))->where('ciclo_escolar', $request->ciclo_escolar)->where('status', '1')->orderBy('id', 'desc')->get();
         }
         $array_lista_preins_reins = $lista_reinscripciones;
         return view('admin.lista_reinscripcion', compact('array_lista_preins_reins', 'ciclos_escolares_filter'));
@@ -87,14 +87,14 @@ class AdminController extends Controller
                 DB::table('inscripcion_menor')
                     ->where('id', $request->id)
                     ->update(['caci' => $request->caci_nombre]);
-                $inscripcion = new InscripcionMenor();
+                $inscripcion = new Inscripcion();
                 $this->funciones->setRolCaci($request->id, $request->caci_nombre, $inscripcion);
                 return response()->json(['ok' => true, 'result' => 'Caci se actualizo correctamente', 'caci' => 'inscripcion']);
             } elseif ($request->tramite === 'reinscripcion') {
                 DB::table('reinscripcion_menor')
                     ->where('id', $request->id)
                     ->update(['caci' => $request->caci_nombre]);
-                $reinscripcion = new ReinscripcionMenor();
+                $reinscripcion = new Reinscripcion();
                 $this->funciones->setRolCaci($request->id, $request->caci_nombre, $reinscripcion);
                 return response()->json(['ok' => true, 'result' => 'Caci se actualizo correctamente', 'caci' => 'reinscripcion']);
             }

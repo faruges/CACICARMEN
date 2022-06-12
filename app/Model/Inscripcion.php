@@ -12,8 +12,8 @@ class Inscripcion extends Model
         'rfc', 'nombre_tutor_madres', 'apellido_paterno_tutor', 'apellido_materno_tutor',
         'calle', 'numero_domicilio', 'colonia', 'alcaldia', 'codigo_postal', 'tipo_nomina_1', 'num_empleado_1', 'num_plaza_1', 'clave_dependencia_1', 'nivel_salarial_1', 'seccion_sindical_1',
         'email_correo', 'telefono_celular', 'telefono_3', 'horario_laboral_ent', 'horario_laboral_sal',
-        'nombre_menor_1', 'apellido_paterno_1', 'apellido_materno_1', 'curp_num', 'birthday', 'Edad_menor', 'caci', 'correo_enviado', 'terminos', 'status', 'ciclo_escolar',
-        'unidad_administrativa', 'created_at'
+        'nombre_menor_1', 'apellido_paterno_1', 'apellido_materno_1', 'curp_num', 'birthday', 'Edad_menor', 'caci', 'correo_enviado', 'terminos', 'unidad_administrativa','status', 'ciclo_escolar',
+         'created_at'
     ];
     protected $guarded = ['id'];
     public $timestamps = true;

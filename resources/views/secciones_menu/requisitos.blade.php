@@ -206,10 +206,10 @@
                                     ciclo escolar 2022-2023</h1>
                                 <div class="col-sm-12">
                                     <h3 class="title-reinscripcion" id="letra_banner"><u>Del 4 al 8 de julio
-                                            2022</u></h4>
+                                            2022</u>
                                     </h3>
                                     <h3 style="text-align: center;">
-                                        <a class="ancle_in_green_square" 
+                                        <a class="ancle_in_green_square"
                                         href="../public/doc/circular_saf_caci_2022_2023.pdf"  target="_blank"><strong>
                                                 De acuerdo a la calendarización de la
                                                 CIRCULAR SAF/DGAPyDA/DEDPyDH/CDLYFC/003/2022.</strong></a>
@@ -333,7 +333,7 @@
         </div>
     </div>
 </div>
-</div>
+{{--</div>--}}
 </div>
 <script>
     $(document).ready(function() {

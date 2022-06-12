@@ -15,9 +15,9 @@ class Documentos extends Model
         'nombre_tramite',
         'inscripcion_menor_id',
         'reinscripcion_menor_id',
-        'created_at'
+        'created_at'        
     ];
     protected $guarded = ['id'];
     public $timestamps = false;
-
+    
 }

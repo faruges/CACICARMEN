@@ -24,7 +24,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#kt_tab_pane_1_4">
                                 <span class="nav-icon"><i class="fa fa-user-circle"></i></span>
-                                <span class="nav-text">Información de la persona trabajadora</span>
+                                <span class="nav-text">Información de la persona trabajadoraF</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -209,7 +209,7 @@
                             <div class="form-group">
                                 <label style="color:#777777; font-size: 20px;" for="curp">CURP de la niña o niño:<span
                                         class="text-danger"></span></label>
-                                jojoj
+
                                 <input id="curp" type="text" placeholder="CURP" onkeyup="mayus(this);"
                                        oninput="this.className = ''"
                                        class="form-control" name="curp" maxlength="18"

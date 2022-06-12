@@ -9,21 +9,21 @@
     .margin-card {
         margin-bottom: 10%;
     }
-    
+
     .btn-regresar {
         margin: 40px 20px 40px 0px;
     }
-    
+
     table {
         width: 100%;
     }
-    
+
     table,
     td {
         border-collapse: collapse;
         border: 0px solid #000;
     }
-    
+
     thead {
         display: table;
         /* to take the same width as tr */
@@ -34,7 +34,7 @@
         /* - 17px because of the scrollbar width */
         /* background-color: blue; */
     }
-    
+
     tbody {
         display: block;
         /* to enable vertical scrolling */
@@ -47,7 +47,7 @@
         /* background-color: purple; */
         /* keeps the scrollbar even if it doesn't need it; display purpose */
     }
-    
+
     th,
     td {
         width: 5.88%;
@@ -56,20 +56,20 @@
         word-break: break-all;
         /* 4. */
     }
-    
+
     tr {
         display: table;
         /* display purpose; th's border */
         box-sizing: border-box;
         /* because of the border (Chrome needs this line, but not FF) */
     }
-    
+
     td {
         text-align: center;
         border-bottom: none;
         border-left: none;
     }
-    
+
     .topRight {
         /* background-color: blue; */
         margin-left: 85%;
@@ -103,7 +103,7 @@
 
 <div class="container-fluid">
     <div class="card mt50 margin-card">
-        <div class="kt-portlet__head">            
+        <div class="kt-portlet__head">
             <div class="kt-portlet__head-label">
                 <h2 class="cdmx-colorv">
                     Inscripción
@@ -147,53 +147,54 @@
     <div class="portlet-body flip-scroll">
         <table id="tableIn" class="table stripe table-bordered table-striped row-border order-column">
             <thead>
-                <tr>
-                    <th>Curp</th>
-                    <th>Ciclo Escolar</th>
-                    <th>Caci</th>
-                    <th>Menor</th>
-                    <th>Edad Ingreso</th>
-                    <th>Tutor</th>
-                    <th>Tipo nomina</th>
-                    <th>N&uacute;m. empleado</th>
-                    <th>N&uacute;m. Plaza</th>
-                    <th>Clave Dependencia</th>
-                    <th>Nivel Salarial</th>
-                    <th>Secci&oacute;n Sindical</th>
-                    <th>Email</th>
-                    <th>Telefono Uno</th>
-                    <th>Telefono Dos</th>
-                    <th>Email Enviado Notificación Recibida</th>
+                <tr >
+                    <th style="text-align: center">Curp</th>
+                    <th style="text-align: center">Ciclo Escolar</th>
+                    <th style="text-align: center">Caci</th>
+                    <th style="text-align: center">Menor</th>
+                    <th style="text-align: center">Edad Ingreso</th>
+                    <th style="text-align: center">Tutor</th>
+                    <th style="text-align: center">Tipo <br> nomina</th>
+                    <th style="text-align: center">N&uacute;m.<br> empleado</th>
+                    <th style="text-align: center">N&uacute;m.<br> Plaza</th>
+                    <th style="text-align: center">Dependencia</th>
+                    <th style="text-align: center">Nivel<br> Salarial</th>
+                    <th style="text-align: center">Secci&oacute;n <br>Sindical</th>
+                    <th style="text-align: center">Email</th>
+                    <th style="text-align: center">Telefono<br> Uno</th>
+                    <th style="text-align: center">Telefono<br> Dos</th>
+                    <th style="text-align: center">Email<br> Enviado<br> Notificación Recibida</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($array_lista_preins_reins as $caci)
                 <tr>
-                    <th style="font-size: 0.88rem;text-align: start; padding:0;">{{$caci['curp_num']}}</th>
-                    <td>{{$caci['ciclo_escolar']}}</td>
-                    <td>{{$caci['caci']}}</td>
-                    <td>{{$caci['nombre_menor_1']}} {{$caci['apellido_paterno_1']}} {{$caci['apellido_materno_1']}}</td>
-                    <td>{{$caci['Edad_menor']}}</td>
-                    <td>{{$caci['nombre_tutor_madres']}} {{$caci['apellido_paterno_tutor']}} {{$caci['apellido_materno_tutor']}}</td>
-                    <td>{{$caci['tipo_nomina_1']}}</td>
-                    <td>{{$caci['num_empleado_1']}}</td>
-                    <td>{{$caci['num_plaza_1']}}</td>
-                    <td>{{$caci['clave_dependencia_1']}}</td>
-                    <td>{{$caci['nivel_salarial_1']}}</td>
-                    <td>{{$caci['seccion_sindical_1']}}</td>
-                    <td>{{$caci['email_correo']}}</td>
-                    <td>{{$caci['telefono_celular']}}</td>
-                    <td>{{$caci['telefono_3']}}</td>
+                    <th style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['curp_num']}}</th>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['ciclo_escolar']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['caci']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['nombre_menor_1']}}<br> {{$caci['apellido_paterno_1']}} <br> {{$caci['apellido_materno_1']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['Edad_menor']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['nombre_tutor_madres']}}<br> {{$caci['apellido_paterno_tutor']}}<br> {{$caci['apellido_materno_tutor']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['tipo_nomina_1']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['num_empleado_1']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['num_plaza_1']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['clave_dependencia_1']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['nivel_salarial_1']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['seccion_sindical_1']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['email_correo']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['telefono_celular']}}</td>
+                    <td style="font-size: 0.8rem;text-align:center; padding:0;">{{$caci['telefono_3']}}</td>
                     @if ($caci['correo_enviado_not_recibida'])
-                    <td>Correo de confirmación Enviado</td>
+                    <td style="text-align: center">Correo de confirmación<br> Enviado</td>
                     @else
-                    <td>Registros sin enviar correo de recibido</td>
+                    <td><br>Registros sin enviar correo de recibido</td>
                     @endif
                     @if($caci['status']=='1')
                     <td>
-                        <span>
+                        <span style="">
                             <button class="btn btn-lg btn-outline-success" onclick="editCaci({{$caci['id']}},'{{ $caci['caci']}}')" title="Actualizar CACI"><i class="fa fa-recycle"></i></button>
+                            <br>
                             <a class="btn btn-lg btn-outline-primary" href="{{route('lista_documentos_inscr',$caci['id'])}}" title="Ver lista de documentos"><i class="fa fa-eye"></i></a>
                         </span>
                     </td>

@@ -36,6 +36,10 @@
             font-family: font-family: 'source sans pro', sans-serif;
             cursor: pointer;
         }
+
+        .link_email_caci{
+            color:#9F2241;
+        }
     </style>
 
     @if($errors->any())
@@ -56,19 +60,19 @@
             <img id="centrador-caci" class="card-img-top imagen-tamano2 " src="img/REINSCRIPCIONES AL CICLO ESCOLAR 2022-2023.svg" alt="Card image">
 
             <p>CACI 2 <strong> Luz María Gómez Pezuela &nbsp;<span>
-  <a href="mailto:caciluzmariagomez@finanzas.cdmx.gob.mx" aria-label="correo electrónico" style="color:#9F2241;" target="_blank">caciluzmariagomez@finanzas.cdmx.gob.mx</a></span></strong></p>
+  <a class="link_email_caci"  href="mailto:caciluzmariagomez@finanzas.cdmx.gob.mx" aria-label="correo electrónico"  target="_blank">caciluzmariagomez@finanzas.cdmx.gob.mx</a></span></strong></p>
 
             <p>CACI 4 <strong> Mtra. Eva Moreno Sánchez &nbsp;<span>
-  <a href="mailto:cacievamoreno@finanzas.cdmx.gob.mx" aria-label="correo electrónico" style="color:#9F2241;" target="_blank" >cacievamoreno@finanzas.cdmx.gob.mx</a></span></strong></p>
+  <a class="link_email_caci"  href="mailto:cacievamoreno@finanzas.cdmx.gob.mx" aria-label="correo electrónico"  target="_blank" >cacievamoreno@finanzas.cdmx.gob.mx</a></span></strong></p>
 
             <p>CACI 6 <strong> Bertha Von Glümer Leyva &nbsp;<span>
-  <a href="mailto:caciberthavonglumer@finanzas.cdmx.gob.mx" aria-label="correo electrónico" style="color:#9F2241;" target="_blank">caciberthavonglumer@finanzas.cdmx.gob.mx</a></span></strong></p>
+  <a class="link_email_caci"  href="mailto:caciberthavonglumer@finanzas.cdmx.gob.mx" aria-label="correo electrónico"  target="_blank">caciberthavonglumer@finanzas.cdmx.gob.mx</a></span></strong></p>
 
             <p>CACI 7 <strong> Carolina Agazzi &nbsp;<span>
-  <a href="mailto:cacicarolinaagazzi@finanzas.cdmx.gob.mx" aria-label="correo electrónico" style="color:#9F2241;" target="_blank">cacicarolinaagazzi@finanzas.cdmx.gob.mx</a></span></strong></p>
+  <a class="link_email_caci"  href="mailto:cacicarolinaagazzi@finanzas.cdmx.gob.mx" aria-label="correo electrónico"  target="_blank">cacicarolinaagazzi@finanzas.cdmx.gob.mx</a></span></strong></p>
 
-            <p>CACI 8 <strong> Carmen Serdán &nbsp;<span>
-  <a href="mailto:cacicarmenserdan@finanzas.cdmx.gob.mx" aria-label="correo electrónico" style="color:#9F2241;" target="_blank">cacicarmenserdan@finanzas.cdmx.gob.mx</a></span></strong></p>
+             <p>CACI 8 <strong> Carmen Serdán &nbsp;<span>
+  <a class="link_email_caci"  href="mailto:cacicarmenserdan@finanzas.cdmx.gob.mx" aria-label="correo electrónico"  target="_blank">cacicarmenserdan@finanzas.cdmx.gob.mx</a></span></strong></p>
 
             {{-- @csrf --}}
             {{-- <label style="color:#054a41; font-size: 24px; text-align: center; "> Para iniciar el proceso de reinscripción, proporciona el siguiente dato</label> --}}

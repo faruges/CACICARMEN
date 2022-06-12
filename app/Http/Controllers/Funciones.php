@@ -17,21 +17,21 @@ class Funciones extends Controller
         $desc_fecha = explode(':', $fecha_hour_hoy);
         $desc_fecha = explode(' ', $desc_fecha[0]);
         /* $fecha_now = $desc_fecha[0]; */
-        $fecha_now = '2021-08-02';
+        $fecha_now = '2022-06-11';
         $date = explode('-', $fecha_now);
         $moth = intval($date[1]);
         if ($moth >= 1 && $moth <= 8) {
-            $fecha_preinscripcion = $date[0] . '-07-19';
-            $fecha_limite_preinscripcion = $date[0] . '-07-30';
-            $fecha_ini_preins_prorroga = $date[0] . '-08-02';
-            $fecha_limite_preins_prorroga = $date[0] . '-08-13';
+            $fecha_preinscripcion = $date[0] . '-06-05';
+            $fecha_limite_preinscripcion = $date[0] . '-06-30';
+            $fecha_ini_preins_prorroga = $date[0] . '-07-02';
+            $fecha_limite_preins_prorroga = $date[0] . '-07-13';
         } else if ($moth >= 9 && $moth <= 12) {
             $int_date = intval($date[0]);
             $int_date = $int_date + 1;
-            $fecha_preinscripcion = $int_date . '-07-19';
-            $fecha_limite_preinscripcion = $int_date . '-07-30';
-            $fecha_ini_preins_prorroga = $int_date . '-08-02';
-            $fecha_limite_preins_prorroga = $int_date . '-08-13';
+            $fecha_preinscripcion = $int_date . '-06-05';
+            $fecha_limite_preinscripcion = $int_date . '-06-30';
+            $fecha_ini_preins_prorroga = $int_date . '-07-02';
+            $fecha_limite_preins_prorroga = $int_date . '-07-13';
         }
         if (($fecha_now < $fecha_preinscripcion && $fecha_now < $fecha_ini_preins_prorroga) || ($fecha_now > $fecha_limite_preinscripcion && $fecha_now > $fecha_limite_preins_prorroga) || ($fecha_now > $fecha_limite_preinscripcion && $fecha_now < $fecha_ini_preins_prorroga)) {
             return true;
@@ -49,10 +49,10 @@ class Funciones extends Controller
         $dia_with_hora = $fecha_explode[2];
         $dia = explode(' ', $dia_with_hora);
         //constantes que definen el rango del ciclo escolar
-        $fecha_ini_escolar = $anio . '-07-19';
-        $fecha_final_escolar = (intval($anio) + 1) . '-06-07';
-        $pre_fecha_ini_escolar = (intval($anio) - 1) . '-06-08';
-        $pre_fecha_final_escolar = $anio . '-06-07';
+        $fecha_ini_escolar = $anio . '-06-05';
+        $fecha_final_escolar = (intval($anio) + 1) . '-06-06';
+        $pre_fecha_ini_escolar = (intval($anio) - 1) . '-06-05';
+        $pre_fecha_final_escolar = $anio . '-06-06';
         //concateno la fecha actual de la inscripcion ojo, ya no tiene la hora
         $fecha_procesada = $anio . '-' . $mes . '-' . $dia[0];
         //dd($fecha_ini_escolar,$fecha_final_escolar,$fecha_procesada,$pre_fecha_ini_escolar,$pre_fecha_final_escolar);

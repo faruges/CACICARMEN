@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\ReinscripcionMenor;
+use App\Model\Reinscripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use thiagoalessio\TesseractOCR\TesseractOCR;
@@ -100,12 +100,12 @@ class ReinscripcionController extends Controller
 
     public function setReinscripcion($request, $validator)
     {
-        ReinscripcionMenor::create($request->all());
+        Reinscripcion::create($request->all());
         //obtiene id de reinscripcion
-        $objectReinscripcion = ReinscripcionMenor::select('id', 'created_at')->orderByDesc('id')->get()->first();
+        $objectReinscripcion = Reinscripcion::select('id', 'created_at')->orderByDesc('id')->get()->first();
         $ciclo_escolar_menor = $this->funciones->getCicloEscolar($objectReinscripcion->created_at);
         $id = $objectReinscripcion->id;
-        ReinscripcionMenor::setCicloByIdMenor($id, $ciclo_escolar_menor);
+        Reinscripcion::setCicloByIdMenor($id, $ciclo_escolar_menor);
         $filename_vacu = $request->file('filename_vacu');
 
         $filename_compr_pago = $request->file('filename_compr_pago');
@@ -132,11 +132,11 @@ class ReinscripcionController extends Controller
             $arrayFiles[] = array($filename_disc, "Copias de los documentos médicos del tratamiento");
         }
 
-        if (ReinscripcionMenor::setDoc($arrayFiles, $id)) {
+        if (Reinscripcion::setDoc($arrayFiles, $id)) {
             $envioEmail = $this->funciones->sendEmail($request->nombre_tutor, $request->ap_paterno_t, $request->email, 'reinscripcion.reinscripcion_email');
             if ($envioEmail) {
-                ReinscripcionMenor::insertFlagEnvioEmail($id);
-                $reinscripcion = new ReinscripcionMenor;
+                Reinscripcion::insertFlagEnvioEmail($id);
+                $reinscripcion = new Reinscripcion;
                 $this->funciones->setRolCaci($id, $request->caci, $reinscripcion, $reinscripcion);
             }
             return true;
@@ -298,7 +298,7 @@ class ReinscripcionController extends Controller
                 $reinscripcionController = new ReinscripcionController;
                 $curp = $request->curp;
                 //contea si ya menor esta inscrito
-                $conteoCurp = ReinscripcionMenor::where('curp', $curp)->where('status', '1')->get()->count();
+                $conteoCurp = Reinscripcion::where('curp', $curp)->where('status', '1')->get()->count();
                 //si no esta inscrito, procede a guardar la info
                 if ($conteoCurp <= 0) {
                     /* dd($request)->all(); */

@@ -27,7 +27,7 @@ class CreateDatosRepositorioFinalPreTable extends Migration
             $table->string('fecha_cambio_caci',30)->nullable();
             /** Datos de las niñas o niños */
             $table->string('nombre_comple_nino',150);
-            $table->string('edad_nino',3);
+            $table->string('edad_nino',5);
             $table->string('curp_nino',18);
             $table->string('fecha_nac_nino',30);
             $table->string('genero_nino',30)->nullable();

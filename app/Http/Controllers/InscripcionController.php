@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\InscripcionMenor;
+use App\Model\Inscripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -225,14 +225,14 @@ class InscripcionController extends Controller
 //            dd($request->all());
                 $curp = $request->curp_num;
                 //contea si ya menor esta inscrito
-                $conteoCurp = InscripcionMenor::where('curp_num', $curp)->where('status', '1')->get()->count();
+                $conteoCurp = Inscripcion::where('curp_num', $curp)->where('status', '1')->get()->count();
                 if ($conteoCurp <= 0) {
-                    InscripcionMenor::create($request->all());
+                    Inscripcion::create($request->all());
                     //obtiene id de reinscripcion
-                    $objectInscripcion = InscripcionMenor::select('id', 'created_at')->orderByDesc('id')->get()->first();
+                    $objectInscripcion = Inscripcion::select('id', 'created_at')->orderByDesc('id')->get()->first();
                     $ciclo_escolar_menor = $this->funciones->getCicloEscolar($objectInscripcion->created_at);
                     $id = $objectInscripcion->id;
-                    InscripcionMenor::setCicloByIdMenor($id, $ciclo_escolar_menor);
+                    Inscripcion::setCicloByIdMenor($id, $ciclo_escolar_menor);
                     $filename_act = $request->file('filename_act');
                     //$filename_sol = $request->file('filename_sol');
                     $filename_vacu = $request->file('filename_vacu');
@@ -256,7 +256,7 @@ class InscripcionController extends Controller
                     $arrayFiles = array(
                         array($filename_act, "Acta de nacimiento"), array($filename_vacu, "Cartilla de vacunación"),
                         array($filename_nac, "Certificado de nacimiento"), array($filename_com, "Curp"), array($filename_credencial, "Credencial"), array($filename_gafete, "Gafete"), array($filename_solicitud, "Solicitud de preinscripción o reinscripción"), array($filename_carta, "Carta de autorización"), array($filename_sol_anali, "Solicitud de análisis clinicos")
-                    , array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
+                        , array($filename_compr_pago, "Último Comprobante de pago del Trabajador")
                         /*,array($filename_disc, "Copias de los documentos médicos del tratamiento"),
                         array($filename_trab, "Documento de la patria potestad")*/
                     );
@@ -269,12 +269,12 @@ class InscripcionController extends Controller
                         $arrayFiles[] = array($filename_trab, "Documento de la patria potestad");
                     }
 
-                    if (InscripcionMenor::setDoc($arrayFiles, $id)) {
+                    if (Inscripcion::setDoc($arrayFiles, $id)) {
                         $envioEmail = $this->funciones->sendEmail($request->nombre_tutor_madres, $request->apellido_paterno_tutor, $request->email_correo,'preinscripcion.inscripcion_email');
                         if ($envioEmail) {
 
-                            InscripcionMenor::insertFlagEnvioEmail($id);
-                            $inscripcion = new InscripcionMenor();
+                            Inscripcion::insertFlagEnvioEmail($id);
+                            $inscripcion = new Inscripcion;
                             $this->funciones->setRolCaci($id, $request->caci,$inscripcion);
                         }
                         //return redirect('inicio');
