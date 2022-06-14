@@ -47,7 +47,7 @@ class CreateInscripcionMenorTable extends Migration
             $table->tinyInteger('correo_enviado')->nullable();
             $table->tinyInteger('correo_enviado_not_recibida')->nullable();
             $table->string('ciclo_escolar',10)->nullable();
-            $table->string('unidad_administrativa',50)->nullable();
+            $table->string('unidad_administrativa',100)->nullable();
             $table->tinyInteger('status');
             $table->timestamps();
         });

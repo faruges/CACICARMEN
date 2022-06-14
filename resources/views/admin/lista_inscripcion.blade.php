@@ -133,16 +133,16 @@
                 </div>
             </div>
         </div>
-        {{-- <h1 style="margin-left: 10px;">Bienvenido {{auth()->user()->name}}</h1> --}}
-        {{-- <div class="card-header">
-            <div class="float-right">
-                <form id="regForm" action="{{route('export-excel')}}" method="GET" enctype="multipart/form-data">
-        @csrf
-        <button id="valida_curp" type="submit" title="Generar Reporte" class="btn btn-lg btn-dark"><i class="fa fa-download"></i></button>
-        </form>
-    </div>
-    <h2><i class="fa fa-book" style="margin-left: 20px;"></i> Inscripci&oacute;n</h2>
-</div> --}}
+{{--        --}}{{-- <h1 style="margin-left: 10px;">Bienvenido {{auth()->user()->name}}</h1> --}}
+{{--        --}}{{-- <div class="card-header">--}}
+{{--            <div class="float-right">--}}
+{{--                <form id="regForm" action="{{route('export-excel')}}" method="GET" enctype="multipart/form-data">--}}
+{{--        @csrf--}}
+{{--        <button id="valida_curp" type="submit" title="Generar Reporte" class="btn btn-lg btn-dark"><i class="fa fa-download"></i></button>--}}
+{{--        </form>--}}
+{{--    </div>--}}
+{{--    <h2><i class="fa fa-book" style="margin-left: 20px;"></i> Inscripci&oacute;n</h2>--}}
+{{--</div> --}}
 <div class="card-body">
     <div class="portlet-body flip-scroll">
         <table id="tableIn" class="table stripe table-bordered table-striped row-border order-column">

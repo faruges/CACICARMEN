@@ -72,7 +72,7 @@ class CreateDatosRepositorioFinalReinsTable extends Migration
             $table->string('email_padre',150);
             $table->string('clave_sector_padre',70);
             $table->string('ente_administrativo_padre',70);
-            $table->string('nombre_unidad_administrativa_padre',70);
+            $table->string('nombre_unidad_administrativa_padre',100);
             $table->string('clave_unidad_admin_padre',70);
             $table->string('area_adscripcion_padre',80)->nullable();
             $table->string('descripcion_puesto_padre',200);
